@@ -232,7 +232,23 @@ body.tv #ctl{top:66px}
 #bty .bsoon span{font-size:22px}#bty .bsoon b{display:block;color:#ffd36b;font-size:13.5px}#bty .bsoon small{color:#9fb0c8;font-size:11.5px}
 @media (max-width:600px){#ctl{right:8px;top:172px}body.tv #ctl{top:124px}#vsw b{display:none}#vsw span{padding:0 7px}#ctl .snd #vol{display:none}#ctl .snd button{padding:0 8px}#ctl button{height:32px}#ctl .snd{height:32px}body.tv #topcover{height:118px}
  #bty{top:auto;bottom:8px;transform:translateX(-50%);max-height:78vh}.panel{right:8px;width:calc(100vw - 16px)}}
-@media (prefers-reduced-motion:reduce){.node .pulse{animation:none;opacity:.38;transform:scale(1.1)}#tree,#strip,#mini,#topcover,#ctl{transition:none}.effloat{animation:effl2 1.4s linear forwards}@keyframes effl2{0%,70%{opacity:1}100%{opacity:0}}#efb.bump{animation:none}}
+#pop .pact{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}#pop .pact .more{margin-top:0}
+#pop .shr{font:inherit;font-size:12px;color:#9ff5ea;background:transparent;border:1px solid #2c4a7a;border-radius:9px;padding:4px 9px;cursor:pointer}#pop .shr:hover,#pop .shr:focus-visible{border-color:#4ff3e3;outline:none}
+#pop .ctb{display:inline-block;font-size:11px;color:#d9c6ff;border:1px dashed rgba(197,140,255,.55);border-radius:8px;padding:1px 7px;margin:0 0 6px}
+#pop .ctn{font-size:12.5px;color:#d9c6ff;font-style:italic;margin:0 0 6px!important}
+#pop .svd{font-size:12px;color:#3dff8a;margin:0 0 6px}#pop .svd a{color:#3dff8a}
+#pop a.sug{display:block;margin-top:10px;font-size:11.5px;color:#7f93b3;text-decoration:none}#pop a.sug:hover,#pop a.sug:focus-visible{color:#4ff3e3;text-decoration:underline}
+#bty .bchk{font-size:11.5px;color:#7f93b3;margin:10px 0 0}
+#infp .irow{display:flex;align-items:center;gap:12px;margin-top:10px;padding-top:8px;border-top:1px dashed #2a3b5e}#infp .irow button{font:inherit;font-size:12.5px;color:#cfe9f2;background:#16233f;border:1px solid #2c4a7a;border-radius:9px;padding:4px 10px;cursor:pointer}#infp .irow a{font-size:12.5px;color:#9fb0c8}
+#toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,10px);z-index:45;padding:7px 14px;border-radius:999px;background:rgba(8,14,30,.97);border:1px solid #4ff3e3;color:#bffcf4;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:calc(100vw - 24px);word-break:break-all}#toast.on{opacity:1;transform:translate(-50%,0)}
+#howto{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;background:rgba(2,4,12,.55)}#howto.on{display:flex}
+#howto .hcard{width:300px;max-width:calc(100vw - 24px);box-sizing:border-box;padding:14px 16px 14px;border-radius:16px;background:rgba(8,14,30,.97);border:1.5px solid rgba(79,243,227,.55);box-shadow:0 0 30px rgba(79,243,227,.18)}
+#howto .hk{font-size:11px;letter-spacing:2px;font-weight:800;color:#ffd36b;margin-bottom:8px}
+#howto .hs{display:flex;align-items:center;gap:10px;margin:7px 0}#howto .hs span{flex:none;width:58px;text-align:center;font-size:20px}#howto .hs b{font-weight:500;font-size:13.5px;color:#e8f4ff;line-height:1.3}
+#howto .hs span.hsw{font-size:15px;white-space:nowrap;letter-spacing:-1px}#howto.mob .hs span.hsw{font-size:13px}#howto .hdots{display:flex;justify-content:center;gap:4px}#howto .hdots i{display:inline-block;width:11px;height:11px;border-radius:50%}
+#howto #htok{display:block;margin:12px auto 0;font:inherit;font-size:13.5px;font-weight:700;color:#04060f;background:linear-gradient(90deg,#ffd36b,#4ff3e3);border:0;border-radius:999px;padding:6px 22px;cursor:pointer}
+#howto.mob{background:none;pointer-events:none;align-items:flex-end}#howto.mob .hcard{pointer-events:auto;margin-bottom:10px;padding:10px 14px}#howto.mob .hs{margin:4px 0}#howto.mob .hs span{font-size:17px;width:50px}#howto.mob .hs b{font-size:13px}
+@media (prefers-reduced-motion:reduce){#toast{transition:none}.node .pulse{animation:none;opacity:.38;transform:scale(1.1)}#tree,#strip,#mini,#topcover,#ctl{transition:none}.effloat{animation:effl2 1.4s linear forwards}@keyframes effl2{0%,70%{opacity:1}100%{opacity:0}}#efb.bump{animation:none}}
 </style>
 </head>
 <body>
@@ -296,7 +312,14 @@ body.tv #ctl{top:66px}
 <div id="infp" class="panel" role="dialog" aria-label="About"><div class="ph"><b>ABOUT</b><button class="x" aria-label="close">×</button></div>
   <p>From Nothing to Us: how everything emerges, from the quantum field to us. Made by Zyphullen.</p>
   <h5>Music</h5><div class="sndrow"><button id="mute2">🔊 Music on</button><input id="vol2" type="range" min="0" max="100" step="1" aria-label="Music volume"></div>
-  <p class="cred">Piano: Salamander Grand Piano by Alexander Holm (<a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>), via <a href="https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html" target="_blank" rel="noopener">FreePats</a></p></div>
+  <p class="cred">Piano: Salamander Grand Piano by Alexander Holm (<a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>), via <a href="https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html" target="_blank" rel="noopener">FreePats</a></p>
+  <div class="irow"><button id="howb">❔ How to use</button><a id="sugg" href="https://github.com/Zyphullen/from-nothing-to-us/issues/new" target="_blank" rel="noopener">✎ Suggest a fix</a></div></div>
+<div id="howto" role="dialog" aria-label="How to use"><div class="hcard"><div class="hk">HOW TO USE</div>
+  <div class="hs"><span id="hti1">🖱️</span><b id="ht1">Scroll to zoom, drag to move</b></div>
+  <div class="hs"><span id="hti2">✨</span><b id="ht2">Click a node to learn</b></div>
+  <div class="hs"><span class="hdots"><i style="background:#3dff8a"></i><i style="background:#ffa53d"></i><i style="background:#ff4d5e"></i></span><b>Green = known, orange = we think, red = unknown</b></div>
+  <div class="hs"><span class="hsw">🗺️⇄🌳</span><b>Swap Map ⇄ Tree</b></div>
+  <button id="htok">Got it</button></div></div>
 <div id="btyBack"></div><div id="bty" role="dialog" aria-label="Open bounty"><button class="x" aria-label="close">×</button><div id="btyBody"></div></div>
 <script>
 'use strict';
@@ -1192,7 +1215,7 @@ const TESTS = {
 
 for (const n of N) { const x = EXTRA[n.id]; if (x) { if (x.L2 && x.L2.length) n.L2 = x.L2; if (x.L3 && x.L3.length) n.L3 = x.L3; } n.L2 = n.L2 || []; n.L3 = n.L3 || []; }
 /* status is single-source: a node's own data decides its colour in BOTH views. Set solved:true on a node to turn it green with a tick everywhere. */
-function applyStatus() { for (const n of N) { if (n.s0 == null) n.s0 = n.s; n.s = n.solved ? 'k' : n.s0; } }
+function applyStatus() { for (const n of N) { if (n.s0 == null) n.s0 = n.s; n.s = n.solved ? 'k' : n.s0; } } // solved: true, or a record { by: 'who / which experiment', date: 'YYYY-MM-DD', source: url }
 applyStatus();
 const isOpenQ = n => n.s === 't' || n.s === 'u'; // orange or red = an open bounty
 
@@ -1676,7 +1699,8 @@ function layerHTML(n, L) {
   if (L === 2) { const from = n.p.map(pid => { const p = byId[pid], lab = n.el && n.el[pid]; return `<li>${esc(p.name)}${lab ? ' — <i>' + esc(lab) + '</i>' : ''}</li>`; }).join('');
     const sizeL = n.szt && n.szt !== '—' ? `<h4>Size</h4><p>${esc(n.szt)}${n.sz != null ? ' (scale: ' + szShort(n) + ')' : ''}</p>` : '';
     const bty = isOpenQ(n) && TESTS[n.id] ? `<button class="bty" data-act="bounty"><span>⚑</span> Open bounty</button>` : '';
-    const b2 = `${rich(n.L2)}${sizeL}${from ? `<h4>Made from / comes from</h4><ul>${from}</ul>` : ''}${bty}`; return b2 ? `<div class="lay">${b2}</div>` : ''; }
+    const b2 = `${isCT(n) ? `<p class="ctn">${CT_NOTE}</p>` : ''}${rich(n.L2)}${sizeL}${from ? `<h4>Made from / comes from</h4><ul>${from}</ul>` : ''}${bty}`;
+    return `<div class="lay">${b2}<a class="sug" href="${esc(sugURL(n))}" target="_blank" rel="noopener">✎ Suggest a fix or a missing step</a></div>`; }
   const kids = n.kids.map(k => `<li>${esc(byId[k].name)}</li>`).join('');
   const src = n.src.map(k => SRC[k]).filter(Boolean).map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('');
   const b3 = `${rich(n.L3)}${kids ? `<h4>Leads to</h4><ul>${kids}</ul>` : ''}${src ? `<h4>Sources</h4><ul>${src}</ul>` : ''}`; return b3 ? `<div class="lay">${b3}</div>` : ''; }
@@ -1685,7 +1709,7 @@ const srcLinks = keys => String(keys || '').split(',').map(k => SRC[k]).filter(B
 function rivHTML(n) { return `<div class="lay riv"><h4>Rival ideas</h4><ul>${RIV[n.id].map(([nm, st, ln, sk]) => `<li><i class="d" style="background:${SC[st]}" title="${SN[st]}"></i><b>${esc(nm)}</b>: ${esc(ln)}${srcLinks(sk)}</li>`).join('')}</ul></div>`; }
 function testHTML(n) { return `<div class="lay tst"><h4>Tests we could run</h4><ul>${TESTS[n.id].map(([tx, sk, idea]) => `<li>${esc(tx)}${idea ? ' <span class="idea">idea, not planned</span>' : ''}${srcLinks(sk)}</li>`).join('')}</ul></div>`; }
 function renderPop() { const n = byId[sel], c = SC[n.s];
-  let h = `<b class="t1">${esc(n.name)}</b><div class="chip"><i style="background:${c};box-shadow:0 0 6px ${c}"></i>${SN[n.s]}${n.solved ? ' · <b class="solv">solved ✓</b>' : ''}</div>` +
+  let h = `<b class="t1">${esc(n.name)}</b><div class="chip"><i style="background:${c};box-shadow:0 0 6px ${c}"></i>${SN[n.s]}${n.solved ? ' · <b class="solv">solved ✓</b>' : ''}</div>` + (isCT(n) ? `<div class="ctb">${CT_BADGE}</div>` : '') + solvedHTML(n) +
     (n.sz != null ? `<div class="size">Size: ${szShort(n)}</div>` : '') + n.info.slice(0, 3).map(l => `<div>${esc(l)}</div>`).join('');
   if (n.id === 'elements') h += `<button class="ptb" data-act="pt">Open the periodic table</button>`;
   const ex = extraLayers(n), MAX = 3 + ex.length; if (layer > MAX) layer = MAX;
@@ -1693,7 +1717,7 @@ function renderPop() { const n = byId[sel], c = SC[n.s];
   if (layer >= 3) h += layerHTML(n, 3);
   for (let L = 4; L <= layer; L++) h += ex[L - 4] === 'R' ? rivHTML(n) : testHTML(n);
   const nxt = layer === 1 ? 'Read more ▾' : layer === 2 ? 'Go deeper ▾' : ex[layer - 3] === 'R' ? 'Rival ideas ▾' : 'Tests we could run ▾';
-  h += layer < MAX ? `<button class="more" data-act="more">${nxt}</button>` : `<button class="more less" data-act="less">Show less ▴</button>`;
+  h += `<div class="pact">${layer < MAX ? `<button class="more" data-act="more">${nxt}</button>` : `<button class="more less" data-act="less">Show less ▴</button>`}<button class="shr" data-act="share" title="Copy a link to this node">🔗 Copy link</button></div>`;
   h += `<div class="lvl">Layer ${layer} of ${MAX}</div>`;
   popBody.innerHTML = h; pop.style.borderColor = c; pop.style.boxShadow = `0 0 24px ${c}44`; }
 function openPop(id, L = 1) { sel = id; layer = L; renderPop(); EF.award(id, 1); if (L >= 2) EF.award(id, 2); if (L >= 3) EF.award(id, 4); pop.style.display = 'block'; pop.scrollTop = 0; light(id); placePop(); liftForSheet(); }
@@ -1705,6 +1729,7 @@ popBody.addEventListener('click', e => { const b = e.target.closest('button'); i
   else if (a === 'less') { layer = 1; renderPop(); pop.scrollTop = 0; placePop(); }
   else if (a === 'pt') openPT();
   else if (a === 'bounty') openBounty(sel);
+  else if (a === 'share') copyLink(sel);
   else if (a === 'v3d') EF.award(sel, 8); });
 pop.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
 function placePop() { if (innerWidth <= 600) { pop.style.left = ''; pop.style.top = ''; keyAvoid(); return; }
@@ -1907,6 +1932,7 @@ function openBounty(id) { const n = byId[id]; if (!n || !isOpenQ(n)) return; con
   btyBody.innerHTML = `<div class="bk">⚑ OPEN BOUNTY</div><div class="bn"><i style="background:${c};box-shadow:0 0 8px ${c}"></i><b>${esc(n.name)}</b><small style="color:${c}">${n.s === 'u' ? 'Unknown' : 'We think so'}</small></div>` +
     `<h5>The open question</h5><p class="bq">${esc(BQ[id] || n.line)}</p>` +
     `<h5>What would solve it</h5><ul>${(TESTS[id] || []).map(([t, sk, idea]) => `<li>${esc(t)}${idea ? ' <span class="idea">idea, not planned</span>' : ''}${srcLinks(sk)}</li>`).join('')}</ul>` +
+    `<p class="bchk">Last checked: ${fmtDate(BCHECK[id] || BCHECK_DEFAULT)}</p>` +
     `<div class="bsoon"><span>🌳</span><div><b>Global Bounty Tree, coming soon</b><small>When a test settles it, this node turns green with a tick, in the map and the tree.</small></div></div>` +
     `<p class="btag">“Don't collect cards. Collect understanding.”</p>`;
   btyEl.style.borderColor = c; btyEl.classList.add('on'); document.getElementById('btyBack').classList.add('on'); btyEl.scrollTop = 0; btyEl.querySelector('.x').focus({ preventScroll: true });
@@ -1955,16 +1981,72 @@ const MUS = (() => {
   return { get state() { return { started, muted, vol, ctx: ctx ? ctx.state : null, gain: gain ? +gain.gain.value.toFixed(3) : el ? +el.volume.toFixed(3) : null, mode: ctx ? 'webaudio' : el ? 'element' : 'none' }; } };
 })();
 
+/* ============ CHAIN THEORY NOTE (nodes in the Chain Theory lane) ============ */
+const isCT = n => n.lane === 'chain';
+const CT_BADGE = 'New idea (Oct 2026) · still being tested';
+const CT_NOTE = 'Chain Theory is a new research programme with one precise number match (the fine-structure constant, ~1/137.036); its wider claims are still conjecture.';
+
+/* ============ BOUNTY DATES + SOLVED RECORDS (data) ============
+   BCHECK: per-bounty "last checked" date (YYYY-MM-DD); BCHECK_DEFAULT is used when a bounty has none.
+   A solved node carries solved: { by: 'who / which experiment', date: 'YYYY-MM-DD', source: url } in its node data. */
+const BCHECK_DEFAULT = '2026-10-26', BCHECK = {};
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+function fmtDate(d) { const m = String(d || '').match(/^(\d{4})-(\d{2})-(\d{2})$/); return m ? `${+m[3]} ${MON[+m[2] - 1]} ${m[1]}` : esc(d || ''); }
+const safeURL = u => /^https?:\/\//i.test(String(u || '')) ? String(u) : '';
+function solvedHTML(n) { const r = n.solved; if (!r || typeof r !== 'object') return '';
+  const parts = [r.by ? 'Solved by ' + esc(r.by) : 'Solved', r.date ? fmtDate(r.date) : '', safeURL(r.source) ? `<a href="${esc(safeURL(r.source))}" target="_blank" rel="noopener">source</a>` : ''].filter(Boolean);
+  return `<div class="svd">✓ ${parts.join(' · ')}</div>`; }
+
+/* ============ SHARE A NODE ============ */
+const SITE = 'https://zyphullen.github.io/from-nothing-to-us/';
+const shareURL = id => SITE + '#n=' + encodeURIComponent(id) + (VIEW === 'tree' ? '&tv=tree' : '');
+let toastT = 0;
+function toast(msg) { let el = document.getElementById('toast'); if (!el) { el = document.createElement('div'); el.id = 'toast'; el.setAttribute('role', 'status'); document.body.appendChild(el); }
+  el.textContent = msg; el.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('on'), 1800); }
+function copyText(t) { const fb = () => { const a = document.createElement('textarea'); a.value = t; a.setAttribute('readonly', ''); a.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0';
+    document.body.appendChild(a); a.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (e) {} a.remove(); return ok; };
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).then(() => true, () => fb());
+  return Promise.resolve(fb()); }
+function copyLink(id) { const u = shareURL(id); copyText(u).then(ok => toast(ok ? 'Link copied' : 'Copy this link: ' + u)); }
+function openShared(id) { if (!byId[id]) return; const n = byId[id], top = UI(), z = innerWidth <= 600 ? 0.6 : 0.9;
+  cancelAnimationFrame(anim); s = z; tx = innerWidth / 2 - n.x * s; ty = top + (innerHeight - top) / 2 - n.y * s; cullQ = false; apply(); cull(); openPop(id, 1); }
+addEventListener('hashchange', () => { const h = new URLSearchParams(location.hash.slice(1)); if (!h.has('n') || !byId[h.get('n')]) return;
+  const v = h.get('tv') === 'tree' ? 'tree' : 'map'; if (v !== VIEW) { setScene(v); syncSwitch(); } HOWTO.close(); openShared(h.get('n')); });
+
+/* ============ SUGGEST A FIX (opens a prefilled GitHub issue in a new tab) ============ */
+const ISSUES = 'https://github.com/Zyphullen/from-nothing-to-us/issues/new';
+const issueURL = (title, body) => ISSUES + '?title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(body);
+const sugURL = n => issueURL('Suggestion: ' + n.name, `Node: ${n.name} (id: ${n.id})\nLink: ${SITE}#n=${n.id}\n\nWhat should change?\n\n\nSource (link):\n`);
+document.getElementById('sugg').href = issueURL('Suggestion: ', 'Which part of the map?\n\n\nWhat should change (or what step is missing)?\n\n\nSource (link):\n');
+
+/* ============ FIRST-VISIT "HOW TO USE" ============ */
+const HOWTO = (() => { const el = document.getElementById('howto'), KEY = 'fntu-howto';
+  const touch = () => innerWidth <= 600 || !!(window.matchMedia && matchMedia('(pointer: coarse)').matches);
+  function fill() { const t = touch();
+    document.getElementById('ht1').textContent = t ? 'Pinch to zoom, drag to move' : 'Scroll to zoom, drag to move';
+    document.getElementById('ht2').textContent = t ? 'Tap a node to learn' : 'Click a node to learn';
+    document.getElementById('hti1').textContent = t ? '🤏' : '🖱️'; document.getElementById('hti2').textContent = t ? '👆' : '✨'; }
+  function open() { fill(); el.classList.toggle('mob', touch()); el.classList.add('on'); [efp, infp].forEach(p => p.classList.remove('on')); setTimeout(() => { if (!touch()) document.getElementById('htok').focus({ preventScroll: true }); }, 50); }
+  function close() { if (!el.classList.contains('on')) return; el.classList.remove('on'); prefSet(KEY, '1'); }
+  document.getElementById('htok').onclick = close;
+  el.addEventListener('click', e => { if (e.target === el) close(); }); // the dark backdrop (desktop)
+  document.addEventListener('pointerdown', e => { if (el.classList.contains('on') && !el.querySelector('.hcard').contains(e.target)) close(); }, true); // any tap outside (mobile: no backdrop, the tap still reaches the map)
+  addEventListener('keydown', e => { if (e.key === 'Escape' && el.classList.contains('on')) { close(); e.stopImmediatePropagation(); } }, true);
+  document.getElementById('howb').onclick = () => { infp.classList.remove('on'); open(); };
+  return { open, close, first: () => prefGet(KEY) !== '1' }; })();
+(() => { const h = new URLSearchParams(location.hash.slice(1)); if (HOWTO.first() && !h.has('n') && !h.has('open')) setTimeout(HOWTO.open, 500); })();
+
 
 /* ============ START ============ */
 function init() { drawSky(); if (prefGet('fntu-view') === 'tree') setScene('tree'); syncSwitch(); [s, tx, ty] = homeView(); apply(); }
 addEventListener('resize', () => { drawSky(); apply(); });
 init();
 // test hooks (used for screenshots): #view=fit | #c=<stage column>&y=<world y>&z=<zoom> | &open=<id>&layer=<1-3> | #ptable=1&el=<Z>
-(() => { const h = new URLSearchParams(location.hash.slice(1)); if (h.has('tv')) { setScene(h.get('tv') === 'tree' ? 'tree' : 'map'); syncSwitch(); [s, tx, ty] = homeView(); }
+(() => { const h = new URLSearchParams(location.hash.slice(1)); if (h.has('n') && !h.has('tv')) h.set('tv', 'map'); if (h.has('tv')) { setScene(h.get('tv') === 'tree' ? 'tree' : 'map'); syncSwitch(); [s, tx, ty] = homeView(); }
   if (h.get('view') === 'fit') [s, tx, ty] = fitView();
   if (h.has('c')) { s = +(h.get('z') || s); tx = innerWidth / 2 - X(+h.get('c')) * s; ty = UI() + (innerHeight - UI()) / 2 - (+(h.get('y') || H / 2)) * s; }
   apply(); if (h.has('open')) openPop(h.get('open'), +(h.get('layer') || 1));
+  if (h.has('n')) openShared(h.get('n'));
   if (h.has('ptable')) { openPT(); if (h.has('el')) ptShow(+h.get('el')); } })();
 
 /* viewer3d.js — "View in 3D" for From Nothing to Us (pilot).
@@ -2186,7 +2268,7 @@ function curId() { try { return sel; } catch (e) { return null; } } // `sel` = t
 function hook() {
   var pb = document.getElementById('popBody'); if (!pb) return;
   var add3d = function () { var id = curId(); if (!id || !SCENES[id] || pb.querySelector('.v3d-btn')) return;
-    var b = document.createElement('button'); b.className = 'v3d-btn'; b.dataset.act = 'v3d'; b.innerHTML = '<i></i>View in 3D'; var m = pb.querySelector('.ptb') || pb.querySelector('.lay') || pb.querySelector('.more'); pb.insertBefore(b, m && m.classList.contains('ptb') ? m.nextSibling : m); };
+    var b = document.createElement('button'); b.className = 'v3d-btn'; b.dataset.act = 'v3d'; b.innerHTML = '<i></i>View in 3D'; var m = pb.querySelector('.ptb') || pb.querySelector('.lay') || pb.querySelector('.pact') || pb.querySelector('.more'); pb.insertBefore(b, m && m.classList.contains('ptb') ? m.nextSibling : m); };
   new MutationObserver(add3d).observe(pb, { childList: true }); add3d();
   pb.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('.v3d-btn'); if (b) open(curId()); });
 }

@@ -1,3 +1,12 @@
+## v6 (26 Oct 2026)
+
+**New**
+- **Chain Theory note**: the Chain Theory nodes now show a small "New idea (Oct 2026) · still being tested" badge, and Read more explains that only one number match (~1/137.036) is confirmed so far; the wider claims are still conjecture.
+- **How to use**: a small first-visit card (zoom/drag, click a node, what the colours mean, Map ⇄ Tree). Reopen it any time from the "i" panel.
+- **Share a node**: every pop-up has "🔗 Copy link". Links like `#n=<node>` (and `&tv=tree`) open straight to that node in the right view.
+- **Suggest a fix**: each Read more ends with a link that opens a pre-filled GitHub issue for that node; there is also a general link in the "i" panel.
+- **Bounty dates**: open bounties show "Last checked: 26 Oct 2026", and solved bounties can now show who solved them, when, and a source.
+
 ## v5 (26 Oct 2026)
 
 **New**
