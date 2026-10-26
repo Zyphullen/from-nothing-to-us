@@ -14,29 +14,77 @@ html,body{margin:0;height:100%;overflow:hidden;background:#04060f;color:#e8f4ff;
 #sky{position:fixed;inset:0;z-index:0}
 #tree{position:fixed;inset:0;z-index:1;width:100%;height:100%;cursor:grab;display:block}
 #tree.drag{cursor:grabbing}
-header{position:fixed;top:12px;left:14px;z-index:3;pointer-events:none;padding:8px 12px;border-radius:14px;background:rgba(4,8,20,.55)}
+header{position:fixed;top:12px;left:14px;z-index:3;padding:8px 12px;border-radius:14px;background:rgba(4,8,20,.6);pointer-events:none}
+header *{pointer-events:auto}
 h1{margin:0;font-size:22px;font-weight:650;letter-spacing:.4px;background:linear-gradient(90deg,#ffd36b,#4ff3e3);-webkit-background-clip:text;background-clip:text;color:transparent}
-.legend{margin-top:6px;display:flex;gap:12px;font-size:12.5px;color:#b9c8dc}
+.legend{margin-top:6px;display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#b9c8dc;align-items:center}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
-.k{background:#3dff8a;box-shadow:0 0 8px #3dff8a}.t{background:#ffa53d;box-shadow:0 0 8px #ffa53d}.u{background:#ff4d5e;box-shadow:0 0 8px #ff4d5e}
+.k{background:#3dff8a;box-shadow:0 0 8px #3dff8a}.t{background:#ffa53d;box-shadow:0 0 8px #ffa53d}.u{background:#ff4d5e;box-shadow:0 0 8px #ff4d5e}.p{background:#c58cff;box-shadow:0 0 8px #c58cff}
+.hbtn{font:inherit;font-size:12px;color:#9ff5ea;background:rgba(10,18,36,.85);border:1px solid #23355a;border-radius:9px;padding:3px 8px;cursor:pointer}
+.hbtn:hover{border-color:#4ff3e3}
 .zoom{position:fixed;left:14px;bottom:14px;z-index:3;display:flex;flex-direction:column;gap:8px}
 .zoom button{width:44px;height:44px;border-radius:12px;border:1px solid #23355a;background:rgba(10,18,36,.85);color:#9ff5ea;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
 .zoom button:hover{border-color:#4ff3e3}
-#strip{position:fixed;right:10px;top:84px;bottom:24px;width:70px;z-index:3;cursor:pointer;border-radius:12px;overflow:hidden;background:rgba(6,10,24,.6);border:1px solid #1b2a48}
-.seg{position:absolute;left:0;right:0;display:flex;align-items:center;justify-content:center;font-size:10.5px;letter-spacing:.3px;color:#a9b9d2;border-top:1px solid rgba(255,255,255,.05)}
+#strip{position:fixed;right:10px;top:84px;bottom:24px;width:70px;z-index:3;cursor:pointer;border-radius:12px;overflow:hidden;background:rgba(6,10,24,.88);border:1px solid #1b2a48}
+.seg{position:absolute;left:0;right:0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:10px;line-height:1.15;letter-spacing:.2px;color:#a9b9d2;border-top:1px solid rgba(255,255,255,.05)}
 #vp{position:absolute;left:2px;right:2px;border:1.5px solid #ffd36b;border-radius:8px;background:rgba(255,211,107,.08);box-shadow:0 0 10px rgba(255,211,107,.35);pointer-events:none}
-#pop{position:fixed;z-index:5;max-width:250px;padding:12px 30px 12px 14px;border-radius:14px;background:rgba(8,14,30,.95);border:1.5px solid #4ff3e3;display:none;font-size:14px;line-height:1.45;color:#d6e4f5}
-#pop b{display:block;font-size:15.5px;color:#fff;margin-bottom:2px}
-#pop .chip{font-size:11.5px;color:#9fb0c8;margin-bottom:6px}
+#ruler{position:fixed;right:88px;top:84px;bottom:24px;width:50px;z-index:3;border-radius:12px;background:rgba(6,10,24,.88);border:1px solid #1b2a48;pointer-events:none;overflow:hidden}
+#ruler .rt{position:absolute;left:0;right:0;font-size:9.5px;color:#7f93b3;text-align:right;padding-right:5px;transform:translateY(-50%);white-space:nowrap}
+#ruler .rt:after{content:'';position:absolute;right:0;top:50%;width:3px;border-top:1px solid #4a5f85}
+#ruler .rk{position:absolute;left:4px;width:14px;height:2px;border-radius:1px;transform:translateY(-50%);transition:top .25s}
+#ruler .rh{position:absolute;left:2px;right:2px;border-radius:7px;background:rgba(79,243,227,.12);border:1px solid rgba(79,243,227,.45);transition:top .25s,height .25s}
+#ruler .rtitle{position:absolute;top:3px;left:0;right:0;text-align:center;font-size:9px;color:#9ff5ea;letter-spacing:.3px}
+#pop{position:fixed;z-index:5;width:300px;max-height:72vh;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;padding:12px 30px 12px 14px;border-radius:14px;background:rgba(8,14,30,.96);border:1.5px solid #4ff3e3;display:none;font-size:14px;line-height:1.45;color:#d6e4f5;-webkit-user-select:text;user-select:text;box-sizing:border-box}
+#pop b.t1{display:block;font-size:15.5px;color:#fff;margin-bottom:2px}
+#pop .chip{font-size:11.5px;color:#9fb0c8;margin-bottom:4px}
 #pop .chip i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+#pop .size{font-size:11.5px;color:#9ff5ea;margin-bottom:6px}
 #pop .x{position:absolute;top:6px;right:8px;background:none;border:0;color:#8aa0bd;font-size:20px;cursor:pointer;padding:2px 4px}
+#pop .lay{margin-top:8px;padding-top:8px;border-top:1px dashed #2a3b5e;font-size:13.2px}
+#pop .lay h4{margin:8px 0 2px;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:#ffd36b}
+#pop .lay h4:first-child{margin-top:0}
+#pop .lay p{margin:2px 0}
+#pop .lay a{color:#4ff3e3;word-break:break-word}
+#pop .lay ul{margin:2px 0;padding-left:18px}
+#pop .more{margin-top:10px;font:inherit;font-size:12.5px;color:#04060f;background:linear-gradient(90deg,#ffd36b,#4ff3e3);border:0;border-radius:9px;padding:5px 11px;cursor:pointer;font-weight:650}
+#pop .more.less{background:#16233f;color:#9ff5ea}
+#pop .ptb{margin-top:8px;margin-right:6px;font:inherit;font-size:12.5px;color:#9ff5ea;background:#16233f;border:1px solid #2c4a7a;border-radius:9px;padding:5px 10px;cursor:pointer}
+#pop .lvl{font-size:11px;color:#7f93b3;margin-top:6px}
 .node{cursor:pointer}
 .node .disc{transition:stroke-width .2s}
 .node:hover .disc{stroke-width:3.5}
-svg.focus .node:not(.lit){opacity:.22}
-svg.focus .edge:not(.lit){opacity:.06}
-.node,.edge{transition:opacity .35s}
-@media (max-width:600px){header{padding:6px 9px;top:8px;left:8px}h1{font-size:16px}.legend{font-size:11.5px;gap:9px}#strip{width:22px;right:6px}.seg{font-size:0}}
+svg.focus .node:not(.lit){opacity:.18}
+svg.focus .edge:not(.lit),svg.focus .elab:not(.lit){opacity:.05}
+svg.focus .edge.lit{stroke-width:3.6;stroke-opacity:.95}
+svg.focus .elab.lit rect{stroke-opacity:1}
+.node,.edge,.elab{transition:opacity .3s}
+svg.far .elab,svg.far .sz{display:none}
+svg.moving .ic{filter:none}
+.band text{font-size:15px;font-weight:650;letter-spacing:.6px}
+#pt{position:fixed;inset:0;z-index:8;background:rgba(2,4,12,.94);display:none;overflow:auto;touch-action:pan-x pan-y;-webkit-user-select:text;user-select:text}
+#pt .in{max-width:1180px;margin:0 auto;padding:16px 14px 40px}
+#pt h2{margin:0 0 4px;font-size:20px;background:linear-gradient(90deg,#ffd36b,#4ff3e3);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+#pt .sub{font-size:12.5px;color:#9fb0c8;margin-bottom:10px}
+#pt .close{position:fixed;top:12px;right:16px;font-size:26px;color:#9fb0c8;background:rgba(10,18,36,.9);border:1px solid #23355a;border-radius:12px;width:42px;height:42px;cursor:pointer;z-index:9}
+#ptg{display:grid;grid-template-columns:repeat(18,minmax(0,1fr));gap:3px;min-width:640px}
+#ptg .e{position:relative;aspect-ratio:1/1.12;border-radius:5px;padding:2px 3px;box-sizing:border-box;cursor:pointer;color:#04060f;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+#ptg .e .z{font-size:9px;opacity:.75}
+#ptg .e .s{font-size:clamp(11px,1.5vw,17px);font-weight:750;text-align:center;line-height:1.1}
+#ptg .e .n{font-size:8px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.8}
+#ptg .e .dots{position:absolute;right:2px;top:2px;display:flex;gap:1px}
+#ptg .e .dots i{width:5px;height:5px;border-radius:50%;border:1px solid rgba(0,0,0,.4)}
+#ptg .e.sel{outline:2px solid #fff}
+#ptg .gap{grid-column:1/-1;height:8px}
+#ptg .lbl{font-size:10px;color:#7f93b3;display:flex;align-items:center;justify-content:center;text-align:center}
+#ptl{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#c9d6ea;margin:8px 0 10px}
+#ptl span i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+#ptinfo{min-height:66px;margin:8px 0;padding:10px 12px;border:1px solid #23355a;border-radius:12px;background:rgba(10,18,36,.8);font-size:13.5px;color:#d6e4f5}
+#ptinfo b{color:#fff;font-size:15px}
+#ptmode{margin-left:8px}
+#pt .note{font-size:11.5px;color:#8a9bb6;margin-top:12px;line-height:1.5}
+#pt .note a{color:#4ff3e3}
+@media (max-width:600px){header{padding:6px 9px;top:8px;left:8px}h1{font-size:16px}.legend{font-size:11px;gap:7px}#strip{width:22px;right:6px}.seg{font-size:0}#ruler{right:32px;width:40px}#ruler .rt{font-size:8px}
+ #pop{left:6px!important;right:6px;width:auto!important;top:auto!important;bottom:6px;max-height:58vh}}
 </style>
 </head>
 <body>
@@ -44,7 +92,7 @@ svg.focus .edge:not(.lit){opacity:.06}
 <svg id="tree" xmlns="http://www.w3.org/2000/svg"><defs id="defs"></defs><g id="world"></g></svg>
 <header>
   <h1>From Nothing to Us</h1>
-  <div class="legend"><span><i class="k"></i>known</span><span><i class="t"></i>we think</span><span><i class="u"></i>unknown</span></div>
+  <div class="legend"><span><i class="k"></i>known</span><span><i class="t"></i>we think</span><span><i class="u"></i>unknown</span><span><i class="p"></i>idea</span><button class="hbtn" id="ptbtn" title="All 118 elements">118 elements</button></div>
 </header>
 <div class="zoom">
   <button id="zin" title="Zoom in">+</button>
@@ -52,80 +100,681 @@ svg.focus .edge:not(.lit){opacity:.06}
   <button id="zfit" title="See everything"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#9ff5ea" stroke-width="2" stroke-linecap="round"><path d="M3 8V3h5M14 3h5v5M19 14v5h-5M8 19H3v-5"/></svg></button>
   <button id="ztop" title="Back to the top"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#9ff5ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l6-6 6 6M11 6v12"/></svg></button>
 </div>
+<div id="ruler"><div class="rtitle">size</div></div>
 <div id="strip"><div id="vp"></div></div>
 <div id="pop"><button class="x" aria-label="close">×</button><div id="popBody"></div></div>
-
+<div id="pt"><button class="close" aria-label="close">×</button><div class="in">
+  <h2>All 118 elements: where they come from</h2>
+  <div class="sub">Each box = one element (Z = number of protons). Colour = main cosmic source. Small dots = other sources. Tap one for details.
+  <button class="hbtn" id="ptmode">Colour by: origin</button></div>
+  <div id="ptl"></div>
+  <div id="ptinfo">Tap an element.</div>
+  <div style="overflow-x:auto"><div id="ptg"></div></div>
+  <div class="note">Origins follow Jennifer Johnson's "nucleosynthesis periodic table" (<a href="https://www.science.org/doi/10.1126/science.aau9540" target="_blank" rel="noopener">Science 2019</a>; <a href="https://blog.sdss.org/2017/01/09/origin-of-the-elements-in-the-solar-system/" target="_blank" rel="noopener">SDSS chart</a>), simplified to main and secondary sources for Solar System matter. Shares are estimates and still debated, especially how much of the heaviest elements come from neutron-star crashes versus rare kinds of supernova. 94 elements occur in nature (Tc, Pm, Np, Pu only in traces). 95–118 have only been made in labs; 113, 115, 117 and 118 were named in 2016 (<a href="https://iupac.org/what-we-do/periodic-table-of-elements/" target="_blank" rel="noopener">IUPAC</a>).</div>
+</div></div>
 <script>
 'use strict';
 /* ============ COLOURS ============ */
-const SC = { k: '#3dff8a', t: '#ffa53d', u: '#ff4d5e' };           // known / we think / unknown
-const SN = { k: 'Known science', t: 'We think so (leading idea)', u: 'Unknown' };
+const SC = { k: '#3dff8a', t: '#ffa53d', u: '#ff4d5e', p: '#c58cff' };
+const SN = { k: 'Known science', t: 'We think so (leading idea / hypothesis)', u: 'Unknown', p: 'Personal idea (not science)' };
 const T = '#4ff3e3', G = '#ffd36b', WH = '#e8f4ff';
-
-/* ============ THE TREE (top = nothing, bottom = us) ============
-   s: k = known/established, t = hypothesis/leading model, u = unknown
-   p: parents ("builds / turns into" arrows come from these) */
+const RANK = { k: 0, t: 1, p: 1, u: 2 };
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const SUP = { '-': '⁻', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
+const pow10 = e => '10' + String(Math.round(e)).split('').map(c => SUP[c]).join('');
+const szShort = n => n.sz == null ? '' : (Math.round(n.sz) === 0 ? '~1 m' : '~' + pow10(n.sz) + ' m');
+const SRC = {
+ ctpost:['Alex Wissner-Gross: "Chain Theory" (Substack, 24 Oct 2026)','https://theinnermostloop.substack.com/p/chain-theory'],
+ ctx:['@alexwg on X: Chain Theory article','https://x.com/alexwg/status/2113988412822712534'],
+ ctalpha:['Preprint: A Parameter-Free Candidate for the Fine-Structure Constant (23 Oct 2026)','https://alexwg.org/publications/ChainTheoryAlpha.pdf'],
+ cttalk:['Slides: Chain Theory, An Introduction','https://alexwg.org/publications/ChainTheoryTalk.pdf'],
+ ctcomp:['Chain Theory compendium, release 0.1 (working draft)','https://alexwg.org/publications/ChainTheoryCompendium.pdf'],
+ ctcheck:['Independent blog check of the alpha claim (Ecency, Oct 2026)','https://ecency.com/@sablephalanx/a-new-claim-about-physics-magic-number-checked'],
+ baez:['Baez & Huerta: The Algebra of Grand Unified Theories (2010)','https://arxiv.org/abs/0904.1556'],
+ horo:['Horodecki ×3: bound entanglement (1998)','https://arxiv.org/abs/quant-ph/9801069'],
+ codata:['NIST/CODATA 2022: inverse fine-structure constant','https://physics.nist.gov/cgi-bin/cuu/Value?alphinv'],
+ pdg:['Particle Data Group: Review of Particle Physics','https://pdg.lbl.gov/'],
+ planck:['Planck 2018 results VI: cosmological parameters','https://arxiv.org/abs/1807.06209'],
+ planckinf:['Planck 2018 results X: constraints on inflation','https://arxiv.org/abs/1807.06211'],
+ cern_higgs:['CERN: the Higgs boson','https://home.cern/science/physics/higgs-boson'],
+ durr:['Dürr et al. 2008: proton mass from lattice QCD (Science)','https://www.science.org/doi/10.1126/science.1163233'],
+ rp:['NIST/CODATA 2022: proton charge radius','https://physics.nist.gov/cgi-bin/cuu/Value?rp'],
+ bohr:['NIST/CODATA: Bohr radius','https://physics.nist.gov/cgi-bin/cuu/Value?bohrrada0'],
+ qgp:['Wikipedia: quark–gluon plasma','https://en.wikipedia.org/wiki/Quark%E2%80%93gluon_plasma'],
+ bbn:['PDG review: Big-Bang nucleosynthesis','https://pdg.lbl.gov/2024/reviews/rpp2024-rev-bbang-nucleosynthesis.pdf'],
+ li:['Wikipedia: cosmological lithium problem','https://en.wikipedia.org/wiki/Cosmological_lithium_problem'],
+ baryo:['Wikipedia: baryon asymmetry','https://en.wikipedia.org/wiki/Baryon_asymmetry'],
+ heh:['Güsten et al. 2019: HeH⁺, the first molecule, found in space (Nature)','https://www.nature.com/articles/s41586-019-1090-x'],
+ pop3:['Wikipedia: Population III stars','https://en.wikipedia.org/wiki/Population_III_star'],
+ momz14:['Naidu et al. 2025: MoM-z14, a galaxy 280 million years after the Big Bang','https://arxiv.org/abs/2505.11263'],
+ lauer:['Lauer et al. 2021: how many galaxies (New Horizons)','https://arxiv.org/abs/2011.03052'],
+ eht:['Event Horizon Telescope: first black hole images','https://eventhorizontelescope.org/'],
+ johnson:['Johnson 2019: Populating the periodic table (Science)','https://www.science.org/doi/10.1126/science.aau9540'],
+ sdss:['SDSS blog: origin of the elements (Jennifer Johnson chart)','https://blog.sdss.org/2017/01/09/origin-of-the-elements-in-the-solar-system/'],
+ gw170817:['LIGO/Virgo 2017: GW170817 neutron-star merger + kilonova','https://arxiv.org/abs/1710.05832'],
+ sr:['Watson et al. 2019: strontium made in a neutron-star merger (Nature)','https://www.nature.com/articles/s41586-019-1676-3'],
+ b2fh:['Burbidge, Burbidge, Fowler & Hoyle 1957 (B²FH)','https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.29.547'],
+ sun:['NASA: Sun facts','https://science.nasa.gov/sun/facts/'],
+ desi:['DESI DR2 2025: hints that dark energy may change over time','https://arxiv.org/abs/2503.14738'],
+ cdms:['CDMS: list of molecules found in space','https://cdms.astro.uni-koeln.de/classic/molecules'],
+ exo:['NASA Exoplanet Archive (6,451 confirmed, Oct 2026)','https://exoplanetarchive.ipac.caltech.edu/docs/counts_detail.html'],
+ zircon:['Wilde et al. 2001: water on Earth 4.4 billion years ago (Nature)','https://www.nature.com/articles/35051550'],
+ moon:['Wikipedia: giant-impact hypothesis','https://en.wikipedia.org/wiki/Giant-impact_hypothesis'],
+ miller:['Miller 1953: amino acids from a spark experiment (Science)','https://www.science.org/doi/10.1126/science.117.3046.528'],
+ bennu:['Glavin et al. 2025: amino acids and all 5 bases in asteroid Bennu','https://www.nature.com/articles/s41550-024-02472-9'],
+ ribose:['Furukawa et al. 2019: ribose sugar in meteorites (PNAS)','https://www.pnas.org/doi/10.1073/pnas.1907169116'],
+ powner:['Powner, Gerland & Sutherland 2009: making RNA letters (Nature)','https://www.nature.com/articles/nature08013'],
+ rnaworld:['Wikipedia: RNA world','https://en.wikipedia.org/wiki/RNA_world'],
+ protocell:['Wikipedia: protocell','https://en.wikipedia.org/wiki/Protocell'],
+ abiogenesis:['Wikipedia: abiogenesis','https://en.wikipedia.org/wiki/Abiogenesis'],
+ luca:['Moody et al. 2024: LUCA ~4.2 billion years ago (Nat. Ecol. Evol.)','https://www.nature.com/articles/s41559-024-02461-1'],
+ code:['Wikipedia: genetic code','https://en.wikipedia.org/wiki/Genetic_code'],
+ t2t:['Nurk et al. 2022: the complete human genome (Science)','https://www.science.org/doi/10.1126/science.abj6987'],
+ titin:['Wikipedia: titin, the longest protein','https://en.wikipedia.org/wiki/Titin'],
+ dresser:['Wikipedia: Dresser Formation (3.48-billion-year-old stromatolites)','https://en.wikipedia.org/wiki/Dresser_Formation'],
+ goe:['Wikipedia: Great Oxidation Event','https://en.wikipedia.org/wiki/Great_Oxidation_Event'],
+ asgard:['Eme et al. 2023: our archaeal ancestors (Nature)','https://www.nature.com/articles/s41586-023-06186-2'],
+ multi:['Grosberg & Strathmann 2007: many origins of multicellularity','https://doi.org/10.1146/annurev.ecolsys.36.102403.114735'],
+ noaa:['NOAA: how much oxygen comes from the ocean','https://oceanservice.noaa.gov/facts/ocean-oxygen.html'],
+ sender:['Sender, Fuchs & Milo 2016: cells in the human body (PLOS Biol)','https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533'],
+ bianconi:['Bianconi et al. 2013: ~37 trillion cells estimate','https://pubmed.ncbi.nlm.nih.gov/23829164/'],
+ hatton:['Hatton et al. 2023: cell counts by type (PNAS)','https://www.pnas.org/doi/10.1073/pnas.2303077120'],
+ azevedo:['Azevedo et al. 2009: 86 billion neurons','https://pubmed.ncbi.nlm.nih.gov/19226510/'],
+ irhoud:['Hublin et al. 2017: Homo sapiens ~300,000 years old (Nature)','https://www.nature.com/articles/nature22336'],
+ solarnu:['Wikipedia: solar neutrinos','https://en.wikipedia.org/wiki/Solar_neutrino'],
+ hardproblem:['Stanford Encyclopedia: consciousness','https://plato.stanford.edu/entries/consciousness/'],
+ qg:['Wikipedia: quantum gravity','https://en.wikipedia.org/wiki/Quantum_gravity'],
+ cosmicray:['Wikipedia: cosmic-ray spallation (Li, Be, B)','https://en.wikipedia.org/wiki/Cosmic_ray_spallation'],
+ iupac:['IUPAC periodic table','https://iupac.org/what-we-do/periodic-table-of-elements/'],
+};
+/* s: k = known, t = we think (hypothesis / leading idea), u = unknown, p = personal idea (not science)
+   sz: rough size, log10 of metres.  L2 / L3: the "Read more" layers ('## ' starts a heading).
+   el: label on the line from a parent.  es: force a line's status (e.g. a link nobody has shown). */
 const N = [
- {id:'nothing',r:0,x:620,s:'u',ic:'nothing',name:'Before the Big Bang?',line:'Why is there anything?',info:['Nobody knows yet.','Maybe there was no "before".'],p:[]},
- {id:'chain',r:1,x:300,s:'t',ic:'chain',name:'Chain Theory',line:'Space as linked qudits?',info:['Idea by Alex Wissner-Gross.','Space and matter from linked qudits.','New hypothesis, still being tested.'],p:['nothing']},
- {id:'field',r:1,x:620,s:'k',ic:'field',name:'Quantum fields',line:'Empty space still buzzes',info:['Every particle is a ripple in a field.','Tested extremely precisely.'],p:['nothing']},
- {id:'qgrav',r:1,x:940,s:'t',ic:'qgrav',name:'Quantum gravity',line:'Gravity at tiny scales?',info:['Joining gravity with quantum rules.','Ideas: strings, loops, chains…','None proven yet.'],p:['nothing']},
- {id:'qudits',r:2,x:300,s:'t',ic:'qudits',name:'Qudits & links',line:'Tiny units, paired links',info:['A qudit is a tiny quantum unit.','Pairs share entanglement links.','Each holds only a few links.'],p:['chain']},
- {id:'inflation',r:2,x:780,s:'t',ic:'inflation',name:'Inflation',line:'Super-fast first stretch',info:['Space grew hugely in a split second.','Fits what we see in the sky.','Leading model, not proven.'],p:['field','qgrav']},
- {id:'chainmail',r:3,x:220,s:'t',ic:'chainmail',name:'Chainmail particles',line:'Knotted links = matter?',info:['Tangled loops of links.','Might act like particles.','Part of Chain Theory.'],p:['qudits']},
- {id:'gap',r:3,x:450,s:'u',ic:'gap',name:'Chain → Standard Model',line:'The bridge is not known',info:['How chains would make quarks','and electrons is not worked out yet.'],p:['chainmail']},
- {id:'bigbang',r:3,x:700,s:'k',ic:'bigbang',name:'Hot Big Bang',line:'Hot, dense, expanding',info:['13.8 billion years ago.','Seen in the afterglow light.'],p:['inflation']},
- {id:'higgs',r:3,x:960,s:'k',ic:'higgs',name:'Higgs field',line:'Gives particles mass',info:['Its particle was found in 2012.','Particles "drag" in it = mass.'],p:['field']},
- {id:'quarks',r:4,x:220,s:'k',ic:'quarks',name:'Quarks & gluons',line:'Glued by strong force',info:['Quarks make protons and neutrons.','Gluons hold them together.'],p:['bigbang','gap','higgs']},
- {id:'electrons',r:4,x:380,s:'k',ic:'electron',name:'Electrons',line:'Tiny negative charges',info:['Found in 1897.','They surround atoms, carry electricity.'],p:['bigbang','gap','higgs']},
- {id:'photons',r:4,x:540,s:'k',ic:'photon',name:'Photons',line:'Particles of light',info:['Light, radio, X-rays: all photons.','They carry the electric force.'],p:['bigbang','gap']},
- {id:'neutrinos',r:4,x:700,s:'k',ic:'neutrino',name:'Neutrinos',line:'Ghosts that pass through',info:['Trillions pass through you each second.','They almost never hit anything.'],p:['bigbang']},
- {id:'dm',r:4,x:860,s:'t',ic:'darkmatter',name:'Dark matter',line:'Unseen mass. A particle?',info:['About 5× more than normal matter.','We see its pull, not the stuff.','What it is: still a guess.'],p:['bigbang']},
- {id:'de',r:4,x:1020,s:'u',ic:'darkenergy',name:'Dark energy',line:'Pushes space apart. Why?',info:['About 70% of the universe.','Makes expansion speed up.','What it is: unknown.'],p:['bigbang']},
- {id:'hadrons',r:5,x:260,s:'k',ic:'hadrons',name:'Protons & neutrons',line:'Three quarks each',info:['Proton = 2 up + 1 down quark.','Formed in the first second.'],p:['quarks']},
- {id:'nuclei',r:6,x:300,s:'k',ic:'nuclei',name:'First nuclei',line:'Hydrogen & helium cores',info:['Made in the first 3 minutes.','About 3/4 hydrogen, 1/4 helium.'],p:['hadrons']},
- {id:'atoms',r:7,x:380,s:'k',ic:'atom',name:'First atoms',line:'Nuclei catch electrons',info:['380,000 years after the Big Bang.','Space became see-through.'],p:['nuclei','electrons']},
- {id:'cmb',r:7,x:640,s:'k',ic:'cmb',name:'Afterglow (CMB)',line:'Oldest light we can see',info:['Light set free when atoms formed.','Now faint microwaves everywhere.'],p:['atoms','photons']},
- {id:'clouds',r:8,x:560,s:'k',ic:'clouds',name:'Gas clouds',line:'Gravity gathers gas',info:['Gas and dark matter clump.','Clouds collapse to make stars.'],p:['atoms','dm']},
- {id:'firststars',r:9,x:340,s:'t',ic:'firststars',name:'First stars',line:'Huge, not yet seen',info:['Only hydrogen and helium.','Probably huge and short-lived.','Not directly seen yet.'],p:['clouds']},
- {id:'stars',r:9,x:560,s:'k',ic:'star',name:'Stars',line:'Squeezed gas ignites',info:['Gravity squeezes the core.','Hydrogen fuses into helium.','That is why stars shine.'],p:['clouds']},
- {id:'galaxies',r:9,x:800,s:'k',ic:'galaxy',name:'Galaxies',line:'Billions of stars swirl',info:['Milky Way: 100+ billion stars.','Billions of galaxies exist.'],p:['clouds','dm']},
- {id:'fusion',r:10,x:420,s:'k',ic:'fusion',name:'Fusion in stars',line:'Light atoms fuse heavier',info:['Helium → carbon → oxygen…','Up to iron in big stars.'],p:['firststars','stars']},
- {id:'supernova',r:10,x:660,s:'k',ic:'supernova',name:'Supernovae',line:'Stars explode, seed space',info:['Big stars explode when done.','They spread elements into space.','Star crashes make gold too.'],p:['stars']},
- {id:'bh',r:10,x:900,s:'k',ic:'blackhole',name:'Black holes',line:"Even light can't escape",info:['Left by some dead stars.','First photographed in 2019.'],p:['supernova','galaxies']},
- {id:'elements',r:11,x:520,s:'k',ic:'elements',name:'Heavier elements',line:'Carbon, oxygen, iron…',info:['Your carbon was made in stars.','"We are made of star stuff."'],p:['fusion','supernova','atoms']},
- {id:'molecules',r:12,x:360,s:'k',ic:'molecule',name:'Molecules',line:'Atoms share electrons',info:['Water, CO₂, methane…','Even found in space clouds.'],p:['elements']},
- {id:'dust',r:12,x:680,s:'k',ic:'dust',name:'Dust & disks',line:'Rings around young stars',info:['Gas and dust circle new stars.','Telescopes see them today.'],p:['elements','stars']},
- {id:'planets',r:13,x:600,s:'k',ic:'planet',name:'Planets',line:'Dust clumps into worlds',info:['Dust sticks into rocks, then worlds.','Giants also grab gas.'],p:['dust']},
- {id:'solar',r:13,x:860,s:'k',ic:'solar',name:'Solar system',line:'Our Sun and its family',info:['Formed 4.6 billion years ago.','8 planets around the Sun.'],p:['dust']},
- {id:'earth',r:14,x:620,s:'k',ic:'earth',name:'Earth',line:'Rocky, wet, just right',info:['Right distance for liquid water.','Has a magnetic shield.'],p:['planets','solar']},
- {id:'exo',r:14,x:900,s:'k',ic:'exo',name:'Other worlds',line:'Thousands found so far',info:['5,000+ planets around other stars.','Some might have water.'],p:['planets']},
- {id:'water',r:15,x:480,s:'k',ic:'water',name:'Water & oceans',line:'Early Earth gets wet',info:['Oceans by ~4.4 billion years ago.','Water lets chemistry happen.'],p:['molecules','earth']},
- {id:'chem',r:16,x:520,s:'k',ic:'flask',name:'Rich chemistry',line:'Vents, lightning, sun',info:['Energy from vents, lightning, sun','builds new molecules.'],p:['water','earth']},
- {id:'amino',r:17,x:520,s:'k',ic:'amino',name:"Life's building blocks",line:'Amino acids & bases',info:['They form in lab experiments.','Also found in meteorites.'],p:['chem']},
- {id:'rna',r:18,x:520,s:'t',ic:'rna',name:'RNA world',line:'RNA copied itself first?',info:['RNA can store info and do work.','Maybe it came before DNA.','Leading idea, not proven.'],p:['amino']},
- {id:'origin',r:19,x:520,s:'u',ic:'spark',name:'The first spark',line:'Chemistry → alive: how?',info:['The exact step from chemistry','to living cells is unknown.'],p:['rna']},
- {id:'cells',r:20,x:520,s:'k',ic:'cell',name:'First cells',line:'A skin around a copier',info:['About 3.5–4 billion years ago.','Simple cells, no nucleus.','Like bacteria today.'],p:['origin']},
- {id:'dna',r:21,x:360,s:'k',ic:'dna',name:'DNA',line:"Life's recipe book",info:['Double helix, found in 1953.','Stores instructions for life.'],p:['cells','rna']},
- {id:'photosyn',r:21,x:700,s:'k',ic:'leaf',name:'Photosynthesis',line:'Sunlight → food + oxygen',info:['Tiny cells filled the air with oxygen.','Later, complex life could breathe it.'],p:['cells']},
- {id:'eukaryote',r:22,x:520,s:'k',ic:'eukaryote',name:'Complex cells',line:'Cells with a nucleus',info:['One cell swallowed another.','It became the mitochondria.'],p:['cells','photosyn']},
- {id:'multicell',r:23,x:520,s:'k',ic:'multicell',name:'Many-celled life',line:'Cells team up',info:['Cells stick together and specialise.','It happened many times.'],p:['eukaryote']},
- {id:'plants',r:24,x:340,s:'k',ic:'plant',name:'Plants',line:'Green, sun-powered',info:['On land ~470 million years ago.','Make the oxygen we breathe.'],p:['multicell','photosyn']},
- {id:'animals',r:24,x:680,s:'k',ic:'fish',name:'Animals',line:'Move, eat, sense',info:['Over 500+ million years.','Shaped by evolution.'],p:['multicell']},
- {id:'human',r:25,x:680,s:'k',ic:'human',name:'Human body',line:'~37 trillion cells',info:['Built from DNA instructions.','Cells → tissues → organs.'],p:['animals']},
- {id:'organs',r:26,x:520,s:'k',ic:'heart',name:'Organs',line:'Heart, lungs, gut…',info:['Each organ does one big job.','They all work as a team.'],p:['human']},
- {id:'brain',r:26,x:840,s:'k',ic:'brain',name:'Brain',line:'86 billion neurons',info:['Trillions of connections.','Thinks, feels, remembers.'],p:['human']},
- {id:'mind',r:27,x:840,s:'u',ic:'mind',name:'Consciousness',line:'Why it feels: unknown',info:['How brain activity becomes feeling','is one of the biggest unknowns.'],p:['brain']},
+/* ---------------- THE BASE ---------------- */
+{id:'nothing',r:0,x:1000,s:'u',ic:'nothing',name:'Before the Big Bang?',line:'Why is there anything?',sz:null,szt:'No size: maybe no space yet',
+ info:['Nobody knows yet.','Maybe there was no "before".'],
+ L2:['## What we can say','Our physics works back to a tiny fraction of a second after the start.','Before that, we have only ideas.','## Ideas people test','Inflation that runs forever, a bounce from an older universe, or time itself starting.'],
+ L3:['## Open questions','Why these laws? Why these numbers?','Chain Theory says only pairs of qudits exist. It does not say where they came from.','## How we would know','Signals from the first instant: gravitational waves from inflation, or patterns in the afterglow light. None found yet.'],
+ src:['planckinf','qg'],p:[]},
+
+{id:'axiom',r:1,x:420,s:'t',ic:'chain',name:'Chain Theory',line:'Only entangled pairs exist',sz:null,szt:'Below all lengths (space is built later)',
+ info:['A new idea by Alex Wissner-Gross (Oct 2026).','Reality = networks of linked tiny quantum units.','Brand new. Not yet tested by others.'],
+ L2:['## Alex says','"Nothing exists but finitely many maximally entangled pairs of qudits, some qudits shared, known only by distilling them."','That one sentence is the only input. Alex aims for "no free parameters".','Particles would be "chainmail": finite meshes of these links. "A chain, not a string."','## Our reading','It is like a building made only of linked rings. Everything else is how the rings join.'],
+ L3:['## Status (Alex\'s own grading)','A compendium of 100 theorems, 109 conditional theorems and 198 open results (release 0.1).','"Theorem" here often means a check over a finite list of networks, not a proof for all.','That its pieces ARE real physics is called a conjecture by Alex himself.','## What is missing','Peer review. Independent checks. A second number that matches a measurement.','Posted 23–24 Oct 2026, so only days old.','## Disclosure (from the paper)','Made with a "human-superintelligence collaboration". The author has a financial interest in Physical Superintelligence PBC.'],
+ src:['ctpost','ctx','ctalpha','cttalk','ctcomp'],p:['nothing']},
+
+{id:'qft',r:1,x:1050,s:'k',ic:'field',name:'Quantum fields',line:'Standard Model: tested',sz:null,szt:'Fills all of space',
+ info:['Every particle is a ripple in a field.','The Standard Model: 17 particles, 3 forces.','Tested extremely precisely.'],
+ L2:['## Recipe','12 matter fields (6 quarks, 6 leptons) + force fields (gluons, photon, W, Z) + the Higgs field.','## How it works','A field is spread over all space. A ripple of fixed size is a particle.','The rules come from symmetry: SU(3)×SU(2)×U(1).'],
+ L3:['## How we know','Its predictions match experiments, e.g. the electron\'s magnetism to about 1 part in a trillion.','## The numbers','About 19–26 constants must be measured (masses, strengths). The theory does not explain them.','## Open questions','No gravity. No dark matter. Why 3 generations? Why these masses?'],
+ src:['pdg'],p:['nothing']},
+
+{id:'qgrav',r:1,x:1650,s:'u',ic:'qgrav',name:'Quantum gravity',line:'Gravity at tiny scales?',sz:-34.8,szt:'Planck length ~1.6×10⁻³⁵ m',
+ info:['Joining gravity with quantum rules.','Ideas: strings, loops, chains…','None proven. No leading winner.'],
+ L2:['## Why it matters','At the Planck scale (~10⁻³⁵ m) both gravity and quantum effects are strong.','Our two best theories then disagree.','## Candidates','String theory, loop quantum gravity, causal sets, "spacetime from entanglement", Chain Theory.'],
+ L3:['## Fix since v1','Was shown orange. Changed to red: no idea is tested, and none leads by evidence.','## How we would know','A prediction checked by experiment: e.g. a sign in the early-universe light, or a tiny change to black-hole behaviour.'],
+ src:['qg'],p:['nothing']},
+
+{id:'qudits',r:2,x:230,s:'t',ic:'qudits',name:'Qudits & pairs',line:'The links of the chain',sz:null,szt:'No size: comes before space',
+ info:['A qudit is a tiny quantum unit with d states.','Two qudits share one perfect entangled state.','That pair is one "link".'],
+ L2:['## Alex says','A qudit has dimension 2 or more (2 = qubit, 3 = qutrit).','A pair is "maximally entangled": as linked as quantum rules allow.','A shared qudit is the end of 2+ pairs. It carries one copy per pair (because entanglement is "monogamous").','## Recipe','2 qudits → 1 link. Links join at shared qudits → a network.'],
+ L3:['## Why pairs must be perfect','A less-than-perfect pair would need smooth, continuous numbers. A fully discrete theory cannot have them.','## Known physics behind it','Monogamy of entanglement and tensor networks (PEPS) are standard quantum information.','## Open','That reality is made ONLY of these pairs is the untested part.'],
+ src:['cttalk','ctalpha'],p:['axiom'],el:{axiom:'the only ingredient'}},
+
+{id:'distill',r:2,x:560,s:'t',ic:'distill',name:'Distillation',line:'"To know is to link"',sz:null,szt:'No size',
+ info:['To look at a link, you distill it.','Distilling 2 qudits makes them a new pair.','Time = a count of these acts.'],
+ L2:['## Alex says','To distill two qudits is to project them onto a perfect pair. One copy, no failure.','A "read" is a distillation at one end of a pair.','What is "known" is only what reads can fix with certainty.','## Like','Entanglement swapping: link 1–2 and 3–4, distill 2 with 3, and now 1–4 is a pair.'],
+ L3:['## Time','"Time is counted, not assumed." Graded a conditional theorem (box 50.1).','## Born rule','The usual quantum probability rule comes out as an output (Alex grades it conditional).','## Known physics behind it','Entanglement swapping is a real lab effect (since 1998).'],
+ src:['cttalk','ctcomp'],p:['axiom'],el:{axiom:'how we see links'}},
+
+{id:'inflation',r:2,x:1350,s:'t',ic:'inflation',name:'Inflation',line:'Super-fast first stretch',sz:-30,szt:'Model-dependent: far smaller than a proton → roughly cm–m',
+ info:['Space grew hugely in a split second.','Fits what we see in the sky.','Leading model, not proven.'],
+ L2:['## How it works (model)','A field made space grow by a factor e (~2.7) again and again: at least ~60 times ("e-folds"), ~10²⁶ in all.','In common models it ended by ~10⁻³² s, then dumped its energy as hot particles.','## Why we think so','Space is flat, the sky is the same everywhere, and the seed ripples have the right pattern.'],
+ L3:['## Open','What field? Was it really inflation? No "B-mode" gravity-wave sign seen yet.','Rivals: bouncing universes, other early phases.'],
+ src:['planckinf'],p:['qft','qgrav']},
+
+{id:'genres',r:3,x:230,s:'t',ic:'genres',name:'Six kinds of link',line:'Only 2 can be read',sz:null,szt:'No size',
+ info:['Links are typed by end sizes: (2,2), (3,2)…','Only (2,2) and (3,2) can be "read".','The other four are "dark".'],
+ L2:['## Alex says','Ends have dimension 2, 3 or 4 ("Conjecture 0", a conditional theorem).','That gives 6 genres: (2,2) (3,2) (4,2) (3,3) (4,3) (4,4).','A link is readable when d₁×d₂ ≤ 6 (math of Størmer, Woronowicz, Choi).','## Alex\'s conjectured jobs','(2,2) spacetime · (3,2) photon / electromagnetism · (4,2) weak force · (3,3) strong force · (4,3) Yukawa (mass) · (4,4) Higgs.'],
+ L3:['## Status','The 6 genres and the read cap are derived. Which physics each one IS: conjectured, some matched only "by name" (Alex’s words).','## Known maths behind it','Bound entanglement (Horodecki 1998) first appears when d₁×d₂ > 6. That part is solid.'],
+ src:['cttalk','horo','ctcomp'],p:['qudits','distill'],el:{qudits:'end sizes 2, 3, 4'}},
+
+{id:'gauge',r:3,x:560,s:'t',ic:'gauge',name:'Forces from one link',line:'Qutrit + qubit symmetry',sz:null,szt:'No size',
+ info:['A qutrit linked to a qubit has a symmetry.','It is the same shape as the Standard Model\'s.','A striking match. Meaning not yet proven.'],
+ L2:['## Alex says','Turning the qutrit end gives SU(3). Turning the qubit end gives SU(2). One shared phase gives U(1).','Together: (SU(3)×SU(2)×U(1))/ℤ₆, the exact group of the Standard Model.','Its charge is the hypercharge with Y = 1/6, like the left-handed quark doublet.'],
+ L3:['## Known maths','The group S(U(3)×U(2)) ≅ (SU(3)×SU(2)×U(1))/ℤ₆ is known (Baez & Huerta 2010).','Alex\'s new step is reading it as the symmetry of ONE entangled pair.','## Open','Why this pair and not others? How hypercharge becomes electric charge is "beyond the Letter".'],
+ src:['ctalpha','baez'],p:['genres'],el:{genres:'the (3,2) link'}},
+
+{id:'alpha',r:3,x:890,s:'t',ic:'alpha',name:'α ≈ 1/137.036',line:'A number from one link',sz:null,szt:'A pure number (no units)',
+ info:['α sets how strongly light and charge interact.','Alex gets 1/137.035999190 with no tuning.','Measured: 1/137.035999177 (±21 in last digits).'],
+ L2:['## Recipe (Alex says)','1 shared qutrit with 3 links to qubits, 2 of them read.','Count 172 "records": 79 + 48 + 42 + 3.','Weigh them 1, √2, √3, √6. Divide by 31104 = 24×36×36.','α = (79 + 48√2 + 42√3 + 3√6) / 31104.','## Check','We re-did the sum: 1/α = 137.0359991896.'],
+ L3:['## Graded','The number is proven from his rules, checked in Lean 4.','That it IS α is the "Photon Conjecture". It is not in the Lean proof.','## Versus experiments','0.6σ from CODATA 2022. But +1.6σ (electron g−2, 2023), −1.5σ (rubidium, 2020), +5.3σ (caesium, 2018). The experiments disagree with each other.','## Caution','One blogger estimated ~140 formulas of this style land as close (rough, not peer-reviewed). No second matching number yet.','## Test','New, ~10× sharper measurements (Northwestern, Berkeley, Paris) will confirm or kill it.'],
+ src:['ctalpha','ctpost','codata','ctcheck'],p:['gauge'],el:{gauge:'read twice → 172 records'}},
+
+{id:'seeds',r:3,x:1200,s:'t',ic:'seeds',name:'Seed ripples',line:'Tiny bumps, 1 in 100,000',sz:-30,szt:'Quantum-small, stretched to cosmic size',
+ info:['Tiny quantum jitters were stretched huge.','They became 1-in-100,000 bumps in density.','Every galaxy grew from one.'],
+ L2:['## Recipe','Quantum jitter + inflation\'s stretch → almost-even ripples on every scale.','## Randomness','The exact bump pattern is random. The overall statistics are predicted.'],
+ L3:['## How we know','The bumps are seen directly in the afterglow (CMB). Their pattern (n_s ≈ 0.965) fits inflation well.','## Open','That they came from inflation\'s quantum jitter is the leading idea, not proof.'],
+ src:['planck','planckinf'],p:['inflation'],el:{inflation:'quantum jitter, stretched'}},
+
+{id:'bigbang',r:3,x:1500,s:'k',ic:'bigbang',name:'Hot Big Bang',line:'Hot, dense, expanding',sz:null,szt:'Today\'s visible universe was once tiny',
+ info:['13.8 billion years ago.','Hot, dense, and expanding ever since.','Seen in the afterglow light.'],
+ L2:['## What it is','Not an explosion in space. Space itself stretching, everywhere.','## Timeline','10⁻¹² s: forces split. 10⁻⁵ s: protons form. 3 min: first nuclei. 380,000 yr: atoms.'],
+ L3:['## How we know','Galaxies move apart (Hubble). The afterglow (CMB). The right amounts of H, He, Li.','## The numbers','Age 13.787 ± 0.020 billion years (Planck 2018).','## Open','The "Hubble tension": two ways of measuring the expansion speed disagree (~67 vs ~73 km/s/Mpc).'],
+ src:['planck'],p:['inflation'],el:{inflation:'inflation ends → heat'}},
+
+{id:'higgs',r:3,x:1820,s:'k',ic:'higgs',name:'Higgs field',line:'Gives tiny particles mass',sz:-18,szt:'Boson ~125 GeV, lives 10⁻²² s',
+ info:['Its particle was found in 2012.','It gives quarks, electrons, W and Z their mass.','NOT most of YOUR mass (see protons).'],
+ L2:['## Fix since v1','v1 said particles "drag" in it. That picture is misleading.','Particles get mass by coupling to the field\'s steady value (246 GeV) everywhere in space.','## The numbers','Higgs boson: 125.1 GeV. Found by ATLAS and CMS at CERN, 4 July 2012.'],
+ L3:['## Important','Only ~1% of a proton\'s mass comes from Higgs-given quark masses. ~99% is strong-force energy.','## Open','Why these couplings? Is the vacuum stable? Do neutrinos get mass this way? Unknown.','## Chain Theory','Alex conjectures the Higgs is a "closed hub read" in (4,4) links (conditional).'],
+ src:['cern_higgs','pdg'],p:['qft']},
+
+{id:'chainmail',r:4,x:230,s:'t',ic:'chainmail',name:'Chainmail particles',line:'Particles as webs of links',sz:-18,szt:'Looks point-like: <10⁻¹⁸ m',
+ info:['Each particle = a small web of links.','Its insides can\'t be pulled apart by collisions.','So it looks like a point. Alex\'s idea.'],
+ L2:['## Alex says','Particles have no visible parts because their parts are "undistillable", not too small.','Example, the electron web: 9 sites and 10 links. A core triangle of three (3,3) links plus one "hub assembly" (links of types (4,2), (3,2), (4,3), (2,2)).','Muon and tau add more hubs to the same core (the tau is "the third hub on the triangle core"). Alex reads this as 3 generations (conditional 152.1).','## Recipe','Links + shared qudits → closed webs.'],
+ L3:['## Graded','17 particles drawn on 16 webs: 1 on a theorem, 11 conditional, 2 open, 3 not yet in the release.','"That a web is the named particle is a conjecture."','## Our reading','A neat idea: like knots in chainmail. No mass or charge of a real particle has been derived from a web yet.'],
+ src:['cttalk','ctcomp'],p:['qudits','genres'],el:{qudits:'many links, shared joints',genres:'mixed genres'}},
+
+{id:'ctspace',r:4,x:560,s:'t',ic:'ctspace',name:'Space & time from links?',line:'(2,2) links → spacetime',sz:null,szt:'Builds the lengths themselves',
+ info:['Alex: space and time are not given.','They come from counting links and acts.','Conditional results. Not proven.'],
+ L2:['## Alex says','The Lorentz group (special relativity) appears as the symmetries of a "Hermitian split" (conditional, box 54.1).','Spacetime has 1 time + 3 space directions: "one against three" (a theorem of the networks).','Gravity is "a statement about counting": a metric from the depth of a web, curvature as a graph Laplacian (conditional).','A cosmological term (dark energy?) at the "depth exponent" (conditional).'],
+ L3:['## Known physics behind it','"Spacetime from entanglement" (Van Raamsdonk 2010) and gravity from thermodynamics (Jacobson 1995) are real research lines.','## Open','No measured gravity number (like G) is derived yet. Much of Part VI (metric, worldline, horizon) is conditional or open.'],
+ src:['cttalk','ctcomp'],p:['genres','distill'],el:{genres:'(2,2) links'}},
+
+{id:'gap',r:4,x:890,s:'u',ic:'gap',name:'Chain → Standard Model',line:'The bridge is not built',sz:null,szt:'—',
+ info:['Chain Theory\'s maths is checked.','That it IS our real particles is not shown.','This is the biggest gap at the base.'],
+ L2:['## What would fill it','1. Electric charge (not just hypercharge) from a link.','2. Space, time and spin built in fully.','3. A real mass, e.g. proton ÷ electron = 1836.15, from a web.','4. Others re-deriving the results.','5. New α measurements agreeing with 137.035999190.'],
+ L3:['## Why red','Alex himself grades the particle identifications as conjectures. Nobody outside has confirmed them.','## Our approach in this map','Below this line we use the tested Standard Model, and mark where Chain Theory offers a different story.'],
+ src:['ctalpha','ctcheck'],p:['chainmail','alpha','ctspace'],es:{chainmail:'u',alpha:'u',ctspace:'u'}},
+
+{id:'soup',r:4,x:1250,s:'k',ic:'qgp',name:'Hot particle soup',line:'All particles, ~10⁻¹² s',sz:null,szt:'The whole universe was hotter than 10¹⁵ K',
+ info:['Right after the Big Bang: pure energy.','Energy turned into particle pairs (E = mc²).','~10⁻¹² s: the Higgs switches on; forces split.'],
+ L2:['## Recipe','Heat energy → pairs of particles + antiparticles, made and destroyed all the time.','At ~10⁻¹² s (~10¹⁵ K) the Higgs field takes its value: the weak and electric forces split, W, Z, quarks and electrons get mass.','## Randomness','Which particles pop out where is quantum chance.'],
+ L3:['## How we know','The LHC recreates these energies (~10¹² eV per collision).','## Fix since v1','v1 drew every particle straight from the Big Bang. This hub shows the shared step.'],
+ src:['pdg','cern_higgs'],p:['bigbang','qft']},
+/* ---------------- PARTICLES ---------------- */
+{id:'quarks',r:5,x:200,s:'k',ic:'quarks',name:'Quarks',line:'6 flavours, 3 colours',sz:-18,szt:'Point-like: <10⁻¹⁸ m',
+ info:['Up, down, strange, charm, bottom, top.','Never seen alone: always stuck together.','Protons and neutrons are made of them.'],
+ L2:['## Family','3 generations × 2 = 6 flavours. Each has 3 "colour" charges.','Up: +⅔ charge, ~2.2 MeV. Down: −⅓, ~4.7 MeV. Top: 173 GeV (heaviest).','## Recipe','Mass from the Higgs field. Held by gluons.'],
+ L3:['## How we know','Electron-scattering showed hard points inside protons (SLAC, 1968). Top quark found 1995.','## Chain Theory','Alex: quarks as "quark bodies" on star-shaped webs (conditional).','## Open','Why 3 generations? Why such different masses?'],
+ src:['pdg'],p:['soup','gap','higgs'],es:{gap:'u'}},
+
+{id:'gluons',r:5,x:420,s:'k',ic:'gluon',name:'Gluons',line:'Carry the strong force',sz:-18,szt:'Massless, but trapped within ~10⁻¹⁵ m',
+ info:['8 kinds of gluon.','They glue quarks together.','They stick to each other too.'],
+ L2:['## Recipe','Strong force field (SU(3)) → 8 gluons. No mass.','## Why it matters','Gluon energy makes up most of a proton\'s mass.'],
+ L3:['## How we know','"Three-jet" collisions at DESY (1979).','## Chain Theory','Alex: the strong coupling as a "gluon closed read" in (3,3) links (conditional).'],
+ src:['pdg'],p:['soup','gap'],es:{gap:'u'}},
+
+{id:'electrons',r:5,x:640,s:'k',ic:'electron',name:'Electrons & leptons',line:'e, μ, τ + 3 neutrinos',sz:-18,szt:'Point-like: <10⁻¹⁸ m',
+ info:['Electron found in 1897.','Heavier copies: muon and tau.','Electrons make atoms and electricity.'],
+ L2:['## Family','6 leptons: electron, muon, tau, and a neutrino for each.','Electron: charge −1, mass 0.511 MeV (1/1836 of a proton).','## Recipe','Mass from the Higgs field. No colour, so no strong force.'],
+ L3:['## Chain Theory','Alex draws an electron web; muon and tau add hubs (conditional theorem 152.1). That the web IS the electron: conjecture.','## Open','Why is the muon 207× heavier than the electron? Unknown.'],
+ src:['pdg','cttalk'],p:['soup','gap','higgs'],es:{gap:'u'}},
+
+{id:'neutrinos',r:5,x:860,s:'k',ic:'neutrino',name:'Neutrinos',line:'Ghosts that pass through',sz:-18,szt:'Mass < 0.5 eV (tiny)',
+ info:['~100 trillion pass through you each second.','They almost never hit anything.','They have tiny masses: why, unknown.'],
+ L2:['## Fix since v1','v1 said "trillions". Better: ~65 billion per cm² per second from the Sun alone, so ~10¹⁴ through a body each second.','## Family','3 types: electron, muon, tau. They change type as they fly ("oscillation", Nobel 2015).'],
+ L3:['## Open','Their masses are not given by the Standard Model. Are they their own antiparticle? Unknown.','## The numbers','Mass sum < ~0.07–0.5 eV (cosmology vs lab; DESI hints very small).'],
+ src:['solarnu','pdg'],p:['soup']},
+
+{id:'photons',r:5,x:1080,s:'k',ic:'photon',name:'Photons',line:'Particles of light',sz:-18,szt:'Massless. Wavelength anything',
+ info:['Light, radio, X-rays: all photons.','They carry the electric force.','Massless: always at light speed.'],
+ L2:['## Recipe','Electroweak field + Higgs breaking → 1 massless photon + W and Z.','## Chain Theory','Alex conjectures the qutrit–qubit link is the "elementary link of the photon". That would make his number α.'],
+ L3:['## Status','The photon is known science. The Photon Conjecture is untested.'],
+ src:['pdg','ctalpha'],p:['soup','gap'],es:{gap:'u'},el:{gap:'Photon Conjecture?'}},
+
+{id:'wz',r:5,x:1300,s:'k',ic:'wz',name:'W & Z bosons',line:'Heavy weak-force carriers',sz:-18,szt:'Range ~10⁻¹⁸ m',
+ info:['Found at CERN in 1983.','About 86–97× a proton\'s mass.','They make some atoms decay.'],
+ L2:['## Recipe','Electroweak field + Higgs → W⁺, W⁻ (80.4 GeV), Z (91.2 GeV).','Heavy, so the weak force reaches only ~10⁻¹⁸ m.'],
+ L3:['## Chain Theory','Alex: the weak force is his "hub step"; the W is a web of 5 sites and 4 links. He says the match is "by name"; parts are open.'],
+ src:['pdg','cttalk'],p:['higgs','gap'],es:{gap:'u'}},
+
+{id:'dm',r:5,x:1580,s:'t',ic:'darkmatter',name:'Dark matter',line:'Unseen mass. A particle?',sz:null,szt:'Unknown',
+ info:['~5× more than normal matter.','We see its pull, not the stuff.','What it is: still a guess.'],
+ L2:['## The numbers','Dark matter ~26.5% of everything, normal matter ~4.9%, dark energy ~68.5% (Planck 2018).','## Evidence (top-down)','Galaxy spin speeds, gravitational lensing, the CMB pattern, the Bullet Cluster.'],
+ L3:['## Colour','The extra pull is very well measured. That it is a new particle is the leading idea, so orange.','## Ideas','WIMPs, axions, sterile neutrinos, primordial black holes, modified gravity. None found.','## Chain Theory','Alex: "dark matter as the dock-free sinks" (open result 120.3).'],
+ src:['planck','ctcomp'],p:['bigbang']},
+
+{id:'de',r:5,x:1840,s:'u',ic:'darkenergy',name:'Dark energy',line:'Pushes space apart. Why?',sz:26,szt:'Matters only on cosmic scales',
+ info:['About 68% of the universe.','Makes expansion speed up (found 1998).','What it is: unknown.'],
+ L2:['## The numbers','~68.5% of the energy of the universe (Planck 2018).','## Simplest idea','A constant energy of empty space (Λ). But theory guesses a value ~10¹²⁰ too big.'],
+ L3:['## New','DESI (2025) hints it may weaken over time. Not yet certain.','## Chain Theory','Alex writes a "cosmological term at the depth exponent" (conditional).'],
+ src:['planck','desi','ctcomp'],p:['bigbang']},
+
+/* ---------------- FORCES ---------------- */
+{id:'strong',r:6,x:300,s:'k',ic:'strong',name:'Strong force',line:'Strongest, range ~1 fm',sz:-15,szt:'~10⁻¹⁵ m',
+ info:['Holds quarks inside protons.','Leaks out to hold nuclei together.','Stronger the further you pull.'],
+ L2:['## Strength','Roughly 100× the electric force at ~1 fm (α_s ≈ 1 vs α ≈ 1/137).','## Confinement','Pull quarks apart and new quarks pop out. So no free quarks.'],
+ L3:['## Open','Confinement is seen and simulated, but not proven mathematically (a Millennium Prize problem).','## Chain Theory','Alex: confinement = (3,3) links are "dark" (conditional 171.1).'],
+ src:['pdg','cttalk'],p:['gluons'],el:{gluons:'8 gluons'}},
+
+{id:'antimatter',r:6,x:640,s:'u',ic:'antimatter',name:'Why matter won?',line:'1 extra in a billion',sz:null,szt:'—',
+ info:['Matter and antimatter were made equal…','…except ~1 extra matter per billion.','The rest wiped out. Why? Unknown.'],
+ L2:['## The numbers','~6×10⁻¹⁰ protons per photon today. Everything we see is that leftover.','## Ideas','"Baryogenesis", "leptogenesis" from heavy neutrinos.'],
+ L3:['## Why red','Known physics does not make enough of an imbalance.'],
+ src:['baryo'],p:['soup']},
+
+{id:'em',r:6,x:1080,s:'k',ic:'em',name:'Electromagnetism',line:'Light, charge, chemistry',sz:null,szt:'Infinite range',
+ info:['Charges pull or push.','Carried by photons.','All of chemistry is this force.'],
+ L2:['## Strength','Set by α ≈ 1/137.036.','## Recipe','Photons + charges (electrons, quarks).'],
+ L3:['## How we know','QED predicts the electron\'s magnet to ~1 part in a trillion.','## Chain Theory','If the Photon Conjecture holds, α comes from one link (orange).'],
+ src:['codata','pdg'],p:['photons','alpha'],es:{alpha:'t'},el:{photons:'photons + charges',alpha:'α if Alex is right'}},
+
+{id:'weak',r:6,x:1300,s:'k',ic:'weak',name:'Weak force',line:'Changes particle types',sz:-18,szt:'~10⁻¹⁸ m',
+ info:['Turns neutrons into protons.','Lets the Sun fuse hydrogen.','Very short range.'],
+ L2:['## Recipe','W and Z bosons.','## Why it matters','Without it: no fusion in stars, no element-building.'],
+ L3:['## Chain Theory','(4,2) links. Alex says the match to the weak force is "by name".'],
+ src:['pdg'],p:['wz'],el:{wz:'W & Z'}},
+
+{id:'gravity',r:6,x:1580,s:'k',ic:'gravity',name:'Gravity',line:'Weakest, but builds worlds',sz:null,szt:'Infinite range',
+ info:['Mass bends space and time.','~10³⁶× weaker than electric force.','Always pulls, so it wins at big sizes.'],
+ L2:['## Known','General relativity (1915). Gravitational waves seen 2015. Black hole images 2019.','## Not known','How it works at quantum sizes (red line above).'],
+ L3:['## Chain Theory','Alex: gravity from counting links (conditional). Not yet matched to a measured number.'],
+ src:['eht','qg','ctcomp'],p:['ctspace','qgrav'],es:{ctspace:'t',qgrav:'u'},el:{ctspace:'if Alex is right'}},
+
+/* ---------------- EARLY UNIVERSE ---------------- */
+{id:'qgp',r:7,x:300,s:'k',ic:'qgp',name:'Quark-gluon soup',line:'First ~10 microseconds',sz:-15,szt:'Particles ~10⁻¹⁵ m apart',
+ info:['Too hot for protons to exist.','Quarks and gluons swam free.','We remake it in colliders.'],
+ L2:['## Recipe','Quarks + gluons above ~2 trillion °C (~155 MeV).','## How long','Until ~10 microseconds after the Big Bang.'],
+ L3:['## How we know','Made at RHIC (2005) and the LHC: a near-perfect liquid.'],
+ src:['qgp'],p:['quarks','gluons','strong']},
+
+{id:'halos',r:7,x:1500,s:'t',ic:'halo',name:'Dark-matter clumps',line:'The skeleton for galaxies',sz:21.5,szt:'~10²¹–10²³ m',
+ info:['Dark matter clumps first.','Gas later falls into these "halos".','Simulations and maps agree.'],
+ L2:['## Recipe','Seed bumps + dark matter + gravity + time → a web of halos and filaments.','## Randomness','Where each halo forms comes from the random seed pattern.'],
+ L3:['## How we know','Lensing maps and galaxy surveys match simulations (ΛCDM).','## Colour','Orange because what dark matter is remains unknown.'],
+ src:['planck'],p:['seeds','dm','gravity'],el:{seeds:'bumps grow',dm:'×5 normal matter'}},
+
+{id:'hadrons',r:8,x:300,s:'k',ic:'hadrons',name:'Protons & neutrons',line:'3 quarks + gluon glue',sz:-15,szt:'Proton radius 0.84 fm',
+ info:['Proton = 2 up + 1 down quark.','Neutron = 1 up + 2 down.','Formed ~10 microseconds in.'],
+ L2:['## Recipe','3 quarks (uud) + a sea of gluons and quark pairs → proton.','Size: 0.84 fm radius (8.4×10⁻¹⁶ m).','Mass 938.3 MeV. The 3 quarks\' own masses add to only ~9 MeV!','## Randomness','None in the recipe. Which ones form where: random.'],
+ L3:['## The numbers','~99% of the mass is gluon and motion energy (lattice QCD, Dürr 2008).','Free neutron lives ~15 min. Proton: stable (>10³⁴ years).','## Chain Theory','Alex: a hadron is a "star": a junction qutrit joining three quark bodies (conditional). "Two ups and a down" is a reading, not yet a derivation.'],
+ src:['rp','durr','cttalk'],p:['qgp'],el:{qgp:'3 quarks (uud) + gluons'}},
+
+{id:'bbn',r:9,x:300,s:'k',ic:'nuclei',name:'First nuclei',line:'H, He, a trace of Li',sz:-14.5,szt:'~2–4 fm',
+ info:['Made in about 3–20 minutes.','~75% hydrogen, ~25% helium (by mass).','Plus a pinch of lithium.'],
+ L2:['## Recipe','2 p + 2 n → helium-4 (via deuterium).','1 neutron for every ~7 protons when it started. Almost all neutrons ended in helium.','## Energy','~1 billion °C, falling fast.'],
+ L3:['## How we know','Predicted amounts of D, He, Li match old gas clouds.','## Open','"Lithium problem": theory gives ~3× more lithium than old stars show.'],
+ src:['bbn','li'],p:['hadrons','weak'],el:{hadrons:'2p + 2n → He',weak:'n:p ≈ 1:7'}},
+
+{id:'atoms',r:10,x:420,s:'k',ic:'atom',name:'First atoms',line:'Nuclei catch electrons',sz:-10,szt:'~10⁻¹⁰ m (0.1 nm)',
+ info:['380,000 years after the Big Bang.','Cool enough (~3000 K) to hold electrons.','Space became see-through.'],
+ L2:['## Recipe','1 nucleus + as many electrons as protons → neutral atom.','H = 1 p + 1 e. He = 2 p + 2 n + 2 e.','## Size','Hydrogen: ~0.1 nm across. The nucleus is ~60,000× smaller across (tens of thousands of times).'],
+ L3:['## The numbers','Bohr radius 0.0529 nm. Binding 13.6 eV.','## How we know','The CMB itself is the light set free here.'],
+ src:['bohr','planck'],p:['bbn','electrons','em'],el:{bbn:'1 nucleus',electrons:'+ Z electrons'}},
+
+{id:'cmb',r:10,x:760,s:'k',ic:'cmb',name:'Afterglow (CMB)',line:'Oldest light we can see',sz:26.9,szt:'Fills the visible universe',
+ info:['Light set free when atoms formed.','Now faint microwaves: 2.725 K.','Its bumps are 1 part in 100,000.'],
+ L2:['## Recipe','Photons stop bumping into free electrons → fly freely.','## Top-down','We read the universe\'s age and recipe from its pattern.'],
+ L3:['## The numbers','2.7255 K. Found 1965 (Penzias & Wilson).'],
+ src:['planck'],p:['atoms','photons','seeds'],el:{seeds:'bumps imprinted'}},
+
+{id:'firstmol',r:11,x:300,s:'k',ic:'molecule',name:'First molecules',line:'HeH⁺ and H₂',sz:-10,szt:'~10⁻¹⁰ m',
+ info:['HeH⁺ was the first molecule.','Then H₂ formed.','H₂ let gas cool enough to make stars.'],
+ L2:['## Recipe','He + H⁺ → HeH⁺. Then H + H (via H⁻) → H₂.','## New since v1','HeH⁺ was finally seen in space in 2019.'],
+ L3:['## Why it matters','Without H₂ cooling, the first gas clouds could not shrink into stars.'],
+ src:['heh'],p:['atoms'],el:{atoms:'2 H → H₂'}},
+
+{id:'gas',r:11,x:1100,s:'k',ic:'clouds',name:'Gas clouds',line:'Gravity gathers gas',sz:17,szt:'~10¹⁶–10¹⁸ m',
+ info:['Gas falls into dark-matter clumps.','It cools and collapses.','Dense cores become stars.'],
+ L2:['## Recipe','H/He gas + a dark-matter halo + cooling by H₂ → collapsing cloud.','## Randomness','Turbulence decides where cores form and how big stars get.'],
+ L3:['## The numbers','First star-forming halos ~10⁵–10⁶ Sun masses (simulations).'],
+ src:['pop3'],p:['atoms','halos','firstmol'],el:{halos:'gas falls in',firstmol:'H₂ cools it'}},
+
+/* ---------------- STARS & GALAXIES ---------------- */
+{id:'firststars',r:12,x:900,s:'t',ic:'firststars',name:'First stars',line:'Huge, not yet confirmed',sz:10,szt:'Maybe ~10¹⁰ m (models)',
+ info:['Only hydrogen and helium.','Probably huge (tens–hundreds of Suns).','JWST has candidates. None confirmed.'],
+ L2:['## When','~100–200 million years after the Big Bang (models).','## Recipe','Cloud of ~10⁵ Sun masses → one or a few big stars.'],
+ L3:['## Open','Never seen for sure. Their size range is debated.'],
+ src:['pop3'],p:['gas']},
+
+{id:'stars',r:13,x:900,s:'k',ic:'star',name:'Stars',line:'Squeezed gas ignites',sz:9.1,szt:'Sun 1.39×10⁹ m',
+ info:['Gravity squeezes the core.','At ~10 million °C hydrogen fuses.','That is why stars shine.'],
+ L2:['## Recipe','~0.08 to ~150 Sun masses of gas → a star. Less than 0.08: a brown dwarf.','The Sun: 2×10³⁰ kg, ~73% H, ~25% He.','## Randomness','The mix of star sizes is set by turbulent collapse.'],
+ L3:['## The numbers','Sun core 15.7 million K. It turns ~600 million tonnes of H into He every second.','~10²² –10²⁴ stars in the visible universe (estimate).'],
+ src:['sun'],p:['gas','firststars'],el:{gas:'a collapsing core'}},
+
+{id:'galaxies',r:13,x:1350,s:'k',ic:'galaxy',name:'Galaxies',line:'Billions of stars swirl',sz:21,szt:'Milky Way ~10²¹ m',
+ info:['Milky Way: 100–400 billion stars.','Hundreds of billions of galaxies.','JWST sees them ~280–300 Myr after the Big Bang.'],
+ L2:['## Recipe','A dark-matter halo + gas + stars + often a central black hole.','Milky Way: ~100,000 light-years across.','## Fix since v1','"Billions of galaxies" → hundreds of billions (estimates up to ~2 trillion).'],
+ L3:['## Open','JWST finds bright galaxies earlier than expected.'],
+ src:['momz14','lauer'],p:['gas','halos','stars'],el:{halos:'1 halo',stars:'~10⁸–10¹² stars'}},
+
+{id:'smbh',r:13,x:1720,s:'u',ic:'blackhole',name:'Giant black holes',line:'How did they grow so fast?',sz:10.4,szt:'Sgr A* horizon ~2.5×10¹⁰ m wide',
+ info:['Most galaxies have one in the middle.','Ours: 4 million Suns.','How they got big so early: unknown.'],
+ L2:['## Known','They exist (stars orbiting Sgr A*, Nobel 2020; EHT images).','## Unknown','Seeds: big first stars? Direct collapse of gas?'],
+ L3:['## Colour','Red for the origin question; the objects themselves are known.'],
+ src:['eht'],p:['galaxies'],es:{galaxies:'u'}},
+
+{id:'sprocess',r:14,x:300,s:'k',ic:'sprocess',name:'Slow neutron catching',line:'s-process in old stars',sz:11,szt:'Giant star ~10¹¹ m',
+ info:['Ageing Sun-like giants catch neutrons slowly.','Makes about half the elements past iron.','E.g. barium, lead, strontium.'],
+ L2:['## Recipe','Nucleus + 1 neutron at a time (years between catches) → heavier, then beta-decay.','In stars of ~1–8 Sun masses (AGB stars).','## Reach','Up to lead and bismuth.'],
+ L3:['## How we know','Technetium (no stable form) is seen in such stars (Merrill, 1952).'],
+ src:['b2fh','johnson'],p:['fusion'],el:{fusion:'+n, one at a time'}},
+
+{id:'fusion',r:14,x:650,s:'k',ic:'fusion',name:'Fusion in stars',line:'H → He → C, O … → Fe',sz:8,szt:'Cores ~10⁸ m',
+ info:['4 H → 1 He, in all stars.','3 He → 1 C, then O, Ne, Si…','Up to iron in big stars.'],
+ L2:['## Recipes','4 protons → 1 helium-4 + 26.7 MeV (0.7% of mass becomes energy).','3 helium-4 → carbon-12 at ~100 million K.','C + He → O. Then Ne, Mg, Si, S… Silicon → iron at ~3 billion K.','## Why stop at iron','Iron/nickel have the most tightly-bound nuclei. Fusing further costs energy.'],
+ L3:['## Open','Exact rate of C + He → O is still uncertain; it sets how much O vs C we get.'],
+ src:['b2fh','sun'],p:['stars','firststars','strong','weak'],el:{stars:'4 H → He',strong:'binds nuclei'}},
+
+{id:'cosmicray',r:16,x:250,s:'k',ic:'cosmicray',name:'Cosmic-ray splitting',line:'Makes Li, Be, B',sz:-14,szt:'Nuclear (~10⁻¹⁴ m)',
+ info:['Fast particles smash heavier atoms.','The bits are lithium, beryllium, boron.','Stars mostly destroy these.'],
+ L2:['## Recipe','Fast proton + carbon/oxygen nucleus → smaller pieces.'],L3:[],
+ src:['cosmicray','johnson'],p:['supernova'],el:{supernova:'shock-sped particles'}},
+
+{id:'supernova',r:15,x:650,s:'k',ic:'supernova',name:'Big-star supernovae',line:'Stars >8 Suns explode',sz:13,szt:'Blast reaches ~10¹³ m and beyond',
+ info:['The iron core collapses in under a second.','The blast spreads O, Si, Ca… into space.','Leaves a neutron star or black hole.'],
+ L2:['## Recipe','Star > ~8 Sun masses + iron core ~1.4 Suns → collapse → explosion.','~99% of the energy leaves as neutrinos (seen for SN 1987A).'],
+ L3:['## Open','Exactly how the blast restarts is still modelled, not fully solved.'],
+ src:['johnson','b2fh'],p:['fusion'],el:{fusion:'iron core'}},
+
+{id:'sn1a',r:15,x:1000,s:'k',ic:'sn1a',name:'White-dwarf blasts',line:'Type Ia: makes iron',sz:7,szt:'White dwarf ~10⁷ m (Earth-size)',
+ info:['A dead star\'s core gains mass, then blows up.','Makes about half or more of the iron in your blood.','Also used to find dark energy.'],
+ L2:['## Recipe','White dwarf near 1.4 Sun masses (or two merging) → thermonuclear blast.'],
+ L3:['## Open','Which path (gaining gas, or a merger) is most common is debated.'],
+ src:['johnson'],p:['stars'],el:{stars:'leftover core'}},
+
+{id:'nsmerger',r:15,x:1300,s:'k',ic:'nsmerger',name:'Neutron-star crashes',line:'r-process: gold, platinum',sz:4,szt:'Neutron star ~2×10⁴ m',
+ info:['Two dead stars spiral and crash.','Neutron flood makes gold, platinum, uranium.','Seen in 2017 (GW170817).'],
+ L2:['## Recipe','2 neutron stars (~1.4 Suns each, ~20 km wide) → kilonova.','Rapid neutron catching (r-process): many neutrons per second.'],
+ L3:['## Open','Are mergers the main source, or rare supernovae ("collapsars") too? Debated.'],
+ src:['gw170817','sr','johnson'],p:['supernova'],el:{supernova:'leftover neutron stars'}},
+
+{id:'bh',r:15,x:1650,s:'k',ic:'blackhole',name:'Black holes',line:"Even light can't escape",sz:4.8,szt:'10 Suns ≈ 6×10⁴ m wide',
+ info:['Left by some dead big stars.','First image in 2019 (M87*).','Waves from crashes seen since 2015.'],
+ L2:['## Recipe','Leftover core heavier than ~2–3 Suns collapses with nothing to stop it.'],
+ L3:['## Open','What happens at the centre and to information: unknown (needs quantum gravity).'],
+ src:['eht'],p:['supernova','gravity'],el:{supernova:'core > ~2–3 Suns'}},
+
+/* ---------------- ELEMENTS → CHEMISTRY ---------------- */
+{id:'elements',r:17,x:650,s:'k',ic:'ptable',name:'All 118 elements',line:'Tap for the table',sz:-10,szt:'Atoms ~0.06–0.6 nm',
+ info:['94 found in nature, 24 only made in labs.','Each one = a number of protons (1–118).','Tap "Open the periodic table".'],
+ L2:['## Recipe','Element = Z protons + some neutrons + Z electrons.','Where they come from:','Big Bang: H, He, (Li). Big stars: O to Fe. Dying giants: about half past Fe. Neutron-star crashes: gold, uranium. White dwarfs: most iron.','## Randomness','Which nucleus catches a neutron next is chance; it gives the zig-zag pattern of amounts.'],
+ L3:['## The numbers','By mass the Sun is ~73% H, ~25% He, ~2% everything else.','Most superheavy elements (104–118) last seconds or less; the longest-lived (dubnium-268) about a day.','## Source','Origins after Jennifer Johnson\'s chart (2019).'],
+ src:['johnson','sdss','iupac'],p:['bbn','fusion','sprocess','supernova','sn1a','nsmerger','cosmicray'],el:{bbn:'H, He, Li',supernova:'O → Fe',nsmerger:'Au, Pt, U',sprocess:'Sr, Ba, Pb',sn1a:'Fe, Ni',cosmicray:'Li, Be, B'}},
+
+{id:'bonds',r:18,x:400,s:'k',ic:'bonds',name:'Chemical bonds',line:'Atoms share or swap electrons',sz:-10,szt:'Bond length 0.1–0.3 nm',
+ info:['Covalent: share electrons.','Ionic: give electrons away.','Hydrogen bonds: weak stickiness.'],
+ L2:['## Recipe','Outer electrons + electric force + quantum rules → a bond.','## Energies','C–C ~3.6 eV. O–H ~4.8 eV. H-bond ~0.2 eV (why water is sticky).'],
+ L3:['## How we know','Quantum mechanics predicts them (Pauling, 1930s). Measured by spectroscopy.'],
+ src:['pdg'],p:['elements','em'],el:{em:'electric force + quantum rules'}},
+
+{id:'dust',r:18,x:1100,s:'k',ic:'dust',name:'Dust & disks',line:'Rings around young stars',sz:13,szt:'Disk ~10¹³ m',
+ info:['New stars have a spinning disk of gas and dust.','Dust grains: silicates, carbon, ice.','Telescopes (ALMA) see gaps where planets form.'],
+ L2:['## Recipe','A collapsing cloud keeps spinning → flat disk (~99% gas, ~1% dust).'],L3:[],
+ src:['johnson'],p:['elements','stars'],el:{elements:'~1% dust grains'}},
+
+{id:'molecules',r:19,x:400,s:'k',ic:'molecule',name:'Molecules',line:'Water, CO₂, methane…',sz:-9.5,szt:'Water ~0.28 nm',
+ info:['Atoms bonded into fixed shapes.','Over 300 kinds found in space.','Water = 2 H + 1 O.'],
+ L2:['## Recipes','2 H + 1 O → water (angle 104.5°).','1 C + 2 O → CO₂. 1 C + 4 H → methane.','## Randomness','Collisions are random; energy and stability decide what lasts.'],
+ L3:['## The numbers','~330 molecules found in space (CDMS list), incl. sugars and amino-acid cousins.'],
+ src:['cdms'],p:['bonds','firstmol'],el:{bonds:'2 H + 1 O → H₂O'}},
+
+{id:'planets',r:19,x:1000,s:'k',ic:'planet',name:'Planets',line:'Dust clumps into worlds',sz:7,szt:'Earth 1.27×10⁷ m',
+ info:['Dust sticks into pebbles, then rocks.','Rocks crash into planets.','Giants also grab gas.'],
+ L2:['## Recipe','Dust → pebbles → km "planetesimals" → embryos → planets, over ~10–100 million years.','## Randomness','Crashes and orbits are chaotic; each system turns out different.'],
+ L3:['## Open','How dust grows past metre size quickly ("metre barrier") is still being worked out.'],
+ src:['exo'],p:['dust'],el:{dust:'dust → pebbles → rocks'}},
+
+{id:'solar',r:19,x:1350,s:'k',ic:'solar',name:'Solar system',line:'Our Sun and its family',sz:13,szt:'Neptune orbit ~9×10¹² m',
+ info:['Formed 4.57 billion years ago.','8 planets around the Sun.','Sun = 99.8% of the mass.'],
+ L2:['## Recipe','1 star + disk → 8 planets, dwarf planets, moons, comets.'],L3:['## How we know','Oldest meteorite grains: 4.567 billion years.'],
+ src:['sun'],p:['dust','stars']},
+
+{id:'earth',r:20,x:1000,s:'k',ic:'earth',name:'Earth',line:'Rocky, wet, just right',sz:7.1,szt:'12,742 km wide',
+ info:['Formed ~4.54 billion years ago.','Right distance for liquid water.','Has a magnetic shield.'],
+ L2:['## Recipe (by mass)','Iron ~32%, oxygen ~30%, silicon ~15%, magnesium ~14%.','Iron core + rocky mantle + thin crust.'],L3:[],
+ src:['zircon'],p:['planets','solar']},
+
+{id:'exo',r:20,x:1450,s:'k',ic:'exo',name:'Other worlds',line:'6,451 found so far',sz:7,szt:'Earth- to Jupiter-size',
+ info:['6,451 planets around other stars.','Most stars have planets.','Some are in the "liquid water" zone.'],
+ L2:['## Fix since v1','v1 said 5,000+. NASA count: 6,451 (Oct 2026).'],L3:[],
+ src:['exo'],p:['planets']},
+
+{id:'water',r:21,x:650,s:'k',ic:'water',name:'Water & oceans',line:'Early Earth gets wet',sz:-9.5,szt:'Molecule 0.28 nm; oceans ~10⁷ m wide',
+ info:['Liquid water by ~4.4 billion years ago.','Clues: tiny old zircon crystals.','Water lets chemistry happen.'],
+ L2:['## Recipe','Water from rocks, comets and asteroids, outgassed by volcanoes.'],
+ L3:['## Open','How much came from space vs. Earth\'s own rocks is debated.'],
+ src:['zircon'],p:['molecules','earth']},
+
+{id:'moon',r:21,x:1350,s:'t',ic:'moon',name:'The Moon',line:'Born in a giant crash?',sz:6.5,szt:'3,474 km wide',
+ info:['A Mars-size body probably hit Earth.','The debris made the Moon.','Leading idea, details debated.'],
+ L2:['## Why it matters','It steadies Earth\'s tilt and makes big tides.'],L3:[],
+ src:['moon'],p:['earth']},
+
+{id:'chem',r:22,x:650,s:'t',ic:'flask',name:'Early-Earth chemistry',line:'Vents, ponds, lightning',sz:-9,szt:'Molecules ~1 nm',
+ info:['Energy builds new molecules.','Where? Deep vents or shallow ponds?','Leading ideas, not settled.'],
+ L2:['## Fix since v1','Was green. Now orange: the chemistry is real, but which setting started life is unproven.','## Recipe','Simple molecules (H₂O, CO₂, HCN, NH₃…) + energy (heat, UV, lightning) + minerals.'],L3:[],
+ src:['abiogenesis'],p:['water','molecules']},
+
+/* ---------------- BUILDING BLOCKS ---------------- */
+{id:'amino',r:23,x:250,s:'k',ic:'amino',name:'Amino acids',line:'Protein letters (20)',sz:-9.3,szt:'~0.5 nm',
+ info:['Made in lab sparks (Miller, 1953).','Found in meteorites and asteroid Bennu.','Life uses 20 (+2 rare).'],
+ L2:['## Recipe','C + H + O + N (+ S): ~10–27 atoms each. Glycine = C₂H₅NO₂.'],
+ L3:['## The numbers','Bennu (2025): 14 of the 20 protein amino acids.'],
+ src:['miller','bennu'],p:['chem']},
+
+{id:'nucleotides',r:23,x:550,s:'t',ic:'nucleotide',name:'Nucleotides',line:'RNA/DNA letters (4)',sz:-9,szt:'~1 nm',
+ info:['Base + sugar + phosphate.','All 5 bases found on asteroid Bennu.','Making whole ones naturally: partly shown.'],
+ L2:['## Recipe','1 base (A, G, C, U/T) + 1 sugar (ribose) + 1 phosphate.'],
+ L3:['## Why orange','Lab routes exist (Powner 2009) but need special steps.'],
+ src:['bennu','powner'],p:['chem','sugars']},
+
+{id:'sugars',r:23,x:850,s:'k',ic:'sugar',name:'Sugars',line:'Ribose, glucose',sz:-9.3,szt:'~0.5 nm',
+ info:['Form from formaldehyde ("formose").','Ribose found in meteorites (2019).','Ribose is RNA\'s backbone sugar.'],
+ L2:['## Recipe','Ribose = C₅H₁₀O₅.'],L3:[],
+ src:['ribose'],p:['chem']},
+
+{id:'lipids',r:23,x:1150,s:'k',ic:'lipid',name:'Fatty molecules',line:'Oily tails, wet heads',sz:-8.6,szt:'~2.5 nm long',
+ info:['Found in meteorites.','In water they bunch together.','They make cell skins.'],
+ L2:['## Recipe','A water-loving head + 1–2 oily tails of ~10–20 carbons.'],L3:[],
+ src:['protocell'],p:['chem']},
+
+{id:'peptides',r:24,x:250,s:'t',ic:'peptide',name:'First peptides',line:'Short amino-acid chains',sz:-8.5,szt:'~1–5 nm',
+ info:['Amino acids can link on wet-dry cycles.','Short chains, random order.','Exactly how: leading ideas.'],
+ L2:['## Recipe','n amino acids → chain + (n−1) water.'],L3:[],
+ src:['abiogenesis'],p:['amino'],el:{amino:'n links, lose water'}},
+
+{id:'rnaworld',r:24,x:700,s:'t',ic:'rna',name:'RNA world',line:'RNA copied itself first?',sz:-8,szt:'~10 nm',
+ info:['RNA can store info AND do work.','Maybe it came before DNA and proteins.','Leading idea, not proven.'],
+ L2:['## Recipe','Nucleotides → strands (maybe ~50–200 letters, a guess) that help copy each other.','## Clue','The ribosome\'s core is RNA.'],
+ L3:['## Open','No RNA that copies itself fully is known yet.'],
+ src:['rnaworld'],p:['nucleotides','sugars'],el:{nucleotides:'~50–200 letters'}},
+
+{id:'vesicles',r:24,x:1150,s:'k',ic:'vesicle',name:'Fatty bubbles',line:'Membranes form on their own',sz:-7,szt:'~0.1 µm',
+ info:['Fatty acids in water make bubbles.','They grow and split.','A "skin" for the first cells.'],
+ L2:['## Recipe','~10⁵ (small bubble) to ~10⁷ (1 µm bubble) lipids → a double layer ~4–5 nm thick.'],L3:[],
+ src:['protocell'],p:['lipids'],el:{lipids:'~10⁵–10⁷ lipids'}},
+
+{id:'protocell',r:25,x:700,s:'t',ic:'protocell',name:'Protocells',line:'A bubble around a copier',sz:-6,szt:'~1 µm',
+ info:['RNA inside a fatty bubble.','Copies can be selected.','Built in labs in parts.'],
+ L2:['## Recipe','1 bubble + RNA + small molecules + energy.'],L3:[],
+ src:['protocell'],p:['rnaworld','peptides','vesicles']},
+
+{id:'origin',r:26,x:700,s:'u',ic:'spark',name:'The first spark',line:'Chemistry → alive: how?',sz:-6,szt:'—',
+ info:['How chemistry became life is unknown.','No lab has made life from scratch.','Many gaps remain.'],
+ L2:['## What would fill it','A lab protocell that copies, evolves and runs a metabolism on its own.'],
+ L3:['## Zyphullen\'s idea (personal, not science)','Maybe life is the universe\'s knot trying to untie itself toward perfect symmetry: one long chain reaction.'],
+ src:['abiogenesis'],p:['protocell']},
+
+{id:'luca',r:27,x:700,s:'k',ic:'cell',name:'LUCA',line:'Last universal common ancestor',sz:-6,szt:'~1–2 µm',
+ info:['All life shares one ancestor.','Estimated ~4.2 billion years ago.','Already had DNA, ribosomes, the code.'],
+ L2:['## Recipe','~2,600 proteins (estimate), DNA genome, ribosomes.'],L3:[],
+ src:['luca'],p:['origin']},
+
+{id:'proteins',r:28,x:350,s:'k',ic:'protein',name:'Proteins',line:'Folded amino-acid chains',sz:-8.3,szt:'~2–10 nm',
+ info:['Chains of 20 kinds of amino acid.','Typical: ~300–500 long.','Longest (titin): ~34,000.'],
+ L2:['## Recipe','~50–34,000 amino acids → a chain that folds.','Humans have ~20,000 protein-coding genes.'],L3:[],
+ src:['titin','t2t'],p:['luca','amino'],el:{amino:'×~400'}},
+
+{id:'code',r:28,x:700,s:'k',ic:'code',name:'Genetic code',line:'3 letters = 1 amino acid',sz:-9,szt:'—',
+ info:['64 codons → 20 amino acids + stop.','Almost the same in all life.','Read by ribosomes.'],L2:[],L3:[],
+ src:['code'],p:['luca']},
+
+{id:'dna',r:28,x:1050,s:'k',ic:'dna',name:'DNA',line:"Life's recipe book",sz:-8.7,szt:'2 nm wide; ~2 m per cell',
+ info:['Double helix, found in 1953.','Human: ~3.1 billion letter pairs.','Stores instructions for life.'],
+ L2:['## Recipe','Pairs: A–T, G–C. 0.34 nm per pair.'],L3:[],
+ src:['t2t'],p:['luca','nucleotides'],el:{nucleotides:'~3.1 billion pairs (human)'}},
+
+/* ---------------- LIFE ---------------- */
+{id:'prok',r:29,x:700,s:'k',ic:'prok',name:'Bacteria & archaea',line:'Simple cells, no nucleus',sz:-6,szt:'~1–2 µm',
+ info:['First fossils ~3.5 billion years.','Still most of life by number.','E. coli: 4.6 million DNA pairs.'],L2:[],L3:[],
+ src:['dresser'],p:['luca','proteins','dna','code']},
+
+{id:'photosyn',r:29,x:1150,s:'k',ic:'leaf',name:'Photosynthesis',line:'Sunlight → food + oxygen',sz:-6,szt:'~1 µm cells',
+ info:['Cyanobacteria split water with light.','Oxygen given off.','Later passed to algae and plants.'],L2:[],L3:[],
+ src:['goe'],p:['prok']},
+
+{id:'goe',r:30,x:1150,s:'k',ic:'goe',name:'Oxygen rises',line:'~2.4 billion years ago',sz:7,szt:'Planet-wide',
+ info:['Oxygen builds up in the air.','Great Oxidation Event.','Opens the way to bigger cells.'],L2:[],L3:[],
+ src:['goe'],p:['photosyn']},
+
+{id:'eukaryote',r:31,x:700,s:'k',ic:'eukaryote',name:'Complex cells',line:'Cells with a nucleus',sz:-5,szt:'~10–100 µm',
+ info:['An archaeon took in a bacterium.','That bacterium became mitochondria.','~2 billion years ago (estimate).'],L2:[],L3:[],
+ src:['asgard'],p:['prok','goe'],es:{goe:'t'}},
+
+{id:'multicell',r:32,x:700,s:'k',ic:'multicell',name:'Many-celled life',line:'Cells team up',sz:-3,szt:'mm and up',
+ info:['Cells stick together and specialise.','Happened 25+ separate times.','First ~1+ billion years ago.'],L2:[],L3:[],
+ src:['multi'],p:['eukaryote']},
+
+{id:'tissues',r:33,x:450,s:'k',ic:'tissue',name:'Tissues',line:'Same cells, one job',sz:-3,szt:'mm–cm',
+ info:['4 main types in animals.','Epithelial, connective, muscle, nerve.','Cells glued by proteins.'],L2:[],L3:[],
+ src:['hatton'],p:['multicell']},
+
+{id:'plants',r:33,x:1000,s:'k',ic:'plant',name:'Plants',line:'Green, sun-powered',sz:0,szt:'mm to 100 m',
+ info:['On land ~470 million years ago.','Plants + ocean algae make our oxygen.','Ocean algae make about half.'],L2:[],L3:[],
+ src:['noaa'],p:['multicell','photosyn']},
+
+{id:'animals',r:33,x:1350,s:'k',ic:'fish',name:'Animals',line:'Move, eat, sense',sz:0,szt:'µm to 30 m',
+ info:['First animals ~600+ million years ago.','Burst of forms 539 million years ago.','Shaped by evolution.'],L2:[],L3:[],
+ src:['multi'],p:['multicell']},
+
+{id:'organs',r:34,x:450,s:'k',ic:'heart',name:'Organs',line:'Heart, lungs, gut…',sz:-1,szt:'~10 cm',
+ info:['Tissues combine into organs.','Each organ does one big job.','~78 organs in a human (count varies).'],L2:[],L3:[],
+ src:['hatton'],p:['tissues']},
+
+{id:'mammals',r:34,x:1350,s:'k',ic:'mammal',name:'Mammals',line:'Fur, milk, warm blood',sz:-0.5,szt:'cm to 30 m',
+ info:['From ~200+ million years ago.','Spread after the dinosaurs died.','Primates, then apes.'],L2:[],L3:[],
+ src:['irhoud'],p:['animals']},
+
+{id:'organsys',r:35,x:450,s:'k',ic:'organsys',name:'Organ systems',line:'Teams of organs',sz:0,szt:'~1 m',
+ info:['11 systems in humans.','Nerves, blood, breathing, digestion…','They keep you balanced.'],L2:[],L3:[],
+ src:['hatton'],p:['organs']},
+
+{id:'hsap',r:35,x:1350,s:'k',ic:'human',name:'Homo sapiens',line:'~300,000 years ago',sz:0.2,szt:'~1.7 m',
+ info:['Oldest fossils: Morocco, ~300,000 years.','Evolved in Africa.','All 8 billion of us: one species.'],L2:[],L3:[],
+ src:['irhoud'],p:['mammals']},
+
+{id:'body',r:36,x:800,s:'k',ic:'body',name:'Human body',line:'~30–37 trillion cells',sz:0.2,szt:'~1.7 m',
+ info:['~30–37 trillion human cells in a man (~28 trillion in a woman).','Plus about as many bacteria (~38 trillion).','Built from one fertilised egg.'],L2:[],L3:[],
+ src:['sender','bianconi','hatton'],p:['organsys','hsap','dna'],el:{organsys:'11 systems',hsap:'our species',dna:'1 genome, every cell'}},
+
+{id:'brain',r:37,x:800,s:'k',ic:'brain',name:'Brain',line:'86 billion neurons',sz:-0.8,szt:'~15 cm, ~1.4 kg',
+ info:['~86 billion neurons.','~100 trillion connections (estimate).','Thinks, feels, remembers.'],L2:[],L3:[],
+ src:['azevedo'],p:['body']},
+
+{id:'idea',r:37,x:1350,s:'p',ic:'idea',name:"Zyphullen's idea",line:'Personal note, not science',sz:null,szt:'—',
+ info:['Life as the universe\'s knot untying.','Everything as one chain reaction.','A personal idea. Not tested.'],L2:[],L3:[],
+ src:[],p:['origin']},
+
+{id:'mind',r:38,x:800,s:'u',ic:'mind',name:'Consciousness',line:'Why it feels: unknown',sz:null,szt:'—',
+ info:['How brain activity becomes feeling','is one of the biggest unknowns.','Many theories, none confirmed.'],L2:[],L3:[],
+ src:['hardproblem'],p:['brain']},
 ];
-const BANDS = [ // rough size scale of each part of the tree (rows)
- ['quantum',-0.6,5.5,'#4ff3e3'],['atomic',5.5,7.5,'#7fc8ff'],['cosmic',7.5,11.5,'#c9b6ff'],['planetary',11.5,15.5,'#ffd36b'],
- ['molecular',15.5,19.5,'#ffb46b'],['cellular',19.5,23.5,'#5cf0a0'],['human',23.5,27.6,'#ff9ad5']];
-const ROW = 178, TOP = 110, W = 1240, H = TOP + 27 * ROW + 140;
+/* Read-more layers for nodes whose layers were left short above. Merged in at start-up. */
+const EXTRA = {
+ cosmicray:{L3:['## How we know','Li, Be, B are ~10⁵–10⁷× rarer than C and O; the amounts match cosmic-ray models.','## Note','Some lithium also comes from the Big Bang and from novae / dying stars.']},
+ dust:{L3:['## How we know','ALMA images of young disks (e.g. HL Tauri, 2014) show rings and gaps.','## Randomness','Where clumps form in the disk is chaotic.']},
+ solar:{L3:['## How we know','Oldest meteorite grains (CAIs): 4.567 billion years.','## Open','Why Jupiter and Saturn are where they are; did they move ("Grand Tack")?']},
+ earth:{L3:['## How we know','Oldest minerals: zircons 4.4 billion years old.','## Top-down','Seismic waves reveal the core; meteorites match its make-up.']},
+ exo:{L3:['## How we know','Mostly by the dip in starlight as a planet passes (transit), or the star\'s wobble.','## Open','Is there life on any? No sign found yet.']},
+ moon:{L3:['## Clue','Moon rocks have nearly the same oxygen-isotope mix as Earth.','## Open','Why SO similar? Variants of the crash idea are still argued.']},
+ chem:{L3:['## Ideas','Deep-sea hydrothermal vents (energy + minerals) vs. warm little ponds (wet–dry cycles, UV).','## How we know','Lab experiments make many of life\'s pieces under these conditions.','## Open','No single setting makes all the pieces at once.']},
+ amino:{L2:['## Recipe','C + H + O + N (+ S): ~10–27 atoms each.','Glycine = C₂H₅NO₂ (10 atoms, the smallest).','## How they form','Sparks, UV or heat on simple gases and water; also inside asteroids.'],
+  L3:['## The numbers','20 standard + selenocysteine + pyrrolysine = 22 genetically coded.','Meteorite Murchison: dozens of amino acids. Bennu (2025): 14 of the 20.','## Open','Life uses only "left-handed" amino acids. Why one hand won is not settled.']},
+ nucleotides:{L3:['## Why orange','Lab routes exist (Powner, Gerland & Sutherland 2009), but they need special steps in a set order.','## How we know','Bennu (2025) had all 5 bases: A, G, C, T, U.','## Open','How whole nucleotides built up naturally on early Earth.']},
+ sugars:{L2:['## Recipe','Ribose = C₅H₁₀O₅ (5 carbons). Glucose = C₆H₁₂O₆.','## How they form','Formaldehyde + a mineral catalyst ("formose reaction") makes a messy mix of sugars.'],L3:['## Open','Formose makes many sugars; how ribose was picked out is unclear (borate minerals may help).']},
+ lipids:{L2:['## Recipe','A water-loving head + 1–2 oily tails of ~10–20 carbons.','## How they form','Fischer–Tropsch-type reactions; also in meteorites.'],L3:['## Note','Modern cell membranes use phospholipids; the first ones were probably simpler fatty acids.']},
+ peptides:{L2:['## Recipe','n amino acids → a chain + (n−1) water molecules.','## How they form','Wet–dry cycles, mineral surfaces, or hot vents can join them.','## Randomness','Order of letters: random at first.'],L3:['## Open','How a random chain gained a useful job.']},
+ vesicles:{L3:['## How we know','Szostak lab: fatty-acid bubbles grow, split and let small molecules in.']},
+ protocell:{L3:['## How we know','Parts have been built in labs (RNA copying inside vesicles, partly).','## Open','A full self-copying, evolving protocell has not been made.']},
+ origin:{L3:['## Why red','No accepted step-by-step path from chemistry to the first living cell.','## Zyphullen\'s idea (personal, not science)','Life as the universe\'s knot trying to untie itself toward perfect symmetry; everything one chain reaction.']},
+ luca:{L2:['## What it had','DNA genome, ribosomes, the genetic code, a membrane, ATP energy.','~2,600 protein families (estimate, Moody 2024).','## Size','Probably like a bacterium: ~1–2 µm.'],L3:['## How we know','All life shares the same code and core genes, so one ancestor is the best fit.','## Numbers','~4.2 billion years ago (range ~4.09–4.33, estimate).','## Fix since v1','v1 jumped straight to "First cells"; LUCA is the cell all life traces back to, not the very first cell.']},
+ proteins:{L2:['## Recipe','~50–34,000 amino acids → a chain that folds into a 3D shape.','Median human protein: ~400 amino acids.','## How they form','A ribosome reads mRNA, adding ~5–20 amino acids per second.'],L3:['## Numbers','Humans: ~20,000 protein-coding genes; titin is the longest (~34,350).','## Open','Predicting the fold from the sequence is now mostly solved (AlphaFold, Nobel 2024); how the first proteins arose is not.']},
+ code:{L2:['## Recipe','4 letters (A, U, G, C) read 3 at a time = 64 codons.','61 code for 20 amino acids, 3 mean "stop".'],L3:['## Open','Why this exact code? A "frozen accident" or chemistry? Debated.']},
+ dna:{L2:['## Recipe','Pairs: A–T and G–C. 0.34 nm per pair, ~10.5 pairs per turn.','Human: ~3.1 billion pairs per set (×2 sets per cell ≈ 2 m of DNA).','## How it forms','Copied by enzymes from an existing strand.'],L3:['## How we know','X-ray photo by Rosalind Franklin; model by Watson & Crick (1953).','Complete human genome finished 2022 (T2T, 3.055 billion pairs).','## Open','Did RNA come first? Probably (orange RNA world).']},
+ prok:{L2:['## Recipe','1 membrane + DNA loop + ~4,000 genes + ribosomes.','E. coli: ~2 µm long, 4.6 million DNA pairs.'],L3:['## How we know','Stromatolites 3.48 billion years old (Dresser Formation); chemical hints maybe older.']},
+ photosyn:{L2:['## Recipe','6 CO₂ + 6 H₂O + light → sugar + 6 O₂.'],L3:['## Note','Oxygen-free photosynthesis came first. Oxygen-making evolved in cyanobacteria.']},
+ goe:{L2:['## Numbers','~2.4–2.1 billion years ago.'],L3:['## How we know','Rust bands and sulfur isotopes in old rocks.']},
+ eukaryote:{L2:['## Recipe','1 archaeal host (Asgard-type) + 1 swallowed bacterium → mitochondria.','Later, a cyanobacterium swallowed → chloroplasts (plants, algae).','## Size','~10–100 µm: often 1,000× or more the volume of a bacterium.'],L3:['## Numbers','Oldest clear fossils ~1.6–1.8 billion years; origin ~2 billion (estimate, range wide).','## Open','Exact order of steps.']},
+ multicell:{L2:['## Recipe','Cells that stay stuck after dividing + glue proteins + signals.'],L3:['## Numbers','Red alga Bangiomorpha ~1 billion years. At least 25 separate origins.']},
+ tissues:{L2:['## Recipe','Many similar cells + a protein scaffold (collagen).','~400 cell types in a human (Hatton 2023).'],L3:['## 4 types','Epithelial (skin, linings), connective (bone, blood), muscle, nerve.']},
+ plants:{L2:['## Fix since v1','v1: "plants make the oxygen we breathe". Ocean phytoplankton make roughly half of Earth\'s oxygen.'],L3:['## Numbers','Land plants ~470 million years ago (spores).']},
+ animals:{L2:['## Fix since v1','v1: "over 500+ million years". Better: first animals ~600+ million years ago; Cambrian burst ~539 million.'],L3:['## Open','Exact first animal (sponges? comb jellies?) is debated.']},
+ organs:{L2:['## Recipe','2–4 tissue types → one organ. Heart: muscle + nerve + connective + lining.'],L3:['## Note','The "78 organs" count depends on what you call an organ.']},
+ mammals:{L2:['## Line to us','Mammals → primates (~55–65 million yr) → apes → humans.'],L3:['## Numbers','First mammals ~200+ million years ago (Triassic/Jurassic).']},
+ organsys:{L2:['## Recipe','Several organs → one system (e.g. heart + vessels + blood).'],L3:['## 11 systems','Skin, skeleton, muscle, nerves, hormones, blood, lymph/immune, breathing, digestion, urinary, reproductive.']},
+ hsap:{L2:['## Recipe','Evolution by mutation + natural selection, ~6–7 million years since our split from chimps.'],L3:['## Numbers','Jebel Irhoud, Morocco: ~300,000 years (Hublin 2017).']},
+ body:{L2:['## Recipe','~30–37 trillion cells (estimates differ).','~84% of them by number are red blood cells.','~400 cell types; 1 genome copied into nearly every cell.','## Fix since v1','v1 put organs BELOW the body. Correct order: cells → tissues → organs → systems → body.'],L3:['## Numbers','Sender 2016: ~3.0×10¹³ human cells + ~3.8×10¹³ bacteria. Bianconi 2013: 3.72×10¹³. Hatton 2023: ~36 trillion (man), ~28 trillion (woman).']},
+ brain:{L2:['## Recipe','~86 billion neurons + about as many glial cells.','~100 trillion synapses (estimate).'],L3:['## Numbers','Azevedo 2009: 86 ± 8 billion neurons.','## Open','How memory and thought are coded in detail.']},
+ idea:{L2:['## Zyphullen\'s idea','Life is the universe\'s knot trying to untie itself toward perfect symmetry.','Everything is one chain reaction.'],L3:['## Label','A personal idea, shown for interest. It is not science and not part of Chain Theory.']},
+ mind:{L2:['## Theories','Global workspace, integrated information, higher-order and others.'],L3:['## Why red','No test yet tells which theory, if any, is right (2023–25 "adversarial" tests were mixed).']},
+};
+const ELS=[[1,"H","Hydrogen","nm","B",1,1],[2,"He","Helium","nob","B",1,18],[3,"Li","Lithium","alk","LCB",2,1],[4,"Be","Beryllium","ae","C",2,2],[5,"B","Boron","met","C",2,13],[6,"C","Carbon","nm","LM",2,14],[7,"N","Nitrogen","nm","LM",2,15],[8,"O","Oxygen","nm","M",2,16],[9,"F","Fluorine","hal","LM",2,17],[10,"Ne","Neon","nob","M",2,18],[11,"Na","Sodium","alk","M",3,1],[12,"Mg","Magnesium","ae","M",3,2],[13,"Al","Aluminium","post","M",3,13],[14,"Si","Silicon","met","MW",3,14],[15,"P","Phosphorus","nm","M",3,15],[16,"S","Sulfur","nm","MW",3,16],[17,"Cl","Chlorine","hal","MW",3,17],[18,"Ar","Argon","nob","MW",3,18],[19,"K","Potassium","alk","MW",4,1],[20,"Ca","Calcium","ae","MW",4,2],[21,"Sc","Scandium","tm","M",4,3],[22,"Ti","Titanium","tm","MW",4,4],[23,"V","Vanadium","tm","WM",4,5],[24,"Cr","Chromium","tm","WM",4,6],[25,"Mn","Manganese","tm","W",4,7],[26,"Fe","Iron","tm","WM",4,8],[27,"Co","Cobalt","tm","WM",4,9],[28,"Ni","Nickel","tm","WM",4,10],[29,"Cu","Copper","tm","M",4,11],[30,"Zn","Zinc","tm","M",4,12],[31,"Ga","Gallium","post","M",4,13],[32,"Ge","Germanium","met","M",4,14],[33,"As","Arsenic","met","M",4,15],[34,"Se","Selenium","nm","M",4,16],[35,"Br","Bromine","hal","M",4,17],[36,"Kr","Krypton","nob","ML",4,18],[37,"Rb","Rubidium","alk","ML",5,1],[38,"Sr","Strontium","ae","L",5,2],[39,"Y","Yttrium","tm","L",5,3],[40,"Zr","Zirconium","tm","L",5,4],[41,"Nb","Niobium","tm","L",5,5],[42,"Mo","Molybdenum","tm","LMN",5,6],[43,"Tc","Technetium","tm","H",5,7],[44,"Ru","Ruthenium","tm","NL",5,8],[45,"Rh","Rhodium","tm","N",5,9],[46,"Pd","Palladium","tm","LN",5,10],[47,"Ag","Silver","tm","NL",5,11],[48,"Cd","Cadmium","tm","L",5,12],[49,"In","Indium","post","L",5,13],[50,"Sn","Tin","post","L",5,14],[51,"Sb","Antimony","met","NL",5,15],[52,"Te","Tellurium","met","N",5,16],[53,"I","Iodine","hal","N",5,17],[54,"Xe","Xenon","nob","N",5,18],[55,"Cs","Caesium","alk","NL",6,1],[56,"Ba","Barium","ae","L",6,2],[57,"La","Lanthanum","lan","L",9,3],[58,"Ce","Cerium","lan","L",9,4],[59,"Pr","Praseodymium","lan","LN",9,5],[60,"Nd","Neodymium","lan","LN",9,6],[61,"Pm","Promethium","lan","H",9,7],[62,"Sm","Samarium","lan","NL",9,8],[63,"Eu","Europium","lan","N",9,9],[64,"Gd","Gadolinium","lan","N",9,10],[65,"Tb","Terbium","lan","N",9,11],[66,"Dy","Dysprosium","lan","N",9,12],[67,"Ho","Holmium","lan","N",9,13],[68,"Er","Erbium","lan","N",9,14],[69,"Tm","Thulium","lan","N",9,15],[70,"Yb","Ytterbium","lan","NL",9,16],[71,"Lu","Lutetium","lan","N",9,17],[72,"Hf","Hafnium","tm","LN",6,4],[73,"Ta","Tantalum","tm","NL",6,5],[74,"W","Tungsten","tm","LN",6,6],[75,"Re","Rhenium","tm","N",6,7],[76,"Os","Osmium","tm","N",6,8],[77,"Ir","Iridium","tm","N",6,9],[78,"Pt","Platinum","tm","N",6,10],[79,"Au","Gold","tm","N",6,11],[80,"Hg","Mercury","tm","L",6,12],[81,"Tl","Thallium","post","L",6,13],[82,"Pb","Lead","post","L",6,14],[83,"Bi","Bismuth","post","L",6,15],[84,"Po","Polonium","post","R",6,16],[85,"At","Astatine","hal","R",6,17],[86,"Rn","Radon","nob","R",6,18],[87,"Fr","Francium","alk","R",7,1],[88,"Ra","Radium","ae","R",7,2],[89,"Ac","Actinium","act","R",10,3],[90,"Th","Thorium","act","N",10,4],[91,"Pa","Protactinium","act","R",10,5],[92,"U","Uranium","act","N",10,6],[93,"Np","Neptunium","act","H",10,7],[94,"Pu","Plutonium","act","H",10,8],[95,"Am","Americium","act","H",10,9],[96,"Cm","Curium","act","H",10,10],[97,"Bk","Berkelium","act","H",10,11],[98,"Cf","Californium","act","H",10,12],[99,"Es","Einsteinium","act","H",10,13],[100,"Fm","Fermium","act","H",10,14],[101,"Md","Mendelevium","act","H",10,15],[102,"No","Nobelium","act","H",10,16],[103,"Lr","Lawrencium","act","H",10,17],[104,"Rf","Rutherfordium","tm","H",7,4],[105,"Db","Dubnium","tm","H",7,5],[106,"Sg","Seaborgium","tm","H",7,6],[107,"Bh","Bohrium","tm","H",7,7],[108,"Hs","Hassium","tm","H",7,8],[109,"Mt","Meitnerium","tm","H",7,9],[110,"Ds","Darmstadtium","tm","H",7,10],[111,"Rg","Roentgenium","tm","H",7,11],[112,"Cn","Copernicium","tm","H",7,12],[113,"Nh","Nihonium","post","H",7,13],[114,"Fl","Flerovium","post","H",7,14],[115,"Mc","Moscovium","post","H",7,15],[116,"Lv","Livermorium","post","H",7,16],[117,"Ts","Tennessine","hal","H",7,17],[118,"Og","Oganesson","nob","H",7,18]];
+
+for (const n of N) { const x = EXTRA[n.id]; if (x) { if (x.L2 && x.L2.length) n.L2 = x.L2; if (x.L3 && x.L3.length) n.L3 = x.L3; } n.L2 = n.L2 || []; n.L3 = n.L3 || []; }
+
+/* ============ LAYOUT ============ */
+const ROW = 250, TOP = 130, W = 2050, LASTR = Math.max(...N.map(n => n.r)), H = TOP + LASTR * ROW + 190;
 const Y = r => TOP + r * ROW;
 const byId = {}; N.forEach(n => { n.y = Y(n.r); n.kids = []; byId[n.id] = n; });
 N.forEach(n => n.p.forEach(p => byId[p].kids.push(n.id)));
+/* labels for the remaining lines: amount / recipe / what passes up (kept short; '?' = not known) */
+const EL2 = {
+ axiom:{nothing:'Alex: start = links only'}, qft:{nothing:'?'}, qgrav:{nothing:'?'},
+ inflation:{qft:'an inflaton field (guess)',qgrav:'? at 10⁻³⁵ s'}, genres:{distill:'read limit d₁d₂ ≤ 6'}, higgs:{qft:'1 field, 246 GeV'},
+ ctspace:{distill:'(2,2) links'}, gap:{chainmail:'? how webs = particles',alpha:'1 number matched',ctspace:'? no 3+1 D derived'},
+ soup:{bigbang:'>10¹⁵ K heat',qft:'all quantum fields'},
+ quarks:{soup:'6 flavours × 3 colours',gap:'? not derived',higgs:'gives mass (2–173,000 MeV)'},
+ gluons:{soup:'8 kinds',gap:'? not derived'}, electrons:{soup:'e, μ, τ',gap:'? webs (Alex, cond.)',higgs:'gives 0.511 MeV'},
+ neutrinos:{soup:'3 flavours, ~336 /cm³ left'}, photons:{soup:'~410 /cm³ left today'},
+ wz:{higgs:'gives 80 & 91 GeV',gap:'? not derived'}, dm:{bigbang:'~5× normal matter'}, de:{bigbang:'~68.5% of energy'},
+ antimatter:{soup:'pairs: matter = antimatter?'}, qgp:{quarks:'free quarks',gluons:'+ gluons',strong:'>2×10¹² K'},
+ halos:{gravity:'clumps of dark matter'}, cmb:{atoms:'light set free'}, gas:{atoms:'~75% H, 25% He'},
+ firststars:{gas:'each star ~10s–100s of Suns (models)'}, stars:{firststars:'seed metals'}, galaxies:{gas:'gas falls into halos',stars:'10⁷–10¹² stars'},
+ smbh:{galaxies:'? seeds of 10²–10⁵ Suns'}, fusion:{firststars:'H → He at 10⁷ K'}, sprocess:{fusion:'neutrons +1 at a time'},
+ nsmerger:{supernova:'leftover neutron stars'}, bh:{supernova:'core > ~2–3 Suns'}, elements:{fusion:'C, N, O … Fe'},
+ bonds:{elements:'H, C, N, O, P, S…'}, solar:{dust:'1 cloud → Sun + 8 planets'}, earth:{planets:'1 of 8, 4.54 Ga',solar:'3rd from Sun'},
+ exo:{planets:'6,451 found'}, water:{molecules:'H₂O',earth:'oceans by ~4.4 Ga'}, moon:{earth:'giant impact (leading idea)'},
+ chem:{water:'liquid solvent',molecules:'+ energy (sun, vents)'}, amino:{chem:'C, H, N, O (+S)'},
+ nucleotides:{chem:'base + sugar + phosphate',sugars:'+ ribose'}, sugars:{chem:'formaldehyde → sugars'}, lipids:{chem:'fatty acids'},
+ rnaworld:{sugars:'ribose backbone'}, protocell:{rnaworld:'a copier inside',peptides:'helpers',vesicles:'a bubble skin'},
+ origin:{protocell:'? copy + feed + split'}, luca:{origin:'? unknown steps'},
+ proteins:{luca:'~2,600 proteins (est. 2024)'}, code:{luca:'64 codons → 20 amino acids'}, dna:{luca:'2 strands, 4 letters'},
+ prok:{luca:'splits: bacteria + archaea',proteins:'~2,000–4,000 kinds',dna:'1 ring, ~5 Mb',code:'shared code'},
+ photosyn:{prok:'cyanobacteria'}, goe:{photosyn:'O₂ waste builds up'}, eukaryote:{prok:'archaeon + bacterium',goe:'O₂ to burn'},
+ multicell:{eukaryote:'cells stay stuck'}, tissues:{multicell:'many cells of 1 kind'}, plants:{multicell:'+ chloroplasts'},
+ animals:{multicell:'cells that move'}, organs:{tissues:'~4 tissue types'}, mammals:{animals:'~200 Myr ago'},
+ organsys:{organs:'~11 systems'}, hsap:{mammals:'~300,000 yr ago'}, brain:{body:'~2% of weight, 20% of energy'}, mind:{brain:'? 86 bn neurons → thought'},
+};
+for (const id in EL2) { const n = byId[id]; if (!n) continue; n.el = n.el || {}; for (const p in EL2[id]) if (n.p.includes(p) && !n.el[p]) n.el[p] = EL2[id][p]; }
 
-/* ============ HAND-DRAWN ICONS (centred on 0,0, about 50 units wide) ============ */
+/* sections: [label, short label, first row, last row, colour, size range] */
+const BANDS = [
+ ['BASE LAYER', 'base', 0, 4.5, '#4ff3e3', 'before size: links, fields'],
+ ['PARTICLES & FORCES', 'particles', 4.5, 6.5, '#7fc8ff', 'point-like, < 10⁻¹⁸ m'],
+ ['NUCLEAR', 'nuclear', 6.5, 9.5, '#9fb4ff', '10⁻¹⁵ – 10⁻¹⁴ m'],
+ ['ATOMS', 'atoms', 9.5, 11.5, '#c9b6ff', '~10⁻¹⁰ m'],
+ ['STARS & GALAXIES', 'cosmic', 11.5, 15.5, '#ffb46b', '10⁴ – 10²¹ m'],
+ ['ELEMENTS · CHEMISTRY · PLANETS', 'chem + planets', 15.5, 22.5, '#ffd36b', 'atoms 10⁻¹⁰ m · planets 10⁷ m'],
+ ["LIFE'S MOLECULES", 'life molecules', 22.5, 26.5, '#ff9ad5', '10⁻⁹ – 10⁻⁶ m'],
+ ['CELLS', 'cells', 26.5, 32.5, '#5cf0a0', '10⁻⁶ – 10⁻⁴ m'],
+ ['BODIES', 'bodies', 32.5, LASTR + .7, '#ff9a9a', '10⁻³ – 10⁰ m'],
+];
+
+/* ============ ICONS ============ */
 const st = (c, w = 2) => `fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"`;
 function wave(x1, y1, x2, y2, amp, n) { const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), nx = -dy / L, ny = dx / L; let d = '';
   for (let i = 0; i <= 40; i++) { const t = i / 40, o = amp * Math.sin(t * n * 2 * Math.PI); d += (i ? 'L' : 'M') + (x1 + dx * t + nx * o).toFixed(1) + ' ' + (y1 + dy * t + ny * o).toFixed(1); } return d; }
@@ -197,30 +846,105 @@ const ICON = {
  brain: () => `<path d="M0 -16 C-8 -22 -24 -18 -24 -4 C-28 6 -20 18 -8 16 C-4 20 0 18 0 16 C0 18 4 20 8 16 C20 18 28 6 24 -4 C24 -18 8 -22 0 -16Z" fill="rgba(255,154,213,.16)" ${st('#ff9ad5', 2.2)}/><path d="M0 -16 L0 16 M-16 -8 q6 4 0 8 M14 -10 q-6 4 0 8 M-12 7 q6 -2 8 4 M10 7 q-6 -2 -8 4" ${st('#ff9ad5', 1.4)}/>`,
  mind: () => `<path d="M-10 22 L-10 12 C-20 6 -20 -14 -4 -20 C10 -24 20 -12 18 0 L22 6 L18 8 L18 14 C18 18 10 18 6 18 L6 22" ${st('#c9b6ff', 2)}/>` + circ(1, -4, 7, `fill="rgba(201,182,255,.25)"`) + `<text x="1" y="1" text-anchor="middle" font-size="13" font-weight="700" fill="#e6dcff">?</text>`,
 };
+const TX = (x, y, t, c, fs = 11, w = 700) => `<text x="${x}" y="${y}" text-anchor="middle" font-size="${fs}" font-weight="${w}" fill="${c}">${t}</text>`;
+Object.assign(ICON, {
+ distill: () => [[-18, -12], [18, -12], [-18, 12], [18, 12]].map(p => circ(p[0], p[1], 4.5, fill(G))).join('') + line(-18, -12, -18, 12, st(T, 1.6)) + line(18, -12, 18, 12, st(T, 1.6)) + `<path d="M-14 0 L14 0" ${st('#ff9aa3', 1.6)} stroke-dasharray="2 3"/><path d="M-18 -12 Q0 -26 18 -12" ${st(G, 1.6)}/>`,
+ genres: () => [[2, 2], [3, 2], [4, 2], [3, 3], [4, 3], [4, 4]].map((g, i) => { const x = -18 + (i % 3) * 18, y = i < 3 ? -9 : 9, c = i < 2 ? T : '#7d8aa8'; return `<rect x="${x - 8}" y="${y - 7}" width="16" height="14" rx="3" ${st(c, 1.4)}/>` + TX(x, y + 3.5, g[0] + ',' + g[1], c, 7.5); }).join(''),
+ gauge: () => circ(-12, 0, 10, st(T, 2)) + circ(12, 0, 7, st(G, 2)) + line(-2, 0, 5, 0, st(WH, 2.4)) + TX(-12, 4, '3', T, 11) + TX(12, 4, '2', G, 10) + `<path d="M-22 -14 A26 26 0 0 1 22 -14" ${st('#c9b6ff', 1.4)} stroke-dasharray="2 3"/>`,
+ alpha: () => TX(0, 2, 'α', G, 26, 600) + TX(0, 20, '1/137', T, 9.5),
+ seeds: () => { const r = lcg(11); let s = ''; for (let i = 0; i < 18; i++) s += circ(((r() - .5) * 44).toFixed(1), ((r() - .5) * 34).toFixed(1), (1 + r() * 3).toFixed(1), `fill="${r() < .5 ? '#ff9a5a' : '#5ab0ff'}" opacity=".7"`); return s + `<path d="M-24 14 Q-12 6 0 12 T24 8" ${st(T, 1.4)}/>`; },
+ ctspace: () => { let s = ''; for (let i = -2; i <= 2; i++) { s += `<path d="M${i * 9} -22 Q${i * 9 + (i ? 0 : 0)} 0 ${i * 9} 22" ${st('#7d8aa8', 1)}/>`; s += `<path d="M-22 ${i * 9} Q0 ${i * 9 + 6 - Math.abs(i) * 2} 22 ${i * 9}" ${st('#7d8aa8', 1)}/>`; } return s + [[-9, -9], [9, 0], [0, 9]].map(p => circ(p[0], p[1], 3, fill(G))).join('') + line(-9, -9, 9, 0, st(T, 1.6)) + line(9, 0, 0, 9, st(T, 1.6)); },
+ gluon: () => `<path d="${wave(-24, 0, 24, 0, 5, 4)}" ${st('#ff7bd0', 2.2)}/>` + circ(-24, 0, 4, fill('#ff5f6d')) + circ(24, 0, 4, fill('#4fa3ff')),
+ wz: () => circ(-10, 0, 11, `fill="rgba(255,165,61,.25)" ${st('#ffa53d', 2)}`) + TX(-10, 4, 'W', WH, 11) + circ(12, 0, 11, `fill="rgba(79,243,227,.2)" ${st(T, 2)}`) + TX(12, 4, 'Z', WH, 11),
+ strong: () => circ(-12, 0, 6, fill('#ff5f6d')) + circ(12, 0, 6, fill('#4fa3ff')) + `<path d="${wave(-6, 0, 6, 0, 3, 2)}" ${st('#ff7bd0', 2)}/>` + `<path d="M-24 -14 L24 -14 M-24 14 L24 14" ${st(G, 1.4)} stroke-dasharray="3 3"/>`,
+ antimatter: () => circ(-10, 0, 10, st(T, 2)) + TX(-10, 4, '+', T, 12) + circ(10, 0, 10, `${st('#ff8a94', 2)} stroke-dasharray="3 3"`) + TX(10, 4, '−', '#ff8a94', 12),
+ em: () => `<path d="M-8 -20 Q-20 0 -8 20 M8 -20 Q20 0 8 20" ${st('#7fc8ff', 1.6)}/>` + circ(-14, 0, 6, fill('#ff6b6b')) + TX(-14, 3.5, '+', WH, 10) + circ(14, 0, 6, fill('#4fa3ff')) + TX(14, 3.5, '−', WH, 10) + line(-7, 0, 7, 0, st('#fff17a', 1.6)),
+ weak: () => circ(-12, 6, 7, fill('#b8c7da')) + `<path d="M-4 4 L6 -2" ${st(WH, 1.6)}/><path d="M3 -6 L8 -2 L3 1" ${st(WH, 1.6)}/>` + circ(14, -6, 7, fill('#ff7b6b')) + `<path d="M14 2 L22 16" ${st('#9aa8c8', 1.4)} stroke-dasharray="1 3"/>`,
+ gravity: () => { let s = ''; for (let i = 0; i < 5; i++) s += `<ellipse rx="${8 + i * 4.5}" ry="${3 + i * 1.6}" cy="${4 - i * 2.4}" ${st('#c9b6ff', 1.1)}/>`; return s + circ(0, 2, 6, fill(G)); },
+ qgp: () => { const r = lcg(5), C = ['#ff5f6d', '#4cff8f', '#4fa3ff']; let s = circ(0, 0, 24, `fill="rgba(255,120,200,.12)" ${st('#ff7bd0', 1.4)}`); for (let i = 0; i < 14; i++) s += circ(((r() - .5) * 36).toFixed(1), ((r() - .5) * 36).toFixed(1), 2.6, fill(C[i % 3])); return s; },
+ halo: () => circ(0, 0, 24, `fill="rgba(165,140,255,.1)" ${st('#a58cff', 1.4)} stroke-dasharray="2 4"`) + `<path d="M-26 -10 L-8 -2 L4 -18 M-8 -2 L2 8 L24 2 M2 8 L-4 24" ${st('#a58cff', 1.4)}/>` + circ(-8, -2, 3, fill(WH)) + circ(2, 8, 4, fill(G)),
+ sprocess: () => circ(0, 0, 12, `fill="rgba(255,154,90,.3)" ${st('#ff9a5a', 2)}`) + circ(0, 0, 21, `${st('#ff9a5a', 1.2)} stroke-dasharray="2 4"`) + circ(22, -10, 2.8, fill('#b8c7da')) + `<path d="M20 -9 L12 -5" ${st(WH, 1.2)}/>` + TX(0, 4, 's', WH, 11),
+ cosmicray: () => `<path d="M-24 -18 L4 -2" ${st('#9ff5ea', 2)}/>` + circ(10, 2, 8, fill('#ff7b6b')) + circ(20, 14, 3, fill(WH)) + circ(22, -4, 2.5, fill(WH)) + circ(8, 16, 2.5, fill(WH)),
+ sn1a: () => circ(0, 0, 8, fill('#e8f4ff')) + rays(10, 11, 22, '#9fd0ff', 2) + TX(0, 3, 'Ia', '#04060f', 8),
+ nsmerger: () => `<path d="M-20 0 A20 10 0 0 1 20 0 A20 10 0 0 1 -20 0" ${st('#7fc8ff', 1.2)} stroke-dasharray="2 3"/>` + circ(-8, 0, 5, fill('#d8ecff')) + circ(8, 0, 5, fill('#d8ecff')) + rays(8, 14, 24, G, 1.4, .2) + TX(0, -14, 'Au', G, 8),
+ ptable: () => { let s = ''; const M = [[1, 0, 0, 0, 1], [1, 1, 0, 1, 1], [1, 1, 1, 1, 1]]; M.forEach((r, j) => r.forEach((v, i) => { if (v) s += `<rect x="${-23 + i * 9.5}" y="${-14 + j * 9.5}" width="8" height="8" rx="1.5" fill="${['#ff9a5a', '#4ff3e3', '#ffd36b', '#b48cff', '#5cf0a0'][(i + j) % 5]}" opacity=".85"/>`; })); return s + `<rect x="-14" y="16" width="27" height="6" rx="1.5" fill="#ff7bd0" opacity=".8"/>`; },
+ bonds: () => line(-12, 0, 12, 0, st(WH, 2.4)) + line(-12, -5, 12, -5, st(T, 1.6)) + circ(-14, 0, 9, fill('#7d8aa8')) + circ(14, 0, 9, fill('#ff6b6b')) + circ(0, -10, 2.2, fill(G)) + circ(0, 8, 2.2, fill(G)),
+ moon: () => circ(0, 0, 18, `fill="#cfd6e3" stroke="#fff" stroke-width="1"`) + circ(-6, -5, 4, fill('#aab3c4')) + circ(7, 6, 3, fill('#aab3c4')) + circ(4, -9, 2, fill('#aab3c4')),
+ nucleotide: () => `<path d="${hex(-12, -6, 8)}" ${st('#4cff8f', 2)}/>` + `<path d="M2 4 L10 -2 L18 4 L14 12 L6 12 Z" ${st(G, 2)}/>` + circ(20, 18, 4.5, st('#ff9a5a', 2)) + line(-5, 0, 3, 3, st(WH, 1.4)) + line(15, 12, 18, 15, st(WH, 1.4)),
+ sugar: () => `<path d="M-14 6 L-4 -12 L12 -12 L18 6 L2 16 Z" fill="rgba(255,211,107,.18)" ${st(G, 2)}/>` + TX(2, 4, 'C₅', WH, 9),
+ lipid: () => circ(0, -14, 7, fill('#4fa3ff')) + `<path d="M-3 -7 Q-6 4 -3 22 M3 -7 Q6 4 3 22" ${st(G, 2)}/>`,
+ peptide: () => [-18, -6, 6, 18].map((x, i) => circ(x, i % 2 ? 5 : -5, 5.5, `fill="${['#ff6b6b', '#4cff8f', '#4fa3ff', '#ffd36b'][i]}"`)).join('') + `<path d="M-18 -5 L-6 5 L6 -5 L18 5" ${st(WH, 1.4)}/>`,
+ vesicle: () => circ(0, 0, 22, st(G, 2)) + circ(0, 0, 16, st(G, 1.6)) + (() => { let s = ''; for (let i = 0; i < 16; i++) { const a = i * Math.PI / 8; s += circ((Math.cos(a) * 19).toFixed(1), (Math.sin(a) * 19).toFixed(1), 1.4, fill('#4fa3ff')); } return s; })(),
+ protocell: () => circ(0, 0, 22, `fill="rgba(255,211,107,.08)" ${st(G, 2)}`) + `<path d="${wave(-12, 0, 12, 0, 4, 1.5)}" ${st('#4cff8f', 2)}/>` + circ(-8, 10, 2, fill(T)) + circ(10, -10, 2, fill(T)),
+ protein: () => `<path d="M-22 10 C-30 -10 -6 -22 0 -8 C6 6 -16 10 -6 18 C4 26 20 12 12 0 C6 -10 26 -16 22 -22" ${st('#ff9ad5', 2.6)}/>`,
+ code: () => ['A', 'U', 'G'].map((l, i) => `<rect x="${-22 + i * 15}" y="-18" width="13" height="16" rx="3" ${st(['#ff6b6b', '#ffd36b', '#4cff8f'][i], 1.6)}/>` + TX(-15.5 + i * 15, -6, l, WH, 10)).join('') + `<path d="M0 2 L0 10" ${st(WH, 1.6)}/>` + circ(0, 16, 6, fill('#4fa3ff')),
+ prok: () => `<rect x="-24" y="-12" width="48" height="24" rx="12" fill="rgba(92,240,160,.12)" ${st('#5cf0a0', 2.2)}/><path d="M-10 0 C-10 -6 0 -6 0 0 C0 6 10 6 10 0" ${st(G, 1.6)}/><path d="M24 0 Q30 -6 34 2" ${st('#5cf0a0', 1.2)}/>`,
+ goe: () => circ(0, 4, 18, `fill="#1d5fbf" stroke="#7fd0ff" stroke-width="1.4"`) + [[-10, -16], [0, -22], [10, -16], [16, -6]].map(p => circ(p[0], p[1], 4, `${st('#9ff5ea', 1.4)}`) + TX(p[0], p[1] + 2.5, 'O₂', '#9ff5ea', 4.5, 600)).join(''),
+ tissue: () => { let s = ''; for (let j = 0; j < 3; j++) for (let i = 0; i < 4; i++) s += `<rect x="${-22 + i * 11 + (j % 2) * 5}" y="${-15 + j * 10}" width="10" height="9" rx="2" fill="rgba(255,154,213,.15)" ${st('#ff9ad5', 1.3)}/>`; return s; },
+ mammal: () => `<path d="M-20 8 C-20 -6 -4 -10 8 -6 L14 -14 L16 -4 C22 -2 22 6 16 8 L14 18 M-14 8 L-16 18 M4 8 L4 18 M-20 4 L-26 -2" ${st('#ffb46b', 2.2)}/>` + circ(15, -4, 1.4, fill(WH)),
+ organsys: () => `<path d="M0 -22 L0 18 M0 -10 L-14 -2 M0 -10 L14 -2 M0 4 L-10 20 M0 4 L10 20" ${st('#ff9ad5', 1.6)}/>` + circ(0, -14, 4, fill('#ff7b91')) + circ(-14, -2, 3, fill(T)) + circ(14, -2, 3, fill(T)) + circ(0, 8, 3.5, fill(G)),
+ body: () => circ(0, -18, 6, fill(G)) + `<path d="M-13 6 L-7 -6 Q0 -9 7 -6 L13 6 M-6 -6 L-5 8 L-7 24 M6 -6 L5 8 L7 24 M-5 8 L5 8" ${st(G, 3.2)}/>` + circ(0, -1, 2.4, fill('#ff7b91')),
+ idea: () => `<path d="M-14 -2 C-14 -20 14 -20 14 -2 C14 6 6 10 6 16 L-6 16 C-6 10 -14 6 -14 -2Z" fill="rgba(197,140,255,.18)" ${st('#c58cff', 2)}/><path d="M-5 21 L5 21" ${st('#c58cff', 2)}/>` + `<path d="M-6 -4 C-2 -10 2 2 6 -4" ${st('#e8d4ff', 1.4)}/>`,
+});
+
 
 /* ============ BUILD THE SVG ============ */
 const svg = document.getElementById('tree'), world = document.getElementById('world'), defs = document.getElementById('defs');
-const RANK = { k: 0, t: 1, u: 2 }, RK = ['k', 't', 'u'];
 defs.innerHTML = Object.entries(SC).map(([k, c]) =>
   `<radialGradient id="glow-${k}"><stop offset="0.5" stop-color="${c}" stop-opacity="${k === 'u' ? .22 : .38}"/><stop offset="0.68" stop-color="${c}" stop-opacity="${k === 'u' ? .08 : .14}"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient>` +
-  `<marker id="arr-${k}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 1 L9 5 L0 9 Z" fill="${c}" opacity=".7"/></marker>`).join('') +
+  `<marker id="arr-${k}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 1 L9 5 L0 9 Z" fill="${c}" opacity=".8"/></marker>`).join('') +
   `<filter id="sketch" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="1.8"/></filter>` +
   `<radialGradient id="disc"><stop offset="0" stop-color="#14203d"/><stop offset="1" stop-color="#080e20"/></radialGradient>` +
   `<radialGradient id="discU"><stop offset="0" stop-color="#0d0b14"/><stop offset="1" stop-color="#030306"/></radialGradient>`;
-let edges = '', nodes = '';
-for (const n of N) for (const pid of n.p) { const p = byId[pid], s = RK[Math.max(RANK[n.s], RANK[p.s])];
-  const x1 = p.x, y1 = p.y + 90, x2 = n.x, y2 = n.y - 50, dy = Math.max(14, (y2 - y1) * 0.55);
-  edges += `<path class="edge" data-a="${pid}" data-b="${n.id}" d="M${x1} ${y1} C${x1} ${y1 + dy} ${x2} ${y2 - dy} ${x2} ${y2}" fill="none" stroke="${SC[s]}" stroke-opacity="${s === 'k' ? .45 : .6}" stroke-width="2.2" ${s === 'k' ? '' : 'stroke-dasharray="7 6"'} marker-end="url(#arr-${s})"/>`; }
+
+const bez = (P, t) => { const u = 1 - t; return [u * u * u * P[0] + 3 * u * u * t * P[2] + 3 * u * t * t * P[4] + t * t * t * P[6], u * u * u * P[1] + 3 * u * u * t * P[3] + 3 * u * t * t * P[5] + t * t * t * P[7]]; };
+const boxes = []; // obstacles for edge labels
+N.forEach(n => boxes.push([n.x - 82, n.y - 50, n.x + 82, n.y + 108]));
+const hit = (b) => boxes.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+const EDGES = [];
+for (const n of N) for (const pid of n.p) {
+  const p = byId[pid], s = (n.es && n.es[pid]) || (RANK[n.s] >= RANK[p.s] ? n.s : p.s);
+  let P; if (n.r === p.r) { const d = n.x > p.x ? 1 : -1, x1 = p.x + 44 * d, x2 = n.x - 48 * d, y = p.y - 6, bow = Math.min(70, Math.abs(x2 - x1) * .25);
+    P = [x1, y, x1 + (x2 - x1) * .3, y - bow, x2 - (x2 - x1) * .3, y - bow, x2, y]; }
+  else { const x1 = p.x, y1 = p.y + 110, x2 = n.x, y2 = n.y - 50, dy = Math.max(30, (y2 - y1) * 0.5); P = [x1, y1, x1, y1 + dy, x2, y2 - dy, x2, y2]; }
+  EDGES.push({ a: pid, b: n.id, s, P, lab: n.el && n.el[pid], dr: n.r - p.r });
+}
+// long lines (4+ rows) are drawn as a short "from …" chip above the child, so they do not cross the whole map
+const LONG = 4;
+EDGES.forEach(e => { e.long = e.dr >= LONG; if (e.long) e.lab = '↑ from ' + byId[e.a].name + (e.lab ? ': ' + e.lab : ''); });
+const overlap = b => boxes.reduce((m, o) => m + Math.max(0, Math.min(b[2], o[2]) - Math.max(b[0], o[0])) * Math.max(0, Math.min(b[3], o[3]) - Math.max(b[1], o[1])), 0);
+for (const e of EDGES) { if (!e.lab) continue;
+  const w = Math.min(260, e.lab.length * 6.4 + 16), h = 19; let cands = [];
+  if (e.long) { const x2 = e.P[6], y2 = e.P[7]; for (const dy of [-34, -60, -86]) for (const dx of [0, -150, 150, -260, 260]) cands.push([x2 + dx, y2 + dy]); }
+  else { let t0 = .5; if (e.dr > 1) { let lo = 0, hi = 1; const ty = e.P[7] - ROW * .42; for (let i = 0; i < 30; i++) { const m = (lo + hi) / 2; if (bez(e.P, m)[1] < ty) lo = m; else hi = m; } t0 = lo; }
+    const ts = []; for (let t = .08; t < .93; t += .03) ts.push(t); ts.sort((a, b) => Math.abs(a - t0) - Math.abs(b - t0)); cands = ts.map(t => bez(e.P, t)); }
+  let best = null, bo = 1e18; for (const [x, y] of cands) { const b = [x - w / 2 - 3, y - h / 2 - 3, x + w / 2 + 3, y + h / 2 + 3], o = overlap(b); if (o < bo) { bo = o; best = [x, y, b]; if (!o) break; } }
+  boxes.push(best[2]); e.lx = best[0]; e.ly = best[1]; e.lw = w;
+  if (e.long) { const x2 = e.P[6], y2 = e.P[7]; e.P = [e.lx, e.ly + 10, e.lx, e.ly + 30, x2, y2 - 20, x2, y2]; } }
+
+let bands = '', edges = '', labs = '', nodes = '';
+BANDS.forEach(([name, , a, b, c, sz], i) => { const y0 = Math.max(0, Y(a) - 30), y1 = Math.min(H, Y(b) - 30);
+  bands += `<g class="band"><rect x="-400" y="${y0}" width="${W + 800}" height="${y1 - y0}" fill="${c}" opacity="${i % 2 ? .035 : .055}"/><line x1="-400" x2="${W + 400}" y1="${y0}" y2="${y0}" stroke="${c}" stroke-opacity=".25" stroke-dasharray="4 8"/>` +
+  `<text x="18" y="${y0 + 26}" fill="${c}" opacity=".85">${esc(name)}</text><text x="18" y="${y0 + 46}" fill="${c}" opacity=".6" style="font-size:13px;font-weight:500">size ${esc(sz)}</text></g>`; });
+EDGES.forEach((e, i) => { const P = e.P, c = SC[e.s];
+  edges += `<path class="edge" id="e${i}" data-a="${e.a}" data-b="${e.b}" d="M${P[0]} ${P[1]} C${P[2]} ${P[3]} ${P[4]} ${P[5]} ${P[6]} ${P[7]}" fill="none" stroke="${c}" stroke-opacity="${e.s === 'k' ? .5 : .65}" stroke-width="${e.long ? 1.6 : 2.3}" ${e.s === 'k' && !e.long ? '' : 'stroke-dasharray="' + (e.long ? '2 4' : '7 6') + '"'} marker-end="url(#arr-${e.s})"/>`;
+  if (e.lab) labs += `<g class="elab" data-a="${e.a}" data-b="${e.b}" transform="translate(${e.lx.toFixed(1)} ${e.ly.toFixed(1)})"><rect x="${-e.lw / 2}" y="-10" width="${e.lw}" height="20" rx="10" fill="#070d1f" fill-opacity=".92" stroke="${c}" stroke-opacity=".55"/><text y="4.3" text-anchor="middle" font-size="12" fill="#dce8f8">${esc(e.lab)}</text></g>`; });
 for (const n of N) { const c = SC[n.s], u = n.s === 'u';
   nodes += `<g class="node" data-id="${n.id}" transform="translate(${n.x} ${n.y})">
     <circle r="74" fill="url(#glow-${n.s})"/>
     <circle class="disc" r="40" fill="url(#${u ? 'discU' : 'disc'})" stroke="${c}" stroke-width="2.4" ${u ? 'stroke-dasharray="5 4"' : ''}/>
-    <g filter="url(#sketch)" ${u ? 'opacity=".45"' : ''}>${ICON[n.ic]()}</g>
+    <g class="ic" filter="url(#sketch)" ${u ? 'opacity=".45"' : ''}>${ICON[n.ic] ? ICON[n.ic]() : ''}</g>
     ${u ? `<path d="M-19 -19 L19 19 M19 -19 L-19 19" stroke="${c}" stroke-width="3.2" stroke-linecap="round" opacity=".85"/>` : ''}
-    <text y="64" text-anchor="middle" font-size="16.5" font-weight="650" fill="${u ? '#c9b3b8' : '#eef7ff'}" stroke="#04060f" stroke-width="4" paint-order="stroke">${n.name}</text>
-    <text y="83" text-anchor="middle" font-size="12.5" fill="#8fa3bf" stroke="#04060f" stroke-width="3" paint-order="stroke">${n.line}</text>
+    <text y="64" text-anchor="middle" font-size="16.5" font-weight="650" fill="${u ? '#c9b3b8' : '#eef7ff'}" stroke="#04060f" stroke-width="4" paint-order="stroke">${esc(n.name)}</text>
+    <text y="83" text-anchor="middle" font-size="12.5" fill="#8fa3bf" stroke="#04060f" stroke-width="3" paint-order="stroke">${esc(n.line)}</text>
+    ${n.sz != null ? `<text class="sz" y="101" text-anchor="middle" font-size="11.5" font-weight="600" fill="#6fe9dc" stroke="#04060f" stroke-width="3" paint-order="stroke">${szShort(n)}</text>` : ''}
   </g>`; }
-world.innerHTML = `<g>${edges}</g><g>${nodes}</g>`;
+world.innerHTML = `<g>${bands}</g><g>${edges}</g><g>${labs}</g><g>${nodes}</g>`;
+const nodeEls = [...svg.querySelectorAll('.node')], edgeEls = [...svg.querySelectorAll('.edge')], labEls = [...svg.querySelectorAll('.elab')];
+// bounding boxes for culling
+const nodeBB = N.map(n => [n.x - 90, n.y - 80, n.x + 90, n.y + 115]);
+const edgeBB = EDGES.map(e => { const P = e.P; return [Math.min(P[0], P[6]) - 10, Math.min(P[1], P[7]) - 10, Math.max(P[0], P[6]) + 10, Math.max(P[1], P[7]) + 10]; });
+const labBB = EDGES.filter(e => e.lab).map(e => [e.lx - e.lw / 2, e.ly - 12, e.lx + e.lw / 2, e.ly + 12]);
 
 /* ============ STARRY SKY ============ */
 const sky = document.getElementById('sky'), sctx = sky.getContext('2d');
@@ -231,25 +955,44 @@ function drawSky() { const d = Math.min(2, devicePixelRatio || 1), w = innerWidt
   const r = lcg(42), n = Math.round(w * h / 1800); for (let i = 0; i < n; i++) { const a = r() * r() * .9 + .08; sctx.fillStyle = `rgba(${r() < .15 ? '255,230,180' : r() < .3 ? '180,240,255' : '235,240,255'},${a})`;
     sctx.beginPath(); sctx.arc(r() * w, r() * h, r() < .04 ? 1.4 : .7, 0, 6.283); sctx.fill(); } }
 
-/* ============ SCALE STRIP ============ */
+/* ============ SECTION STRIP (scroll bar) ============ */
 const strip = document.getElementById('strip'), vp = document.getElementById('vp');
-BANDS.forEach(([name, a, b, c]) => { const d = document.createElement('div'); d.className = 'seg'; const y0 = Math.max(0, Y(a)) / H, y1 = Math.min(H, Y(b)) / H;
-  d.style.top = (y0 * 100) + '%'; d.style.height = ((y1 - y0) * 100) + '%'; d.style.background = `linear-gradient(90deg, ${c}22, ${c}08)`; d.style.boxShadow = `inset 3px 0 0 ${c}aa`; d.textContent = name; strip.insertBefore(d, vp); });
+BANDS.forEach(([, short, a, b, c]) => { const d = document.createElement('div'); d.className = 'seg'; const y0 = Math.max(0, Y(a) - 30) / H, y1 = Math.min(H, Y(b) - 30) / H;
+  d.style.top = (y0 * 100) + '%'; d.style.height = ((y1 - y0) * 100) + '%'; d.style.background = `linear-gradient(90deg, ${c}22, ${c}08)`; d.style.boxShadow = `inset 3px 0 0 ${c}aa`; d.textContent = short; strip.insertBefore(d, vp); });
+
+/* ============ SIZE RULER (log scale, ticks = things in view) ============ */
+const ruler = document.getElementById('ruler'), RMIN = -36, RMAX = 28;
+const rY = e => 6 + (1 - (e - RMIN) / (RMAX - RMIN)) * 92; // % from top (big at top)
+for (let e = -35; e <= 25; e += 5) { const d = document.createElement('div'); d.className = 'rt'; d.style.top = rY(e) + '%'; d.textContent = e === 0 ? '1 m' : pow10(e); ruler.appendChild(d); }
+const rh = document.createElement('div'); rh.className = 'rh'; ruler.appendChild(rh);
+const rticks = N.filter(n => n.sz != null).map(n => { const d = document.createElement('div'); d.className = 'rk'; d.style.background = SC[n.s]; d.style.top = rY(n.sz) + '%'; d.style.display = 'none'; d.title = n.name; ruler.appendChild(d); return [n, d]; });
+function updRuler(x0, y0, x1, y1) { let lo = 99, hi = -99;
+  for (const [n, d] of rticks) { const inV = n.x > x0 && n.x < x1 && n.y > y0 && n.y < y1; d.style.display = inV ? '' : 'none'; if (inV) { lo = Math.min(lo, n.sz); hi = Math.max(hi, n.sz); } }
+  if (lo > hi) rh.style.display = 'none'; else { rh.style.display = ''; rh.style.top = (rY(hi) - 1.5) + '%'; rh.style.height = (rY(lo) - rY(hi) + 3) + '%'; } }
 
 /* ============ PAN / ZOOM ============ */
-let s = 1, tx = 0, ty = 0, anim = null;
+let s = 1, tx = 0, ty = 0, anim = null, sel = null, cullQ = false, movT = 0;
 const MAXS = 3.5, minS = () => Math.min(innerWidth / (W + 60), innerHeight / (H + 60)) * 0.92;
 function clamp() { const vw = innerWidth, vh = innerHeight, ww = W * s, hh = H * s;
-  tx = ww < vw ? Math.min(Math.max(tx, 0), vw - ww) : Math.min(Math.max(tx, vw - ww - 90), 40);
+  tx = ww < vw ? Math.min(Math.max(tx, 0), vw - ww) : Math.min(Math.max(tx, vw - ww - 150), 40);
   ty = hh < vh ? Math.min(Math.max(ty, 0), vh - hh) : Math.min(Math.max(ty, vh - hh - 60), 70); }
+function cull() { cullQ = false; const m = 60, x0 = (-tx) / s - m, y0 = (-ty) / s - m, x1 = (innerWidth - tx) / s + m, y1 = (innerHeight - ty) / s + m;
+  const vis = b => b[2] > x0 && b[0] < x1 && b[3] > y0 && b[1] < y1;
+  nodeEls.forEach((el, i) => { const v = vis(nodeBB[i]); if (el._v !== v) { el._v = v; el.style.display = v ? '' : 'none'; } });
+  edgeEls.forEach((el, i) => { const v = vis(edgeBB[i]); if (el._v !== v) { el._v = v; el.style.display = v ? '' : 'none'; } });
+  labEls.forEach((el, i) => { const v = vis(labBB[i]); if (el._v !== v) { el._v = v; el.style.display = v ? '' : 'none'; } });
+  svg.classList.toggle('far', s < 0.42);
+  updRuler((-tx) / s, (-ty) / s, (innerWidth - tx) / s, (innerHeight - ty) / s); }
+function moving() { svg.classList.add('moving'); clearTimeout(movT); movT = setTimeout(() => svg.classList.remove('moving'), 220); }
 function apply() { clamp(); world.setAttribute('transform', `translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${s.toFixed(4)})`);
   const a = Math.max(0, -ty / s), b = Math.min(H, (innerHeight - ty) / s); vp.style.top = (a / H * 100) + '%'; vp.style.height = (Math.max(.01, b - a) / H * 100) + '%';
+  if (!cullQ) { cullQ = true; requestAnimationFrame(cull); } moving();
   if (sel) placePop(); }
 function zoomAt(f, cx, cy) { const ns = Math.min(MAXS, Math.max(minS(), s * f)); tx = cx - (cx - tx) * ns / s; ty = cy - (cy - ty) * ns / s; s = ns; apply(); }
 function animTo(s2, tx2, ty2, ms = 550) { cancelAnimationFrame(anim); const s0 = s, x0 = tx, y0 = ty, t0 = performance.now();
   const stepA = now => { const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3); s = s0 + (s2 - s0) * e; tx = x0 + (tx2 - x0) * e; ty = y0 + (ty2 - y0) * e; apply(); if (k < 1) anim = requestAnimationFrame(stepA); };
   anim = requestAnimationFrame(stepA); }
-function homeView() { const vw = innerWidth, s2 = Math.min(1.1, Math.max(.55, (vw - 100) / W)); return [s2, (vw - 80) / 2 - W / 2 * s2, 90]; }
+function homeView() { const vw = innerWidth, s2 = Math.min(1, Math.max(.5, (vw - 170) / W)); return [s2, (vw - 150) / 2 - W / 2 * s2, 90]; }
 function fitView() { const s2 = minS(); return [s2, (innerWidth - W * s2) / 2, (innerHeight - H * s2) / 2]; }
 
 const pts = new Map(); let down = null, moved = false, pinch0 = null;
@@ -266,54 +1009,108 @@ function endPtr(e) { if (!pts.has(e.pointerId)) return; pts.delete(e.pointerId);
   else if (pts.size === 1) { const [p] = [...pts.values()]; down = { x: p.x, y: p.y, tx, ty, target: null }; pinch0 = null; } }
 svg.addEventListener('pointerup', endPtr); svg.addEventListener('pointercancel', endPtr);
 svg.addEventListener('wheel', e => { e.preventDefault(); cancelAnimationFrame(anim);
-  if (e.ctrlKey) { zoomAt(Math.exp(-e.deltaY * 0.01), e.clientX, e.clientY); return; }
-  if (e.shiftKey) { ty -= e.deltaY; tx -= e.deltaX; apply(); return; }
-  ty -= e.deltaY; apply(); }, { passive: false });
+  const k = e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? innerHeight : 1, dy = e.deltaY * k, dx = e.deltaX * k;
+  if (e.ctrlKey) { zoomAt(Math.exp(-Math.max(-120, Math.min(120, dy)) * 0.0028), e.clientX, e.clientY); return; }
+  if (e.shiftKey) { tx -= dy || dx; apply(); return; }
+  ty -= dy; tx -= dx; apply(); }, { passive: false });
 const zc = () => [innerWidth / 2, innerHeight / 2];
 document.getElementById('zin').onclick = () => { const [cx, cy] = zc(), ns = Math.min(MAXS, s * 1.4); animTo(ns, cx - (cx - tx) * ns / s, cy - (cy - ty) * ns / s, 300); };
 document.getElementById('zout').onclick = () => { const [cx, cy] = zc(), ns = Math.max(minS(), s / 1.4); animTo(ns, cx - (cx - tx) * ns / s, cy - (cy - ty) * ns / s, 300); };
 document.getElementById('zfit').onclick = () => animTo(...fitView());
 document.getElementById('ztop').onclick = () => animTo(...homeView());
-addEventListener('keydown', e => { const k = e.key;
+addEventListener('keydown', e => { if (ptOpen()) { if (e.key === 'Escape') closePT(); return; } const k = e.key;
   if (k === 'ArrowDown' || k === 'PageDown') { ty -= k === 'PageDown' ? innerHeight * .8 : 90; apply(); }
   else if (k === 'ArrowUp' || k === 'PageUp') { ty += k === 'PageUp' ? innerHeight * .8 : 90; apply(); }
   else if (k === 'ArrowLeft') { tx += 90; apply(); } else if (k === 'ArrowRight') { tx -= 90; apply(); }
   else if (k === '+' || k === '=') zoomAt(1.25, ...zc()); else if (k === '-') zoomAt(0.8, ...zc());
   else if (k === 'Escape') closePop(); else if (k === 'Home') animTo(...homeView()); });
-// the strip doubles as a scroll bar: tap or drag to jump
 let stripDrag = false;
 const stripJump = e => { const r = strip.getBoundingClientRect(), f = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)); cancelAnimationFrame(anim); ty = innerHeight / 2 - f * H * s; apply(); };
 strip.addEventListener('pointerdown', e => { stripDrag = true; strip.setPointerCapture(e.pointerId); stripJump(e); });
 strip.addEventListener('pointermove', e => { if (stripDrag) stripJump(e); });
 strip.addEventListener('pointerup', () => stripDrag = false); strip.addEventListener('pointercancel', () => stripDrag = false);
 
-/* ============ TAP A NODE → TINY POPUP ============ */
-const pop = document.getElementById('pop'), popBody = document.getElementById('popBody'); let sel = null;
-function related(id) { const set = new Set([id]); const up = i => byId[i].p.forEach(p => { if (!set.has(p)) { set.add(p); up(p); } }); const dn = i => byId[i].kids.forEach(c => { if (!set.has(c)) { set.add(c); dn(c); } });
-  const A = new Set(), D = new Set(); up(id); set.forEach(x => A.add(x)); const set2 = new Set([id]); const dn2 = i => byId[i].kids.forEach(c => { if (!set2.has(c)) { set2.add(c); dn2(c); } }); dn2(id); return [A, set2]; }
+/* ============ HIGHLIGHT A NODE'S LINEAGE ============ */
+function related(id) { const A = new Set([id]), D = new Set([id]);
+  const up = i => byId[i].p.forEach(p => { if (!A.has(p)) { A.add(p); up(p); } }); const dn = i => byId[i].kids.forEach(c => { if (!D.has(c)) { D.add(c); dn(c); } });
+  up(id); dn(id); return [A, D]; }
+function light(id) { if (!id) { svg.classList.remove('focus'); return; } const [A, D] = related(id); svg.classList.add('focus');
+  nodeEls.forEach(el => el.classList.toggle('lit', A.has(el.dataset.id) || D.has(el.dataset.id)));
+  const f = el => { const a = el.dataset.a, b = el.dataset.b; el.classList.toggle('lit', (A.has(a) && A.has(b)) || (D.has(a) && D.has(b))); };
+  edgeEls.forEach(f); labEls.forEach(f); }
+svg.addEventListener('pointerover', e => { if (e.pointerType !== 'mouse' || sel || pts.size) return; const g = e.target.closest && e.target.closest('.node'); if (g) light(g.dataset.id); });
+svg.addEventListener('pointerout', e => { if (e.pointerType !== 'mouse' || sel) return; const g = e.target.closest && e.target.closest('.node'); if (g && !(e.relatedTarget && g.contains(e.relatedTarget))) light(null); });
+
+/* ============ TAP A NODE → POP-UP WITH LAYERS ============ */
+const pop = document.getElementById('pop'), popBody = document.getElementById('popBody'); let layer = 1;
 function tap(target) { const g = target && target.closest ? target.closest('.node') : null; if (!g) { closePop(); return; } const id = g.dataset.id; if (sel === id) { closePop(); return; } openPop(id); }
-function openPop(id) { sel = id; const n = byId[id], c = SC[n.s];
-  popBody.innerHTML = `<b>${n.name}</b><div class="chip"><i style="background:${c};box-shadow:0 0 6px ${c}"></i>${SN[n.s]}</div>` + n.info.slice(0, 3).map(l => `<div>${l}</div>`).join('');
-  pop.style.borderColor = c; pop.style.boxShadow = `0 0 24px ${c}44`; pop.style.display = 'block';
-  const [A, D] = related(id); svg.classList.add('focus');
-  svg.querySelectorAll('.node').forEach(el => el.classList.toggle('lit', A.has(el.dataset.id) || D.has(el.dataset.id)));
-  svg.querySelectorAll('.edge').forEach(el => { const a = el.dataset.a, b = el.dataset.b; el.classList.toggle('lit', (A.has(a) && A.has(b)) || (D.has(a) && D.has(b))); });
-  placePop(); }
-function placePop() { const n = byId[sel], x = n.x * s + tx, y = n.y * s + ty, r = 46 * s, pw = pop.offsetWidth, ph = pop.offsetHeight, vw = innerWidth, vh = innerHeight;
-  let px = x + r + 12; if (px + pw > vw - 84) px = x - r - 12 - pw; if (px < 8) px = Math.min(vw - pw - 8, Math.max(8, x - pw / 2));
-  let py = y - ph / 2; if (px === Math.min(vw - pw - 8, Math.max(8, x - pw / 2))) py = y + r + 10; py = Math.min(vh - ph - 8, Math.max(8, py));
+function rich(lines) { let h = '', inList = false;
+  for (const l of lines) { if (l.startsWith('## ')) { h += `<h4>${esc(l.slice(3))}</h4>`; } else h += `<p>${esc(l)}</p>`; } return h; }
+function layerHTML(n, L) {
+  if (L === 2) { const from = n.p.map(pid => { const p = byId[pid], lab = n.el && n.el[pid]; return `<li>${esc(p.name)}${lab ? ' — <i>' + esc(lab) + '</i>' : ''}</li>`; }).join('');
+    const sizeL = n.szt ? `<h4>Size</h4><p>${esc(n.szt)}${n.sz != null ? ' (' + szShort(n) + ')' : ''}</p>` : '';
+    return `<div class="lay">${rich(n.L2)}${sizeL}${from ? `<h4>Made from / comes from</h4><ul>${from}</ul>` : ''}</div>`; }
+  const kids = n.kids.map(k => `<li>${esc(byId[k].name)}</li>`).join('');
+  const src = n.src.map(k => SRC[k]).filter(Boolean).map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('');
+  return `<div class="lay">${rich(n.L3)}${kids ? `<h4>Leads to</h4><ul>${kids}</ul>` : ''}${src ? `<h4>Sources</h4><ul>${src}</ul>` : ''}</div>`; }
+function renderPop() { const n = byId[sel], c = SC[n.s];
+  let h = `<b class="t1">${esc(n.name)}</b><div class="chip"><i style="background:${c};box-shadow:0 0 6px ${c}"></i>${SN[n.s]}</div>` +
+    (n.sz != null ? `<div class="size">Size: ${szShort(n)}</div>` : '') + n.info.slice(0, 3).map(l => `<div>${esc(l)}</div>`).join('');
+  if (n.id === 'elements') h += `<button class="ptb" data-act="pt">Open the periodic table</button>`;
+  if (layer >= 2) h += layerHTML(n, 2);
+  if (layer >= 3) h += layerHTML(n, 3);
+  h += layer < 3 ? `<button class="more" data-act="more">${layer === 1 ? 'Read more ▾' : 'Go deeper ▾'}</button>` : `<button class="more less" data-act="less">Show less ▴</button>`;
+  h += `<div class="lvl">Layer ${layer} of 3</div>`;
+  popBody.innerHTML = h; pop.style.borderColor = c; pop.style.boxShadow = `0 0 24px ${c}44`; }
+function openPop(id, L = 1) { sel = id; layer = L; renderPop(); pop.style.display = 'block'; pop.scrollTop = 0; light(id); placePop(); }
+popBody.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const a = b.dataset.act;
+  if (a === 'more') { layer++; renderPop(); placePop(); const L = popBody.querySelectorAll('.lay'); if (L.length) L[L.length - 1].scrollIntoView({ block: 'nearest' }); }
+  else if (a === 'less') { layer = 1; renderPop(); pop.scrollTop = 0; placePop(); }
+  else if (a === 'pt') openPT(); });
+pop.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
+function placePop() { if (innerWidth <= 600) { pop.style.left = ''; pop.style.top = ''; return; }
+  const n = byId[sel], x = n.x * s + tx, y = n.y * s + ty, r = 46 * s, pw = pop.offsetWidth, ph = pop.offsetHeight, vw = innerWidth, vh = innerHeight, RM = 150;
+  let px = x + r + 12; if (px + pw > vw - RM) px = x - r - 12 - pw; let below = false; if (px < 8) { px = Math.min(vw - pw - RM, Math.max(8, x - pw / 2)); below = true; }
+  let py = below ? y + r + 10 : y - ph / 2; py = Math.min(vh - ph - 8, Math.max(8, py));
   pop.style.left = px + 'px'; pop.style.top = py + 'px'; }
-function closePop() { sel = null; pop.style.display = 'none'; svg.classList.remove('focus'); }
+function closePop() { sel = null; pop.style.display = 'none'; light(null); }
 pop.querySelector('.x').onclick = closePop;
+
+/* ============ PERIODIC TABLE ============ */
+const ORI = { B: ['Big Bang', '#6fb8ff', 'Made in the first 20 minutes.'], C: ['Cosmic-ray splitting', '#ff7bd0', 'Fast particles break bigger nuclei.'], L: ['Dying low-mass stars', '#5cf0a0', 'Giant stars (1–8 Suns) catch neutrons slowly (s-process), then puff off their outer layers. (Most of our lithium: such stars and novae.)'],
+  M: ['Exploding massive stars', '#ffd36b', 'Fusion in stars >8 Suns, spread by core-collapse supernovae.'], W: ['Exploding white dwarfs', '#c9b6ff', 'Type Ia supernovae: lots of iron-group metals.'],
+  N: ['Merging neutron stars', '#ff8a5a', 'Rapid neutron catching (r-process). Maybe also rare supernovae (debated).'], R: ['Radioactive decay only', '#8a94a8', 'No long-lived form; made as other elements decay.'], H: ['Human-made', '#4ff3e3', 'Made in reactors or accelerators (some also in traces or in stars, briefly).'] };
+const CAT = { nm: ['Other non-metal', '#5cf0a0'], hal: ['Halogen', '#9ff5ea'], nob: ['Noble gas', '#c9b6ff'], alk: ['Alkali metal', '#ff8a8a'], ae: ['Alkaline-earth metal', '#ffb46b'], met: ['Metalloid', '#d9e07a'], post: ['Post-transition metal', '#9fb4cc'], tm: ['Transition metal', '#ffd36b'], lan: ['Lanthanide', '#ff9ad5'], act: ['Actinide', '#ff7b91'] };
+const pt = document.getElementById('pt'), ptg = document.getElementById('ptg'), ptl = document.getElementById('ptl'), ptinfo = document.getElementById('ptinfo'); let ptMode = 'origin', ptBuilt = false;
+function buildPT() { let h = '';
+  for (const [z, sy, nm, ca, o, r, c] of ELS) { const gr = r >= 9 ? r + 1 : r;
+    h += `<div class="e" data-z="${z}" style="grid-row:${gr};grid-column:${c}"><div class="z">${z}</div><div class="s">${sy}</div><div class="n">${nm}</div><div class="dots">${o.slice(1).split('').map(k => `<i style="background:${ORI[k][1]}"></i>`).join('')}</div></div>`; }
+  h += `<div class="lbl" style="grid-row:6;grid-column:3">57–71</div><div class="lbl" style="grid-row:7;grid-column:3">89–103</div><div class="gap" style="grid-row:9"></div>`;
+  ptg.innerHTML = h; ptBuilt = true; colourPT(); }
+function colourPT() { ptg.querySelectorAll('.e').forEach(el => { const E = ELS[el.dataset.z - 1]; el.style.background = ptMode === 'origin' ? ORI[E[4][0]][1] : CAT[E[3]][1]; el.querySelector('.dots').style.display = ptMode === 'origin' ? '' : 'none'; });
+  const M = ptMode === 'origin' ? ORI : CAT; ptl.innerHTML = Object.values(M).map(v => `<span><i style="background:${v[1]}"></i>${v[0]}</span>`).join('');
+  document.getElementById('ptmode').textContent = 'Colour by: ' + (ptMode === 'origin' ? 'origin' : 'group'); }
+function ptShow(z) { const [, sy, nm, ca, o] = ELS[z - 1]; ptg.querySelectorAll('.e.sel').forEach(x => x.classList.remove('sel')); const el = ptg.querySelector(`[data-z="${z}"]`); if (el) el.classList.add('sel');
+  const main = ORI[o[0]], more = o.slice(1).split('').filter(Boolean).map(k => ORI[k][0]);
+  ptinfo.innerHTML = `<b>${z} · ${sy} · ${esc(nm)}</b> — ${CAT[ca][0]}<br>Recipe: ${z} proton${z > 1 ? 's' : ''} + neutrons in the nucleus, ${z} electron${z > 1 ? 's' : ''} around it.<br>Main source: <b style="color:${main[1]}">${main[0]}</b>. ${esc(main[2])}${more.length ? '<br>Also from: ' + more.join(', ') + '.' : ''}${z >= 104 ? '<br>Superheavy: most last seconds or less (dubnium-268 about a day); only a few atoms ever made.' : ''}`; }
+ptg.addEventListener('click', e => { const el = e.target.closest('.e'); if (el) ptShow(+el.dataset.z); });
+document.getElementById('ptmode').onclick = () => { ptMode = ptMode === 'origin' ? 'group' : 'origin'; colourPT(); };
+const ptOpen = () => pt.style.display === 'block';
+function openPT() { if (!ptBuilt) buildPT(); pt.style.display = 'block'; }
+function closePT() { pt.style.display = 'none'; }
+pt.querySelector('.close').onclick = closePT;
+document.getElementById('ptbtn').onclick = openPT;
+pt.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
 
 /* ============ START ============ */
 function init() { drawSky(); [s, tx, ty] = homeView(); apply(); }
 addEventListener('resize', () => { drawSky(); apply(); });
 init();
-// test hook (used for screenshots): #view=fit or #y=<row>&z=<zoom>
+// test hooks (used for screenshots): #view=fit | #y=<row>&z=<zoom> | &open=<id>&layer=<1-3> | #ptable=1&el=<Z>
 (() => { const h = new URLSearchParams(location.hash.slice(1)); if (h.get('view') === 'fit') [s, tx, ty] = fitView();
-  if (h.has('y')) { s = +(h.get('z') || s); ty = innerHeight / 2 - Y(+h.get('y')) * s; tx = (innerWidth - 80) / 2 - W / 2 * s; }
-  apply(); if (h.has('open')) openPop(h.get('open')); })();
+  if (h.has('y')) { s = +(h.get('z') || s); ty = innerHeight / 2 - Y(+h.get('y')) * s; tx = (innerWidth - 150) / 2 - (+(h.get('x') || W / 2)) * s; }
+  apply(); if (h.has('open')) openPop(h.get('open'), +(h.get('layer') || 1));
+  if (h.has('ptable')) { openPT(); if (h.has('el')) ptShow(+h.get('el')); } })();
 </script>
 </body>
 </html>
