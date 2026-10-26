@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>From Nothing to Us</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23070d1f%22 stroke=%22%23ffd36b%22 stroke-width=%228%22/%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2214%22 fill=%22%234ff3e3%22/%3E%3C/svg%3E">
 <meta property="og:title" content="From Nothing to Us">
 <meta property="og:description" content="An interactive dark-mode tree of how everything emerges, from the quantum field to humans.">
 <meta name="twitter:card" content="summary_large_image">
@@ -163,6 +164,75 @@ svg.moving .ic{filter:none}
 
 /* 3D view (viewer3d.js) */
 #popBody .v3d-btn{display:flex;align-items:center;gap:7px;margin:8px 0 2px;padding:6px 12px;border-radius:9px;border:1.5px solid #3ff0dc;background:rgba(63,240,220,.08);color:#bffcf4;font:600 13px system-ui,sans-serif;cursor:pointer;box-shadow:0 0 10px rgba(63,240,220,.25)}#popBody .v3d-btn:hover,#popBody .v3d-btn:focus-visible{background:rgba(63,240,220,.18);box-shadow:0 0 16px rgba(63,240,220,.45);outline:none}#popBody .v3d-btn i{width:14px;height:14px;border:2px solid #ffd54a;border-radius:3px;transform:rotate(45deg) scale(.8);box-shadow:0 0 6px #ffd54a}#v3d{position:fixed;inset:0;z-index:40;display:none;background:radial-gradient(ellipse at 50% 45%,#0b1530 0%,#03050d 75%);color:#e8f4ff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;touch-action:none;-webkit-user-select:none;user-select:none}#v3d.on{display:block}#v3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}#v3d canvas:active{cursor:grabbing}#v3d .v3d-top{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:12px 14px 12px 18px;pointer-events:none}#v3d .v3d-top b{font-size:17px;color:#ffd54a;text-shadow:0 0 12px rgba(255,213,74,.55);letter-spacing:.3px}#v3d .v3d-x{pointer-events:auto;width:42px;height:42px;border-radius:50%;border:1.5px solid #3ff0dc;background:rgba(4,10,24,.8);color:#bffcf4;font-size:24px;line-height:1;cursor:pointer;box-shadow:0 0 12px rgba(63,240,220,.4)}#v3d .v3d-x:focus-visible{outline:2px solid #ffd54a;outline-offset:2px}#v3d .v3d-cap{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);max-width:min(860px,92vw);padding:8px 14px;border-radius:10px;background:rgba(4,10,24,.78);border:1px solid rgba(63,240,220,.35);font-size:13px;line-height:1.4;color:#cfe6f2;text-align:center;pointer-events:none}#v3d .v3d-hint{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:11.5px;color:#7f93ad;pointer-events:none}#v3d .v3d-l{position:absolute;inset:0;pointer-events:none;overflow:hidden}#v3d .v3d-l span{position:absolute;left:0;top:0;white-space:nowrap;font-size:12.5px;font-weight:600;will-change:transform}#v3d .v3d-g{color:#ffe28a;text-shadow:0 0 8px rgba(255,213,74,.8)}#v3d .v3d-t{color:#9ffcf0;text-shadow:0 0 8px rgba(63,240,220,.8)}#v3d .v3d-l .v3d-k{font-size:10.5px;font-weight:500;color:#b9c7da;opacity:.85}@media (max-width:600px){#v3d .v3d-cap{font-size:12px;bottom:30px;padding:7px 10px}#v3d .v3d-top b{font-size:15px}}
+
+/* v5: map ⇄ tree, bounties, Echo-Flame, music */
+#tree{transition:opacity .28s ease}#tree.fade{opacity:0}
+#strip,#mini,#topcover{transition:opacity .28s ease}
+body.tv #strip,body.tv #mini{opacity:0;pointer-events:none}body.tv #topcover{height:60px;box-shadow:0 8px 16px 6px #04060f}body.tv #strip .seg{pointer-events:none}
+.node .pulse{transform-box:fill-box;transform-origin:center;animation:bpulse 4.2s ease-out infinite;opacity:0;pointer-events:none}
+@keyframes bpulse{0%{transform:scale(.95);opacity:.5}75%{opacity:0}100%{transform:scale(1.42);opacity:0}}
+svg.moving .node .pulse{animation-play-state:paused}
+.node .seenr{display:none;pointer-events:none}.node.seen .seenr{display:inline;stroke-opacity:.42}
+.node.seen .seenr{filter:drop-shadow(0 0 3px rgba(255,211,107,.5))}
+#gTree .elab{visibility:hidden}svg.focus #gTree .elab.lit{visibility:visible}
+svg.focus #gTree .edge.lit .core{stroke-opacity:1}svg.focus #gTree .edge.long.lit .core{stroke-width:2.6;stroke-opacity:.9}
+svg.focus #gTree .edge.lit .bg{stroke-opacity:.2}
+#gTree .tband{font-size:30px;font-weight:700;letter-spacing:4px;opacity:.5}
+#gTree .tend{font-size:46px;font-weight:800;letter-spacing:14px;fill:#ffd36b;opacity:.75;filter:drop-shadow(0 0 10px rgba(255,211,107,.55))}
+#gTree .tend.us{fill:#4ff3e3;filter:drop-shadow(0 0 12px rgba(79,243,227,.6))}
+#pop .bty{display:flex;align-items:center;gap:7px;margin:12px 0 2px;font:inherit;font-size:13.5px;font-weight:700;color:#1a1204;background:linear-gradient(180deg,#ffe08a,#ffc94a);border:0;border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 0 0 4px rgba(255,211,107,.14),0 0 16px rgba(255,211,107,.45)}
+#pop .bty:hover,#pop .bty:focus-visible{box-shadow:0 0 0 5px rgba(255,211,107,.22),0 0 22px rgba(255,211,107,.7);outline:none}
+#pop .solv{color:#3dff8a}
+/* corner controls: one neat group, top right, under the bars */
+#ctl{position:fixed;right:10px;top:152px;z-index:7;display:flex;flex-direction:column;align-items:flex-end;gap:6px;transition:top .28s ease;touch-action:manipulation}
+body.tv #ctl{top:66px}
+#ctl button{font:inherit;color:#cfe9f2;background:rgba(6,10,24,.9);border:1px solid #23355a;border-radius:11px;cursor:pointer;height:34px;padding:0 10px;display:flex;align-items:center;gap:5px;font-size:13px}
+#ctl button:hover,#ctl button:focus-visible{border-color:#4ff3e3;outline:none}
+#vsw{padding:3px!important;gap:2px!important;border-radius:999px!important;border-color:rgba(255,211,107,.55)!important;box-shadow:0 0 12px rgba(255,211,107,.18)}
+#vsw span{display:flex;align-items:center;gap:4px;height:26px;padding:0 9px;border-radius:999px;transition:background .25s,color .25s;color:#8fa3bf;font-weight:600}
+#vsw i{font-style:normal;color:#ffd36b;font-size:12px;opacity:.8}
+#vsw .vm,#vsw.isTree .vt{background:linear-gradient(90deg,rgba(255,211,107,.28),rgba(79,243,227,.22));color:#fff}
+#vsw.isTree .vm{background:none;color:#8fa3bf}
+#ctl .row{display:flex;gap:6px;align-items:center}
+#efb b{color:#ffd36b;font-weight:700;min-width:12px;text-align:left}
+#efb.bump{animation:efbump .5s ease}@keyframes efbump{40%{transform:scale(1.12);box-shadow:0 0 14px rgba(255,170,60,.6)}}
+#ctl .snd{display:flex;align-items:center;gap:0;background:rgba(6,10,24,.9);border:1px solid #23355a;border-radius:11px;height:34px;box-sizing:border-box}
+#ctl .snd button{border:0;background:none;height:32px;padding:0 6px 0 8px}
+#vol,#vol2{width:66px;accent-color:#4ff3e3;margin:0 9px 0 0;height:16px;cursor:pointer;touch-action:manipulation}
+#infob{width:34px;justify-content:center;padding:0!important;font-family:Georgia,serif!important;font-style:italic;font-weight:700;color:#9ff5ea!important}
+.effloat{position:fixed;z-index:30;transform:translateX(-50%);pointer-events:none;font-size:13px;font-weight:700;color:#ffd36b;text-shadow:0 0 8px rgba(255,160,40,.8);animation:effl 1.6s ease-out forwards}
+@keyframes effl{0%{opacity:0;transform:translate(-50%,4px)}15%{opacity:1}100%{opacity:0;transform:translate(-50%,26px)}}
+.panel{position:fixed;right:10px;top:200px;z-index:9;width:300px;max-width:calc(100vw - 20px);box-sizing:border-box;padding:12px 14px;border-radius:14px;background:rgba(8,14,30,.97);border:1.5px solid #23355a;box-shadow:0 0 22px rgba(0,0,0,.5);font-size:13px;line-height:1.45;color:#d6e4f5;display:none;max-height:70vh;overflow-y:auto;touch-action:pan-y}
+.panel.on{display:block}
+.panel .ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}.panel .ph b{font-size:14px;letter-spacing:.4px;background:linear-gradient(90deg,#ffd36b,#4ff3e3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.panel .x{background:none;border:0;color:#8aa0bd;font-size:20px;cursor:pointer;line-height:1;padding:0 2px}
+.panel h5{margin:10px 0 4px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#ffd36b}
+.panel p{margin:4px 0}.panel a{color:#4ff3e3}
+#efp{border-color:rgba(255,170,60,.55);box-shadow:0 0 22px rgba(255,150,40,.15)}
+#efp .big{font-size:30px;font-weight:800;color:#ffd36b;text-shadow:0 0 12px rgba(255,150,40,.6)}#efp .big small{font-size:13px;font-weight:600;color:#c9a96b}
+#efst{font-size:12px;color:#9fb0c8}#efp .hint{font-size:12px;color:#9fb0c8}
+.panel .code{display:flex;gap:6px}.panel input[type=text]{flex:1;min-width:0;height:30px;box-sizing:border-box;border-radius:8px;border:1px solid #2c4a7a;background:#0a1226;color:#e8f4ff;font:12px ui-monospace,Menlo,Consolas,monospace;padding:0 8px;-webkit-user-select:text;user-select:text}
+.panel .code button{font:inherit;font-size:12.5px;font-weight:650;color:#04060f;background:linear-gradient(90deg,#ffd36b,#4ff3e3);border:0;border-radius:8px;padding:0 11px;cursor:pointer}
+#efmsg{font-size:12px;min-height:16px;margin-top:5px;color:#9fb0c8}#efmsg.ok{color:#3dff8a}#efmsg.bad{color:#ff8a95}
+.panel .tag,.btag{font-style:italic;color:#ffd36b;opacity:.85;font-size:12px;margin-top:10px;text-align:center}
+#infp .sndrow{display:flex;align-items:center;gap:10px}#infp .sndrow button{font:inherit;font-size:12.5px;color:#cfe9f2;background:#16233f;border:1px solid #2c4a7a;border-radius:9px;padding:4px 10px;cursor:pointer;white-space:nowrap}
+#infp #vol2{width:auto;flex:1}
+#infp .cred{font-size:11.5px;color:#8a9bb6;margin-top:8px}
+#btyBack{position:fixed;inset:0;z-index:19;background:rgba(2,4,12,.55);display:none}#btyBack.on{display:block}
+#bty{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:20;width:380px;max-width:calc(100vw - 20px);max-height:min(560px,86vh);overflow-y:auto;box-sizing:border-box;padding:16px 18px 14px;border-radius:16px;background:rgba(8,14,30,.98);border:1.5px solid #ffa53d;box-shadow:0 0 0 1px rgba(255,211,107,.15),0 0 34px rgba(255,180,60,.25);display:none;font-size:13.5px;line-height:1.45;color:#d6e4f5;-webkit-user-select:text;user-select:text;touch-action:pan-y}
+#bty.on{display:block}
+#bty .x{position:absolute;top:8px;right:10px;background:none;border:0;color:#8aa0bd;font-size:22px;cursor:pointer}
+#bty .bk{font-size:11px;letter-spacing:2px;font-weight:800;color:#ffd36b}
+#bty .bn{display:flex;align-items:center;gap:8px;margin:6px 0 4px;flex-wrap:wrap}#bty .bn i{width:11px;height:11px;border-radius:50%}#bty .bn b{font-size:17px;color:#fff}#bty .bn small{font-size:11.5px}
+#bty h5{margin:12px 0 4px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#4ff3e3}
+#bty .bq{font-size:15px;color:#fff;margin:0}
+#bty ul{list-style:none;margin:0;padding-left:2px}#bty li{margin:5px 0;line-height:1.35}#bty li::before{content:'▸ ';color:#4ff3e3}
+#bty a.sl{color:#4ff3e3;font-size:11.5px}#bty .idea{font-size:10.5px;padding:0 5px;border:1px dashed #c58cff;border-radius:6px;color:#d9b8ff;white-space:nowrap}
+#bty .bsoon{display:flex;gap:10px;align-items:center;margin-top:14px;padding:9px 11px;border-radius:12px;border:1px dashed rgba(255,211,107,.5);background:rgba(255,211,107,.06)}
+#bty .bsoon span{font-size:22px}#bty .bsoon b{display:block;color:#ffd36b;font-size:13.5px}#bty .bsoon small{color:#9fb0c8;font-size:11.5px}
+@media (max-width:600px){#ctl{right:8px;top:172px}body.tv #ctl{top:124px}#vsw b{display:none}#vsw span{padding:0 7px}#ctl .snd #vol{display:none}#ctl .snd button{padding:0 8px}#ctl button{height:32px}#ctl .snd{height:32px}body.tv #topcover{height:118px}
+ #bty{top:auto;bottom:8px;transform:translateX(-50%);max-height:78vh}.panel{right:8px;width:calc(100vw - 16px)}}
+@media (prefers-reduced-motion:reduce){.node .pulse{animation:none;opacity:.38;transform:scale(1.1)}#tree,#strip,#mini,#topcover,#ctl{transition:none}.effloat{animation:effl2 1.4s linear forwards}@keyframes effl2{0%,70%{opacity:1}100%{opacity:0}}#efb.bump{animation:none}}
 </style>
 </head>
 <body>
@@ -195,6 +265,10 @@ svg.moving .ic{filter:none}
   <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#ffa53d" stroke-width="2.2" stroke-opacity=".8" stroke-dasharray="5 4"/><path d="M24 1.5L29 5L24 8.5Z" fill="#ffa53d" opacity=".85"/></svg><span>Dashed: uncertain step</span></div>
   <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#8fa3bf" stroke-width="1.6" stroke-opacity=".9" stroke-dasharray="2 3"/><path d="M24 1.5L29 5L24 8.5Z" fill="#8fa3bf" opacity=".85"/></svg><span>Dotted “← from …”: far link</span></div>
   <div class="kr"><svg width="30" height="16" viewBox="0 0 30 16"><rect x="6" y="1" width="18" height="14" rx="7" fill="#070d1f" stroke="#ff4d5e" stroke-opacity=".7"/><text x="15" y="12" text-anchor="middle" font-size="10" fill="#dce8f8">?</text></svg><span>“?” on a label: not known</span></div>
+  <div class="ks">BOUNTIES · YOU</div>
+  <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8.2" fill="none" stroke="#ffa53d" stroke-opacity=".45" stroke-width="1"/><circle cx="9" cy="9" r="5.6" fill="#0a1226" stroke="#ffa53d" stroke-width="2"/></svg><span>Gentle pulse: open bounty</span></div>
+  <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#3dff8a" stroke-width="2"/><path d="M5.6 9.2l2.2 2.2 4.4-4.6" fill="none" stroke="#3dff8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Green + tick: bounty solved</span></div>
+  <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8.2" fill="none" stroke="#ffd36b" stroke-opacity=".6" stroke-width="1.3"/><circle cx="9" cy="9" r="5.2" fill="#0a1226" stroke="#3dff8a" stroke-width="1.6"/></svg><span>Faint gold ring: you explored it</span></div>
  </div><button class="kchip" aria-label="Show colour key">Key</button></div>
 <div id="pop"><button class="x" aria-label="close">×</button><div id="popBody"></div></div>
 <div id="pt"><button class="close" aria-label="close">×</button><div class="in">
@@ -207,6 +281,23 @@ svg.moving .ic{filter:none}
   <div id="ptx"></div>
   <div class="note">Origins follow Jennifer Johnson's "nucleosynthesis periodic table" (<a href="https://www.science.org/doi/10.1126/science.aau9540" target="_blank" rel="noopener">Science 2019</a>; <a href="https://blog.sdss.org/2017/01/09/origin-of-the-elements-in-the-solar-system/" target="_blank" rel="noopener">SDSS chart</a>), simplified to main and secondary sources for Solar System matter. Shares are estimates and still debated, especially how much of the heaviest elements come from neutron-star crashes versus rare kinds of supernova. 94 elements occur in nature (Tc, Pm, Np, Pu only in traces). 95–118 have only been made in labs; 113, 115, 117 and 118 were named in 2016 (<a href="https://iupac.org/what-we-do/periodic-table-of-elements/" target="_blank" rel="noopener">IUPAC</a>).</div>
 </div></div>
+<div id="ctl" aria-label="View, Echo-Flame and sound">
+  <button id="vsw" title="Switch between the map and the tree"><span class="vm">🗺️<b>Map</b></span><i>⇄</i><span class="vt">🌳<b>Tree</b></span></button>
+  <div class="row"><button id="efb" title="Your Echo-Flame and save code" aria-label="Echo-Flame">🔥<b id="efn">0</b></button>
+    <div class="snd"><button id="mute" title="Music on" aria-label="Mute music">🔊</button><input id="vol" type="range" min="0" max="100" step="1" aria-label="Music volume"></div>
+    <button id="infob" title="About and credits" aria-label="About and credits">i</button></div>
+</div>
+<div id="efp" class="panel" role="dialog" aria-label="Echo-Flame"><div class="ph"><b>🔥 ECHO-FLAME</b><button class="x" aria-label="close">×</button></div>
+  <div class="big"><span id="efbig">0</span> <small>flame</small></div><div id="efst"></div>
+  <p class="hint">Earn a little flame by exploring: open a node, read more, view in 3D, open a bounty. Saved on this device only. No account, nothing is sent anywhere.</p>
+  <h5>Your save code</h5><div class="code"><input type="text" id="efcode" readonly aria-label="Your save code"><button id="efcopy">Copy</button></div>
+  <h5>Load a save code</h5><div class="code"><input type="text" id="efin" placeholder="Paste a code from another device" aria-label="Paste a save code" autocomplete="off" spellcheck="false"><button id="efload">Load</button></div>
+  <div id="efmsg"></div><p class="tag">“Don't collect cards. Collect understanding.”</p></div>
+<div id="infp" class="panel" role="dialog" aria-label="About"><div class="ph"><b>ABOUT</b><button class="x" aria-label="close">×</button></div>
+  <p>From Nothing to Us: how everything emerges, from the quantum field to us. Made by Zyphullen.</p>
+  <h5>Music</h5><div class="sndrow"><button id="mute2">🔊 Music on</button><input id="vol2" type="range" min="0" max="100" step="1" aria-label="Music volume"></div>
+  <p class="cred">Piano: Salamander Grand Piano by Alexander Holm (<a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>), via <a href="https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html" target="_blank" rel="noopener">FreePats</a></p></div>
+<div id="btyBack"></div><div id="bty" role="dialog" aria-label="Open bounty"><button class="x" aria-label="close">×</button><div id="btyBody"></div></div>
 <script>
 'use strict';
 /* ============ COLOURS ============ */
@@ -1100,6 +1191,10 @@ const TESTS = {
 };
 
 for (const n of N) { const x = EXTRA[n.id]; if (x) { if (x.L2 && x.L2.length) n.L2 = x.L2; if (x.L3 && x.L3.length) n.L3 = x.L3; } n.L2 = n.L2 || []; n.L3 = n.L3 || []; }
+/* status is single-source: a node's own data decides its colour in BOTH views. Set solved:true on a node to turn it green with a tick everywhere. */
+function applyStatus() { for (const n of N) { if (n.s0 == null) n.s0 = n.s; n.s = n.solved ? 'k' : n.s0; } }
+applyStatus();
+const isOpenQ = n => n.s === 't' || n.s === 'u'; // orange or red = an open bounty
 
 /* ============ LAYOUT ============ */
 /* Left → right: one column per stage (n.r), grouped into size levels (BANDS).
@@ -1129,7 +1224,8 @@ N.forEach(n => n.p.forEach(p => byId[p].kids.push(n.id)));
   }
   const mn = Math.min(...N.map(n => n.y)); N.forEach(n => n.y = Math.round(n.y - mn + 190));
 })();
-const W = X(LASTR) + 260, H = Math.max(...N.map(n => n.y)) + 190;
+const WM = X(LASTR) + 260, HM = Math.max(...N.map(n => n.y)) + 190; let W = WM, H = HM;
+N.forEach(n => { n.mx = n.x; n.my = n.y; });
 /* labels for the remaining lines: amount / recipe / what passes up (kept short; '?' = not known) */
 const EL2 = {
  axiom:{nothing:'Alex: start = links only'}, qft:{nothing:'?'}, qgrav:{nothing:'?'},
@@ -1297,13 +1393,71 @@ defs.innerHTML = Object.entries(SC).map(([k, c]) =>
   `<radialGradient id="discU"><stop offset="0" stop-color="#0d0b14"/><stop offset="1" stop-color="#030306"/></radialGradient>`;
 
 const bez = (P, t) => { const u = 1 - t; return [u * u * u * P[0] + 3 * u * u * t * P[2] + 3 * u * t * t * P[4] + t * t * t * P[6], u * u * u * P[1] + 3 * u * u * t * P[3] + 3 * u * t * t * P[5] + t * t * t * P[7]]; };
-const boxes = []; // obstacles for edge labels
 const halfW = n => Math.max(62, n.name.length * 4.7 + 6, n.line.length * 3.5 + 6);
+const bx = v => v <= 0 ? 0 : Math.max(0, Math.min(WM, X(v))); // map x of a stage boundary
+const edgeStatus = (n, p) => (n.es && n.es[p.id]) || (RANK[n.s] >= RANK[p.s] ? n.s : p.s);
+
+/* ============ TREE LAYOUT (same nodes, grown upwards: roots at "Nothing", crown at "Us") ============
+   One row per stage (n.r); a node fed by a parent in its own stage sits half a row higher.
+   Space & planets branch out to the left, Chain Theory to the right, matter and then life form the trunk. */
+const TROW = 215, TLX = 640, TLANE = { cosmic: -1, matter: 0, chain: 1, life: 0 }, TORD = { cosmic: 0, matter: 1, life: 1, chain: 2 };
+let WT = 0, HT = 0;
+(() => {
+  const lvOf = n => n.lv != null ? n.lv : (n.lv = Math.max(n.r, ...n.p.map(p => byId[p]).filter(p => p.r === n.r).map(p => lvOf(p) + .5))); N.forEach(lvOf);
+  const levels = [...new Set(N.map(n => n.lv))].sort((a, b) => a - b), placed = [], sep = (a, b) => halfW(a) + halfW(b) + 34;
+  for (const L of levels) {
+    const row = N.filter(n => n.lv === L);
+    for (const n of row) { const ps = n.p.map(p => byId[p]).filter(p => p.gx != null), lc = TLANE[n.lane] * TLX;
+      n.gwant = ps.length ? 0.62 * ps.reduce((m, p) => m + p.gx, 0) / ps.length + 0.38 * lc : lc; n.gx = n.gwant; n.gy = -L * TROW; }
+    row.sort((a, b) => TORD[a.lane] - TORD[b.lane] || a.gwant - b.gwant);
+    const tidy = () => { for (let it = 0; it < 300; it++) { let ok = true;
+        for (let i = 1; i < row.length; i++) { const a = row[i - 1], b = row[i], d = a.gx + sep(a, b) - b.gx; if (d > .01) { ok = false; a.gx -= d / 2; b.gx += d / 2; } }
+        if (ok) break; }
+      for (let i = 1; i < row.length; i++) row[i].gx = Math.max(row[i].gx, row[i - 1].gx + sep(row[i - 1], row[i])); };
+    tidy();
+    for (let k = 0; k < 60; k++) { let moved = false; // keep clear of nodes half a row below
+      for (const n of row) for (const m of placed) if (Math.abs(n.gy - m.gy) < 175) { const need = sep(n, m), d = n.gx - m.gx; if (Math.abs(d) < need) { n.gx = m.gx + (d >= 0 ? need : -need); moved = true; } }
+      if (!moved) break; row.sort((a, b) => a.gx - b.gx); for (let i = 1; i < row.length; i++) row[i].gx = Math.max(row[i].gx, row[i - 1].gx + sep(row[i - 1], row[i])); }
+    { row.sort((a, b) => a.gx - b.gx); const near = placed.filter(m => Math.abs(m.gy - row[0].gy) < 175); // final hard pass: nearest free spot, never overlapping
+      const free = (x, n, lo) => x >= lo - .01 && near.every(m => Math.abs(x - m.gx) >= sep(n, m) - .01);
+      row.forEach((n, i) => { const lo = i ? row[i - 1].gx + sep(row[i - 1], n) : -1e9; if (free(n.gx, n, lo)) return;
+        const cand = [lo, ...near.flatMap(m => [m.gx - sep(n, m), m.gx + sep(n, m)])].filter(x => free(x, n, lo)).sort((a, b) => Math.abs(a - n.gx) - Math.abs(b - n.gx));
+        let x = cand.length ? cand[0] : Math.max(lo, n.gx); for (let g = 0; g < 200 && !free(x, n, lo); g++) { const m = near.find(m => Math.abs(x - m.gx) < sep(n, m)); x = m ? m.gx + sep(n, m) : lo; }
+        n.gx = x; }); }
+    placed.push(...row);
+  }
+  const mnx = Math.min(...N.map(n => n.gx - halfW(n))), mny = Math.min(...N.map(n => n.gy));
+  N.forEach(n => { n.gx = Math.round(n.gx - mnx + 190); n.gy = Math.round(n.gy - mny + 330); });
+  WT = Math.max(...N.map(n => n.gx + halfW(n))) + 160; HT = Math.max(...N.map(n => n.gy)) + 330;
+})();
+defs.innerHTML += `<linearGradient id="trunkG" gradientUnits="userSpaceOnUse" x1="0" y1="${HT}" x2="0" y2="0"><stop offset="0" stop-color="#ffd36b"/><stop offset=".45" stop-color="#d6ee9a"/><stop offset="1" stop-color="#4ff3e3"/></linearGradient>` +
+  `<radialGradient id="usGlow"><stop offset="0" stop-color="#4ff3e3" stop-opacity=".22"/><stop offset="1" stop-color="#4ff3e3" stop-opacity="0"/></radialGradient>` +
+  `<radialGradient id="rootGlow"><stop offset="0" stop-color="#ffd36b" stop-opacity=".2"/><stop offset="1" stop-color="#ffd36b" stop-opacity="0"/></radialGradient>`;
+
+/* ============ ONE NODE (shared by both views, so status, pulse, tick and explored ring always match) ============ */
+function nodeSVG(n, i, tree) { const c = SC[n.s], u = n.s === 'u', open = isOpenQ(n), hw = halfW(n);
+  return `<g class="node${open ? ' open' : ''}${n.solved ? ' solved' : ''}" data-id="${n.id}" transform="translate(${n.x} ${n.y})">
+    <circle r="74" fill="url(#glow-${n.s})"/>
+    ${open ? `<circle class="pulse" r="45" fill="none" stroke="${c}" stroke-width="2.2" style="animation-delay:-${((i * 1.37) % 4.2).toFixed(2)}s"/>` : ''}
+    <circle class="seenr" r="50" fill="none" stroke="#ffd36b" stroke-width="1.6"/>
+    <circle class="disc" r="40" fill="url(#${u ? 'discU' : 'disc'})" stroke="${c}" stroke-width="2.4" ${u ? 'stroke-dasharray="5 4"' : ''}/>
+    <g class="ic" filter="url(#sketch)" ${u ? 'opacity=".45"' : ''}>${ICON[n.ic] ? ICON[n.ic]() : ''}</g>
+    ${u ? `<path d="M-19 -19 L19 19 M19 -19 L-19 19" stroke="${c}" stroke-width="3.2" stroke-linecap="round" opacity=".85"/>` : ''}
+    ${n.solved ? `<g class="tick" transform="translate(30 -30)"><circle r="12" fill="#06140d" stroke="${SC.k}" stroke-width="2"/><path d="M-5.5 .5L-1.5 4.5L6 -4" fill="none" stroke="${SC.k}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>` : ''}
+    ${tree ? `<rect class="plq" x="${-hw - 4}" y="47" width="${2 * hw + 8}" height="${n.sz != null ? 60 : 44}" rx="11" fill="#050a18" fill-opacity=".82"/>` : ''}
+    <text y="64" text-anchor="middle" font-size="16.5" font-weight="650" fill="${u ? '#c9b3b8' : '#eef7ff'}" stroke="#04060f" stroke-width="4" paint-order="stroke">${esc(n.name)}</text>
+    <text y="83" text-anchor="middle" font-size="12.5" fill="#8fa3bf" stroke="#04060f" stroke-width="3" paint-order="stroke">${esc(n.line)}</text>
+    ${n.sz != null ? `<text class="sz" y="101" text-anchor="middle" font-size="11.5" font-weight="600" fill="#6fe9dc" stroke="#04060f" stroke-width="3" paint-order="stroke">${szShort(n)}</text>` : ''}
+  </g>`; }
+const labSVG = (e, c) => `<g class="elab" data-a="${e.a}" data-b="${e.b}" transform="translate(${e.lx.toFixed(1)} ${e.ly.toFixed(1)})"><rect x="${-e.lw / 2}" y="-10" width="${e.lw}" height="20" rx="10" fill="#070d1f" fill-opacity=".92" stroke="${c}" stroke-opacity=".55"/><text y="4.3" text-anchor="middle" font-size="12" fill="#dce8f8">${esc(e.lab)}</text></g>`;
+
+/* ============ MAP SCENE (left → right) ============ */
+function buildMap() { N.forEach(n => { n.x = n.mx; n.y = n.my; });
+const boxes = []; // obstacles for edge labels
 N.forEach(n => boxes.push([n.x - halfW(n), n.y - 50, n.x + halfW(n), n.y + 108]));
-const hit = (b) => boxes.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
 const EDGES = [];
 for (const n of N) for (const pid of n.p) {
-  const p = byId[pid], s = (n.es && n.es[pid]) || (RANK[n.s] >= RANK[p.s] ? n.s : p.s);
+  const p = byId[pid], s = edgeStatus(n, p);
   let P; if (n.r === p.r) { const x = p.x + 44, bow = 95; P = [x, p.y + 8, x + bow, p.y + 8, x + bow, n.y - 8, n.x + 46, n.y - 8]; } // same stage: small arc on the right
   else { const x1 = p.x + 44, y1 = p.y, x2 = n.x - 50, y2 = n.y, dx = Math.max(40, (x2 - x1) * 0.5); P = [x1, y1, x1 + dx, y1, x2 - dx, y2, x2, y2]; }
   EDGES.push({ a: pid, b: n.id, s, P, lab: n.el && n.el[pid], dr: n.r - p.r });
@@ -1322,7 +1476,6 @@ for (const e of EDGES) { if (!e.lab) continue;
   if (e.long) { const x1 = e.lx + w / 2, x2 = e.P[6], y2 = e.P[7], dx = Math.max(12, (x2 - x1) * .5); e.P = [x1, e.ly, x1 + dx, e.ly, x2 - dx, y2, x2, y2]; } }
 
 let bands = '', edges = '', labs = '', nodes = '';
-const bx = v => v <= 0 ? 0 : Math.max(0, Math.min(W, X(v)));
 BANDS.forEach(([name, , a, b, c, sz], i) => { const x0 = bx(a), x1 = bx(b);
   bands += `<g class="band"><rect x="${x0}" y="-600" width="${x1 - x0}" height="${H + 1200}" fill="${c}" opacity="${i % 2 ? .035 : .055}"/><line y1="-600" y2="${H + 600}" x1="${x0}" x2="${x0}" stroke="${c}" stroke-opacity=".25" stroke-dasharray="4 8"/>`;
   bands += '</g>'; });
@@ -1343,23 +1496,63 @@ for (const ln in LANES) { const txt = LANES[ln][0], tw = txt.length * 10.6, th =
   if (best) bands += `<g class="band"><text class="lane" x="${best[0].toFixed(1)}" y="${best[1].toFixed(1)}" text-anchor="start">${esc(txt)}</text></g>`; }
 EDGES.forEach((e, i) => { const P = e.P, c = SC[e.s];
   edges += `<path class="edge" id="e${i}" data-a="${e.a}" data-b="${e.b}" d="M${P[0]} ${P[1]} C${P[2]} ${P[3]} ${P[4]} ${P[5]} ${P[6]} ${P[7]}" fill="none" stroke="${c}" stroke-opacity="${e.s === 'k' ? .5 : .65}" stroke-width="${e.long ? 1.6 : 2.3}" ${e.s === 'k' && !e.long ? '' : 'stroke-dasharray="' + (e.long ? '2 4' : '7 6') + '"'} marker-end="url(#arr-${e.s})"/>`;
-  if (e.lab) labs += `<g class="elab" data-a="${e.a}" data-b="${e.b}" transform="translate(${e.lx.toFixed(1)} ${e.ly.toFixed(1)})"><rect x="${-e.lw / 2}" y="-10" width="${e.lw}" height="20" rx="10" fill="#070d1f" fill-opacity=".92" stroke="${c}" stroke-opacity=".55"/><text y="4.3" text-anchor="middle" font-size="12" fill="#dce8f8">${esc(e.lab)}</text></g>`; });
-for (const n of N) { const c = SC[n.s], u = n.s === 'u';
-  nodes += `<g class="node" data-id="${n.id}" transform="translate(${n.x} ${n.y})">
-    <circle r="74" fill="url(#glow-${n.s})"/>
-    <circle class="disc" r="40" fill="url(#${u ? 'discU' : 'disc'})" stroke="${c}" stroke-width="2.4" ${u ? 'stroke-dasharray="5 4"' : ''}/>
-    <g class="ic" filter="url(#sketch)" ${u ? 'opacity=".45"' : ''}>${ICON[n.ic] ? ICON[n.ic]() : ''}</g>
-    ${u ? `<path d="M-19 -19 L19 19 M19 -19 L-19 19" stroke="${c}" stroke-width="3.2" stroke-linecap="round" opacity=".85"/>` : ''}
-    <text y="64" text-anchor="middle" font-size="16.5" font-weight="650" fill="${u ? '#c9b3b8' : '#eef7ff'}" stroke="#04060f" stroke-width="4" paint-order="stroke">${esc(n.name)}</text>
-    <text y="83" text-anchor="middle" font-size="12.5" fill="#8fa3bf" stroke="#04060f" stroke-width="3" paint-order="stroke">${esc(n.line)}</text>
-    ${n.sz != null ? `<text class="sz" y="101" text-anchor="middle" font-size="11.5" font-weight="600" fill="#6fe9dc" stroke="#04060f" stroke-width="3" paint-order="stroke">${szShort(n)}</text>` : ''}
-  </g>`; }
-world.innerHTML = `<g>${bands}</g><g>${edges}</g><g>${labs}</g><g>${nodes}</g>`;
-const nodeEls = [...svg.querySelectorAll('.node')], edgeEls = [...svg.querySelectorAll('.edge')], labEls = [...svg.querySelectorAll('.elab')];
-// bounding boxes for culling
-const nodeBB = N.map(n => [n.x - 90, n.y - 80, n.x + 90, n.y + 115]);
-const edgeBB = EDGES.map(e => { const P = e.P, xs = [P[0], P[2], P[4], P[6]], ys = [P[1], P[3], P[5], P[7]]; return [Math.min(...xs) - 10, Math.min(...ys) - 10, Math.max(...xs) + 10, Math.max(...ys) + 10]; });
-const labBB = EDGES.filter(e => e.lab).map(e => [e.lx - e.lw / 2, e.ly - 12, e.lx + e.lw / 2, e.ly + 12]);
+  if (e.lab) labs += labSVG(e, c); });
+N.forEach((n, i) => nodes += nodeSVG(n, i, false));
+return { html: `<g>${bands}</g><g>${edges}</g><g>${labs}</g><g>${nodes}</g>`, edges: EDGES }; }
+
+/* ============ TREE SCENE (bottom → top) ============ */
+function buildTree() { N.forEach(n => { n.x = n.gx; n.y = n.gy; });
+  const desc = {}; const cnt = id => desc[id] != null ? desc[id] : (desc[id] = (() => { const S = new Set(), go = i => byId[i].kids.forEach(k => { if (!S.has(k)) { S.add(k); go(k); } }); go(id); return S.size; })());
+  const boxes = N.map(n => [n.x - halfW(n) - 4, n.y - 50, n.x + halfW(n) + 4, n.y + 110]);
+  const overlap = b => boxes.reduce((m, o) => m + Math.max(0, Math.min(b[2], o[2]) - Math.max(b[0], o[0])) * Math.max(0, Math.min(b[3], o[3]) - Math.max(b[1], o[1])), 0);
+  const EDGES = [];
+  for (const n of N) for (const pid of n.p) { const p = byId[pid], s = edgeStatus(n, p), x1 = p.x, y1 = p.y - 40, x2 = n.x, y2 = n.y + 42, dy = y1 - y2;
+    const P = [x1, y1, x1, y1 - dy * .55, x2, y2 + dy * .55, x2, y2];
+    EDGES.push({ a: pid, b: n.id, s, P, lab: n.el && n.el[pid], dr: n.r - p.r, long: n.r - p.r >= 4, w: Math.min(13, 2.4 + 1.05 * Math.sqrt(cnt(n.id) + 1)) }); }
+  for (const e of EDGES) { if (!e.lab) continue; const w = Math.min(260, e.lab.length * 6.4 + 16), h = 19; let best = null, bo = 1e18;
+    const ts = []; for (let t = .2; t < .85; t += .04) ts.push(t); ts.sort((a, b) => Math.abs(a - .5) - Math.abs(b - .5));
+    for (const t of ts) { const [x, y] = bez(e.P, t), b = [x - w / 2 - 3, y - h / 2 - 3, x + w / 2 + 3, y + h / 2 + 3], o = overlap(b); if (o < bo) { bo = o; best = [x, y]; if (!o) break; } }
+    e.lx = best[0]; e.ly = best[1]; e.lw = w; }
+  let deco = '', edges = '', labs = '', nodes = '';
+  // size levels as soft horizontal bands, named along the left edge
+  const top = Math.min(...N.map(n => n.y)), root = byId.nothing, yr = r => root.y - r * TROW + 20;
+  BANDS.forEach(([name, , a, b, c], i) => { const y0 = i === BANDS.length - 1 ? top - 330 : yr(b), y1 = i === 0 ? HT : yr(a), ym = (y0 + y1) / 2;
+    deco += `<g class="band"><rect x="-6000" y="${y0}" width="${WT + 12000}" height="${y1 - y0}" fill="${c}" opacity="${i % 2 ? .03 : .05}"/><line x1="-6000" x2="${WT + 6000}" y1="${y1}" y2="${y1}" stroke="${c}" stroke-opacity=".22" stroke-dasharray="4 8"/>` +
+      `<text class="tband" transform="translate(70 ${ym.toFixed(0)}) rotate(-90)" text-anchor="middle" fill="${c}">${esc(name)}</text></g>`; });
+  // roots under "Nothing" and a glow over the crown ("Us")
+  const rx = root.x, ry = root.y + 44; let roots = '';
+  [[-150, 150, 3.2], [-80, 190, 2.4], [-20, 210, 2], [60, 185, 2.4], [140, 160, 3], [-210, 110, 1.6], [200, 120, 1.6]].forEach(([dx, dy, w]) => roots += `<path d="M${rx} ${ry} C${rx + dx * .2} ${ry + dy * .5} ${rx + dx * .8} ${ry + dy * .55} ${rx + dx} ${ry + dy}" stroke="url(#trunkG)" stroke-width="${w}" fill="none" stroke-linecap="round" opacity=".55"/>`);
+  const crown = N.filter(n => n.r >= LASTR - 3), cx = crown.reduce((m, n) => m + n.x, 0) / crown.length;
+  deco += `<g class="roots"><ellipse cx="${rx}" cy="${ry + 120}" rx="300" ry="120" fill="url(#rootGlow)"/>${roots}<text class="tend" x="${rx}" y="${ry + 270}" text-anchor="middle">NOTHING</text></g>` +
+    `<g class="crown"><ellipse cx="${cx}" cy="${top - 40}" rx="560" ry="260" fill="url(#usGlow)"/><text class="tend us" x="${cx}" y="${top - 160}" text-anchor="middle">US</text></g>`;
+  EDGES.forEach((e, i) => { const P = e.P, d = `M${P[0]} ${P[1]} C${P[2]} ${P[3]} ${P[4]} ${P[5]} ${P[6]} ${P[7]}`, k = e.s === 'k';
+    edges += e.long ? `<g class="edge long" data-a="${e.a}" data-b="${e.b}"><path class="core" d="${d}" fill="none" stroke="${SC[e.s]}" stroke-opacity=".3" stroke-width="1.5" stroke-dasharray="2 5"/></g>`
+      : `<g class="edge" data-a="${e.a}" data-b="${e.b}"><path class="bg" d="${d}" fill="none" stroke="url(#trunkG)" stroke-opacity=".09" stroke-width="${(e.w + 9).toFixed(1)}" stroke-linecap="round"/>` +
+        `<path class="core" d="${d}" fill="none" stroke="url(#trunkG)" stroke-opacity="${k ? .82 : .32}" stroke-width="${e.w.toFixed(1)}" stroke-linecap="round"/>` +
+        (k ? '' : `<path class="st" d="${d}" fill="none" stroke="${SC[e.s]}" stroke-opacity=".9" stroke-width="2.2" stroke-dasharray="7 6"/>`) + '</g>';
+    if (e.lab) labs += labSVG(e, SC[e.s]); });
+  N.forEach((n, i) => nodes += nodeSVG(n, i, true));
+  return { html: `<g>${deco}</g><g>${edges}</g><g class="tlabs">${labs}</g><g>${nodes}</g>`, edges: EDGES }; }
+
+/* ============ BOTH SCENES + SWITCHING ============ */
+let VIEW = 'map', EDGES, nodeEls, edgeEls, labEls, nodeBB, edgeBB, labBB; const SCN = {};
+function collect(gid, edges, Wv, Hv, xk, yk) { const g = document.getElementById(gid);
+  return { g, edges, W: Wv, H: Hv, xk, yk, nodeEls: [...g.querySelectorAll('.node')], edgeEls: [...g.querySelectorAll('.edge')], labEls: [...g.querySelectorAll('.elab')],
+    nodeBB: N.map(n => [n[xk] - Math.max(90, halfW(n) + 6), n[yk] - 80, n[xk] + Math.max(90, halfW(n) + 6), n[yk] + 115]),
+    edgeBB: edges.map(e => { const P = e.P, xs = [P[0], P[2], P[4], P[6]], ys = [P[1], P[3], P[5], P[7]]; return [Math.min(...xs) - 16, Math.min(...ys) - 16, Math.max(...xs) + 16, Math.max(...ys) + 16]; }),
+    labBB: edges.filter(e => e.lab).map(e => [e.lx - e.lw / 2, e.ly - 12, e.lx + e.lw / 2, e.ly + 12]) }; }
+function setScene(v) { VIEW = v; const S = SCN[v]; N.forEach(n => { n.x = n[S.xk]; n.y = n[S.yk]; });
+  ({ nodeEls, edgeEls, labEls, nodeBB, edgeBB, labBB } = S); EDGES = S.edges; W = S.W; H = S.H;
+  SCN.map.g.style.display = v === 'map' ? '' : 'none'; SCN.tree.g.style.display = v === 'tree' ? '' : 'none';
+  document.body.classList.toggle('tv', v === 'tree'); }
+function buildScenes() { const v = VIEW, m = buildMap(), t = buildTree();
+  world.innerHTML = `<g id="gMap">${m.html}</g><g id="gTree">${t.html}</g>`;
+  SCN.map = collect('gMap', m.edges, WM, HM, 'mx', 'my'); SCN.tree = collect('gTree', t.edges, WT, HT, 'gx', 'gy'); setScene(v);
+  if (typeof EF !== 'undefined') EF.paintSeen(); }
+// one data edit (e.g. byId.smbh.solved = true) then rebuild() updates both views
+function rebuild() { applyStatus(); buildScenes(); if (typeof cull === 'function') { cullQ = false; cull(); } }
+buildScenes();
+
 
 /* ============ STARRY SKY ============ */
 const sky = document.getElementById('sky'), sctx = sky.getContext('2d');
@@ -1375,7 +1568,7 @@ const strip = document.getElementById('strip'), mini = document.getElementById('
 const heads = BANDS.map(([name, short, a, b, c, sz]) => { const d = document.createElement('div'); d.className = 'seg';
   d.style.background = `linear-gradient(180deg, ${c}2a, ${c}0a)`; d.style.boxShadow = `inset 0 3px 0 ${c}bb`; d.innerHTML = `<b style="color:${c}">${esc(name)}</b><span>size ${esc(sz)}</span>`; d.title = name;
   d.onclick = () => { const x0 = bx(a), x1 = bx(b), s2 = Math.min(1.1, Math.max(minS(), (innerWidth - 40) / (x1 - x0 + 120))), cy = (innerHeight / 2 - ty) / s; animTo(s2, innerWidth / 2 - (x0 + x1) / 2 * s2, innerHeight / 2 - cy * s2); };
-  strip.appendChild(d); const m = document.createElement('div'); m.className = 'mseg'; m.style.left = (bx(a) / W * 100) + '%'; m.style.width = ((bx(b) - bx(a)) / W * 100) + '%'; m.style.background = c + '55'; m.textContent = short; mini.insertBefore(m, vp);
+  strip.appendChild(d); const m = document.createElement('div'); m.className = 'mseg'; m.style.left = (bx(a) / WM * 100) + '%'; m.style.width = ((bx(b) - bx(a)) / WM * 100) + '%'; m.style.background = c + '55'; m.textContent = short; mini.insertBefore(m, vp);
   return [d, bx(a), bx(b), short, name]; });
 function updHeads() { const vw = innerWidth;
   for (const [d, a, b, short, name] of heads) { const l = a * s + tx, r = b * s + tx, L = Math.max(l, 0), R = Math.min(r, vw);
@@ -1394,7 +1587,7 @@ function updRuler(x0, y0, x1, y1) { let lo = 99, hi = -99;
 
 /* ============ PAN / ZOOM ============ */
 let s = 1, tx = 0, ty = 0, anim = null, sel = null, cullQ = false, movT = 0;
-const MAXS = 3, UI = () => innerWidth <= 600 ? 168 : 146; // height of the fixed bars at the top
+const MAXS = 3, UI = () => VIEW === 'tree' ? (innerWidth <= 600 ? 124 : 66) : innerWidth <= 600 ? 168 : 146; // height of the fixed bars at the top (the tree view has no column bar)
 const minS = () => Math.min(innerWidth / (W + 60), (innerHeight - UI()) / (H + 40)) * 0.96;
 function clamp() { const vw = innerWidth, vh = innerHeight, ww = W * s, hh = H * s, top = UI();
   tx = ww < vw ? Math.min(Math.max(tx, 0), vw - ww) : Math.min(Math.max(tx, vw - ww - 120), 120);
@@ -1409,7 +1602,7 @@ function cull() { cullQ = false; const m = 60, x0 = (-tx) / s - m, y0 = (-ty) / 
   updRuler((-tx) / s, (-ty) / s, (innerWidth - tx) / s, (innerHeight - ty) / s); }
 function moving() { svg.classList.add('moving'); clearTimeout(movT); movT = setTimeout(() => svg.classList.remove('moving'), 220); }
 function apply() { clamp(); world.setAttribute('transform', `translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${s.toFixed(4)})`);
-  const a = Math.max(0, -tx / s), b = Math.min(W, (innerWidth - tx) / s); vp.style.left = (a / W * 100) + '%'; vp.style.width = (Math.max(.004, b - a) / W * 100) + '%'; updHeads();
+  if (VIEW === 'map') { const a = Math.max(0, -tx / s), b = Math.min(W, (innerWidth - tx) / s); vp.style.left = (a / W * 100) + '%'; vp.style.width = (Math.max(.004, b - a) / W * 100) + '%'; updHeads(); }
   if (!cullQ) { cullQ = true; requestAnimationFrame(cull); } moving();
   if (sel) placePop(); }
 function zoomAt(f, cx, cy) { const ns = Math.min(MAXS, Math.max(minS(), s * f)); tx = cx - (cx - tx) * ns / s; ty = cy - (cy - ty) * ns / s; s = ns; apply(); }
@@ -1417,7 +1610,9 @@ function animTo(s2, tx2, ty2, ms = 550, done) { cancelAnimationFrame(anim); cons
   const stepA = now => { const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3); s = s0 + (s2 - s0) * e; tx = x0 + (tx2 - x0) * e; ty = y0 + (ty2 - y0) * e; apply(); if (k < 1) anim = requestAnimationFrame(stepA); else if (done) done(); };
   anim = requestAnimationFrame(stepA); }
 // start view: the left (base) end of the map at a readable zoom
-function homeView() { const vw = innerWidth, vh = innerHeight, top = UI(), ns = N.filter(n => n.r <= 2), y0 = Math.min(...ns.map(n => n.y)) - 100, y1 = Math.max(...ns.map(n => n.y)) + 120;
+function homeView() { if (VIEW === 'tree') { const vw = innerWidth, vh = innerHeight, n = byId.nothing, s2 = vw <= 600 ? 0.5 : 0.6;
+    return [s2, vw / 2 - n.x * s2, vh - 24 - (n.y + 300) * s2]; } // the tree starts at its roots
+  const vw = innerWidth, vh = innerHeight, top = UI(), ns = N.filter(n => n.r <= 2), y0 = Math.min(...ns.map(n => n.y)) - 100, y1 = Math.max(...ns.map(n => n.y)) + 120;
   const s2 = vw <= 600 ? 0.55 : Math.min(0.85, Math.max(0.6, (vh - top - 20) / (y1 - y0))), cy = vw <= 600 ? byId.nothing.y + 60 : (y0 + y1) / 2;
   return [s2, 16 - (X(0) - 110) * s2, top + (vh - top) / 2 - cy * s2]; }
 function fitView() { const s2 = minS(), top = UI(); return [s2, (innerWidth - W * s2) / 2, top + (innerHeight - top - H * s2) / 2]; }
@@ -1480,7 +1675,8 @@ function rich(lines) { let h = '', skip = false, head = ''; // internal changelo
 function layerHTML(n, L) {
   if (L === 2) { const from = n.p.map(pid => { const p = byId[pid], lab = n.el && n.el[pid]; return `<li>${esc(p.name)}${lab ? ' — <i>' + esc(lab) + '</i>' : ''}</li>`; }).join('');
     const sizeL = n.szt && n.szt !== '—' ? `<h4>Size</h4><p>${esc(n.szt)}${n.sz != null ? ' (scale: ' + szShort(n) + ')' : ''}</p>` : '';
-    const b2 = `${rich(n.L2)}${sizeL}${from ? `<h4>Made from / comes from</h4><ul>${from}</ul>` : ''}`; return b2 ? `<div class="lay">${b2}</div>` : ''; }
+    const bty = isOpenQ(n) && TESTS[n.id] ? `<button class="bty" data-act="bounty"><span>⚑</span> Open bounty</button>` : '';
+    const b2 = `${rich(n.L2)}${sizeL}${from ? `<h4>Made from / comes from</h4><ul>${from}</ul>` : ''}${bty}`; return b2 ? `<div class="lay">${b2}</div>` : ''; }
   const kids = n.kids.map(k => `<li>${esc(byId[k].name)}</li>`).join('');
   const src = n.src.map(k => SRC[k]).filter(Boolean).map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('');
   const b3 = `${rich(n.L3)}${kids ? `<h4>Leads to</h4><ul>${kids}</ul>` : ''}${src ? `<h4>Sources</h4><ul>${src}</ul>` : ''}`; return b3 ? `<div class="lay">${b3}</div>` : ''; }
@@ -1489,7 +1685,7 @@ const srcLinks = keys => String(keys || '').split(',').map(k => SRC[k]).filter(B
 function rivHTML(n) { return `<div class="lay riv"><h4>Rival ideas</h4><ul>${RIV[n.id].map(([nm, st, ln, sk]) => `<li><i class="d" style="background:${SC[st]}" title="${SN[st]}"></i><b>${esc(nm)}</b>: ${esc(ln)}${srcLinks(sk)}</li>`).join('')}</ul></div>`; }
 function testHTML(n) { return `<div class="lay tst"><h4>Tests we could run</h4><ul>${TESTS[n.id].map(([tx, sk, idea]) => `<li>${esc(tx)}${idea ? ' <span class="idea">idea, not planned</span>' : ''}${srcLinks(sk)}</li>`).join('')}</ul></div>`; }
 function renderPop() { const n = byId[sel], c = SC[n.s];
-  let h = `<b class="t1">${esc(n.name)}</b><div class="chip"><i style="background:${c};box-shadow:0 0 6px ${c}"></i>${SN[n.s]}</div>` +
+  let h = `<b class="t1">${esc(n.name)}</b><div class="chip"><i style="background:${c};box-shadow:0 0 6px ${c}"></i>${SN[n.s]}${n.solved ? ' · <b class="solv">solved ✓</b>' : ''}</div>` +
     (n.sz != null ? `<div class="size">Size: ${szShort(n)}</div>` : '') + n.info.slice(0, 3).map(l => `<div>${esc(l)}</div>`).join('');
   if (n.id === 'elements') h += `<button class="ptb" data-act="pt">Open the periodic table</button>`;
   const ex = extraLayers(n), MAX = 3 + ex.length; if (layer > MAX) layer = MAX;
@@ -1500,18 +1696,21 @@ function renderPop() { const n = byId[sel], c = SC[n.s];
   h += layer < MAX ? `<button class="more" data-act="more">${nxt}</button>` : `<button class="more less" data-act="less">Show less ▴</button>`;
   h += `<div class="lvl">Layer ${layer} of ${MAX}</div>`;
   popBody.innerHTML = h; pop.style.borderColor = c; pop.style.boxShadow = `0 0 24px ${c}44`; }
-function openPop(id, L = 1) { sel = id; layer = L; renderPop(); pop.style.display = 'block'; pop.scrollTop = 0; light(id); placePop(); liftForSheet(); }
+function openPop(id, L = 1) { sel = id; layer = L; renderPop(); EF.award(id, 1); if (L >= 2) EF.award(id, 2); if (L >= 3) EF.award(id, 4); pop.style.display = 'block'; pop.scrollTop = 0; light(id); placePop(); liftForSheet(); }
 // on phones the pop-up is a bottom sheet: if it covers the tapped node, slide the map so the node sits in the free space above it
 function liftForSheet() { if (innerWidth > 600 || !sel) return; const n = byId[sel], y = n.y * s + ty, top = UI(), pt = innerHeight - pop.offsetHeight - 6;
   if (y + 46 * s < pt - 8 && y - 46 * s > top) return; const want = top + Math.max(46 * s + 6, (pt - top) / 2); animTo(s, tx, ty + (want - y), 300); }
 popBody.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const a = b.dataset.act;
-  if (a === 'more') { layer++; renderPop(); placePop(); const L = popBody.querySelectorAll('.lay'); if (L.length) L[L.length - 1].scrollIntoView({ block: 'nearest' }); liftForSheet(); }
+  if (a === 'more') { layer++; renderPop(); EF.award(sel, layer >= 3 ? 4 : 2); placePop(); const L = popBody.querySelectorAll('.lay'); if (L.length) L[L.length - 1].scrollIntoView({ block: 'nearest' }); liftForSheet(); }
   else if (a === 'less') { layer = 1; renderPop(); pop.scrollTop = 0; placePop(); }
-  else if (a === 'pt') openPT(); });
+  else if (a === 'pt') openPT();
+  else if (a === 'bounty') openBounty(sel);
+  else if (a === 'v3d') EF.award(sel, 8); });
 pop.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
 function placePop() { if (innerWidth <= 600) { pop.style.left = ''; pop.style.top = ''; keyAvoid(); return; }
   const n = byId[sel], x = n.x * s + tx, y = n.y * s + ty, r = 46 * s, pw = pop.offsetWidth, ph = pop.offsetHeight, vw = innerWidth, vh = innerHeight, RM = 10, TM = UI();
-  let px = x + r + 12; if (px + pw > vw - RM) px = x - r - 12 - pw; let below = false; if (px < 8) { px = Math.min(vw - pw - RM, Math.max(8, x - pw / 2)); below = true; }
+  const ne = document.querySelector(`#${typeof VIEW !== 'undefined' && VIEW === 'tree' ? 'gTree' : 'gMap'} .node[data-id="${sel}"]`), nb = ne && ne.getBoundingClientRect(), hr = nb && nb.width ? Math.max(r, nb.right - x, x - nb.left) : r;
+  let px = x + hr + 12; if (px + pw > vw - RM) px = x - hr - 12 - pw; let below = false; if (px < 8) { px = Math.min(vw - pw - RM, Math.max(8, x - pw / 2)); below = true; }
   let py = below ? y + r + 10 : y - ph / 2; py = Math.max(TM, Math.min(vh - ph - 8, py)); if (py + ph > vh - 8) py = Math.max(8, vh - ph - 8);
   pop.style.left = px + 'px'; pop.style.top = py + 'px'; keyAvoid(); }
 function closePop() { const was = sel; sel = null; pop.style.display = 'none'; light(null); keyAvoid(); if (was && innerWidth <= 600) apply(); }
@@ -1544,7 +1743,7 @@ const PTX = [
  ['~172', 'Where the table may end', 'u', 'Around Z ≈ 170 the innermost electron level would sink into "negative energy" (estimates 164–174); extended tables stop near 172–173. Nuclei may stop holding together before that.', 'schw,pyykko,shenrp']];
 function buildPTX() { document.getElementById('ptx').innerHTML = `<h3>Not yet made (predicted)</h3><div class="xs">Beyond 118 nothing has been made yet (Oct 2026). These are predictions and running hunts, graded like the map.</div><div class="xg">` +
   PTX.map(([z, nm, st, tx, sk]) => `<div class="xc" style="border-color:${SC[st]}"><b class="big">${z}</b><b>${esc(nm)}</b><div class="st" style="color:${SC[st]}"><i style="background:${SC[st]}"></i>${SN[st]}</div>${esc(tx)}<div>${sk.split(',').map(k => `<a href="${SRC[k][1]}" target="_blank" rel="noopener">${esc(SRC[k][0])}</a>`).join('<br>')}</div></div>`).join('') + '</div>'; }
-function openPT() { if (!ptBuilt) { buildPT(); buildPTX(); } pt.style.display = 'block'; }
+function openPT() { if (!ptBuilt) { buildPT(); buildPTX(); } pt.style.display = 'block'; EF.bonus('pt'); }
 function closePT() { pt.style.display = 'none'; }
 pt.querySelector('.close').onclick = closePT;
 document.getElementById('ptbtn').onclick = openPT;
@@ -1607,7 +1806,7 @@ function foldSearch() { closeHits(); if (!sq.value.trim()) search.classList.remo
 function goNode(id, after) { const n = byId[id]; if (!n) return; if (ptOpen()) closePT(); closePop(); light(id);
   const vw = innerWidth, vh = innerHeight, top = UI(), s2 = vw <= 600 ? 0.6 : Math.min(1, Math.max(0.75, s));
   animTo(s2, vw / 2 - n.x * s2, top + (vh - top) / 2 - n.y * s2, 700, () => { openPop(id); if (after) after(); }); }
-function choose(i) { const h = hits[i]; if (!h) return; closeHits(); sq.blur(); search.classList.remove('wide');
+function choose(i) { const h = hits[i]; if (!h) return; EF.bonus('search'); closeHits(); sq.blur(); search.classList.remove('wide');
   if (h.k === 'el') { const z = h.E[0]; goNode('elements', () => setTimeout(() => { openPT(); ptShow(z); }, 350)); } else goNode(h.r.n.id); }
 sq.addEventListener('input', renderHits);
 sq.addEventListener('focus', () => { if (sq.value.trim()) renderHits(); });
@@ -1624,12 +1823,146 @@ document.getElementById('sx').onclick = () => { sq.value = ''; renderHits(); sq.
 document.addEventListener('pointerdown', e => { if (!search.contains(e.target)) foldSearch(); }, true);
 addEventListener('resize', () => { if (search.classList.contains('open')) keyAvoid(); });
 
+/* ============ SMALL HELPERS (remembered settings) ============ */
+function prefGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function prefSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+const RMOTION = () => !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+/* ============ MAP ⇄ TREE SWITCH (fade, remembered) ============ */
+const vsw = document.getElementById('vsw'), camOf = {};
+function syncSwitch() { vsw.classList.toggle('isTree', VIEW === 'tree'); vsw.setAttribute('aria-label', VIEW === 'tree' ? 'Showing the tree. Switch to the map' : 'Showing the map. Switch to the tree'); placePanels(); }
+function switchView(v) { if (v === VIEW || svg.classList.contains('fade')) return; camOf[VIEW] = [s, tx, ty];
+  const go = () => { cancelAnimationFrame(anim); setScene(v); light(sel); syncSwitch(); prefSet('fntu-view', v);
+    if (sel) { const n = byId[sel], top = UI(), s2 = innerWidth <= 600 ? 0.6 : Math.min(1, Math.max(0.6, s)); [s, tx, ty] = [s2, innerWidth / 2 - n.x * s2, top + (innerHeight - top) / 2 - n.y * s2]; }
+    else [s, tx, ty] = camOf[v] || homeView();
+    cullQ = false; apply(); cull(); if (sel) { placePop(); liftForSheet(); }
+    requestAnimationFrame(() => svg.classList.remove('fade')); if (v === 'tree') EF.bonus('tree'); };
+  if (RMOTION()) go(); else { svg.classList.add('fade'); setTimeout(go, 280); } }
+vsw.onclick = () => switchView(VIEW === 'map' ? 'tree' : 'map');
+
+/* ============ ECHO-FLAME (free, no account, kept on this device only) ============
+   Progress = which nodes you opened (1), read more on (2), went deeper on (4), saw in 3D (8), opened the bounty of (16), plus a few one-offs.
+   The flame total is counted from that, so it can't drift. */
+var EF = (() => {
+  const KEY = 'fntu-ef', PTS = { 1: 1, 2: 1, 4: 1, 8: 2, 16: 2 }, BON = { tree: 3, pt: 2, search: 1 };
+  let st = { n: {}, x: {} };
+  try { const j = JSON.parse(prefGet(KEY) || 'null'); if (j && typeof j === 'object') st = { n: j.n || {}, x: j.x || {} }; } catch (e) {}
+  const total = () => { let t = 0; for (const id in st.n) { if (!byId[id]) continue; for (const b in PTS) if (st.n[id] & b) t += PTS[b]; } for (const k in st.x) if (BON[k] && st.x[k]) t += BON[k]; return t; };
+  const count = b => Object.keys(st.n).filter(id => byId[id] && st.n[id] & b).length;
+  const save = () => prefSet(KEY, JSON.stringify(st));
+  const efn = document.getElementById('efn'), efb = document.getElementById('efb');
+  function paint() { efn.textContent = total(); if (efp.classList.contains('on')) fillPanel(); }
+  function paintSeen() { document.querySelectorAll('#world .node').forEach(g => g.classList.toggle('seen', !!(st.n[g.dataset.id] & 1))); }
+  function float(k) { const r = efb.getBoundingClientRect(), f = document.createElement('div'); f.className = 'effloat'; f.textContent = '+' + k + ' 🔥';
+    f.style.left = (r.left + r.width / 2) + 'px'; f.style.top = (r.bottom + 2) + 'px'; document.body.appendChild(f); setTimeout(() => f.remove(), 1700);
+    efb.classList.remove('bump'); void efb.offsetWidth; efb.classList.add('bump'); }
+  function award(id, bit) { if (!id || !byId[id]) return; const had = st.n[id] | 0; if (had & bit) return; st.n[id] = had | bit; save(); paint(); float(PTS[bit]);
+    if (bit === 1) document.querySelectorAll(`#world .node[data-id="${id}"]`).forEach(g => g.classList.add('seen')); }
+  function bonus(k) { if (!BON[k] || st.x[k]) return; st.x[k] = 1; save(); paint(); float(BON[k]); }
+  // save code: "EF1-" + base64url(node:bits,…|one-offs) + "-" + checksum
+  const sum = t => { let h = 7; for (let i = 0; i < t.length; i++) h = (h * 31 + t.charCodeAt(i)) >>> 0; return (h % 46656).toString(36).padStart(3, '0'); };
+  const b64 = t => btoa(unescape(encodeURIComponent(t))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const unb64 = t => decodeURIComponent(escape(atob(t.replace(/-/g, '+').replace(/_/g, '/'))));
+  function code() { const body = Object.keys(st.n).filter(id => byId[id] && st.n[id]).map(id => id + ':' + st.n[id].toString(36)).join(',') + '|' + Object.keys(st.x).filter(k => st.x[k]).join(',');
+    const p = b64(body); return 'EF1-' + p + '-' + sum(p); }
+  function load(c) { const m = String(c || '').trim().replace(/\s+/g, '').match(/^EF1-([A-Za-z0-9_]+)-([0-9a-z]{3})$/); if (!m || sum(m[1]) !== m[2]) return -1;
+    let body; try { body = unb64(m[1]); } catch (e) { return -1; } const [ns, xs] = body.split('|'), before = total();
+    (ns || '').split(',').forEach(t => { const [id, b] = t.split(':'), v = parseInt(b, 36); if (byId[id] && v > 0 && v < 32) st.n[id] = (st.n[id] | 0) | v; });
+    (xs || '').split(',').forEach(k => { if (BON[k]) st.x[k] = 1; }); save(); paint(); paintSeen(); return total() - before; }
+  // panel
+  const efp = document.getElementById('efp');
+  function fillPanel() { document.getElementById('efbig').textContent = total();
+    document.getElementById('efst').textContent = `Explored ${count(1)} of ${N.length} · ${count(2)} read deeper · ${count(8)} in 3D · ${count(16)} bount${count(16) === 1 ? "y" : "ies"} opened`;
+    document.getElementById('efcode').value = code(); }
+  document.getElementById('efcopy').onclick = () => { const i = document.getElementById('efcode'), msg = document.getElementById('efmsg'), ok = () => { msg.textContent = 'Copied. Paste it on your other device.'; msg.className = 'ok'; };
+    i.focus(); i.select(); const fb = () => { try { document.execCommand('copy'); ok(); } catch (e) { msg.textContent = 'Select the code and copy it.'; msg.className = ''; } };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(i.value).then(ok, fb); else fb(); };
+  document.getElementById('efload').onclick = () => { const inp = document.getElementById('efin'), msg = document.getElementById('efmsg'), r = load(inp.value);
+    if (r < 0) { msg.textContent = 'That code does not look right. Check it and try again.'; msg.className = 'bad'; }
+    else { msg.textContent = r > 0 ? `Loaded. +${r} 🔥 added to this device.` : 'Loaded. Nothing new: this device already has it all.'; msg.className = 'ok'; inp.value = ''; } };
+  paint();
+  return { award, bonus, total, code, load, paintSeen, fillPanel, state: () => st };
+})();
+EF.paintSeen();
+
+/* ============ OPEN BOUNTY PANEL (no money, no accounts, nothing is posted) ============ */
+const BQ = {
+  nothing: 'Why is there something rather than nothing, and was there a "before"?', axiom: 'Is reality really only entangled pairs of qudits, as Chain Theory says?',
+  qgrav: 'How does gravity work at the very smallest scales?', qudits: 'Are the basic links of reality really shared qudit pairs?',
+  distill: 'Can "distilling" links explain how anything gets known or measured?', inflation: 'Did space really stretch super-fast at the start, and what drove it?',
+  genres: 'Are there really six kinds of link, with only two that can be read?', gauge: 'Can all the forces come from the symmetry of one link?',
+  alpha: 'Does α ≈ 1/137.036 really follow from one link and match the best measurements?', seeds: 'Where exactly did the first tiny ripples come from?',
+  chainmail: 'Are particles really webs of links ("chainmail")?', ctspace: 'Can space and time be built out of links?',
+  gap: 'How do you get the Standard Model out of Chain Theory?', dm: 'What is dark matter made of?', de: 'What is dark energy, and is it changing?',
+  antimatter: 'Why did matter win over antimatter?', h0: 'Why do two ways of measuring how fast space expands disagree?',
+  numass: 'How heavy are neutrinos, and why are they so light?', halos: 'Did dark-matter clumps really build the skeleton for galaxies?',
+  firststars: 'What were the very first stars like, and can we see one for sure?', smbh: 'How did giant black holes get so big so early?',
+  moon: 'Was the Moon really born in a giant crash?', chem: 'Where did life\'s chemistry start: vents, ponds or somewhere else?',
+  nucleotides: 'How did the letters of RNA and DNA first form?', peptides: 'How did the first short protein chains form before life?',
+  rnaworld: 'Did RNA copy itself before DNA and proteins existed?', protocell: 'How did the first bubble with a copier inside come together?',
+  origin: 'How did chemistry become alive?', mind: 'Why does a working brain feel like something from the inside?',
+  strings: 'Is string theory right about gravity, and can it be tested?', lqg: 'Is space really made of tiny loops, and can it be tested?' };
+const btyEl = document.getElementById('bty'), btyBody = document.getElementById('btyBody');
+function openBounty(id) { const n = byId[id]; if (!n || !isOpenQ(n)) return; const c = SC[n.s], first = !(EF.state().n[id] & 16);
+  btyBody.innerHTML = `<div class="bk">⚑ OPEN BOUNTY</div><div class="bn"><i style="background:${c};box-shadow:0 0 8px ${c}"></i><b>${esc(n.name)}</b><small style="color:${c}">${n.s === 'u' ? 'Unknown' : 'We think so'}</small></div>` +
+    `<h5>The open question</h5><p class="bq">${esc(BQ[id] || n.line)}</p>` +
+    `<h5>What would solve it</h5><ul>${(TESTS[id] || []).map(([t, sk, idea]) => `<li>${esc(t)}${idea ? ' <span class="idea">idea, not planned</span>' : ''}${srcLinks(sk)}</li>`).join('')}</ul>` +
+    `<div class="bsoon"><span>🌳</span><div><b>Global Bounty Tree, coming soon</b><small>When a test settles it, this node turns green with a tick, in the map and the tree.</small></div></div>` +
+    `<p class="btag">“Don't collect cards. Collect understanding.”</p>`;
+  btyEl.style.borderColor = c; btyEl.classList.add('on'); document.getElementById('btyBack').classList.add('on'); btyEl.scrollTop = 0; btyEl.querySelector('.x').focus({ preventScroll: true });
+  EF.award(id, 16); }
+function closeBounty() { btyEl.classList.remove('on'); document.getElementById('btyBack').classList.remove('on'); }
+btyEl.querySelector('.x').onclick = closeBounty; document.getElementById('btyBack').onclick = closeBounty;
+btyEl.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
+
+/* ============ CORNER PANELS (flame + about) ============ */
+const efp = document.getElementById('efp'), infp = document.getElementById('infp'), ctl = document.getElementById('ctl');
+function placePanels() { const r = ctl.getBoundingClientRect(); [efp, infp].forEach(p => { p.style.top = (r.bottom + 8) + 'px'; }); }
+function togglePanel(p) { const on = !p.classList.contains('on'); [efp, infp].forEach(x => x.classList.remove('on')); if (on) { placePanels(); p.classList.add('on'); if (p === efp) EF.fillPanel(); } keyAvoid(); }
+document.getElementById('efb').onclick = () => togglePanel(efp); document.getElementById('infob').onclick = () => togglePanel(infp);
+[efp, infp].forEach(p => { p.querySelector('.x').onclick = () => { p.classList.remove('on'); }; p.addEventListener('wheel', e => e.stopPropagation(), { passive: true }); });
+document.addEventListener('pointerdown', e => { if (!ctl.contains(e.target)) [efp, infp].forEach(p => { if (!p.contains(e.target)) p.classList.remove('on'); }); }, true);
+addEventListener('keydown', e => { if (e.key !== 'Escape') return; if (btyEl.classList.contains('on')) { closeBounty(); e.stopImmediatePropagation(); }
+  else if (efp.classList.contains('on') || infp.classList.contains('on')) { efp.classList.remove('on'); infp.classList.remove('on'); e.stopImmediatePropagation(); } }, true);
+addEventListener('resize', placePanels);
+
+/* ============ BACKGROUND MUSIC (separate file, loaded only after the first tap or click; low by default) ============ */
+const MUS = (() => {
+  const URL_ = 'music-stars.mp3', DEF = 0.13, MAXG = 0.3, FADE_IN = 3;
+  let vol = parseFloat(prefGet('fntu-vol')); if (!(vol >= 0 && vol <= MAXG)) vol = DEF;
+  let muted = prefGet('fntu-mute') === '1', ctx = null, gain = null, el = null, started = false, fadeT = 0;
+  const btns = [document.getElementById('mute'), document.getElementById('mute2')], sliders = [document.getElementById('vol'), document.getElementById('vol2')];
+  function ui() { btns.forEach(b => { b.textContent = muted ? '🔇' : '🔊'; b.setAttribute('aria-label', muted ? 'Turn music on' : 'Mute music'); b.setAttribute('aria-pressed', muted); b.title = muted ? 'Music off' : 'Music on'; });
+    btns[1].textContent = muted ? '🔇 Music off' : '🔊 Music on'; sliders.forEach(s => s.value = Math.round(vol / MAXG * 100)); }
+  const target = () => muted ? 0 : vol;
+  function ramp(to, sec) { if (gain) { const t = ctx.currentTime; gain.gain.cancelScheduledValues(t); gain.gain.setValueAtTime(gain.gain.value, t); gain.gain.linearRampToValueAtTime(to, t + sec); }
+    else if (el) { cancelAnimationFrame(fadeT); const v0 = el.volume, t0 = performance.now(); const st = now => { const k = Math.min(1, (now - t0) / (sec * 1000)); el.volume = Math.max(0, Math.min(1, v0 + (to - v0) * k)); if (k < 1) fadeT = requestAnimationFrame(st); }; fadeT = requestAnimationFrame(st); } }
+  function viaElement() { if (el) return; el = new Audio(URL_); el.loop = true; el.volume = 0; el.preload = 'auto'; const p = el.play(); if (p && p.catch) p.catch(() => {}); ramp(target(), FADE_IN); }
+  function start() { if (started) return; started = true; const AC = window.AudioContext || window.webkitAudioContext;
+    if (AC && /^https?:$/.test(location.protocol)) { // Web Audio: smooth gain on every browser (iOS ignores <audio>.volume) and a gap-free loop
+      try { ctx = new AC(); gain = ctx.createGain(); gain.gain.value = 0; gain.connect(ctx.destination); } catch (e) { ctx = gain = null; viaElement(); return; }
+      fetch(URL_).then(r => r.ok ? r.arrayBuffer() : Promise.reject(r.status)).then(b => new Promise((ok, no) => ctx.decodeAudioData(b, ok, no)))
+        .then(buf => { const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true; src.connect(gain); src.start(); gain.gain.setValueAtTime(0, ctx.currentTime); ramp(target(), FADE_IN); })
+        .catch(() => { try { ctx.close(); } catch (e) {} ctx = gain = null; viaElement(); });
+    } else viaElement(); }
+  function gesture(e) { if (e && e.target && e.target.closest && e.target.closest('#mute,#mute2,#vol,#vol2')) return; if (!muted) { start(); if (ctx && ctx.state === 'suspended') ctx.resume(); } }
+  ['pointerdown', 'pointerup', 'touchend', 'keydown'].forEach(t => addEventListener(t, gesture, { capture: true, passive: true }));
+  function setMuted(m) { muted = m; prefSet('fntu-mute', m ? '1' : '0'); ui(); if (!m) { start(); if (ctx && ctx.state === 'suspended') ctx.resume(); if (el && el.paused) { const p = el.play(); if (p && p.catch) p.catch(() => {}); } } ramp(target(), m ? .5 : 1.5); }
+  btns.forEach(b => b.onclick = () => setMuted(!muted));
+  sliders.forEach(sl => sl.addEventListener('input', () => { vol = sl.value / 100 * MAXG; prefSet('fntu-vol', vol.toFixed(3)); if (vol > 0 && muted) setMuted(false); else { ui(); ramp(target(), .15); } }));
+  document.addEventListener('visibilitychange', () => { if (ctx) { if (document.hidden) ctx.suspend(); else if (!muted) ctx.resume(); } else if (el) { if (document.hidden) el.pause(); else if (!muted) { const p = el.play(); if (p && p.catch) p.catch(() => {}); } } });
+  ui();
+  return { get state() { return { started, muted, vol, ctx: ctx ? ctx.state : null, gain: gain ? +gain.gain.value.toFixed(3) : el ? +el.volume.toFixed(3) : null, mode: ctx ? 'webaudio' : el ? 'element' : 'none' }; } };
+})();
+
+
 /* ============ START ============ */
-function init() { drawSky(); [s, tx, ty] = homeView(); apply(); }
+function init() { drawSky(); if (prefGet('fntu-view') === 'tree') setScene('tree'); syncSwitch(); [s, tx, ty] = homeView(); apply(); }
 addEventListener('resize', () => { drawSky(); apply(); });
 init();
 // test hooks (used for screenshots): #view=fit | #c=<stage column>&y=<world y>&z=<zoom> | &open=<id>&layer=<1-3> | #ptable=1&el=<Z>
-(() => { const h = new URLSearchParams(location.hash.slice(1)); if (h.get('view') === 'fit') [s, tx, ty] = fitView();
+(() => { const h = new URLSearchParams(location.hash.slice(1)); if (h.has('tv')) { setScene(h.get('tv') === 'tree' ? 'tree' : 'map'); syncSwitch(); [s, tx, ty] = homeView(); }
+  if (h.get('view') === 'fit') [s, tx, ty] = fitView();
   if (h.has('c')) { s = +(h.get('z') || s); tx = innerWidth / 2 - X(+h.get('c')) * s; ty = UI() + (innerHeight - UI()) / 2 - (+(h.get('y') || H / 2)) * s; }
   apply(); if (h.has('open')) openPop(h.get('open'), +(h.get('layer') || 1));
   if (h.has('ptable')) { openPT(); if (h.has('el')) ptShow(+h.get('el')); } })();
