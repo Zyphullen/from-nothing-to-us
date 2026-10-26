@@ -966,7 +966,8 @@ BANDS.forEach(([name, , a, b, c, sz], i) => { const x0 = bx(a), x1 = bx(b);
   `<text x="${x0 + 16}" y="40" fill="${c}" opacity=".85">${esc(name)}</text><text x="${x0 + 16}" y="60" fill="${c}" opacity=".6" style="font-size:13px;font-weight:500">size ${esc(sz)}</text>`;
   for (const ln in LANES) { const ns = N.filter(n => n.lane === ln && n.r > a && n.r < b); if (!ns.length) continue;
     const y0 = Math.min(...ns.map(n => n.y)) - 50, y1 = Math.max(...ns.map(n => n.y)) + 110, ym = (y0 + y1) / 2, lx = Math.min(...ns.map(n => n.x)) - COL / 2 + 16;
-    bands += `<text class="lane" transform="translate(${lx} ${ym}) rotate(-90)" text-anchor="middle">${esc(LANES[ln][0])}</text>`; }
+    const tw = LANES[ln][0].length * 10.5, hit = ty => N.some(n => ty > n.y - 55 && ty < n.y + 80 && n.x + 80 > lx && n.x - 75 < lx + tw);
+    const ty = [y0 - 6, y1 + 6, y0 - 40].find(t => !hit(t)); if (ty != null) bands += `<text class="lane" x="${lx + 6}" y="${ty}" text-anchor="start">${esc(LANES[ln][0])}</text>`; }
   bands += '</g>'; });
 EDGES.forEach((e, i) => { const P = e.P, c = SC[e.s];
   edges += `<path class="edge" id="e${i}" data-a="${e.a}" data-b="${e.b}" d="M${P[0]} ${P[1]} C${P[2]} ${P[3]} ${P[4]} ${P[5]} ${P[6]} ${P[7]}" fill="none" stroke="${c}" stroke-opacity="${e.s === 'k' ? .5 : .65}" stroke-width="${e.long ? 1.6 : 2.3}" ${e.s === 'k' && !e.long ? '' : 'stroke-dasharray="' + (e.long ? '2 4' : '7 6') + '"'} marker-end="url(#arr-${e.s})"/>`;
