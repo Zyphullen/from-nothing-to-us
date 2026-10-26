@@ -20,7 +20,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:#04060f;color:#e8f4ff;
 #sky{position:fixed;inset:0;z-index:0}
 #tree{position:fixed;inset:0;z-index:1;width:100%;height:100%;cursor:grab;display:block}
 #tree.drag{cursor:grabbing}
-header{position:fixed;top:8px;left:10px;z-index:3;padding:8px 12px;border-radius:14px;background:rgba(4,8,20,.6);pointer-events:none}
+header{position:fixed;top:8px;left:10px;z-index:6;padding:8px 12px;border-radius:14px;background:rgba(4,8,20,.6);pointer-events:none}
 header *{pointer-events:auto}
 h1{margin:0;font-size:22px;font-weight:650;letter-spacing:.4px;background:linear-gradient(90deg,#ffd36b,#4ff3e3);-webkit-background-clip:text;background-clip:text;color:transparent}
 .legend{margin-top:6px;display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#b9c8dc;align-items:center}
@@ -96,6 +96,53 @@ svg.moving .ic{filter:none}
 #ptmode{margin-left:8px}
 #pt .note{font-size:11.5px;color:#8a9bb6;margin-top:12px;line-height:1.5}
 #pt .note a{color:#4ff3e3}
+/* search */
+#search{position:fixed;left:416px;top:16px;width:min(320px,calc(100vw - 440px - min(560px,44vw)));z-index:7;pointer-events:auto}
+#search .sbox{display:flex;align-items:center;height:38px;border-radius:12px;background:rgba(6,10,24,.92);border:1px solid #23355a;box-sizing:border-box;padding:0 6px 0 10px;transition:border-color .2s,box-shadow .2s}
+#search .sbox:focus-within{border-color:#4ff3e3;box-shadow:0 0 12px rgba(79,243,227,.35)}
+#search .sbox svg{flex:none}
+#sq{flex:1;min-width:0;height:100%;background:none;border:0;outline:0;color:#e8f4ff;font:inherit;font-size:14px;padding:0 8px;-webkit-user-select:text;user-select:text}
+#sq::placeholder{color:#6f83a3}
+#sq::-webkit-search-cancel-button{display:none}
+#search .skbd{flex:none;font-size:11px;color:#7f93b3;border:1px solid #2a3b5e;border-radius:5px;padding:0 5px;line-height:17px}
+#sx{display:none;flex:none;background:none;border:0;color:#8aa0bd;font-size:19px;cursor:pointer;padding:0 4px;line-height:1}
+#search.has #sx{display:block}#search.has .skbd{display:none}
+#sbtn{display:none}
+#sres{display:none;list-style:none;margin:6px 0 0;padding:4px;max-height:min(420px,calc(100vh - 150px));overflow-y:auto;overscroll-behavior:contain;border-radius:12px;background:rgba(8,14,30,.97);border:1px solid #2a3b5e;box-shadow:0 8px 26px rgba(0,0,0,.6),0 0 16px rgba(79,243,227,.12)}
+#search.open #sres{display:block}
+#sres li{display:flex;align-items:center;gap:9px;padding:7px 9px;border-radius:9px;cursor:pointer;border:1px solid transparent}
+#sres li.on{background:rgba(79,243,227,.1);border-color:rgba(79,243,227,.45)}
+#sres li i{flex:none;width:10px;height:10px;border-radius:50%}
+#sres li i.el{width:22px;height:20px;border-radius:4px;font-style:normal;font-size:10.5px;font-weight:750;color:#04060f;display:flex;align-items:center;justify-content:center}
+#sres .st{min-width:0;flex:1}
+#sres b{display:block;font-size:13.5px;font-weight:600;color:#eef7ff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#sres small{display:block;font-size:11.5px;color:#8fa3bf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#sres mark{background:none;color:#ffd36b;font-weight:700}
+#sres .none{cursor:default;color:#8fa3bf;font-size:13px}
+@media (max-width:1099px){
+ #search{position:absolute;left:auto;right:7px;top:9px;width:auto}
+ #search .sbox{display:none}
+ #sbtn{display:flex;width:32px;height:32px;align-items:center;justify-content:center;border-radius:10px;border:1px solid #23355a;background:rgba(10,18,36,.85);cursor:pointer;padding:0}
+ #sbtn:hover{border-color:#4ff3e3}
+ #search.wide{position:fixed;left:8px;right:8px;top:8px;width:auto}
+ #search.wide .sbox{display:flex;height:42px}#search.wide #sbtn{display:none}
+ #search.wide .skbd{display:none}
+}
+@media (max-width:600px){#search{right:6px;top:5px}#sbtn{width:30px;height:30px}#sq{font-size:16px}}
+/* colour key */
+#key{position:fixed;right:12px;bottom:12px;z-index:4;font-size:12px;color:#c9d6ea;transition:opacity .2s}
+#key.tuck{opacity:0;pointer-events:none}
+#key .kp{width:228px;padding:9px 11px 9px;border-radius:13px;background:rgba(6,10,24,.9);border:1px solid #23355a;box-shadow:0 0 14px rgba(79,243,227,.08);box-sizing:border-box}
+#key .kh{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+#key .kh b{font-size:11px;letter-spacing:1.5px;font-weight:700;background:linear-gradient(90deg,#ffd36b,#4ff3e3);-webkit-background-clip:text;background-clip:text;color:transparent}
+#key .kc{background:none;border:0;color:#8aa0bd;font-size:16px;line-height:1;cursor:pointer;padding:0 2px}
+#key .kr{display:flex;align-items:center;gap:8px;margin:3px 0;line-height:1.25}
+#key .kr svg{flex:none}
+#key .ks{font-size:10px;letter-spacing:1px;color:#7f93b3;margin:7px 0 2px}
+#key .kchip{display:none;font:inherit;font-size:12px;font-weight:650;color:#9ff5ea;background:rgba(10,18,36,.9);border:1px solid #23355a;border-radius:11px;padding:6px 12px;cursor:pointer;box-shadow:0 0 10px rgba(79,243,227,.12)}
+#key .kchip:hover{border-color:#4ff3e3}
+#key.min .kp{display:none}#key.min .kchip{display:block}
+@media (max-width:600px){#key{right:8px;bottom:10px}#key .kp{width:214px;font-size:11.5px}}
 @media (max-width:600px){header{padding:6px 9px;top:8px;left:8px}h1{font-size:16px}.legend{font-size:11px;gap:7px}#ruler{left:8px;right:8px;width:auto;top:80px;height:36px}#ruler .rt{font-size:8px}#ruler .rk{top:5px;height:12px}#ruler .rh{top:2px;height:18px}#ruler .rtitle{display:none}#strip{top:120px;height:32px}.seg b{font-size:10.5px}.seg span{display:none}#mini{top:154px;height:10px}#topcover{height:165px}
  #pop{left:6px!important;right:6px;width:auto!important;top:auto!important;bottom:6px;max-height:58vh}}
 </style>
@@ -107,6 +154,9 @@ svg.moving .ic{filter:none}
 <header>
   <h1>From Nothing to Us</h1>
   <div class="legend"><span><i class="k"></i>known</span><span><i class="t"></i>we think</span><span><i class="u"></i>unknown</span><span><i class="p"></i>idea</span><button class="hbtn" id="ptbtn" title="All 118 elements">118 elements</button></div>
+  <div id="search" role="search"><button id="sbtn" title="Search (/)" aria-label="Search"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#9ff5ea" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg></button>
+    <div class="sbox"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#9ff5ea" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg><input id="sq" type="search" placeholder="Search: carbon, DNA, gold…" autocomplete="off" spellcheck="false" aria-label="Search the map" aria-controls="sres"><span class="skbd">/</span><button id="sx" aria-label="Clear search">×</button></div>
+    <ul id="sres" role="listbox"></ul></div>
 </header>
 <div class="zoom">
   <button id="zin" title="Zoom in">+</button>
@@ -117,6 +167,17 @@ svg.moving .ic{filter:none}
 <div id="ruler"><div class="rtitle">size</div></div>
 <div id="strip"></div>
 <div id="mini"><div id="vp"></div></div>
+<div id="key" aria-label="Colour key"><div class="kp"><div class="kh"><b>KEY</b><button class="kc" title="Hide key" aria-label="Hide key">–</button></div>
+  <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#3dff8a" stroke-width="2"/></svg><span>Known (tested, confirmed)</span></div>
+  <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#ffa53d" stroke-width="2"/></svg><span>We think so (best guess)</span></div>
+  <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#ff4d5e" stroke-width="2" stroke-dasharray="3 2.4"/><path d="M5.5 5.5L12.5 12.5M12.5 5.5L5.5 12.5" stroke="#ff4d5e" stroke-width="1.8" stroke-linecap="round"/></svg><span>Unknown (dashed ring, X)</span></div>
+  <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#c58cff" stroke-width="2"/></svg><span>Personal idea (not science)</span></div>
+  <div class="ks">LINES · colour = less certain end</div>
+  <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#3dff8a" stroke-width="2.2" stroke-opacity=".8"/><path d="M24 1.5L29 5L24 8.5Z" fill="#3dff8a" opacity=".85"/></svg><span>Solid: known step</span></div>
+  <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#ffa53d" stroke-width="2.2" stroke-opacity=".8" stroke-dasharray="5 4"/><path d="M24 1.5L29 5L24 8.5Z" fill="#ffa53d" opacity=".85"/></svg><span>Dashed: uncertain step</span></div>
+  <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#8fa3bf" stroke-width="1.6" stroke-opacity=".9" stroke-dasharray="2 3"/><path d="M24 1.5L29 5L24 8.5Z" fill="#8fa3bf" opacity=".85"/></svg><span>Dotted “← from …”: far link</span></div>
+  <div class="kr"><svg width="30" height="16" viewBox="0 0 30 16"><rect x="6" y="1" width="18" height="14" rx="7" fill="#070d1f" stroke="#ff4d5e" stroke-opacity=".7"/><text x="15" y="12" text-anchor="middle" font-size="10" fill="#dce8f8">?</text></svg><span>“?” on a label: not known</span></div>
+ </div><button class="kchip" aria-label="Show colour key">Key</button></div>
 <div id="pop"><button class="x" aria-label="close">×</button><div id="popBody"></div></div>
 <div id="pt"><button class="close" aria-label="close">×</button><div class="in">
   <h2>All 118 elements: where they come from</h2>
@@ -228,7 +289,7 @@ const N = [
 {id:'qgrav',r:1,x:1650,s:'u',ic:'qgrav',name:'Quantum gravity',line:'Gravity at tiny scales?',sz:-34.8,szt:'Planck length ~1.6×10⁻³⁵ m',
  info:['Joining gravity with quantum rules.','Ideas: strings, loops, chains…','None proven. No leading winner.'],
  L2:['## Why it matters','At the Planck scale (~10⁻³⁵ m) both gravity and quantum effects are strong.','Our two best theories then disagree.','## Candidates','String theory, loop quantum gravity, causal sets, "spacetime from entanglement", Chain Theory.'],
- L3:['## Fix since v1','Was shown orange. Changed to red: no idea is tested, and none leads by evidence.','## How we would know','A prediction checked by experiment: e.g. a sign in the early-universe light, or a tiny change to black-hole behaviour.'],
+ L3:['## Why red','No idea is tested, and none leads by evidence.','## How we would know','A prediction checked by experiment: e.g. a sign in the early-universe light, or a tiny change to black-hole behaviour.'],
  src:['qg'],p:['nothing']},
 
 {id:'qudits',r:2,x:230,s:'t',ic:'qudits',name:'Qudits & pairs',line:'The links of the chain',sz:null,szt:'No size: comes before space',
@@ -281,7 +342,7 @@ const N = [
 
 {id:'higgs',r:3,x:1820,s:'k',ic:'higgs',name:'Higgs field',line:'Gives tiny particles mass',sz:-18,szt:'Boson ~125 GeV, lives 10⁻²² s',
  info:['Its particle was found in 2012.','It gives quarks, electrons, W and Z their mass.','NOT most of YOUR mass (see protons).'],
- L2:['## Fix since v1','v1 said particles "drag" in it. That picture is misleading.','Particles get mass by coupling to the field\'s steady value (246 GeV) everywhere in space.','## The numbers','Higgs boson: 125.1 GeV. Found by ATLAS and CMS at CERN, 4 July 2012.'],
+ L2:['## How it gives mass','Particles get mass by coupling to the field\'s steady value (246 GeV) everywhere in space.','## The numbers','Higgs boson: 125.1 GeV. Found by ATLAS and CMS at CERN, 4 July 2012.'],
  L3:['## Important','Only ~1% of a proton\'s mass comes from Higgs-given quark masses. ~99% is strong-force energy.','## Open','Why these couplings? Is the vacuum stable? Do neutrinos get mass this way? Unknown.','## Chain Theory','Alex conjectures the Higgs is a "closed hub read" in (4,4) links (conditional).'],
  src:['cern_higgs','pdg'],p:['qft']},
 
@@ -306,7 +367,7 @@ const N = [
 {id:'soup',r:4,x:1250,s:'k',ic:'qgp',name:'Hot particle soup',line:'All particles, ~10⁻¹² s',sz:null,szt:'The whole universe was hotter than 10¹⁵ K',
  info:['Right after the Big Bang: pure energy.','Energy turned into particle pairs (E = mc²).','~10⁻¹² s: the Higgs switches on; forces split.'],
  L2:['## Recipe','Heat energy → pairs of particles + antiparticles, made and destroyed all the time.','At ~10⁻¹² s (~10¹⁵ K) the Higgs field takes its value: the weak and electric forces split, W, Z, quarks and electrons get mass.','## Randomness','Which particles pop out where is quantum chance.'],
- L3:['## How we know','The LHC recreates these energies (~10¹² eV per collision).','## Fix since v1','v1 drew every particle straight from the Big Bang. This hub shows the shared step.'],
+ L3:['## How we know','The LHC recreates these energies (~10¹² eV per collision).'],
  src:['pdg','cern_higgs'],p:['bigbang','qft']},
 /* ---------------- PARTICLES ---------------- */
 {id:'quarks',r:5,x:200,s:'k',ic:'quarks',name:'Quarks',line:'6 flavours, 3 colours',sz:-18,szt:'Point-like: <10⁻¹⁸ m',
@@ -329,7 +390,7 @@ const N = [
 
 {id:'neutrinos',r:5,x:860,s:'k',ic:'neutrino',name:'Neutrinos',line:'Ghosts that pass through',sz:-18,szt:'Mass < 0.5 eV (tiny)',
  info:['~100 trillion pass through you each second.','They almost never hit anything.','They have tiny masses: why, unknown.'],
- L2:['## Fix since v1','v1 said "trillions". Better: ~65 billion per cm² per second from the Sun alone, so ~10¹⁴ through a body each second.','## Family','3 types: electron, muon, tau. They change type as they fly ("oscillation", Nobel 2015).'],
+ L2:['## How many','~65 billion per cm² per second from the Sun alone, so ~10¹⁴ through a body each second.','## Family','3 types: electron, muon, tau. They change type as they fly ("oscillation", Nobel 2015).'],
  L3:['## Open','Their masses are not given by the Standard Model. Are they their own antiparticle? Unknown.','## The numbers','Mass sum < ~0.07–0.5 eV (cosmology vs lab; DESI hints very small).'],
  src:['solarnu','pdg'],p:['soup']},
 
@@ -415,7 +476,7 @@ const N = [
 
 {id:'atoms',r:10,x:420,s:'k',ic:'atom',name:'First atoms',line:'Nuclei catch electrons',sz:-10,szt:'~10⁻¹⁰ m (0.1 nm)',
  info:['380,000 years after the Big Bang.','Cool enough (~3000 K) to hold electrons.','Space became see-through.'],
- L2:['## Recipe','1 nucleus + as many electrons as protons → neutral atom.','H = 1 p + 1 e. He = 2 p + 2 n + 2 e.','## Size','Hydrogen: ~0.1 nm across. The nucleus is ~60,000× smaller across (tens of thousands of times).'],
+ L2:['## Recipe','1 nucleus + as many electrons as protons → neutral atom.','H = 1 p + 1 e. He = 2 p + 2 n + 2 e.','## Size','Hydrogen: ~0.1 nm across. The nucleus is ~60,000× smaller across.'],
  L3:['## The numbers','Bohr radius 0.0529 nm. Binding 13.6 eV.','## How we know','The CMB itself is the light set free here.'],
  src:['bohr','planck'],p:['bbn','electrons','em'],el:{bbn:'1 nucleus',electrons:'+ Z electrons'}},
 
@@ -427,7 +488,7 @@ const N = [
 
 {id:'firstmol',r:11,x:300,s:'k',ic:'molecule',name:'First molecules',line:'HeH⁺ and H₂',sz:-10,szt:'~10⁻¹⁰ m',
  info:['HeH⁺ was the first molecule.','Then H₂ formed.','H₂ let gas cool enough to make stars.'],
- L2:['## Recipe','He + H⁺ → HeH⁺. Then H + H (via H⁻) → H₂.','## New since v1','HeH⁺ was finally seen in space in 2019.'],
+ L2:['## Recipe','He + H⁺ → HeH⁺. Then H + H (via H⁻) → H₂.','## Seen in space','HeH⁺ was finally found in space in 2019.'],
  L3:['## Why it matters','Without H₂ cooling, the first gas clouds could not shrink into stars.'],
  src:['heh'],p:['atoms'],el:{atoms:'2 H → H₂'}},
 
@@ -452,7 +513,7 @@ const N = [
 
 {id:'galaxies',r:13,x:1350,s:'k',ic:'galaxy',name:'Galaxies',line:'Billions of stars swirl',sz:21,szt:'Milky Way ~10²¹ m',
  info:['Milky Way: 100–400 billion stars.','Hundreds of billions of galaxies.','JWST sees them ~280–300 Myr after the Big Bang.'],
- L2:['## Recipe','A dark-matter halo + gas + stars + often a central black hole.','Milky Way: ~100,000 light-years across.','## Fix since v1','"Billions of galaxies" → hundreds of billions (estimates up to ~2 trillion).'],
+ L2:['## Recipe','A dark-matter halo + gas + stars + often a central black hole.','Milky Way: ~100,000 light-years across.','## How many','Hundreds of billions of galaxies (estimates up to ~2 trillion).'],
  L3:['## Open','JWST finds bright galaxies earlier than expected.'],
  src:['momz14','lauer'],p:['gas','halos','stars'],el:{halos:'1 halo',stars:'~10⁸–10¹² stars'}},
 
@@ -545,7 +606,7 @@ const N = [
 
 {id:'exo',r:20,x:1450,s:'k',ic:'exo',name:'Other worlds',line:'6,451 found so far',sz:7,szt:'Earth- to Jupiter-size',
  info:['6,451 planets around other stars.','Most stars have planets.','Some are in the "liquid water" zone.'],
- L2:['## Fix since v1','v1 said 5,000+. NASA count: 6,451 (Oct 2026).'],L3:[],
+ L2:['## How many','NASA count: 6,451 confirmed (Oct 2026).'],L3:[],
  src:['exo'],p:['planets']},
 
 {id:'water',r:21,x:650,s:'k',ic:'water',name:'Water & oceans',line:'Early Earth gets wet',sz:-9.5,szt:'Molecule 0.28 nm; oceans ~10⁷ m wide',
@@ -561,7 +622,7 @@ const N = [
 
 {id:'chem',r:22,x:650,s:'t',ic:'flask',name:'Early-Earth chemistry',line:'Vents, ponds, lightning',sz:-9,szt:'Molecules ~1 nm',
  info:['Energy builds new molecules.','Where? Deep vents or shallow ponds?','Leading ideas, not settled.'],
- L2:['## Fix since v1','Was green. Now orange: the chemistry is real, but which setting started life is unproven.','## Recipe','Simple molecules (H₂O, CO₂, HCN, NH₃…) + energy (heat, UV, lightning) + minerals.'],L3:[],
+ L2:['## Why orange','The chemistry is real, but which setting started life is unproven.','## Recipe','Simple molecules (H₂O, CO₂, HCN, NH₃…) + energy (heat, UV, lightning) + minerals.'],L3:[],
  src:['abiogenesis'],p:['water','molecules']},
 
 /* ---------------- BUILDING BLOCKS ---------------- */
@@ -608,7 +669,7 @@ const N = [
  L2:['## Recipe','1 bubble + RNA + small molecules + energy.'],L3:[],
  src:['protocell'],p:['rnaworld','peptides','vesicles']},
 
-{id:'origin',r:26,x:700,s:'u',ic:'spark',name:'The first spark',line:'Chemistry → alive: how?',sz:-6,szt:'—',
+{id:'origin',r:26,x:700,s:'u',ic:'spark',name:'The first spark',line:'Chemistry → alive: how?',sz:-6,szt:'Unknown (the first cells were probably ~1 µm)',
  info:['How chemistry became life is unknown.','No lab has made life from scratch.','Many gaps remain.'],
  L2:['## What would fill it','A lab protocell that copies, evolves and runs a metabolism on its own.'],
  L3:['## Zyphullen\'s idea (personal, not science)','Maybe life is the universe\'s knot trying to untie itself toward perfect symmetry: one long chain reaction.'],
@@ -624,7 +685,7 @@ const N = [
  L2:['## Recipe','~50–34,000 amino acids → a chain that folds.','Humans have ~20,000 protein-coding genes.'],L3:[],
  src:['titin','t2t'],p:['luca','amino'],el:{amino:'×~400'}},
 
-{id:'code',r:28,x:700,s:'k',ic:'code',name:'Genetic code',line:'3 letters = 1 amino acid',sz:-9,szt:'—',
+{id:'code',r:28,x:700,s:'k',ic:'code',name:'Genetic code',line:'3 letters = 1 amino acid',sz:-9,szt:'One codon (3 RNA letters) is ~1 nm long',
  info:['64 codons → 20 amino acids + stop.','Almost the same in all life.','Read by ribosomes.'],L2:[],L3:[],
  src:['code'],p:['luca']},
 
@@ -716,7 +777,7 @@ const EXTRA = {
  vesicles:{L3:['## How we know','Szostak lab: fatty-acid bubbles grow, split and let small molecules in.']},
  protocell:{L3:['## How we know','Parts have been built in labs (RNA copying inside vesicles, partly).','## Open','A full self-copying, evolving protocell has not been made.']},
  origin:{L3:['## Why red','No accepted step-by-step path from chemistry to the first living cell.','## Zyphullen\'s idea (personal, not science)','Life as the universe\'s knot trying to untie itself toward perfect symmetry; everything one chain reaction.']},
- luca:{L2:['## What it had','DNA genome, ribosomes, the genetic code, a membrane, ATP energy.','~2,600 protein families (estimate, Moody 2024).','## Size','Probably like a bacterium: ~1–2 µm.'],L3:['## How we know','All life shares the same code and core genes, so one ancestor is the best fit.','## Numbers','~4.2 billion years ago (range ~4.09–4.33, estimate).','## Fix since v1','v1 jumped straight to "First cells"; LUCA is the cell all life traces back to, not the very first cell.']},
+ luca:{L2:['## What it had','DNA genome, ribosomes, the genetic code, a membrane, ATP energy.','~2,600 protein families (estimate, Moody 2024).','## Size','Probably like a bacterium: ~1–2 µm.'],L3:['## How we know','All life shares the same code and core genes, so one ancestor is the best fit.','## Numbers','~4.2 billion years ago (range ~4.09–4.33, estimate).','## Note','LUCA is the cell all life traces back to, not the very first cell.']},
  proteins:{L2:['## Recipe','~50–34,000 amino acids → a chain that folds into a 3D shape.','Median human protein: ~400 amino acids.','## How they form','A ribosome reads mRNA, adding ~5–20 amino acids per second.'],L3:['## Numbers','Humans: ~20,000 protein-coding genes; titin is the longest (~34,350).','## Open','Predicting the fold from the sequence is now mostly solved (AlphaFold, Nobel 2024); how the first proteins arose is not.']},
  code:{L2:['## Recipe','4 letters (A, U, G, C) read 3 at a time = 64 codons.','61 code for 20 amino acids, 3 mean "stop".'],L3:['## Open','Why this exact code? A "frozen accident" or chemistry? Debated.']},
  dna:{L2:['## Recipe','Pairs: A–T and G–C. 0.34 nm per pair, ~10.5 pairs per turn.','Human: ~3.1 billion pairs per set (×2 sets per cell ≈ 2 m of DNA).','## How it forms','Copied by enzymes from an existing strand.'],L3:['## How we know','X-ray photo by Rosalind Franklin; model by Watson & Crick (1953).','Complete human genome finished 2022 (T2T, 3.055 billion pairs).','## Open','Did RNA come first? Probably (orange RNA world).']},
@@ -726,13 +787,13 @@ const EXTRA = {
  eukaryote:{L2:['## Recipe','1 archaeal host (Asgard-type) + 1 swallowed bacterium → mitochondria.','Later, a cyanobacterium swallowed → chloroplasts (plants, algae).','## Size','~10–100 µm: often 1,000× or more the volume of a bacterium.'],L3:['## Numbers','Oldest clear fossils ~1.6–1.8 billion years; origin ~2 billion (estimate, range wide).','## Open','Exact order of steps.']},
  multicell:{L2:['## Recipe','Cells that stay stuck after dividing + glue proteins + signals.'],L3:['## Numbers','Red alga Bangiomorpha ~1 billion years. At least 25 separate origins.']},
  tissues:{L2:['## Recipe','Many similar cells + a protein scaffold (collagen).','~400 cell types in a human (Hatton 2023).'],L3:['## 4 types','Epithelial (skin, linings), connective (bone, blood), muscle, nerve.']},
- plants:{L2:['## Fix since v1','v1: "plants make the oxygen we breathe". Ocean phytoplankton make roughly half of Earth\'s oxygen.'],L3:['## Numbers','Land plants ~470 million years ago (spores).']},
- animals:{L2:['## Fix since v1','v1: "over 500+ million years". Better: first animals ~600+ million years ago; Cambrian burst ~539 million.'],L3:['## Open','Exact first animal (sponges? comb jellies?) is debated.']},
+ plants:{L2:['## Oxygen','Ocean phytoplankton make roughly half of Earth\'s oxygen.'],L3:['## Numbers','Land plants ~470 million years ago (spores).']},
+ animals:{L2:['## Timeline','First animals ~600+ million years ago; Cambrian burst ~539 million.'],L3:['## Open','Exact first animal (sponges? comb jellies?) is debated.']},
  organs:{L2:['## Recipe','2–4 tissue types → one organ. Heart: muscle + nerve + connective + lining.'],L3:['## Note','The "78 organs" count depends on what you call an organ.']},
  mammals:{L2:['## Line to us','Mammals → primates (~55–65 million yr) → apes → humans.'],L3:['## Numbers','First mammals ~200+ million years ago (Triassic/Jurassic).']},
  organsys:{L2:['## Recipe','Several organs → one system (e.g. heart + vessels + blood).'],L3:['## 11 systems','Skin, skeleton, muscle, nerves, hormones, blood, lymph/immune, breathing, digestion, urinary, reproductive.']},
  hsap:{L2:['## Recipe','Evolution by mutation + natural selection, ~6–7 million years since our split from chimps.'],L3:['## Numbers','Jebel Irhoud, Morocco: ~300,000 years (Hublin 2017).']},
- body:{L2:['## Recipe','~30–37 trillion cells (estimates differ).','~84% of them by number are red blood cells.','~400 cell types; 1 genome copied into nearly every cell.','## Fix since v1','v1 put organs BELOW the body. Correct order: cells → tissues → organs → systems → body.'],L3:['## Numbers','Sender 2016: ~3.0×10¹³ human cells + ~3.8×10¹³ bacteria. Bianconi 2013: 3.72×10¹³. Hatton 2023: ~36 trillion (man), ~28 trillion (woman).']},
+ body:{L2:['## Recipe','~30–37 trillion cells (estimates differ).','~84% of them by number are red blood cells.','~400 cell types; 1 genome copied into nearly every cell.','## Order','Cells → tissues → organs → systems → body.'],L3:['## Numbers','Sender 2016: ~3.0×10¹³ human cells + ~3.8×10¹³ bacteria. Bianconi 2013: 3.72×10¹³. Hatton 2023: ~36 trillion (man), ~28 trillion (woman).']},
  brain:{L2:['## Recipe','~86 billion neurons + about as many glial cells.','~100 trillion synapses (estimate).'],L3:['## Numbers','Azevedo 2009: 86 ± 8 billion neurons.','## Open','How memory and thought are coded in detail.']},
  idea:{L2:['## Zyphullen\'s idea','Life is the universe\'s knot trying to untie itself toward perfect symmetry.','Everything is one chain reaction.'],L3:['## Label','A personal idea, shown for interest. It is not science and not part of Chain Theory.']},
  mind:{L2:['## Theories','Global workspace, integrated information, higher-order and others.'],L3:['## Why red','No test yet tells which theory, if any, is right (2023–25 "adversarial" tests were mixed).']},
@@ -774,7 +835,7 @@ const W = X(LASTR) + 260, H = Math.max(...N.map(n => n.y)) + 190;
 const EL2 = {
  axiom:{nothing:'Alex: start = links only'}, qft:{nothing:'?'}, qgrav:{nothing:'?'},
  inflation:{qft:'an inflaton field (guess)',qgrav:'? at 10⁻³⁵ s'}, genres:{distill:'read limit d₁d₂ ≤ 6'}, higgs:{qft:'1 field, 246 GeV'},
- ctspace:{distill:'(2,2) links'}, gap:{chainmail:'? how webs = particles',alpha:'1 number matched',ctspace:'? no 3+1 D derived'},
+ ctspace:{distill:'time = counted reads'}, gap:{chainmail:'? how webs = particles',alpha:'1 number matched',ctspace:'? no 3+1 D derived'},
  soup:{bigbang:'>10¹⁵ K heat',qft:'all quantum fields'},
  quarks:{soup:'6 flavours × 3 colours',gap:'? not derived',higgs:'gives mass (2–173,000 MeV)'},
  gluons:{soup:'8 kinds',gap:'? not derived'}, electrons:{soup:'e, μ, τ',gap:'? webs (Alex, cond.)',higgs:'gives 0.511 MeV'},
@@ -791,18 +852,18 @@ const EL2 = {
  nucleotides:{chem:'base + sugar + phosphate',sugars:'+ ribose'}, sugars:{chem:'formaldehyde → sugars'}, lipids:{chem:'fatty acids'},
  rnaworld:{sugars:'ribose backbone'}, protocell:{rnaworld:'a copier inside',peptides:'helpers',vesicles:'a bubble skin'},
  origin:{protocell:'? copy + feed + split'}, luca:{origin:'? unknown steps'},
- proteins:{luca:'~2,600 proteins (est. 2024)'}, code:{luca:'64 codons → 20 amino acids'}, dna:{luca:'2 strands, 4 letters'},
+ proteins:{luca:'~2,600 protein families (est. 2024)'}, code:{luca:'64 codons → 20 amino acids'}, dna:{luca:'2 strands, 4 letters'},
  prok:{luca:'splits: bacteria + archaea',proteins:'~2,000–4,000 kinds',dna:'1 ring, ~5 Mb',code:'shared code'},
  photosyn:{prok:'cyanobacteria'}, goe:{photosyn:'O₂ waste builds up'}, eukaryote:{prok:'archaeon + bacterium',goe:'O₂ to burn'},
  multicell:{eukaryote:'cells stay stuck'}, tissues:{multicell:'many cells of 1 kind'}, plants:{multicell:'+ chloroplasts'},
- animals:{multicell:'cells that move'}, organs:{tissues:'~4 tissue types'}, mammals:{animals:'~200 Myr ago'},
- organsys:{organs:'~11 systems'}, hsap:{mammals:'~300,000 yr ago'}, brain:{body:'~2% of weight, 20% of energy'}, mind:{brain:'? 86 bn neurons → thought'},
+ animals:{multicell:'cells that move'}, organs:{tissues:'2–4 tissue types'}, mammals:{animals:'~200 Myr ago'},
+ organsys:{organs:'several organs each'}, hsap:{mammals:'~300,000 yr ago'}, brain:{body:'~2% of weight, 20% of energy'}, mind:{brain:'? 86 bn neurons → thought'},
 };
 for (const id in EL2) { const n = byId[id]; if (!n) continue; n.el = n.el || {}; for (const p in EL2[id]) if (n.p.includes(p) && !n.el[p]) n.el[p] = EL2[id][p]; }
 
 /* size levels = column groups: [label, short label, first stage, last stage, colour, size range] */
 const BANDS = [
- ['BASE LAYER', 'base', 0, 4.5, '#4ff3e3', 'before size: links, fields'],
+ ['BASE LAYER', 'base', 0, 4.5, '#4ff3e3', '— (links, fields)'],
  ['PARTICLES & FORCES', 'particles', 4.5, 6.5, '#7fc8ff', 'point-like, < 10⁻¹⁸ m'],
  ['NUCLEAR', 'nuclear', 6.5, 9.5, '#9fb4ff', '10⁻¹⁵ – 10⁻¹⁴ m'],
  ['ATOMS', 'atoms', 9.5, 11.5, '#c9b6ff', '~10⁻¹⁰ m'],
@@ -964,13 +1025,23 @@ for (const e of EDGES) { if (!e.lab) continue;
 let bands = '', edges = '', labs = '', nodes = '';
 const bx = v => v <= 0 ? 0 : Math.max(0, Math.min(W, X(v)));
 BANDS.forEach(([name, , a, b, c, sz], i) => { const x0 = bx(a), x1 = bx(b);
-  bands += `<g class="band"><rect x="${x0}" y="-600" width="${x1 - x0}" height="${H + 1200}" fill="${c}" opacity="${i % 2 ? .035 : .055}"/><line y1="-600" y2="${H + 600}" x1="${x0}" x2="${x0}" stroke="${c}" stroke-opacity=".25" stroke-dasharray="4 8"/>` +
-  `<text x="${x0 + 16}" y="40" fill="${c}" opacity=".85">${esc(name)}</text><text x="${x0 + 16}" y="60" fill="${c}" opacity=".6" style="font-size:13px;font-weight:500">size ${esc(sz)}</text>`;
-  for (const ln in LANES) { const ns = N.filter(n => n.lane === ln && n.r > a && n.r < b); if (!ns.length) continue;
-    const y0 = Math.min(...ns.map(n => n.y)) - 50, y1 = Math.max(...ns.map(n => n.y)) + 110, ym = (y0 + y1) / 2, lx = Math.min(...ns.map(n => n.x)) - COL / 2 + 16;
-    const tw = LANES[ln][0].length * 10.5, hit = ty => N.some(n => ty > n.y - 55 && ty < n.y + 80 && n.x + 80 > lx && n.x - 75 < lx + tw);
-    const ty = [y0 - 6, y1 + 6, y0 - 40].find(t => !hit(t)); if (ty != null) bands += `<text class="lane" x="${lx + 6}" y="${ty}" text-anchor="start">${esc(LANES[ln][0])}</text>`; }
+  bands += `<g class="band"><rect x="${x0}" y="-600" width="${x1 - x0}" height="${H + 1200}" fill="${c}" opacity="${i % 2 ? .035 : .055}"/><line y1="-600" y2="${H + 600}" x1="${x0}" x2="${x0}" stroke="${c}" stroke-opacity=".25" stroke-dasharray="4 8"/>`;
   bands += '</g>'; });
+// lane names: ONE label per lane, beside the lane's first nodes, in a spot clear of nodes, line labels and lines
+const LANE_FROM = { matter: 1 }; // skip the shared root ("Before the Big Bang?") for matter
+const edgePts = EDGES.map(e => { const a = []; for (let t = 0; t <= 1.0001; t += 1 / 24) a.push(bez(e.P, t)); return a; });
+for (const ln in LANES) { const txt = LANES[ln][0], tw = txt.length * 10.6, th = 14;
+  const ns = N.filter(n => n.lane === ln && n.r >= (LANE_FROM[ln] || 0)).sort((a, b) => a.r - b.r || a.y - b.y).slice(0, 4);
+  let best = null, bs = 1e18;
+  ns.forEach((n, k) => { for (const [dy, pen] of [[-86, 0], [-112, 30], [132, 15], [156, 45]]) for (const [ax, pa] of [[-tw / 2, 0], [-60, 10], [60 - tw, 10]]) {
+    const x0 = n.x + ax, y = n.y + dy, b = [x0 - 6, y - th - 4, x0 + tw + 6, y + 6];
+    if (b[1] < 80) continue; // keep clear of the column titles at the top of the map
+    let sc = overlap(b) * 4 + k * 60 + pen + pa;
+    for (const n2 of N) { const r = Math.max(76, halfW(n2)); sc += Math.max(0, Math.min(b[2], n2.x + r) - Math.max(b[0], n2.x - r)) * Math.max(0, Math.min(b[3], n2.y + 108) - Math.max(b[1], n2.y - 76)) * 4; }
+    for (const pts of edgePts) for (const [px, py] of pts) if (px > b[0] && px < b[2] && py > b[1] && py < b[3]) sc += 120;
+    for (const B of BANDS) { const xb = bx(B[2]); if (xb > b[0] && xb < b[2]) sc += 400; }
+    if (sc < bs) { bs = sc; best = [x0, y]; } } });
+  if (best) bands += `<g class="band"><text class="lane" x="${best[0].toFixed(1)}" y="${best[1].toFixed(1)}" text-anchor="start">${esc(txt)}</text></g>`; }
 EDGES.forEach((e, i) => { const P = e.P, c = SC[e.s];
   edges += `<path class="edge" id="e${i}" data-a="${e.a}" data-b="${e.b}" d="M${P[0]} ${P[1]} C${P[2]} ${P[3]} ${P[4]} ${P[5]} ${P[6]} ${P[7]}" fill="none" stroke="${c}" stroke-opacity="${e.s === 'k' ? .5 : .65}" stroke-width="${e.long ? 1.6 : 2.3}" ${e.s === 'k' && !e.long ? '' : 'stroke-dasharray="' + (e.long ? '2 4' : '7 6') + '"'} marker-end="url(#arr-${e.s})"/>`;
   if (e.lab) labs += `<g class="elab" data-a="${e.a}" data-b="${e.b}" transform="translate(${e.lx.toFixed(1)} ${e.ly.toFixed(1)})"><rect x="${-e.lw / 2}" y="-10" width="${e.lw}" height="20" rx="10" fill="#070d1f" fill-opacity=".92" stroke="${c}" stroke-opacity=".55"/><text y="4.3" text-anchor="middle" font-size="12" fill="#dce8f8">${esc(e.lab)}</text></g>`; });
@@ -1028,7 +1099,8 @@ const MAXS = 3, UI = () => innerWidth <= 600 ? 168 : 146; // height of the fixed
 const minS = () => Math.min(innerWidth / (W + 60), (innerHeight - UI()) / (H + 40)) * 0.96;
 function clamp() { const vw = innerWidth, vh = innerHeight, ww = W * s, hh = H * s, top = UI();
   tx = ww < vw ? Math.min(Math.max(tx, 0), vw - ww) : Math.min(Math.max(tx, vw - ww - 120), 120);
-  ty = hh < vh - top ? Math.min(Math.max(ty, top - 40), vh - hh) : Math.min(Math.max(ty, vh - hh - 80), top + 40); }
+  const extra = sel && vw <= 600 ? pop.offsetHeight : 0; // room to lift a node above the mobile pop-up sheet
+  ty = hh < vh - top ? Math.min(Math.max(ty, top - 40), vh - hh) : Math.min(Math.max(ty, vh - hh - 80 - extra), top + 40); }
 function cull() { cullQ = false; const m = 60, x0 = (-tx) / s - m, y0 = (-ty) / s - m, x1 = (innerWidth - tx) / s + m, y1 = (innerHeight - ty) / s + m;
   const vis = b => b[2] > x0 && b[0] < x1 && b[3] > y0 && b[1] < y1;
   nodeEls.forEach((el, i) => { const v = vis(nodeBB[i]); if (el._v !== v) { el._v = v; el.style.display = v ? '' : 'none'; } });
@@ -1042,12 +1114,12 @@ function apply() { clamp(); world.setAttribute('transform', `translate(${tx.toFi
   if (!cullQ) { cullQ = true; requestAnimationFrame(cull); } moving();
   if (sel) placePop(); }
 function zoomAt(f, cx, cy) { const ns = Math.min(MAXS, Math.max(minS(), s * f)); tx = cx - (cx - tx) * ns / s; ty = cy - (cy - ty) * ns / s; s = ns; apply(); }
-function animTo(s2, tx2, ty2, ms = 550) { cancelAnimationFrame(anim); const s0 = s, x0 = tx, y0 = ty, t0 = performance.now();
-  const stepA = now => { const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3); s = s0 + (s2 - s0) * e; tx = x0 + (tx2 - x0) * e; ty = y0 + (ty2 - y0) * e; apply(); if (k < 1) anim = requestAnimationFrame(stepA); };
+function animTo(s2, tx2, ty2, ms = 550, done) { cancelAnimationFrame(anim); const s0 = s, x0 = tx, y0 = ty, t0 = performance.now();
+  const stepA = now => { const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3); s = s0 + (s2 - s0) * e; tx = x0 + (tx2 - x0) * e; ty = y0 + (ty2 - y0) * e; apply(); if (k < 1) anim = requestAnimationFrame(stepA); else if (done) done(); };
   anim = requestAnimationFrame(stepA); }
 // start view: the left (base) end of the map at a readable zoom
-function homeView() { const vw = innerWidth, vh = innerHeight, top = UI(), ns = N.filter(n => n.r <= 2), y0 = Math.min(...ns.map(n => n.y)) - 60, y1 = Math.max(...ns.map(n => n.y)) + 120;
-  const s2 = vw <= 600 ? 0.55 : Math.min(0.85, Math.max(0.68, (vh - top - 20) / (y1 - y0))), cy = vw <= 600 ? byId.nothing.y + 60 : (y0 + y1) / 2;
+function homeView() { const vw = innerWidth, vh = innerHeight, top = UI(), ns = N.filter(n => n.r <= 2), y0 = Math.min(...ns.map(n => n.y)) - 100, y1 = Math.max(...ns.map(n => n.y)) + 120;
+  const s2 = vw <= 600 ? 0.55 : Math.min(0.85, Math.max(0.6, (vh - top - 20) / (y1 - y0))), cy = vw <= 600 ? byId.nothing.y + 60 : (y0 + y1) / 2;
   return [s2, 16 - (X(0) - 110) * s2, top + (vh - top) / 2 - cy * s2]; }
 function fitView() { const s2 = minS(), top = UI(); return [s2, (innerWidth - W * s2) / 2, top + (innerHeight - top - H * s2) / 2]; }
 
@@ -1076,6 +1148,8 @@ document.getElementById('zout').onclick = () => { const [cx, cy] = zc(), ns = Ma
 document.getElementById('zfit').onclick = () => animTo(...fitView());
 document.getElementById('ztop').onclick = () => animTo(...homeView());
 addEventListener('keydown', e => { if (ptOpen()) { if (e.key === 'Escape') closePT(); return; } const k = e.key;
+  if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return; // typing in the search box never moves the map
+  if (k === '/' && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); openSearch(); return; }
   if (k === 'ArrowDown' || k === 'PageDown') { ty -= k === 'PageDown' ? innerHeight * .8 : 90; apply(); }
   else if (k === 'ArrowUp' || k === 'PageUp') { ty += k === 'PageUp' ? innerHeight * .8 : 90; apply(); }
   else if (k === 'ArrowLeft') { tx += 90; apply(); } else if (k === 'ArrowRight') { tx -= 90; apply(); }
@@ -1101,15 +1175,16 @@ svg.addEventListener('pointerout', e => { if (e.pointerType !== 'mouse' || sel) 
 /* ============ TAP A NODE → POP-UP WITH LAYERS ============ */
 const pop = document.getElementById('pop'), popBody = document.getElementById('popBody'); let layer = 1;
 function tap(target) { const g = target && target.closest ? target.closest('.node') : null; if (!g) { closePop(); return; } const id = g.dataset.id; if (sel === id) { closePop(); return; } openPop(id); }
-function rich(lines) { let h = '', inList = false;
-  for (const l of lines) { if (l.startsWith('## ')) { h += `<h4>${esc(l.slice(3))}</h4>`; } else h += `<p>${esc(l)}</p>`; } return h; }
+function rich(lines) { let h = '', skip = false, head = ''; // internal changelog sections ("## Fix since …", "## New since …") are never shown
+  for (const l of lines) { if (l.startsWith('## ')) { skip = /^## (Fix|New) since\b/i.test(l); head = skip ? '' : `<h4>${esc(l.slice(3))}</h4>`; continue; }
+    if (skip || !l.trim()) continue; h += head + `<p>${esc(l)}</p>`; head = ''; } return h; } // a heading is only written if a line follows it
 function layerHTML(n, L) {
   if (L === 2) { const from = n.p.map(pid => { const p = byId[pid], lab = n.el && n.el[pid]; return `<li>${esc(p.name)}${lab ? ' — <i>' + esc(lab) + '</i>' : ''}</li>`; }).join('');
-    const sizeL = n.szt ? `<h4>Size</h4><p>${esc(n.szt)}${n.sz != null ? ' (' + szShort(n) + ')' : ''}</p>` : '';
-    return `<div class="lay">${rich(n.L2)}${sizeL}${from ? `<h4>Made from / comes from</h4><ul>${from}</ul>` : ''}</div>`; }
+    const sizeL = n.szt && n.szt !== '—' ? `<h4>Size</h4><p>${esc(n.szt)}${n.sz != null ? ' (scale: ' + szShort(n) + ')' : ''}</p>` : '';
+    const b2 = `${rich(n.L2)}${sizeL}${from ? `<h4>Made from / comes from</h4><ul>${from}</ul>` : ''}`; return b2 ? `<div class="lay">${b2}</div>` : ''; }
   const kids = n.kids.map(k => `<li>${esc(byId[k].name)}</li>`).join('');
   const src = n.src.map(k => SRC[k]).filter(Boolean).map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('');
-  return `<div class="lay">${rich(n.L3)}${kids ? `<h4>Leads to</h4><ul>${kids}</ul>` : ''}${src ? `<h4>Sources</h4><ul>${src}</ul>` : ''}</div>`; }
+  const b3 = `${rich(n.L3)}${kids ? `<h4>Leads to</h4><ul>${kids}</ul>` : ''}${src ? `<h4>Sources</h4><ul>${src}</ul>` : ''}`; return b3 ? `<div class="lay">${b3}</div>` : ''; }
 function renderPop() { const n = byId[sel], c = SC[n.s];
   let h = `<b class="t1">${esc(n.name)}</b><div class="chip"><i style="background:${c};box-shadow:0 0 6px ${c}"></i>${SN[n.s]}</div>` +
     (n.sz != null ? `<div class="size">Size: ${szShort(n)}</div>` : '') + n.info.slice(0, 3).map(l => `<div>${esc(l)}</div>`).join('');
@@ -1119,18 +1194,21 @@ function renderPop() { const n = byId[sel], c = SC[n.s];
   h += layer < 3 ? `<button class="more" data-act="more">${layer === 1 ? 'Read more ▾' : 'Go deeper ▾'}</button>` : `<button class="more less" data-act="less">Show less ▴</button>`;
   h += `<div class="lvl">Layer ${layer} of 3</div>`;
   popBody.innerHTML = h; pop.style.borderColor = c; pop.style.boxShadow = `0 0 24px ${c}44`; }
-function openPop(id, L = 1) { sel = id; layer = L; renderPop(); pop.style.display = 'block'; pop.scrollTop = 0; light(id); placePop(); }
+function openPop(id, L = 1) { sel = id; layer = L; renderPop(); pop.style.display = 'block'; pop.scrollTop = 0; light(id); placePop(); liftForSheet(); }
+// on phones the pop-up is a bottom sheet: if it covers the tapped node, slide the map so the node sits in the free space above it
+function liftForSheet() { if (innerWidth > 600 || !sel) return; const n = byId[sel], y = n.y * s + ty, top = UI(), pt = innerHeight - pop.offsetHeight - 6;
+  if (y + 46 * s < pt - 8 && y - 46 * s > top) return; const want = top + Math.max(46 * s + 6, (pt - top) / 2); animTo(s, tx, ty + (want - y), 300); }
 popBody.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const a = b.dataset.act;
-  if (a === 'more') { layer++; renderPop(); placePop(); const L = popBody.querySelectorAll('.lay'); if (L.length) L[L.length - 1].scrollIntoView({ block: 'nearest' }); }
+  if (a === 'more') { layer++; renderPop(); placePop(); const L = popBody.querySelectorAll('.lay'); if (L.length) L[L.length - 1].scrollIntoView({ block: 'nearest' }); liftForSheet(); }
   else if (a === 'less') { layer = 1; renderPop(); pop.scrollTop = 0; placePop(); }
   else if (a === 'pt') openPT(); });
 pop.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
-function placePop() { if (innerWidth <= 600) { pop.style.left = ''; pop.style.top = ''; return; }
+function placePop() { if (innerWidth <= 600) { pop.style.left = ''; pop.style.top = ''; keyAvoid(); return; }
   const n = byId[sel], x = n.x * s + tx, y = n.y * s + ty, r = 46 * s, pw = pop.offsetWidth, ph = pop.offsetHeight, vw = innerWidth, vh = innerHeight, RM = 10, TM = UI();
   let px = x + r + 12; if (px + pw > vw - RM) px = x - r - 12 - pw; let below = false; if (px < 8) { px = Math.min(vw - pw - RM, Math.max(8, x - pw / 2)); below = true; }
   let py = below ? y + r + 10 : y - ph / 2; py = Math.max(TM, Math.min(vh - ph - 8, py)); if (py + ph > vh - 8) py = Math.max(8, vh - ph - 8);
-  pop.style.left = px + 'px'; pop.style.top = py + 'px'; }
-function closePop() { sel = null; pop.style.display = 'none'; light(null); }
+  pop.style.left = px + 'px'; pop.style.top = py + 'px'; keyAvoid(); }
+function closePop() { const was = sel; sel = null; pop.style.display = 'none'; light(null); keyAvoid(); if (was && innerWidth <= 600) apply(); }
 pop.querySelector('.x').onclick = closePop;
 
 /* ============ PERIODIC TABLE ============ */
@@ -1158,6 +1236,80 @@ function closePT() { pt.style.display = 'none'; }
 pt.querySelector('.close').onclick = closePT;
 document.getElementById('ptbtn').onclick = openPT;
 pt.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
+
+/* ============ COLOUR KEY (bottom-right; collapsible, state remembered) ============ */
+const keyEl = document.getElementById('key');
+const keyGet = () => { try { return localStorage.getItem('fntu-key'); } catch (e) { return null; } };
+const keySet = v => { try { localStorage.setItem('fntu-key', v); } catch (e) {} };
+keyEl.classList.toggle('min', keyGet() ? keyGet() === 'min' : innerWidth <= 600); // phones start folded to the chip
+keyEl.querySelector('.kc').onclick = () => { keyEl.classList.add('min'); keySet('min'); keyAvoid(); };
+keyEl.querySelector('.kchip').onclick = () => { keyEl.classList.remove('min'); keySet('open'); keyAvoid(); };
+keyEl.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
+// the key steps aside (fades out) whenever a pop-up, the phone bottom sheet or the search list would sit on top of it
+function keyAvoid() { if (!keyEl) return; const k = keyEl.getBoundingClientRect(), hit = el => { if (!el || el.offsetParent === null && getComputedStyle(el).position !== 'fixed') return false;
+    if (getComputedStyle(el).display === 'none') return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.left < k.right + 6 && r.right > k.left - 6 && r.top < k.bottom + 6 && r.bottom > k.top - 6; };
+  keyEl.classList.toggle('tuck', hit(pop) || hit(sres)); }
+
+/* ============ SEARCH (top bar; "/" focuses it) ============ */
+const ALIAS = { qft: 'quantum field theory, standard model', bigbang: 'big bang', cmb: 'cosmic microwave background', hadrons: 'proton, neutron, baryon, nucleon',
+  bbn: 'big bang nucleosynthesis, deuterium, helium', atoms: 'atom, hydrogen, helium, recombination', smbh: 'supermassive black hole, quasar', bh: 'black hole',
+  electrons: 'electron, muon, tau, lepton', photons: 'light, photon', em: 'electric, magnetism, light', dm: 'dark matter', de: 'cosmological constant, expansion',
+  hsap: 'human, humans, people', mind: 'mind, awareness', brain: 'neuron, neurons', prok: 'bacteria, archaea, microbe, microbes', eukaryote: 'eukaryote, nucleus, mitochondria',
+  goe: 'great oxidation event, oxygen', luca: 'last universal common ancestor', rnaworld: 'rna, ribozyme', dna: 'genome, gene, genes', code: 'codon, genetic code',
+  proteins: 'protein, enzyme, enzymes', lipids: 'lipid, fat, membrane', supernova: 'supernova, explosion', nsmerger: 'kilonova, neutron star, gold', sn1a: 'type ia supernova, white dwarf',
+  exo: 'exoplanet, exoplanets', water: 'ocean, oceans, h2o', stars: 'star, sun', solar: 'solar system, sun', galaxies: 'galaxy, milky way', molecules: 'molecule',
+  elements: 'periodic table, element', higgs: 'higgs boson', wz: 'w boson, z boson', qgrav: 'string theory, loop quantum gravity, planck', antimatter: 'antimatter, baryogenesis',
+  gas: 'nebula, hydrogen gas', mammals: 'mammal', plants: 'plant, algae', animals: 'animal', photosyn: 'photosynthesis, chlorophyll', fusion: 'nuclear fusion' };
+const fold = t => String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+const IDX = N.map(n => ({ n, nm: fold(n.name), al: (ALIAS[n.id] || '').split(',').map(x => x.trim()).filter(Boolean),
+  ln: fold(n.line), raw: [...n.info, ...n.L2, ...n.L3].filter(l => !/^## (Fix|New) since/i.test(l)).map(l => l.replace(/^## /, '')).join(' · ') }));
+IDX.forEach(r => r.tx = fold(r.raw));
+const wordAt = (h, q) => h.startsWith(q) || h.includes(' ' + q) || h.includes('-' + q) || h.includes('(' + q);
+function searchFor(q0) { const q = fold(q0.trim()); if (!q) return []; const ws = q.split(/\s+/), out = [];
+  for (const r of IDX) { let sc = 0, why = '';
+    if (r.nm === q) sc = 1000; else if (r.nm.startsWith(q)) sc = 920; else if (wordAt(r.nm, q)) sc = 880; else if (q.length >= 3 && r.nm.includes(q)) sc = 840;
+    else if (r.al.some(a => a === q)) sc = 660; else if (r.al.some(a => wordAt(a, q))) sc = 620;
+    else if (q.length >= 3 ? r.ln.includes(q) : q.length === 2 && wordAt(r.ln, q)) { sc = 420; why = 'line'; } else if (q.length >= 3 && r.tx.includes(q)) { sc = 300 + Math.min(40, r.tx.split(q).length * 8); why = 'text'; }
+    else if (ws.length > 1 && ws.every(w => r.nm.includes(w) || r.al.some(a => a.includes(w)) || r.tx.includes(w))) { sc = 200; why = 'text'; }
+    if (sc) out.push({ k: 'node', r, sc, why }); }
+  for (const E of ELS) { const [z, sy, nm] = E, f = fold(nm); let sc = 0;
+    if (fold(sy) === q && (q.length > 1 || q0.trim() === sy)) sc = 950; else if (f === q) sc = 900; else if (q.length >= 3 && f.startsWith(q)) sc = 860; else if (q.length >= 3 && f.includes(q)) sc = 700;
+    if (sc) out.push({ k: 'el', E, sc }); }
+  return out.sort((a, b) => b.sc - a.sc || (a.k === 'node' ? a.r.n.r : 0) - (b.k === 'node' ? b.r.n.r : 0)).slice(0, 8); }
+const mark = (t, q) => { const i = fold(t).indexOf(fold(q)); return i < 0 || !q ? esc(t) : esc(t.slice(0, i)) + '<mark>' + esc(t.slice(i, i + q.length)) + '</mark>' + esc(t.slice(i + q.length)); };
+const snip = (t, q) => { const i = fold(t).indexOf(fold(q)); if (i < 0) return esc(t.slice(0, 90)); const a = Math.max(0, i - 28); return (a ? '…' : '') + mark(t.slice(a, i + q.length + 60), q); };
+const search = document.getElementById('search'), sq = document.getElementById('sq'), sres = document.getElementById('sres'); let hits = [], cur = 0;
+function renderHits() { const q = sq.value.trim(); search.classList.toggle('has', !!sq.value); if (!q) { closeHits(); return; } hits = searchFor(q); cur = 0;
+  sres.innerHTML = hits.length ? hits.map((h, i) => { if (h.k === 'el') { const [z, sy, nm, , o] = h.E;
+      return `<li role="option" data-i="${i}"><i class="el" style="background:${ORI[o[0]][1]}">${esc(sy)}</i><span class="st"><b>${mark(nm, q)} <span style="color:#7f93b3;font-weight:400">(${esc(sy)})</span></b><small>Element ${z} · show in the periodic table</small></span></li>`; }
+    const n = h.r.n, c = SC[n.s], sub = h.why === 'text' ? snip(h.r.raw, q) : h.why === 'line' ? mark(n.line, q) : esc(n.line);
+    return `<li role="option" data-i="${i}"><i style="background:${c};box-shadow:0 0 6px ${c}"></i><span class="st"><b>${mark(n.name, q)}</b><small>${sub}</small></span></li>`; }).join('')
+    : `<li class="none">No match for “${esc(q)}”</li>`;
+  search.classList.add('open'); hiCur(); keyAvoid(); }
+function hiCur() { sres.querySelectorAll('li[data-i]').forEach(li => { const on = +li.dataset.i === cur; li.classList.toggle('on', on); li.setAttribute('aria-selected', on); if (on) li.scrollIntoView({ block: 'nearest' }); }); }
+function closeHits() { search.classList.remove('open'); keyAvoid(); }
+function openSearch() { if (ptOpen()) return; search.classList.add('wide'); sq.focus(); sq.select(); if (sq.value.trim()) renderHits(); }
+function foldSearch() { closeHits(); if (!sq.value.trim()) search.classList.remove('wide'); }
+// fly to a node: light its path at once, then open its pop-up when the camera lands (same as a click)
+function goNode(id, after) { const n = byId[id]; if (!n) return; if (ptOpen()) closePT(); closePop(); light(id);
+  const vw = innerWidth, vh = innerHeight, top = UI(), s2 = vw <= 600 ? 0.6 : Math.min(1, Math.max(0.75, s));
+  animTo(s2, vw / 2 - n.x * s2, top + (vh - top) / 2 - n.y * s2, 700, () => { openPop(id); if (after) after(); }); }
+function choose(i) { const h = hits[i]; if (!h) return; closeHits(); sq.blur(); search.classList.remove('wide');
+  if (h.k === 'el') { const z = h.E[0]; goNode('elements', () => setTimeout(() => { openPT(); ptShow(z); }, 350)); } else goNode(h.r.n.id); }
+sq.addEventListener('input', renderHits);
+sq.addEventListener('focus', () => { if (sq.value.trim()) renderHits(); });
+sq.addEventListener('keydown', e => { e.stopPropagation(); const k = e.key;
+  if (k === 'ArrowDown' || k === 'ArrowUp') { e.preventDefault(); if (!search.classList.contains('open')) { renderHits(); return; } if (hits.length) { cur = (cur + (k === 'ArrowDown' ? 1 : hits.length - 1)) % hits.length; hiCur(); } }
+  else if (k === 'Enter') { e.preventDefault(); if (hits.length && search.classList.contains('open')) choose(cur); }
+  else if (k === 'Escape') { e.preventDefault(); if (search.classList.contains('open')) closeHits(); else { sq.value = ''; search.classList.remove('has'); } if (!sq.value) { sq.blur(); search.classList.remove('wide'); } } });
+sres.addEventListener('pointerdown', e => e.preventDefault()); // keep focus in the box while clicking a result
+sres.addEventListener('click', e => { const li = e.target.closest('li[data-i]'); if (li) choose(+li.dataset.i); });
+sres.addEventListener('pointermove', e => { const li = e.target.closest('li[data-i]'); if (li && +li.dataset.i !== cur) { cur = +li.dataset.i; hiCur(); } });
+sres.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
+document.getElementById('sbtn').onclick = openSearch;
+document.getElementById('sx').onclick = () => { sq.value = ''; renderHits(); sq.focus(); };
+document.addEventListener('pointerdown', e => { if (!search.contains(e.target)) foldSearch(); }, true);
+addEventListener('resize', () => { if (search.classList.contains('open')) keyAvoid(); });
 
 /* ============ START ============ */
 function init() { drawSky(); [s, tx, ty] = homeView(); apply(); }
