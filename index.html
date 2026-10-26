@@ -31,6 +31,7 @@ h1{margin:0;font-size:22px;font-weight:650;letter-spacing:.4px;background:linear
 .zoom{position:fixed;left:14px;bottom:14px;z-index:3;display:flex;flex-direction:column;gap:8px}
 .zoom button{width:44px;height:44px;border-radius:12px;border:1px solid #23355a;background:rgba(10,18,36,.85);color:#9ff5ea;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
 .zoom button:hover{border-color:#4ff3e3}
+#topcover{position:fixed;left:0;right:0;top:0;height:143px;z-index:2;pointer-events:none;background:#04060f;box-shadow:0 6px 14px 4px #04060f}
 #strip{position:fixed;left:0;right:0;top:86px;height:40px;z-index:3;pointer-events:none;background:rgba(6,10,24,.82);border-top:1px solid #1b2a48;border-bottom:1px solid #1b2a48}
 .seg{position:absolute;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 10px;box-sizing:border-box;overflow:hidden;white-space:nowrap;cursor:pointer;pointer-events:auto;border-left:1px dashed rgba(255,255,255,.12)}
 .seg b{font-size:12px;letter-spacing:.5px;font-weight:700;overflow:hidden;text-overflow:ellipsis}
@@ -95,12 +96,13 @@ svg.moving .ic{filter:none}
 #ptmode{margin-left:8px}
 #pt .note{font-size:11.5px;color:#8a9bb6;margin-top:12px;line-height:1.5}
 #pt .note a{color:#4ff3e3}
-@media (max-width:600px){header{padding:6px 9px;top:8px;left:8px}h1{font-size:16px}.legend{font-size:11px;gap:7px}#ruler{left:8px;right:8px;width:auto;top:80px;height:36px}#ruler .rt{font-size:8px}#ruler .rk{top:5px;height:12px}#ruler .rh{top:2px;height:18px}#ruler .rtitle{display:none}#strip{top:120px;height:32px}.seg b{font-size:10.5px}.seg span{display:none}#mini{top:154px;height:10px}
+@media (max-width:600px){header{padding:6px 9px;top:8px;left:8px}h1{font-size:16px}.legend{font-size:11px;gap:7px}#ruler{left:8px;right:8px;width:auto;top:80px;height:36px}#ruler .rt{font-size:8px}#ruler .rk{top:5px;height:12px}#ruler .rh{top:2px;height:18px}#ruler .rtitle{display:none}#strip{top:120px;height:32px}.seg b{font-size:10.5px}.seg span{display:none}#mini{top:154px;height:10px}#topcover{height:165px}
  #pop{left:6px!important;right:6px;width:auto!important;top:auto!important;bottom:6px;max-height:58vh}}
 </style>
 </head>
 <body>
 <canvas id="sky"></canvas>
+<div id="topcover"></div>
 <svg id="tree" xmlns="http://www.w3.org/2000/svg"><defs id="defs"></defs><g id="world"></g></svg>
 <header>
   <h1>From Nothing to Us</h1>
