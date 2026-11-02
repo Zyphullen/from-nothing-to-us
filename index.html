@@ -191,8 +191,14 @@ body.tv #ctl{top:66px}
 #vsw{padding:3px!important;gap:2px!important;border-radius:999px!important;border-color:rgba(255,211,107,.55)!important;box-shadow:0 0 12px rgba(255,211,107,.18)}
 #vsw span{display:flex;align-items:center;gap:4px;height:26px;padding:0 9px;border-radius:999px;transition:background .25s,color .25s;color:#8fa3bf;font-weight:600}
 #vsw i{font-style:normal;color:#ffd36b;font-size:12px;opacity:.8}
-#vsw .vm,#vsw.isTree .vt{background:linear-gradient(90deg,rgba(255,211,107,.28),rgba(79,243,227,.22));color:#fff}
-#vsw.isTree .vm{background:none;color:#8fa3bf}
+#vsw span.on{background:linear-gradient(90deg,rgba(255,211,107,.28),rgba(79,243,227,.22));color:#fff}#vsw span:hover{color:#fff}
+#vsw em{font-style:normal;color:#ffd36b;font-weight:800;font-size:15px;line-height:1;text-shadow:0 0 6px rgba(255,211,107,.6)}
+#gCircle .elab{visibility:hidden}svg.focus #gCircle .elab.lit{visibility:visible}
+#gCircle .cband{font-size:34px;font-weight:700;letter-spacing:4px;opacity:.55}
+#gCircle .cq{font-size:96px;font-weight:800;letter-spacing:4px;fill:#ffd36b;opacity:.32;filter:drop-shadow(0 0 14px rgba(255,211,107,.5))}#gCircle .cq2{font-size:34px;fill:#4ff3e3;opacity:.3;letter-spacing:2px}
+#gCircle .loop{cursor:pointer}#gCircle .loop .lhit{pointer-events:stroke}#gCircle .loop .lglow{animation:lglow 3.6s ease-in-out infinite}@keyframes lglow{50%{stroke-opacity:.5}}
+#gCircle .loop.on .lcore{stroke-width:5}#gCircle .loop.on .lglow{stroke-opacity:.6}svg.moving #gCircle .loop .lglow{animation-play-state:paused}svg.focus #gCircle .loop,svg.focus #gCircle .cto{opacity:.25}
+@media (prefers-reduced-motion:reduce){#gCircle .loop .lglow{animation:none}}
 #ctl .row{display:flex;gap:6px;align-items:center}
 #efb b{color:#ffd36b;font-weight:700;min-width:12px;text-align:left}
 #efb.bump{animation:efbump .5s ease}@keyframes efbump{40%{transform:scale(1.12);box-shadow:0 0 14px rgba(255,170,60,.6)}}
@@ -298,7 +304,7 @@ body.tv #ctl{top:66px}
   <div class="note">Origins follow Jennifer Johnson's "nucleosynthesis periodic table" (<a href="https://www.science.org/doi/10.1126/science.aau9540" target="_blank" rel="noopener">Science 2019</a>; <a href="https://blog.sdss.org/2017/01/09/origin-of-the-elements-in-the-solar-system/" target="_blank" rel="noopener">SDSS chart</a>), simplified to main and secondary sources for Solar System matter. Shares are estimates and still debated, especially how much of the heaviest elements come from neutron-star crashes versus rare kinds of supernova. 94 elements occur in nature (Tc, Pm, Np, Pu only in traces). 95–118 have only been made in labs; 113, 115, 117 and 118 were named in 2016 (<a href="https://iupac.org/what-we-do/periodic-table-of-elements/" target="_blank" rel="noopener">IUPAC</a>).</div>
 </div></div>
 <div id="ctl" aria-label="View, Echo-Flame and sound">
-  <button id="vsw" title="Switch between the map and the tree"><span class="vm">🗺️<b>Map</b></span><i>⇄</i><span class="vt">🌳<b>Tree</b></span></button>
+  <button id="vsw" title="Switch between the map, the tree and the circle"><span class="vm" data-v="map">🗺️<b>Map</b></span><span class="vt" data-v="tree">🌳<b>Tree</b></span><span class="vc" data-v="circle"><em>◯</em><b>Circle</b></span></button>
   <div class="row"><button id="efb" title="Your Echo-Flame and save code" aria-label="Echo-Flame">🔥<b id="efn">0</b></button>
     <div class="snd"><button id="mute" title="Music on" aria-label="Mute music">🔊</button><input id="vol" type="range" min="0" max="100" step="1" aria-label="Music volume"></div>
     <button id="infob" title="About and credits" aria-label="About and credits">i</button></div>
@@ -318,7 +324,7 @@ body.tv #ctl{top:66px}
   <div class="hs"><span id="hti1">🖱️</span><b id="ht1">Scroll to zoom, drag to move</b></div>
   <div class="hs"><span id="hti2">✨</span><b id="ht2">Click a node to learn</b></div>
   <div class="hs"><span class="hdots"><i style="background:#3dff8a"></i><i style="background:#ffa53d"></i><i style="background:#ff4d5e"></i></span><b>Green = known, orange = we think, red = unknown</b></div>
-  <div class="hs"><span class="hsw">🗺️⇄🌳</span><b>Swap Map ⇄ Tree</b></div>
+  <div class="hs"><span class="hsw">🗺️🌳◯</span><b>Map / Tree / Circle</b></div>
   <button id="htok">Got it</button></div></div>
 <div id="btyBack"></div><div id="bty" role="dialog" aria-label="Open bounty"><button class="x" aria-label="close">×</button><div id="btyBody"></div></div>
 <script>
@@ -1557,7 +1563,100 @@ function buildTree() { N.forEach(n => { n.x = n.gx; n.y = n.gy; });
   N.forEach((n, i) => nodes += nodeSVG(n, i, true));
   return { html: `<g>${deco}</g><g>${edges}</g><g class="tlabs">${labs}</g><g>${nodes}</g>`, edges: EDGES }; }
 
-/* ============ BOTH SCENES + SWITCHING ============ */
+/* ============ CIRCLE LAYOUT (v7 draft: the same nodes on one big ring, the end joined back to the start) ============
+   Stage order runs clockwise from the top: Before the Big Bang? → particles → atoms → stars → chemistry → life → Us.
+   Two zig-zag tracks on the outer ring keep it compact; Chain Theory sits on an inner ring. A red dashed arc closes the loop. */
+let WC = 0, HC = 0; const CIR = {};
+(() => {
+  const outer = N.filter(n => n.lane !== 'chain').sort((a, b) => a.r - b.r || TORD[a.lane] - TORD[b.lane] || a.my - b.my || a.mx - b.mx);
+  const inner = N.filter(n => n.lane === 'chain').sort((a, b) => a.r - b.r || a.my - b.my);
+  const US = { name: 'Us', line: 'Where the loop closes?', sz: null };
+  const bxOf = (n, x, y) => [x - halfW(n) - 10, y - 54, x + halfW(n) + 10, y + (n.sz != null ? 112 : 96)];
+  const hit = (a, b) => a[0] < b[2] && a[2] > b[0] && a[1] < b[3] && a[3] > b[1];
+  const T0 = -Math.PI / 2, TS = 0.075, TE = 2 * Math.PI - 0.27; // Nothing just right of the top; "Us" just left of it
+  for (let R = 1500; R < 6000; R += 60) {
+    const gaps = [0]; for (let i = 1; i < outer.length; i++) { const a = outer[i - 1], b = outer[i]; gaps.push(0.5 * (halfW(a) + halfW(b)) + 20 + (a.r !== b.r ? 26 : 0)); }
+    const tot = gaps.reduce((m, g) => m + g, 0), span = TE - TS; let acc = 0, ok = true; const placed = [];
+    const TR = [0, -250, 250];
+    for (let i = 0; i < outer.length && ok; i++) { acc += gaps[i]; const n = outer[i], th = T0 + TS + span * acc / tot;
+      const pref = i % 2 ? [1, 0, 2] : [0, 1, 2]; let done = false;
+      for (const k of pref) { const r = R + TR[k], x = Math.cos(th) * r, y = Math.sin(th) * r, b = bxOf(n, x, y);
+        if (placed.every(p => !hit(p.b, b))) { placed.push({ n, b }); n.ox = x; n.oy = y; n.oa = th; n.orr = r; done = true; break; } }
+      if (!done) ok = false; }
+    if (!ok) continue;
+    // "Us" marker at the end of the ring, then the inner Chain Theory ring
+    const ua = T0 + TE + 0.13, ux = Math.cos(ua) * R, uy = Math.sin(ua) * R, ub = bxOf(US, ux, uy);
+    if (placed.some(p => hit(p.b, ub))) continue; placed.push({ n: US, b: ub });
+    const stageA = r => { const m = outer.filter(n => n.r === r); return m.length ? m.reduce((s, n) => s + n.oa, 0) / m.length : null; };
+    let Ri = R - 650, last = -1e9;
+    for (const n of inner) { let th = stageA(n.r); if (th == null) th = last + 0.1; th = Math.max(th, last + (halfW(n) * 2 + 40) / Ri); let done = false;
+      for (let g = 0; g < 80 && !done; g++) { const x = Math.cos(th) * Ri, y = Math.sin(th) * Ri, b = bxOf(n, x, y);
+        if (placed.every(p => !hit(p.b, b))) { placed.push({ n, b }); n.ox = x; n.oy = y; n.oa = th; n.orr = Ri; done = true; } else th += 0.02; }
+      if (!done) { ok = false; break; } last = th; }
+    if (!ok) continue;
+    CIR.R = R; CIR.Ri = Ri; CIR.ua = ua; CIR.ux = ux; CIR.uy = uy; break;
+  }
+  const M = CIR.R + 900; WC = HC = 2 * M; CIR.c = M;
+  N.forEach(n => { n.ox = Math.round(n.ox + M); n.oy = Math.round(n.oy + M); });
+  CIR.ux = Math.round(CIR.ux + M); CIR.uy = Math.round(CIR.uy + M);
+})();
+
+/* ============ CIRCLE SCENE ============ */
+const mixC = t => { const a = [255, 211, 107], b = [79, 243, 227], c = a.map((v, i) => Math.round(v + (b[i] - v) * Math.max(0, Math.min(1, t)))); return `rgb(${c.join(',')})`; };
+const LOOP_NOTE = "Does the end loop back to the start? Ideas like the block universe (time doesn't flow), Wheeler's 'participatory universe' and Penrose's cycles explore this. No test yet.";
+function buildCircle() { N.forEach(n => { n.x = n.ox; n.y = n.oy; });
+  const C = CIR.c, R = CIR.R, pol = (a, r) => [C + Math.cos(a) * r, C + Math.sin(a) * r];
+  const boxes = N.map(n => [n.x - halfW(n) - 4, n.y - 50, n.x + halfW(n) + 4, n.y + 110]);
+  const overlap = b => boxes.reduce((m, o) => m + Math.max(0, Math.min(b[2], o[2]) - Math.max(b[0], o[0])) * Math.max(0, Math.min(b[3], o[3]) - Math.max(b[1], o[1])), 0);
+  const EDGES = [];
+  for (const n of N) for (const pid of n.p) { const p = byId[pid], s = edgeStatus(n, p);
+    let d = Math.abs(n.oa - p.oa); d = Math.min(d, 2 * Math.PI - d); const k = 0.1 + 0.55 * Math.min(1, d / Math.PI);
+    const c1 = [p.x + (C - p.x) * k, p.y + (C - p.y) * k], c2 = [n.x + (C - n.x) * k, n.y + (C - n.y) * k];
+    const off = (a, b, r) => { const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1; return [a[0] + dx / L * r, a[1] + dy / L * r]; };
+    const A = off([p.x, p.y], c1, 44), B = off([n.x, n.y], c2, 50);
+    EDGES.push({ a: pid, b: n.id, s, P: [A[0], A[1], c1[0], c1[1], c2[0], c2[1], B[0], B[1]].map(v => +v.toFixed(1)), lab: n.el && n.el[pid], dr: n.r - p.r, long: n.r - p.r >= 4, t: n.r / LASTR }); }
+  for (const e of EDGES) { if (!e.lab) continue; const w = Math.min(260, e.lab.length * 6.4 + 16), h = 19; let best = null, bo = 1e18;
+    const ts = []; for (let t = .2; t < .85; t += .04) ts.push(t); ts.sort((a, b) => Math.abs(a - .5) - Math.abs(b - .5));
+    for (const t of ts) { const [x, y] = bez(e.P, t), b = [x - w / 2 - 3, y - h / 2 - 3, x + w / 2 + 3, y + h / 2 + 3], o = overlap(b); if (o < bo) { bo = o; best = [x, y]; if (!o) break; } }
+    e.lx = best[0]; e.ly = best[1]; e.lw = w; }
+  let deco = '', edges = '', labs = '', nodes = '', top = '';
+  // soft ring + stage arcs named around the outside
+  deco += `<circle cx="${C}" cy="${C}" r="${R - 125}" fill="none" stroke="url(#ringG)" stroke-opacity=".07" stroke-width="560"/>`;
+  deco += `<circle cx="${C}" cy="${C}" r="${R + 330}" fill="none" stroke="#ffd36b" stroke-opacity=".08" stroke-width="1.5" stroke-dasharray="3 10"/>`;
+  BANDS.forEach(([name, , a, b, c]) => { const ms = N.filter(n => n.lane !== 'chain' && n.r >= a && n.r < b); if (!ms.length) return;
+    const a0 = Math.min(...ms.map(n => n.oa)) - .02, a1 = Math.max(...ms.map(n => n.oa)) + .02, rr = R + 330, [x0, y0] = pol(a0, rr), [x1, y1] = pol(a1, rr), am = (a0 + a1) / 2, [tx_, ty_] = pol(am, rr + 70);
+    let rot = am * 180 / Math.PI + 90; if (rot > 90 && rot < 270) rot -= 180;
+    deco += `<g class="band"><path d="M${x0.toFixed(1)} ${y0.toFixed(1)} A${rr} ${rr} 0 ${a1 - a0 > Math.PI ? 1 : 0} 1 ${x1.toFixed(1)} ${y1.toFixed(1)}" fill="none" stroke="${c}" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/>` +
+      `<text class="cband" transform="translate(${tx_.toFixed(1)} ${ty_.toFixed(1)}) rotate(${rot.toFixed(1)})" text-anchor="middle" dominant-baseline="middle" fill="${c}">${esc(name)}</text></g>`; });
+  deco += `<g class="ccentre"><circle cx="${C}" cy="${C}" r="420" fill="url(#usGlow)" opacity=".7"/><text class="cq" x="${C}" y="${C}" text-anchor="middle">Is it all one loop?</text>` +
+    `<text class="cq2" x="${C}" y="${C + 70}" text-anchor="middle">Nothing → stars → life → Us → ?</text></g>`;
+  // "Us" at the end of the ring, fed by the last stage
+  const ux = CIR.ux, uy = CIR.uy, last = N.filter(n => n.r === LASTR && n.lane !== 'chain');
+  last.forEach(n => { const P = [n.x, n.y, (n.x + ux) / 2 + (C - (n.x + ux) / 2) * .08, (n.y + uy) / 2 + (C - (n.y + uy) / 2) * .08, ux, uy]; deco += `<path class="cto" d="M${P[0]} ${P[1]} Q${P[2].toFixed(1)} ${P[3].toFixed(1)} ${P[4]} ${P[5]}" fill="none" stroke="#4ff3e3" stroke-opacity=".35" stroke-width="2" stroke-dasharray="3 6"/>`; });
+  // the closing arc: Us → Before the Big Bang? (red, dashed, unknown)
+  const nt = byId.nothing, oa = CIR.ua, na = nt.oa, RR = R + 560, [c1x, c1y] = pol(oa - .03, RR), [c2x, c2y] = pol(na + .03, RR);
+  const ax = ux + Math.cos(oa) * 46, ay = uy + Math.sin(oa) * 46, bx_ = nt.x + Math.cos(na) * 50, by_ = nt.y + Math.sin(na) * 50;
+  const LP = [ax, ay, c1x, c1y, c2x, c2y, bx_, by_].map(v => +v.toFixed(1)), ld = `M${LP[0]} ${LP[1]} C${LP[2]} ${LP[3]} ${LP[4]} ${LP[5]} ${LP[6]} ${LP[7]}`, [lx, ly] = bez(LP, .5);
+  CIR.loopP = LP; CIR.lx = lx; CIR.ly = ly;
+  top += `<g class="loop loopl" data-a="us" data-b="nothing" data-s="u" aria-label="Closing link (unknown): ${esc(LOOP_NOTE)}">` +
+    `<path class="lglow" d="${ld}" fill="none" stroke="#ff4d5e" stroke-width="16" stroke-opacity=".22" filter="url(#lblur)"/>` +
+    `<path class="lcore" d="${ld}" fill="none" stroke="#ff4d5e" stroke-width="3.4" stroke-dasharray="12 9" marker-end="url(#arr-u)"/>` +
+    `<path class="lhit" d="${ld}" fill="none" stroke="transparent" stroke-width="44"/>` +
+    `<g class="llab" transform="translate(${lx.toFixed(1)} ${(ly - 2).toFixed(1)})"><rect x="-205" y="-19" width="410" height="38" rx="19" fill="#12060b" fill-opacity=".92" stroke="#ff4d5e" stroke-dasharray="5 4"/>` +
+    `<text y="6" text-anchor="middle" font-size="16" font-weight="650" fill="#ffb3bb">? Does the end loop back to the start?</text></g>` +
+    `<g class="cus" transform="translate(${ux} ${uy})"><circle r="74" fill="url(#glow-u)"/><circle r="40" fill="url(#discU)" stroke="#ff4d5e" stroke-width="2.4" stroke-dasharray="5 4"/>` +
+    `<text y="9" text-anchor="middle" font-size="24" font-weight="800" fill="#4ff3e3" letter-spacing="2">US</text>` +
+    `<text y="64" text-anchor="middle" font-size="16.5" font-weight="650" fill="#eef7ff" stroke="#04060f" stroke-width="4" paint-order="stroke">Us</text>` +
+    `<text y="83" text-anchor="middle" font-size="12.5" fill="#ff9aa5" stroke="#04060f" stroke-width="3" paint-order="stroke">Where the loop closes? (unknown)</text></g></g>`;
+  EDGES.forEach(e => { const P = e.P, d = `M${P[0]} ${P[1]} C${P[2]} ${P[3]} ${P[4]} ${P[5]} ${P[6]} ${P[7]}`, k = e.s === 'k';
+    edges += e.long ? `<path class="edge long" data-a="${e.a}" data-b="${e.b}" d="${d}" fill="none" stroke="${SC[e.s]}" stroke-opacity=".28" stroke-width="1.5" stroke-dasharray="2 5"/>`
+      : `<path class="edge" data-a="${e.a}" data-b="${e.b}" d="${d}" fill="none" stroke="${k ? mixC(e.t) : SC[e.s]}" stroke-opacity="${k ? .55 : .7}" stroke-width="2.3" ${k ? '' : 'stroke-dasharray="7 6"'} marker-end="url(#arr-${e.s})"/>`;
+    if (e.lab) labs += labSVG(e, SC[e.s]); });
+  N.forEach((n, i) => nodes += nodeSVG(n, i, true));
+  return { html: `<g>${deco}</g><g>${edges}</g><g class="tlabs">${labs}</g><g>${nodes}</g><g>${top}</g>`, edges: EDGES }; }
+defs.innerHTML += `<radialGradient id="ringG"><stop offset="0" stop-color="#ffd36b"/><stop offset="1" stop-color="#4ff3e3"/></radialGradient><filter id="lblur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>`;
+
+/* ============ ALL SCENES + SWITCHING ============ */
 let VIEW = 'map', EDGES, nodeEls, edgeEls, labEls, nodeBB, edgeBB, labBB; const SCN = {};
 function collect(gid, edges, Wv, Hv, xk, yk) { const g = document.getElementById(gid);
   return { g, edges, W: Wv, H: Hv, xk, yk, nodeEls: [...g.querySelectorAll('.node')], edgeEls: [...g.querySelectorAll('.edge')], labEls: [...g.querySelectorAll('.elab')],
@@ -1566,11 +1665,11 @@ function collect(gid, edges, Wv, Hv, xk, yk) { const g = document.getElementById
     labBB: edges.filter(e => e.lab).map(e => [e.lx - e.lw / 2, e.ly - 12, e.lx + e.lw / 2, e.ly + 12]) }; }
 function setScene(v) { VIEW = v; const S = SCN[v]; N.forEach(n => { n.x = n[S.xk]; n.y = n[S.yk]; });
   ({ nodeEls, edgeEls, labEls, nodeBB, edgeBB, labBB } = S); EDGES = S.edges; W = S.W; H = S.H;
-  SCN.map.g.style.display = v === 'map' ? '' : 'none'; SCN.tree.g.style.display = v === 'tree' ? '' : 'none';
-  document.body.classList.toggle('tv', v === 'tree'); }
-function buildScenes() { const v = VIEW, m = buildMap(), t = buildTree();
-  world.innerHTML = `<g id="gMap">${m.html}</g><g id="gTree">${t.html}</g>`;
-  SCN.map = collect('gMap', m.edges, WM, HM, 'mx', 'my'); SCN.tree = collect('gTree', t.edges, WT, HT, 'gx', 'gy'); setScene(v);
+  for (const k in SCN) SCN[k].g.style.display = v === k ? '' : 'none';
+  document.body.classList.toggle('tv', v !== 'map'); document.body.classList.toggle('cv', v === 'circle'); }
+function buildScenes() { const v = VIEW, m = buildMap(), t = buildTree(), c = buildCircle();
+  world.innerHTML = `<g id="gMap">${m.html}</g><g id="gTree">${t.html}</g><g id="gCircle">${c.html}</g>`;
+  SCN.map = collect('gMap', m.edges, WM, HM, 'mx', 'my'); SCN.tree = collect('gTree', t.edges, WT, HT, 'gx', 'gy'); SCN.circle = collect('gCircle', c.edges, WC, HC, 'ox', 'oy'); setScene(v);
   if (typeof EF !== 'undefined') EF.paintSeen(); }
 // one data edit (e.g. byId.smbh.solved = true) then rebuild() updates both views
 function rebuild() { applyStatus(); buildScenes(); if (typeof cull === 'function') { cullQ = false; cull(); } }
@@ -1610,7 +1709,7 @@ function updRuler(x0, y0, x1, y1) { let lo = 99, hi = -99;
 
 /* ============ PAN / ZOOM ============ */
 let s = 1, tx = 0, ty = 0, anim = null, sel = null, cullQ = false, movT = 0;
-const MAXS = 3, UI = () => VIEW === 'tree' ? (innerWidth <= 600 ? 124 : 66) : innerWidth <= 600 ? 168 : 146; // height of the fixed bars at the top (the tree view has no column bar)
+const MAXS = 3, UI = () => VIEW !== 'map' ? (innerWidth <= 600 ? 124 : 66) : innerWidth <= 600 ? 168 : 146; // height of the fixed bars at the top (the tree view has no column bar)
 const minS = () => Math.min(innerWidth / (W + 60), (innerHeight - UI()) / (H + 40)) * 0.96;
 function clamp() { const vw = innerWidth, vh = innerHeight, ww = W * s, hh = H * s, top = UI();
   tx = ww < vw ? Math.min(Math.max(tx, 0), vw - ww) : Math.min(Math.max(tx, vw - ww - 120), 120);
@@ -1627,13 +1726,14 @@ function moving() { svg.classList.add('moving'); clearTimeout(movT); movT = setT
 function apply() { clamp(); world.setAttribute('transform', `translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${s.toFixed(4)})`);
   if (VIEW === 'map') { const a = Math.max(0, -tx / s), b = Math.min(W, (innerWidth - tx) / s); vp.style.left = (a / W * 100) + '%'; vp.style.width = (Math.max(.004, b - a) / W * 100) + '%'; updHeads(); }
   if (!cullQ) { cullQ = true; requestAnimationFrame(cull); } moving();
-  if (sel) placePop(); }
+  if (sel) placePop(); else if (LOOPON) placeLoop(); }
 function zoomAt(f, cx, cy) { const ns = Math.min(MAXS, Math.max(minS(), s * f)); tx = cx - (cx - tx) * ns / s; ty = cy - (cy - ty) * ns / s; s = ns; apply(); }
 function animTo(s2, tx2, ty2, ms = 550, done) { cancelAnimationFrame(anim); const s0 = s, x0 = tx, y0 = ty, t0 = performance.now();
   const stepA = now => { const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3); s = s0 + (s2 - s0) * e; tx = x0 + (tx2 - x0) * e; ty = y0 + (ty2 - y0) * e; apply(); if (k < 1) anim = requestAnimationFrame(stepA); else if (done) done(); };
   anim = requestAnimationFrame(stepA); }
 // start view: the left (base) end of the map at a readable zoom
-function homeView() { if (VIEW === 'tree') { const vw = innerWidth, vh = innerHeight, n = byId.nothing, s2 = vw <= 600 ? 0.5 : 0.6;
+function homeView() { if (VIEW === 'circle') return fitView();
+  if (VIEW === 'tree') { const vw = innerWidth, vh = innerHeight, n = byId.nothing, s2 = vw <= 600 ? 0.5 : 0.6;
     return [s2, vw / 2 - n.x * s2, vh - 24 - (n.y + 300) * s2]; } // the tree starts at its roots
   const vw = innerWidth, vh = innerHeight, top = UI(), ns = N.filter(n => n.r <= 2), y0 = Math.min(...ns.map(n => n.y)) - 100, y1 = Math.max(...ns.map(n => n.y)) + 120;
   const s2 = vw <= 600 ? 0.55 : Math.min(0.85, Math.max(0.6, (vh - top - 20) / (y1 - y0))), cy = vw <= 600 ? byId.nothing.y + 60 : (y0 + y1) / 2;
@@ -1691,7 +1791,8 @@ svg.addEventListener('pointerout', e => { if (e.pointerType !== 'mouse' || sel) 
 
 /* ============ TAP A NODE → POP-UP WITH LAYERS ============ */
 const pop = document.getElementById('pop'), popBody = document.getElementById('popBody'); let layer = 1;
-function tap(target) { const g = target && target.closest ? target.closest('.node') : null; if (!g) { closePop(); return; } const id = g.dataset.id; if (sel === id) { closePop(); return; } openPop(id); }
+function tap(target) { const lp = target && target.closest ? target.closest('.loopl') : null; if (lp) { if (LOOPON) closePop(); else openLoop(); return; }
+  const g = target && target.closest ? target.closest('.node') : null; if (!g) { closePop(); return; } const id = g.dataset.id; if (sel === id) { closePop(); return; } openPop(id); }
 function rich(lines) { let h = '', skip = false, head = ''; // internal changelog sections ("## Fix since …", "## New since …") are never shown
   for (const l of lines) { if (l.startsWith('## ')) { skip = /^## (Fix|New) since\b/i.test(l); head = skip ? '' : `<h4>${esc(l.slice(3))}</h4>`; continue; }
     if (skip || !l.trim()) continue; h += head + `<p>${esc(l)}</p>`; head = ''; } return h; } // a heading is only written if a line follows it
@@ -1720,7 +1821,7 @@ function renderPop() { const n = byId[sel], c = SC[n.s];
   h += `<div class="pact">${layer < MAX ? `<button class="more" data-act="more">${nxt}</button>` : `<button class="more less" data-act="less">Show less ▴</button>`}<button class="shr" data-act="share" title="Copy a link to this node">🔗 Copy link</button></div>`;
   h += `<div class="lvl">Layer ${layer} of ${MAX}</div>`;
   popBody.innerHTML = h; pop.style.borderColor = c; pop.style.boxShadow = `0 0 24px ${c}44`; }
-function openPop(id, L = 1) { sel = id; layer = L; renderPop(); EF.award(id, 1); if (L >= 2) EF.award(id, 2); if (L >= 3) EF.award(id, 4); pop.style.display = 'block'; pop.scrollTop = 0; light(id); placePop(); liftForSheet(); }
+function openPop(id, L = 1) { if (LOOPON) closeLoop(); sel = id; layer = L; renderPop(); EF.award(id, 1); if (L >= 2) EF.award(id, 2); if (L >= 3) EF.award(id, 4); pop.style.display = 'block'; pop.scrollTop = 0; light(id); placePop(); liftForSheet(); }
 // on phones the pop-up is a bottom sheet: if it covers the tapped node, slide the map so the node sits in the free space above it
 function liftForSheet() { if (innerWidth > 600 || !sel) return; const n = byId[sel], y = n.y * s + ty, top = UI(), pt = innerHeight - pop.offsetHeight - 6;
   if (y + 46 * s < pt - 8 && y - 46 * s > top) return; const want = top + Math.max(46 * s + 6, (pt - top) / 2); animTo(s, tx, ty + (want - y), 300); }
@@ -1734,11 +1835,11 @@ popBody.addEventListener('click', e => { const b = e.target.closest('button'); i
 pop.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
 function placePop() { if (innerWidth <= 600) { pop.style.left = ''; pop.style.top = ''; keyAvoid(); return; }
   const n = byId[sel], x = n.x * s + tx, y = n.y * s + ty, r = 46 * s, pw = pop.offsetWidth, ph = pop.offsetHeight, vw = innerWidth, vh = innerHeight, RM = 10, TM = UI();
-  const ne = document.querySelector(`#${typeof VIEW !== 'undefined' && VIEW === 'tree' ? 'gTree' : 'gMap'} .node[data-id="${sel}"]`), nb = ne && ne.getBoundingClientRect(), hr = nb && nb.width ? Math.max(r, nb.right - x, x - nb.left) : r;
+  const ne = document.querySelector(`#${SCN[VIEW].g.id} .node[data-id="${sel}"]`), nb = ne && ne.getBoundingClientRect(), hr = nb && nb.width ? Math.max(r, nb.right - x, x - nb.left) : r;
   let px = x + hr + 12; if (px + pw > vw - RM) px = x - hr - 12 - pw; let below = false; if (px < 8) { px = Math.min(vw - pw - RM, Math.max(8, x - pw / 2)); below = true; }
   let py = below ? y + r + 10 : y - ph / 2; py = Math.max(TM, Math.min(vh - ph - 8, py)); if (py + ph > vh - 8) py = Math.max(8, vh - ph - 8);
   pop.style.left = px + 'px'; pop.style.top = py + 'px'; keyAvoid(); }
-function closePop() { const was = sel; sel = null; pop.style.display = 'none'; light(null); keyAvoid(); if (was && innerWidth <= 600) apply(); }
+function closePop() { const wasL = LOOPON; closeLoop(); if (wasL && !sel) { pop.style.display = 'none'; keyAvoid(); if (innerWidth <= 600) apply(); return; } const was = sel; sel = null; pop.style.display = 'none'; light(null); keyAvoid(); if (was && innerWidth <= 600) apply(); }
 pop.querySelector('.x').onclick = closePop;
 
 /* ============ PERIODIC TABLE ============ */
@@ -1855,7 +1956,9 @@ const RMOTION = () => !!(window.matchMedia && matchMedia('(prefers-reduced-motio
 
 /* ============ MAP ⇄ TREE SWITCH (fade, remembered) ============ */
 const vsw = document.getElementById('vsw'), camOf = {};
-function syncSwitch() { vsw.classList.toggle('isTree', VIEW === 'tree'); vsw.setAttribute('aria-label', VIEW === 'tree' ? 'Showing the tree. Switch to the map' : 'Showing the map. Switch to the tree'); placePanels(); }
+const VNAME = { map: 'the map', tree: 'the tree', circle: 'the circle' }, VORD = ['map', 'tree', 'circle'];
+function syncSwitch() { vsw.classList.toggle('isTree', VIEW === 'tree'); vsw.classList.toggle('isCircle', VIEW === 'circle'); vsw.querySelectorAll('span[data-v]').forEach(sp => { sp.classList.toggle('on', sp.dataset.v === VIEW); });
+  vsw.setAttribute('aria-label', `Showing ${VNAME[VIEW]}. Click Map, Tree or Circle (Enter cycles)`); placePanels(); }
 function switchView(v) { if (v === VIEW || svg.classList.contains('fade')) return; camOf[VIEW] = [s, tx, ty];
   const go = () => { cancelAnimationFrame(anim); setScene(v); light(sel); syncSwitch(); prefSet('fntu-view', v);
     if (sel) { const n = byId[sel], top = UI(), s2 = innerWidth <= 600 ? 0.6 : Math.min(1, Math.max(0.6, s)); [s, tx, ty] = [s2, innerWidth / 2 - n.x * s2, top + (innerHeight - top) / 2 - n.y * s2]; }
@@ -1863,7 +1966,7 @@ function switchView(v) { if (v === VIEW || svg.classList.contains('fade')) retur
     cullQ = false; apply(); cull(); if (sel) { placePop(); liftForSheet(); }
     requestAnimationFrame(() => svg.classList.remove('fade')); if (v === 'tree') EF.bonus('tree'); };
   if (RMOTION()) go(); else { svg.classList.add('fade'); setTimeout(go, 280); } }
-vsw.onclick = () => switchView(VIEW === 'map' ? 'tree' : 'map');
+vsw.onclick = e => { const sp = e.target.closest && e.target.closest('span[data-v]'); switchView(sp ? sp.dataset.v : VORD[(VORD.indexOf(VIEW) + 1) % 3]); };
 
 /* ============ ECHO-FLAME (free, no account, kept on this device only) ============
    Progress = which nodes you opened (1), read more on (2), went deeper on (4), saw in 3D (8), opened the bounty of (16), plus a few one-offs.
@@ -1999,7 +2102,7 @@ function solvedHTML(n) { const r = n.solved; if (!r || typeof r !== 'object') re
 
 /* ============ SHARE A NODE ============ */
 const SITE = 'https://zyphullen.github.io/from-nothing-to-us/';
-const shareURL = id => SITE + '#n=' + encodeURIComponent(id) + (VIEW === 'tree' ? '&tv=tree' : '');
+const shareURL = id => SITE + '#n=' + encodeURIComponent(id) + (VIEW !== 'map' ? '&tv=' + VIEW : '');
 let toastT = 0;
 function toast(msg) { let el = document.getElementById('toast'); if (!el) { el = document.createElement('div'); el.id = 'toast'; el.setAttribute('role', 'status'); document.body.appendChild(el); }
   el.textContent = msg; el.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('on'), 1800); }
@@ -2011,7 +2114,7 @@ function copyLink(id) { const u = shareURL(id); copyText(u).then(ok => toast(ok 
 function openShared(id) { if (!byId[id]) return; const n = byId[id], top = UI(), z = innerWidth <= 600 ? 0.6 : 0.9;
   cancelAnimationFrame(anim); s = z; tx = innerWidth / 2 - n.x * s; ty = top + (innerHeight - top) / 2 - n.y * s; cullQ = false; apply(); cull(); openPop(id, 1); }
 addEventListener('hashchange', () => { const h = new URLSearchParams(location.hash.slice(1)); if (!h.has('n') || !byId[h.get('n')]) return;
-  const v = h.get('tv') === 'tree' ? 'tree' : 'map'; if (v !== VIEW) { setScene(v); syncSwitch(); } HOWTO.close(); openShared(h.get('n')); });
+  const v = ['tree', 'circle'].includes(h.get('tv')) ? h.get('tv') : 'map'; if (v !== VIEW) { setScene(v); syncSwitch(); } HOWTO.close(); openShared(h.get('n')); });
 
 /* ============ SUGGEST A FIX (opens a prefilled GitHub issue in a new tab) ============ */
 const ISSUES = 'https://github.com/Zyphullen/from-nothing-to-us/issues/new';
@@ -2036,17 +2139,50 @@ const HOWTO = (() => { const el = document.getElementById('howto'), KEY = 'fntu-
   return { open, close, first: () => prefGet(KEY) !== '1' }; })();
 (() => { const h = new URLSearchParams(location.hash.slice(1)); if (HOWTO.first() && !h.has('n') && !h.has('open')) setTimeout(HOWTO.open, 500); })();
 
+/* ============ v7 DRAFT: THE CLOSING LOOP POP-UP (Circle view only) ============ */
+var LOOPON = false, loopLayer = 1;
+const LOOP_SRC = [['Block universe (eternalism), overview', 'https://en.wikipedia.org/wiki/Eternalism_(philosophy_of_time)'],
+  ["Wheeler's participatory universe", 'https://en.wikipedia.org/wiki/Anthropic_principle#Variants'],
+  ["Penrose's conformal cyclic cosmology", 'https://en.wikipedia.org/wiki/Conformal_cyclic_cosmology']];
+function renderLoop() { const c = SC.u;
+  let h = `<b class="t1">Does the end loop back to the start?</b><div class="chip"><i style="background:${c};box-shadow:0 0 6px ${c}"></i>${SN.u} · an idea, not a finding</div>` +
+    `<div>This dashed red line joins <b>Us</b> back to <b>Before the Big Bang?</b>. Both ends are unknown.</div>` +
+    `<div>Ideas like the block universe (time doesn't flow), Wheeler's 'participatory universe' and Penrose's cycles explore this. No test yet.</div>`;
+  if (loopLayer >= 2) h += `<div class="lay"><h4>Three ideas people explore</h4><ul>` +
+    `<li><b>Block universe:</b> in relativity, past, present and future can be treated as one 4D block. The "flow" of time may be how we experience it. Still debated.</li>` +
+    `<li><b>Participatory universe:</b> John Wheeler asked whether observers are somehow needed for the universe to become real ("it from bit"). A question, not a tested theory.</li>` +
+    `<li><b>Cycles:</b> Roger Penrose's conformal cyclic cosmology says the far future of one universe could become the Big Bang of the next. Claimed signs in the CMB are disputed.</li></ul>` +
+    `<h4>Zyphullen's thought</h4><p>Maybe time does not really exist and we are 3D/4D beings who see it as a line. Maybe consciousness is needed to start the universe before it starts. Personal idea, not science.</p>` +
+    `<h4>Where it stands</h4><p>No experiment has tested whether the universe loops like this. The Map and Tree views show the line; this view shows the question.</p>` +
+    `<h4>Sources</h4><ul>${LOOP_SRC.map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('')}</ul>` +
+    `<a class="sug" href="${esc(issueURL('Suggestion: the closing loop (Circle view)', 'Part: the red closing link (Us → Before the Big Bang?)\nLink: ' + SITE + '#tv=circle&loop=1\n\nWhat should change?\n\n\nSource (link):\n'))}" target="_blank" rel="noopener">✎ Suggest a fix</a></div>`;
+  h += `<div class="pact"><button class="more${loopLayer > 1 ? ' less' : ''}" data-act="${loopLayer > 1 ? 'lless' : 'lmore'}">${loopLayer > 1 ? 'Show less ▴' : 'Read more ▾'}</button><button class="shr" data-act="lshare" title="Copy a link to this loop">🔗 Copy link</button></div><div class="lvl">Layer ${loopLayer} of 2</div>`;
+  popBody.innerHTML = h; pop.style.borderColor = c; pop.style.boxShadow = `0 0 24px ${c}44`; }
+function openLoop(L = 1) { if (VIEW !== 'circle') return; if (sel) closePop(); LOOPON = true; loopLayer = L; renderLoop(); pop.style.display = 'block'; pop.scrollTop = 0;
+  document.querySelectorAll('#gCircle .loop').forEach(g => g.classList.add('on')); placeLoop(); liftLoop(); }
+function closeLoop() { LOOPON = false; document.querySelectorAll('#gCircle .loop').forEach(g => g.classList.remove('on')); }
+function placeLoop() { if (!LOOPON) return; if (innerWidth <= 600) { pop.style.left = ''; pop.style.top = ''; keyAvoid(); return; }
+  const x = CIR.lx * s + tx, y = CIR.ly * s + ty, pw = pop.offsetWidth, ph = pop.offsetHeight, top = UI();
+  let px = Math.min(innerWidth - pw - 10, Math.max(8, x + 230 * s + 14)), py = Math.max(top, Math.min(innerHeight - ph - 8, y + 30 * s + 12));
+  pop.style.left = px + 'px'; pop.style.top = py + 'px'; keyAvoid(); }
+function liftLoop() { if (innerWidth > 600 || !LOOPON) return; const y = CIR.ly * s + ty, x = CIR.lx * s + tx, top = UI(), pt = innerHeight - pop.offsetHeight - 6;
+  if (y > top + 20 && y < pt - 20 && x > 10 && x < innerWidth - 10) return; animTo(s, tx + (innerWidth / 2 - x), ty + (top + (pt - top) / 2 - y), 300); }
+popBody.addEventListener('click', e => { const b = e.target.closest('button'); if (!b || !LOOPON) return; const a = b.dataset.act;
+  if (a === 'lmore') { loopLayer = 2; renderLoop(); placeLoop(); liftLoop(); } else if (a === 'lless') { loopLayer = 1; renderLoop(); pop.scrollTop = 0; placeLoop(); }
+  else if (a === 'lshare') { const u = SITE + '#tv=circle&loop=1'; copyText(u).then(ok => toast(ok ? 'Link copied' : 'Copy this link: ' + u)); } });
+
 
 /* ============ START ============ */
-function init() { drawSky(); if (prefGet('fntu-view') === 'tree') setScene('tree'); syncSwitch(); [s, tx, ty] = homeView(); apply(); }
+function init() { drawSky(); { const pv = prefGet('fntu-view'); if (pv === 'tree' || pv === 'circle') setScene(pv); } syncSwitch(); [s, tx, ty] = homeView(); apply(); }
 addEventListener('resize', () => { drawSky(); apply(); });
 init();
 // test hooks (used for screenshots): #view=fit | #c=<stage column>&y=<world y>&z=<zoom> | &open=<id>&layer=<1-3> | #ptable=1&el=<Z>
-(() => { const h = new URLSearchParams(location.hash.slice(1)); if (h.has('n') && !h.has('tv')) h.set('tv', 'map'); if (h.has('tv')) { setScene(h.get('tv') === 'tree' ? 'tree' : 'map'); syncSwitch(); [s, tx, ty] = homeView(); }
+(() => { const h = new URLSearchParams(location.hash.slice(1)); if (h.has('n') && !h.has('tv')) h.set('tv', 'map'); if (h.has('tv')) { setScene(['tree', 'circle'].includes(h.get('tv')) ? h.get('tv') : 'map'); syncSwitch(); [s, tx, ty] = homeView(); }
   if (h.get('view') === 'fit') [s, tx, ty] = fitView();
   if (h.has('c')) { s = +(h.get('z') || s); tx = innerWidth / 2 - X(+h.get('c')) * s; ty = UI() + (innerHeight - UI()) / 2 - (+(h.get('y') || H / 2)) * s; }
   apply(); if (h.has('open')) openPop(h.get('open'), +(h.get('layer') || 1));
   if (h.has('n')) openShared(h.get('n'));
+  if (h.has('loop') && VIEW === 'circle') openLoop(+(h.get('layer') || 1));
   if (h.has('ptable')) { openPT(); if (h.has('el')) ptShow(+h.get('el')); } })();
 
 /* viewer3d.js — "View in 3D" for From Nothing to Us (pilot).
