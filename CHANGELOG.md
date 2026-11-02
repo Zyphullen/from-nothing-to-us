@@ -1,3 +1,18 @@
+## v8 (2 Nov 2026)
+
+**New**
+- **Explore menu**: a side menu with All the elements and a living Virtual Cell.
+- **Virtual Cell**: deep zoom from the whole cell to organelles, molecules (water, sugar, ATP, lipids, DNA base pairs, proteins), glowing atoms, and inside an atom (an electron cloud around a tiny nucleus). A breadcrumb and scale bar go down to picometres. Tap any part for a short card with Read more, a certainty colour and a source. Calm and offline; it pauses if you prefer reduced motion, and it lowers detail on slower devices.
+- **Tree of everything**: the Tree view is an organic tree, with roots under "Before the Big Bang?", a glowing trunk, tapering branches and leaves, and "Us" in the crown.
+- **Link preview**: new image `og-preview-2026.png` for shared links.
+
+**Better**
+- **Keyboard**: Tab to any node, Enter to open.
+- **Phones**: a compact top bar, the Circle opens at a readable size, and the Key chip sits above the pop-up.
+- **Circle**: a wider, rounder closing arc, and the loop card no longer covers the map.
+- **Text**: bigger small text and brighter greys.
+- **Science wording**: Bennu ribose (Dec 2025), LUCA figures marked as estimates, the oldest bacterial fossils marked debated, the first photosynthesis made no oxygen, and brain synapse numbers made consistent.
+
 ## v7 (2 Nov 2026)
 
 **New**

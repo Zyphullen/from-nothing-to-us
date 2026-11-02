@@ -3,19 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>From Nothing to Us</title>
+<title>From Nothing to Us · v8</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23070d1f%22 stroke=%22%23ffd36b%22 stroke-width=%228%22/%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2214%22 fill=%22%234ff3e3%22/%3E%3C/svg%3E">
 <meta property="og:title" content="From Nothing to Us">
-<meta property="og:description" content="An interactive dark-mode tree of how everything emerges, from the quantum field to humans.">
+<meta property="og:description" content="An interactive map of everything, from before the Big Bang to us. Zoom from the cosmos down into a living cell.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://zyphullen.github.io/from-nothing-to-us/preview.jpg">
-<meta property="og:image" content="https://zyphullen.github.io/from-nothing-to-us/preview.jpg">
+<meta name="twitter:image" content="https://zyphullen.github.io/from-nothing-to-us/og-preview-2026.png">
+<meta property="og:image" content="https://zyphullen.github.io/from-nothing-to-us/og-preview-2026.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="From Nothing to Us: an interactive map of everything, by Zyphullen">
+<meta name="twitter:image:alt" content="From Nothing to Us: an interactive map of everything, by Zyphullen">
 <meta property="og:url" content="https://zyphullen.github.io/from-nothing-to-us/">
 <meta property="og:type" content="website">
 <meta name="twitter:title" content="From Nothing to Us">
-<meta name="twitter:description" content="An interactive dark-mode tree of how everything emerges, from the quantum field to humans.">
+<meta name="twitter:description" content="An interactive map of everything, from before the Big Bang to us. Zoom from the cosmos down into a living cell.">
 <style>
 html,body{margin:0;height:100%;overflow:hidden;background:#04060f;color:#e8f4ff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;touch-action:none;-webkit-user-select:none;user-select:none}
 #sky{position:fixed;inset:0;z-index:0}
@@ -36,23 +39,23 @@ h1{margin:0;font-size:22px;font-weight:650;letter-spacing:.4px;background:linear
 #strip{position:fixed;left:0;right:0;top:86px;height:40px;z-index:3;pointer-events:none;background:rgba(6,10,24,.82);border-top:1px solid #1b2a48;border-bottom:1px solid #1b2a48}
 .seg{position:absolute;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 10px;box-sizing:border-box;overflow:hidden;white-space:nowrap;cursor:pointer;pointer-events:auto;border-left:1px dashed rgba(255,255,255,.12)}
 .seg b{font-size:12px;letter-spacing:.5px;font-weight:700;overflow:hidden;text-overflow:ellipsis}
-.seg span{font-size:10.5px;color:#9fb0c8;overflow:hidden;text-overflow:ellipsis}
+.seg span{font-size:11.5px;color:#9fb0c8;overflow:hidden;text-overflow:ellipsis}
 .seg.narrow{padding:0 5px}.seg.narrow span{display:none}
 #mini{position:fixed;left:8px;right:8px;top:130px;height:12px;z-index:3;cursor:pointer;border-radius:6px;overflow:hidden;background:rgba(6,10,24,.88);border:1px solid #1b2a48}
 .mseg{position:absolute;top:0;bottom:0;font-size:0;border-right:1px solid rgba(0,0,0,.4)}
 #vp{position:absolute;top:0;bottom:0;border:1.5px solid #ffd36b;border-radius:5px;background:rgba(255,211,107,.12);box-shadow:0 0 8px rgba(255,211,107,.4);pointer-events:none;box-sizing:border-box}
 #ruler{position:fixed;right:10px;top:10px;height:48px;width:min(560px,44vw);z-index:3;border-radius:12px;background:rgba(6,10,24,.88);border:1px solid #1b2a48;pointer-events:none;overflow:hidden}
-#ruler .rt{position:absolute;bottom:3px;font-size:9.5px;color:#7f93b3;transform:translateX(-50%);white-space:nowrap}
+#ruler .rt{position:absolute;bottom:3px;font-size:11px;color:#a3b4cf;transform:translateX(-50%);white-space:nowrap}
 #ruler .rt:after{content:'';position:absolute;left:50%;top:-6px;height:4px;border-left:1px solid #4a5f85}
 #ruler .rk{position:absolute;top:8px;height:16px;width:2px;border-radius:1px;transform:translateX(-50%);transition:left .25s}
 #ruler .rh{position:absolute;top:4px;height:24px;border-radius:7px;background:rgba(79,243,227,.12);border:1px solid rgba(79,243,227,.45);transition:left .25s,width .25s;box-sizing:border-box}
-#ruler .rtitle{position:absolute;top:0;bottom:0;left:7px;display:flex;align-items:center;font-size:10px;color:#9ff5ea;letter-spacing:.3px}
+#ruler .rtitle{position:absolute;top:0;bottom:0;left:7px;display:flex;align-items:center;font-size:11px;color:#9ff5ea;letter-spacing:.3px}
 #pop{position:fixed;z-index:5;width:300px;max-height:72vh;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;padding:12px 30px 12px 14px;border-radius:14px;background:rgba(8,14,30,.96);border:1.5px solid #4ff3e3;display:none;font-size:14px;line-height:1.45;color:#d6e4f5;-webkit-user-select:text;user-select:text;box-sizing:border-box}
 #pop b.t1{display:block;font-size:15.5px;color:#fff;margin-bottom:2px}
 #pop .chip{font-size:11.5px;color:#9fb0c8;margin-bottom:4px}
 #pop .chip i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
 #pop .size{font-size:11.5px;color:#9ff5ea;margin-bottom:6px}
-#pop .x{position:absolute;top:6px;right:8px;background:none;border:0;color:#8aa0bd;font-size:20px;cursor:pointer;padding:2px 4px}
+#pop .x{position:absolute;top:6px;right:8px;background:none;border:0;color:#a8b9d2;font-size:20px;cursor:pointer;padding:2px 4px}
 #pop .lay{margin-top:8px;padding-top:8px;border-top:1px dashed #2a3b5e;font-size:13.2px}
 #pop .lay h4{margin:8px 0 2px;font-size:12px;letter-spacing:.4px;text-transform:uppercase;color:#ffd36b}
 #pop .lay h4:first-child{margin-top:0}
@@ -68,7 +71,7 @@ h1{margin:0;font-size:22px;font-weight:650;letter-spacing:.4px;background:linear
 #pop .more{margin-top:10px;font:inherit;font-size:12.5px;color:#04060f;background:linear-gradient(90deg,#ffd36b,#4ff3e3);border:0;border-radius:9px;padding:5px 11px;cursor:pointer;font-weight:650}
 #pop .more.less{background:#16233f;color:#9ff5ea}
 #pop .ptb{margin-top:8px;margin-right:6px;font:inherit;font-size:12.5px;color:#9ff5ea;background:#16233f;border:1px solid #2c4a7a;border-radius:9px;padding:5px 10px;cursor:pointer}
-#pop .lvl{font-size:11px;color:#7f93b3;margin-top:6px}
+#pop .lvl{font-size:11px;color:#a3b4cf;margin-top:6px}
 .node{cursor:pointer}
 .node .disc{transition:stroke-width .2s}
 .node:hover .disc{stroke-width:3.5}
@@ -80,7 +83,7 @@ svg.focus .elab.lit rect{stroke-opacity:1}
 svg.far .elab,svg.far .sz{display:none}
 svg.moving .ic{filter:none}
 .band text{font-size:15px;font-weight:650;letter-spacing:.6px}
-.band text.lane{font-size:13px;font-weight:700;letter-spacing:2px;fill:#8fa3bf;opacity:.55}
+.band text.lane{font-size:13px;font-weight:700;letter-spacing:2px;fill:#aabbd4;opacity:.75}
 #pt{position:fixed;inset:0;z-index:8;background:rgba(2,4,12,.94);display:none;overflow:auto;touch-action:pan-x pan-y;-webkit-user-select:text;user-select:text}
 #pt .in{max-width:1180px;margin:0 auto;padding:16px 14px 40px}
 #pt h2{margin:0 0 4px;font-size:20px;background:linear-gradient(90deg,#ffd36b,#4ff3e3);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
@@ -88,14 +91,14 @@ svg.moving .ic{filter:none}
 #pt .close{position:fixed;top:12px;right:16px;font-size:26px;color:#9fb0c8;background:rgba(10,18,36,.9);border:1px solid #23355a;border-radius:12px;width:42px;height:42px;cursor:pointer;z-index:9}
 #ptg{display:grid;grid-template-columns:repeat(18,minmax(0,1fr));gap:3px;min-width:640px}
 #ptg .e{position:relative;aspect-ratio:1/1.12;border-radius:5px;padding:2px 3px;box-sizing:border-box;cursor:pointer;color:#04060f;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
-#ptg .e .z{font-size:9px;opacity:.75}
+#ptg .e .z{font-size:10px;opacity:.85}
 #ptg .e .s{font-size:clamp(11px,1.5vw,17px);font-weight:750;text-align:center;line-height:1.1}
-#ptg .e .n{font-size:8px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.8}
+#ptg .e .n{font-size:9.5px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.9}
 #ptg .e .dots{position:absolute;right:2px;top:2px;display:flex;gap:1px}
 #ptg .e .dots i{width:5px;height:5px;border-radius:50%;border:1px solid rgba(0,0,0,.4)}
 #ptg .e.sel{outline:2px solid #fff}
 #ptg .gap{grid-column:1/-1;height:8px}
-#ptg .lbl{font-size:10px;color:#7f93b3;display:flex;align-items:center;justify-content:center;text-align:center}
+#ptg .lbl{font-size:11px;color:#a3b4cf;display:flex;align-items:center;justify-content:center;text-align:center}
 #ptl{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:#c9d6ea;margin:8px 0 10px}
 #ptl span i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 #ptinfo{min-height:66px;margin:8px 0;padding:10px 12px;border:1px solid #23355a;border-radius:12px;background:rgba(10,18,36,.8);font-size:13.5px;color:#d6e4f5}
@@ -110,7 +113,7 @@ svg.moving .ic{filter:none}
 #ptx .xc .st{font-size:11px;margin:2px 0 4px}
 #ptx .xc .st i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:0}
 #ptx .xc a{color:#4ff3e3;font-size:11.5px}
-#pt .note{font-size:11.5px;color:#8a9bb6;margin-top:12px;line-height:1.5}
+#pt .note{font-size:11.5px;color:#a6b5cc;margin-top:12px;line-height:1.5}
 #pt .note a{color:#4ff3e3}
 /* search */
 #search{position:fixed;left:416px;top:16px;width:min(320px,calc(100vw - 440px - min(560px,44vw)));z-index:7;pointer-events:auto}
@@ -120,8 +123,8 @@ svg.moving .ic{filter:none}
 #sq{flex:1;min-width:0;height:100%;background:none;border:0;outline:0;color:#e8f4ff;font:inherit;font-size:14px;padding:0 8px;-webkit-user-select:text;user-select:text}
 #sq::placeholder{color:#6f83a3}
 #sq::-webkit-search-cancel-button{display:none}
-#search .skbd{flex:none;font-size:11px;color:#7f93b3;border:1px solid #2a3b5e;border-radius:5px;padding:0 5px;line-height:17px}
-#sx{display:none;flex:none;background:none;border:0;color:#8aa0bd;font-size:19px;cursor:pointer;padding:0 4px;line-height:1}
+#search .skbd{flex:none;font-size:11px;color:#a3b4cf;border:1px solid #2a3b5e;border-radius:5px;padding:0 5px;line-height:17px}
+#sx{display:none;flex:none;background:none;border:0;color:#a8b9d2;font-size:19px;cursor:pointer;padding:0 4px;line-height:1}
 #search.has #sx{display:block}#search.has .skbd{display:none}
 #sbtn{display:none}
 #sres{display:none;list-style:none;margin:6px 0 0;padding:4px;max-height:min(420px,calc(100vh - 150px));overflow-y:auto;overscroll-behavior:contain;border-radius:12px;background:rgba(8,14,30,.97);border:1px solid #2a3b5e;box-shadow:0 8px 26px rgba(0,0,0,.6),0 0 16px rgba(79,243,227,.12)}
@@ -132,9 +135,9 @@ svg.moving .ic{filter:none}
 #sres li i.el{width:22px;height:20px;border-radius:4px;font-style:normal;font-size:10.5px;font-weight:750;color:#04060f;display:flex;align-items:center;justify-content:center}
 #sres .st{min-width:0;flex:1}
 #sres b{display:block;font-size:13.5px;font-weight:600;color:#eef7ff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#sres small{display:block;font-size:11.5px;color:#8fa3bf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#sres small{display:block;font-size:11.5px;color:#aabbd4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #sres mark{background:none;color:#ffd36b;font-weight:700}
-#sres .none{cursor:default;color:#8fa3bf;font-size:13px}
+#sres .none{cursor:default;color:#aabbd4;font-size:13px}
 @media (max-width:1099px){
  #search{position:absolute;left:auto;right:7px;top:9px;width:auto}
  #search .sbox{display:none}
@@ -151,15 +154,15 @@ svg.moving .ic{filter:none}
 #key .kp{width:228px;padding:9px 11px 9px;border-radius:13px;background:rgba(6,10,24,.9);border:1px solid #23355a;box-shadow:0 0 14px rgba(79,243,227,.08);box-sizing:border-box}
 #key .kh{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
 #key .kh b{font-size:11px;letter-spacing:1.5px;font-weight:700;background:linear-gradient(90deg,#ffd36b,#4ff3e3);-webkit-background-clip:text;background-clip:text;color:transparent}
-#key .kc{background:none;border:0;color:#8aa0bd;font-size:16px;line-height:1;cursor:pointer;padding:0 2px}
+#key .kc{background:none;border:0;color:#a8b9d2;font-size:16px;line-height:1;cursor:pointer;padding:0 2px}
 #key .kr{display:flex;align-items:center;gap:8px;margin:3px 0;line-height:1.25}
 #key .kr svg{flex:none}
-#key .ks{font-size:10px;letter-spacing:1px;color:#7f93b3;margin:7px 0 2px}
+#key .ks{font-size:11px;letter-spacing:1px;color:#a3b4cf;margin:7px 0 2px}
 #key .kchip{display:none;font:inherit;font-size:12px;font-weight:650;color:#9ff5ea;background:rgba(10,18,36,.9);border:1px solid #23355a;border-radius:11px;padding:6px 12px;cursor:pointer;box-shadow:0 0 10px rgba(79,243,227,.12)}
 #key .kchip:hover{border-color:#4ff3e3}
 #key.min .kp{display:none}#key.min .kchip{display:block}
 @media (max-width:600px){#key{right:8px;bottom:10px}#key .kp{width:214px;font-size:11.5px}}
-@media (max-width:600px){header{padding:6px 9px;top:8px;left:8px}h1{font-size:16px}.legend{font-size:11px;gap:7px}#ruler{left:8px;right:8px;width:auto;top:80px;height:36px}#ruler .rt{font-size:8px}#ruler .rk{top:5px;height:12px}#ruler .rh{top:2px;height:18px}#ruler .rtitle{display:none}#strip{top:120px;height:32px}.seg b{font-size:10.5px}.seg span{display:none}#mini{top:154px;height:10px}#topcover{height:165px}
+@media (max-width:600px){header{padding:6px 9px;top:8px;left:8px}h1{font-size:16px}.legend{font-size:11px;gap:7px}#ruler{left:8px;right:8px;width:auto;top:80px;height:36px}#ruler .rt{font-size:10px}#ruler .rk{top:5px;height:12px}#ruler .rh{top:2px;height:18px}#ruler .rtitle{display:none}#strip{top:120px;height:32px}.seg b{font-size:10.5px}.seg span{display:none}#mini{top:154px;height:10px}#topcover{height:165px}
  #pop{left:6px!important;right:6px;width:auto!important;top:auto!important;bottom:6px;max-height:58vh}}
 
 /* 3D view (viewer3d.js) */
@@ -176,7 +179,7 @@ svg.moving .node .pulse{animation-play-state:paused}
 .node.seen .seenr{filter:drop-shadow(0 0 3px rgba(255,211,107,.5))}
 #gTree .elab{visibility:hidden}svg.focus #gTree .elab.lit{visibility:visible}
 svg.focus #gTree .edge.lit .core{stroke-opacity:1}svg.focus #gTree .edge.long.lit .core{stroke-width:2.6;stroke-opacity:.9}
-svg.focus #gTree .edge.lit .bg{stroke-opacity:.2}
+svg.focus #gTree .edge.lit .bg{stroke-opacity:.2}svg.focus #gTree .edge.lit .core.rib{fill-opacity:1}svg.focus #gTree .leaves,svg.focus #gTree .trunk{opacity:.35}
 #gTree .tband{font-size:30px;font-weight:700;letter-spacing:4px;opacity:.5}
 #gTree .tend{font-size:46px;font-weight:800;letter-spacing:14px;fill:#ffd36b;opacity:.75;filter:drop-shadow(0 0 10px rgba(255,211,107,.55))}
 #gTree .tend.us{fill:#4ff3e3;filter:drop-shadow(0 0 12px rgba(79,243,227,.6))}
@@ -189,7 +192,7 @@ body.tv #ctl{top:66px}
 #ctl button{font:inherit;color:#cfe9f2;background:rgba(6,10,24,.9);border:1px solid #23355a;border-radius:11px;cursor:pointer;height:34px;padding:0 10px;display:flex;align-items:center;gap:5px;font-size:13px}
 #ctl button:hover,#ctl button:focus-visible{border-color:#4ff3e3;outline:none}
 #vsw{padding:3px!important;gap:2px!important;border-radius:999px!important;border-color:rgba(255,211,107,.55)!important;box-shadow:0 0 12px rgba(255,211,107,.18)}
-#vsw span{display:flex;align-items:center;gap:4px;height:26px;padding:0 9px;border-radius:999px;transition:background .25s,color .25s;color:#8fa3bf;font-weight:600}
+#vsw span{display:flex;align-items:center;gap:4px;height:26px;padding:0 9px;border-radius:999px;transition:background .25s,color .25s;color:#aabbd4;font-weight:600}
 #vsw i{font-style:normal;color:#ffd36b;font-size:12px;opacity:.8}
 #vsw span.on{background:linear-gradient(90deg,rgba(255,211,107,.28),rgba(79,243,227,.22));color:#fff}#vsw span:hover{color:#fff}
 #vsw em{font-style:normal;color:#ffd36b;font-weight:800;font-size:15px;line-height:1;text-shadow:0 0 6px rgba(255,211,107,.6)}
@@ -211,7 +214,7 @@ body.tv #ctl{top:66px}
 .panel{position:fixed;right:10px;top:200px;z-index:9;width:300px;max-width:calc(100vw - 20px);box-sizing:border-box;padding:12px 14px;border-radius:14px;background:rgba(8,14,30,.97);border:1.5px solid #23355a;box-shadow:0 0 22px rgba(0,0,0,.5);font-size:13px;line-height:1.45;color:#d6e4f5;display:none;max-height:70vh;overflow-y:auto;touch-action:pan-y}
 .panel.on{display:block}
 .panel .ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}.panel .ph b{font-size:14px;letter-spacing:.4px;background:linear-gradient(90deg,#ffd36b,#4ff3e3);-webkit-background-clip:text;background-clip:text;color:transparent}
-.panel .x{background:none;border:0;color:#8aa0bd;font-size:20px;cursor:pointer;line-height:1;padding:0 2px}
+.panel .x{background:none;border:0;color:#a8b9d2;font-size:20px;cursor:pointer;line-height:1;padding:0 2px}
 .panel h5{margin:10px 0 4px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#ffd36b}
 .panel p{margin:4px 0}.panel a{color:#4ff3e3}
 #efp{border-color:rgba(255,170,60,.55);box-shadow:0 0 22px rgba(255,150,40,.15)}
@@ -223,11 +226,11 @@ body.tv #ctl{top:66px}
 .panel .tag,.btag{font-style:italic;color:#ffd36b;opacity:.85;font-size:12px;margin-top:10px;text-align:center}
 #infp .sndrow{display:flex;align-items:center;gap:10px}#infp .sndrow button{font:inherit;font-size:12.5px;color:#cfe9f2;background:#16233f;border:1px solid #2c4a7a;border-radius:9px;padding:4px 10px;cursor:pointer;white-space:nowrap}
 #infp #vol2{width:auto;flex:1}
-#infp .cred{font-size:11.5px;color:#8a9bb6;margin-top:8px}
+#infp .cred{font-size:11.5px;color:#a6b5cc;margin-top:8px}
 #btyBack{position:fixed;inset:0;z-index:19;background:rgba(2,4,12,.55);display:none}#btyBack.on{display:block}
 #bty{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:20;width:380px;max-width:calc(100vw - 20px);max-height:min(560px,86vh);overflow-y:auto;box-sizing:border-box;padding:16px 18px 14px;border-radius:16px;background:rgba(8,14,30,.98);border:1.5px solid #ffa53d;box-shadow:0 0 0 1px rgba(255,211,107,.15),0 0 34px rgba(255,180,60,.25);display:none;font-size:13.5px;line-height:1.45;color:#d6e4f5;-webkit-user-select:text;user-select:text;touch-action:pan-y}
 #bty.on{display:block}
-#bty .x{position:absolute;top:8px;right:10px;background:none;border:0;color:#8aa0bd;font-size:22px;cursor:pointer}
+#bty .x{position:absolute;top:8px;right:10px;background:none;border:0;color:#a8b9d2;font-size:22px;cursor:pointer}
 #bty .bk{font-size:11px;letter-spacing:2px;font-weight:800;color:#ffd36b}
 #bty .bn{display:flex;align-items:center;gap:8px;margin:6px 0 4px;flex-wrap:wrap}#bty .bn i{width:11px;height:11px;border-radius:50%}#bty .bn b{font-size:17px;color:#fff}#bty .bn small{font-size:11.5px}
 #bty h5{margin:12px 0 4px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#4ff3e3}
@@ -243,8 +246,8 @@ body.tv #ctl{top:66px}
 #pop .ctb{display:inline-block;font-size:11px;color:#d9c6ff;border:1px dashed rgba(197,140,255,.55);border-radius:8px;padding:1px 7px;margin:0 0 6px}
 #pop .ctn{font-size:12.5px;color:#d9c6ff;font-style:italic;margin:0 0 6px!important}
 #pop .svd{font-size:12px;color:#3dff8a;margin:0 0 6px}#pop .svd a{color:#3dff8a}
-#pop a.sug{display:block;margin-top:10px;font-size:11.5px;color:#7f93b3;text-decoration:none}#pop a.sug:hover,#pop a.sug:focus-visible{color:#4ff3e3;text-decoration:underline}
-#bty .bchk{font-size:11.5px;color:#7f93b3;margin:10px 0 0}
+#pop a.sug{display:block;margin-top:10px;font-size:11.5px;color:#a3b4cf;text-decoration:none}#pop a.sug:hover,#pop a.sug:focus-visible{color:#4ff3e3;text-decoration:underline}
+#bty .bchk{font-size:11.5px;color:#a3b4cf;margin:10px 0 0}
 #infp .irow{display:flex;align-items:center;gap:12px;margin-top:10px;padding-top:8px;border-top:1px dashed #2a3b5e}#infp .irow button{font:inherit;font-size:12.5px;color:#cfe9f2;background:#16233f;border:1px solid #2c4a7a;border-radius:9px;padding:4px 10px;cursor:pointer}#infp .irow a{font-size:12.5px;color:#9fb0c8}
 #toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,10px);z-index:45;padding:7px 14px;border-radius:999px;background:rgba(8,14,30,.97);border:1px solid #4ff3e3;color:#bffcf4;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:calc(100vw - 24px);word-break:break-all}#toast.on{opacity:1;transform:translate(-50%,0)}
 #howto{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;background:rgba(2,4,12,.55)}#howto.on{display:flex}
@@ -255,6 +258,48 @@ body.tv #ctl{top:66px}
 #howto #htok{display:block;margin:12px auto 0;font:inherit;font-size:13.5px;font-weight:700;color:#04060f;background:linear-gradient(90deg,#ffd36b,#4ff3e3);border:0;border-radius:999px;padding:6px 22px;cursor:pointer}
 #howto.mob{background:none;pointer-events:none;align-items:flex-end}#howto.mob .hcard{pointer-events:auto;margin-bottom:10px;padding:10px 14px}#howto.mob .hs{margin:4px 0}#howto.mob .hs span{font-size:17px;width:50px}#howto.mob .hs b{font-size:13px}
 @media (prefers-reduced-motion:reduce){#toast{transition:none}.node .pulse{animation:none;opacity:.38;transform:scale(1.1)}#tree,#strip,#mini,#topcover,#ctl{transition:none}.effloat{animation:effl2 1.4s linear forwards}@keyframes effl2{0%,70%{opacity:1}100%{opacity:0}}#efb.bump{animation:none}}
+
+/* ===== v8 ===== */
+h1 .ver{display:inline-block;margin-left:6px;padding:0 7px;font-size:11px;line-height:18px;vertical-align:3px;border-radius:9px;color:#ffd36b;border:1px solid rgba(255,211,107,.6);background:rgba(255,211,107,.08);letter-spacing:.4px;font-weight:700}
+#infp .verl{color:#ffd36b;font-size:12.5px;margin-top:4px}
+#xmenu{position:fixed;z-index:9;display:none;min-width:210px;padding:6px;border-radius:14px;background:rgba(6,10,24,.97);border:1.5px solid rgba(79,243,227,.7);box-shadow:0 0 22px rgba(79,243,227,.18),0 0 2px rgba(255,211,107,.4) inset}
+#xmenu.on{display:block}
+#xmenu button,#xmenu .soon{display:flex;align-items:center;gap:10px;width:100%;box-sizing:border-box;padding:10px 12px;border:0;border-radius:10px;background:none;color:#e8f4ff;font:600 14px system-ui,sans-serif;text-align:left;cursor:pointer}
+#xmenu button:hover,#xmenu button:focus-visible{background:rgba(79,243,227,.12);outline:none;color:#fff;box-shadow:0 0 0 1px rgba(255,211,107,.5) inset}
+#xmenu i{font-style:normal;width:22px;text-align:center;font-size:17px}
+#xmenu .soon{color:#7d8ba3;cursor:default;font-weight:500;font-size:13px;border-top:1px dashed #22345a;border-radius:0 0 10px 10px;margin-top:4px}
+#ptbtn[aria-expanded="true"]{border-color:#ffd36b;color:#ffd36b}
+.node:focus{outline:none}.node:focus-visible .disc{stroke:#ffd36b!important;stroke-width:6!important}
+.node:focus-visible{filter:drop-shadow(0 0 8px rgba(255,211,107,.9))}
+#rulb{display:none}
+@media (max-width:600px){
+ #ruler{display:none}body.rul #ruler{display:block;top:74px}
+ #strip{top:74px}#mini{top:108px}#topcover{height:120px}
+ body.rul #strip{top:114px}body.rul #mini{top:148px}body.rul #topcover{height:160px}
+ #ctl{flex-direction:row;align-items:center;top:124px}body.rul #ctl{top:164px}body.tv #ctl,body.rul.tv #ctl{top:76px}body.tv #topcover{height:112px}
+ #rulb{display:block}body.tv #rulb{display:none}body.rul #rulb{border-color:#ffd36b}
+ #xmenu{left:8px!important;right:8px;min-width:0}
+}
+/* Virtual Cell */
+#vcell{position:fixed;inset:0;z-index:20;background:radial-gradient(ellipse at 50% 45%,#0b1834 0%,#04060f 75%);color:#d6e4f5;font-family:system-ui,sans-serif;touch-action:none}
+#vcell canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
+#vcell .vcbar{position:absolute;left:0;right:0;top:0;z-index:2;display:flex;align-items:center;gap:10px;padding:10px 12px;background:linear-gradient(#04060f,rgba(4,6,15,0))}
+#vcell .vtit{font-size:15px;color:#fff;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#vcell .vtit small{color:#a8b9d2;font-weight:500;font-size:12px;margin-left:4px}
+#vcell button{font:600 14px system-ui,sans-serif;color:#9ff5ea;background:rgba(10,18,36,.92);border:1px solid #2c4a7a;border-radius:11px;height:36px;min-width:36px;padding:0 12px;cursor:pointer}
+#vcell button:hover,#vcell button:focus-visible{border-color:#4ff3e3;outline:none;box-shadow:0 0 10px rgba(79,243,227,.3)}
+#vcell .vback{color:#ffd36b;border-color:rgba(255,211,107,.6)}
+#vcell .vzm{display:flex;gap:6px}#vcell .vzm button{padding:0;width:38px;font-size:17px}
+#vcell .vhint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:13px;color:#a8b9d2;background:rgba(6,10,24,.75);padding:6px 12px;border-radius:12px;white-space:nowrap;pointer-events:none}
+#vcell .vscl{position:absolute;left:10px;bottom:48px;padding:5px 8px;border-radius:9px;background:rgba(4,6,15,.75);font-size:12px;color:#c9d6ea;pointer-events:none}#vcell .vscl i{display:block;height:4px;margin-bottom:4px;border:1.5px solid #ffd36b;border-top:0;border-radius:0 0 2px 2px}#vcell .vscl small{color:#8a9bb6}
+#vcell .vcrumb{position:absolute;left:50%;top:58px;transform:translateX(-50%);max-width:92vw;font-size:12.5px;color:#cfe3f5;background:rgba(6,10,24,.72);border:1px solid rgba(79,243,227,.25);padding:4px 12px;border-radius:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
+#vcell .vmap{margin-top:10px;width:100%;color:#ffd36b;border-color:rgba(255,211,107,.55)}
+#vcell .vpop{position:absolute;z-index:3;right:14px;top:62px;width:310px;max-height:calc(100vh - 90px);overflow-y:auto;display:none;padding:12px 30px 12px 14px;border-radius:14px;background:rgba(8,14,30,.96);border:1.5px solid #4ff3e3;box-shadow:0 0 24px rgba(79,243,227,.25);font-size:14px;line-height:1.45;touch-action:pan-y}
+#vcell .vpop b.t1{display:block;font-size:16px;color:#fff;margin-bottom:2px}
+#vcell .vpop .chip{font-size:12px;color:#a8b9d2;margin-bottom:6px}#vcell .vpop .chip i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+#vcell .vpop p{margin:3px 0}#vcell .vpop .x{position:absolute;top:6px;right:6px;background:none;border:0;color:#a8b9d2;font-size:20px;height:auto;min-width:0;padding:2px 6px}
+#vcell .vpop .lay{margin-top:8px;padding-top:8px;border-top:1px dashed #2a3b5e;font-size:13.5px}#vcell .vpop .src{font-size:12.5px;color:#a8b9d2;margin-top:6px}#vcell .vpop a{color:#4ff3e3}
+#vcell .vpop .pact{display:flex;align-items:center;gap:10px;margin-top:10px}#vcell .vpop .more{height:30px;font-size:13px}#vcell .vpop .lv{font-size:12px;color:#8a9bb6}
+@media (max-width:600px){#vcell .vpop{left:6px;right:6px;top:auto;bottom:6px;width:auto;max-height:44vh}#vcell .vtit small{display:none}#vcell .vcbar{gap:6px;padding:8px}#vcell .vzm button{width:34px}#vcell .vhint{font-size:12px;white-space:normal;text-align:center;width:80%}}
 </style>
 </head>
 <body>
@@ -262,8 +307,8 @@ body.tv #ctl{top:66px}
 <div id="topcover"></div>
 <svg id="tree" xmlns="http://www.w3.org/2000/svg"><defs id="defs"></defs><g id="world"></g></svg>
 <header>
-  <h1>From Nothing to Us</h1>
-  <div class="legend"><span><i class="k"></i>known</span><span><i class="t"></i>we think</span><span><i class="u"></i>unknown</span><span><i class="p"></i>idea</span><button class="hbtn" id="ptbtn" title="All 118 elements">118 elements</button></div>
+  <h1>From Nothing to Us <span class="ver" title="Version 8">v8</span></h1>
+  <div class="legend"><span><i class="k"></i>known</span><span><i class="t"></i>we think</span><span><i class="u"></i>unknown</span><span><i class="p"></i>idea</span><button class="hbtn" id="ptbtn" title="Explore: elements, Virtual Cell" aria-haspopup="menu" aria-expanded="false" aria-controls="xmenu">☰ Explore</button></div>
   <div id="search" role="search"><button id="sbtn" title="Search (/)" aria-label="Search"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#9ff5ea" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg></button>
     <div class="sbox"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#9ff5ea" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg><input id="sq" type="search" placeholder="Search: carbon, DNA, gold…" autocomplete="off" spellcheck="false" aria-label="Search the map" aria-controls="sres"><span class="skbd">/</span><button id="sx" aria-label="Clear search">×</button></div>
     <ul id="sres" role="listbox"></ul></div>
@@ -274,6 +319,7 @@ body.tv #ctl{top:66px}
   <button id="zfit" title="See everything"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#9ff5ea" stroke-width="2" stroke-linecap="round"><path d="M3 8V3h5M14 3h5v5M19 14v5h-5M8 19H3v-5"/></svg></button>
   <button id="ztop" title="Back to the start"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#9ff5ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l-6 6 6 6M6 11h12"/></svg></button>
 </div>
+<div id="xmenu" role="menu" aria-label="Explore"><button role="menuitem" data-x="pt"><i>⚛</i>All the elements</button><button role="menuitem" data-x="cell"><i>🧬</i>Virtual Cell</button><div class="soon" aria-disabled="true"><i>✦</i>More coming soon</div></div>
 <div id="ruler"><div class="rtitle">size</div></div>
 <div id="strip"></div>
 <div id="mini"><div id="vp"></div></div>
@@ -285,7 +331,7 @@ body.tv #ctl{top:66px}
   <div class="ks">LINES · colour = less certain end</div>
   <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#3dff8a" stroke-width="2.2" stroke-opacity=".8"/><path d="M24 1.5L29 5L24 8.5Z" fill="#3dff8a" opacity=".85"/></svg><span>Solid: known step</span></div>
   <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#ffa53d" stroke-width="2.2" stroke-opacity=".8" stroke-dasharray="5 4"/><path d="M24 1.5L29 5L24 8.5Z" fill="#ffa53d" opacity=".85"/></svg><span>Dashed: uncertain step</span></div>
-  <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#8fa3bf" stroke-width="1.6" stroke-opacity=".9" stroke-dasharray="2 3"/><path d="M24 1.5L29 5L24 8.5Z" fill="#8fa3bf" opacity=".85"/></svg><span>Dotted “← from …”: far link</span></div>
+  <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#aabbd4" stroke-width="1.6" stroke-opacity=".9" stroke-dasharray="2 3"/><path d="M24 1.5L29 5L24 8.5Z" fill="#aabbd4" opacity=".85"/></svg><span>Dotted “← from …”: far link</span></div>
   <div class="kr"><svg width="30" height="16" viewBox="0 0 30 16"><rect x="6" y="1" width="18" height="14" rx="7" fill="#070d1f" stroke="#ff4d5e" stroke-opacity=".7"/><text x="15" y="12" text-anchor="middle" font-size="10" fill="#dce8f8">?</text></svg><span>“?” on a label: not known</span></div>
   <div class="ks">BOUNTIES · YOU</div>
   <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8.2" fill="none" stroke="#ffa53d" stroke-opacity=".45" stroke-width="1"/><circle cx="9" cy="9" r="5.6" fill="#0a1226" stroke="#ffa53d" stroke-width="2"/></svg><span>Gentle pulse: open bounty</span></div>
@@ -307,7 +353,7 @@ body.tv #ctl{top:66px}
   <button id="vsw" title="Switch between the map, the tree and the circle"><span class="vm" data-v="map">🗺️<b>Map</b></span><span class="vt" data-v="tree">🌳<b>Tree</b></span><span class="vc" data-v="circle"><em>◯</em><b>Circle</b></span></button>
   <div class="row"><button id="efb" title="Your Echo-Flame and save code" aria-label="Echo-Flame">🔥<b id="efn">0</b></button>
     <div class="snd"><button id="mute" title="Music on" aria-label="Mute music">🔊</button><input id="vol" type="range" min="0" max="100" step="1" aria-label="Music volume"></div>
-    <button id="infob" title="About and credits" aria-label="About and credits">i</button></div>
+    <button id="rulb" title="Show or hide the size ruler" aria-label="Size ruler" aria-pressed="false">📏</button><button id="infob" title="About and credits" aria-label="About and credits">i</button></div>
 </div>
 <div id="efp" class="panel" role="dialog" aria-label="Echo-Flame"><div class="ph"><b>🔥 ECHO-FLAME</b><button class="x" aria-label="close">×</button></div>
   <div class="big"><span id="efbig">0</span> <small>flame</small></div><div id="efst"></div>
@@ -317,10 +363,11 @@ body.tv #ctl{top:66px}
   <div id="efmsg"></div><p class="tag">“Don't collect cards. Collect understanding.”</p></div>
 <div id="infp" class="panel" role="dialog" aria-label="About"><div class="ph"><b>ABOUT</b><button class="x" aria-label="close">×</button></div>
   <p>From Nothing to Us: how everything emerges, from the quantum field to us. Made by Zyphullen.</p>
+  <p class="verl">Version 8 (v8)</p>
   <h5>Music</h5><div class="sndrow"><button id="mute2">🔊 Music on</button><input id="vol2" type="range" min="0" max="100" step="1" aria-label="Music volume"></div>
   <p class="cred">Piano: Salamander Grand Piano by Alexander Holm (<a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>), via <a href="https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html" target="_blank" rel="noopener">FreePats</a></p>
   <div class="irow"><button id="howb">❔ How to use</button><a id="sugg" href="https://github.com/Zyphullen/from-nothing-to-us/issues/new" target="_blank" rel="noopener">✎ Suggest a fix</a></div></div>
-<div id="howto" role="dialog" aria-label="How to use"><div class="hcard"><div class="hk">HOW TO USE</div>
+<div id="howto" role="dialog" aria-label="How to use"><div class="hcard"><div class="hk">HOW TO USE · v8</div>
   <div class="hs"><span id="hti1">🖱️</span><b id="ht1">Scroll to zoom, drag to move</b></div>
   <div class="hs"><span id="hti2">✨</span><b id="ht2">Click a node to learn</b></div>
   <div class="hs"><span class="hdots"><i style="background:#3dff8a"></i><i style="background:#ffa53d"></i><i style="background:#ff4d5e"></i></span><b>Green = known, orange = we think, red = unknown</b></div>
@@ -835,7 +882,7 @@ const N = [
  src:['miller','bennu'],p:['chem']},
 
 {id:'nucleotides',r:23,x:550,s:'t',ic:'nucleotide',name:'Nucleotides',line:'RNA/DNA letters (4)',sz:-9,szt:'~1 nm',
- info:['Base + sugar + phosphate.','Asteroid Bennu has all three parts.','Joining them naturally: partly shown.'],
+ info:['Base + sugar + phosphate.','Asteroid Bennu has all three parts (ribose found Dec 2025).','Joining them naturally: partly shown.'],
  L2:['## Recipe','1 base (A, G, C, U/T) + 1 sugar (ribose) + 1 phosphate.'],
  L3:['## Why orange','Lab routes exist (Powner 2009) but need special steps.'],
  src:['bennu','powner','bennusugar','bennusalt','nasabennu'],p:['chem','sugars']},
@@ -878,8 +925,8 @@ const N = [
  src:['abiogenesis','spudcell'],p:['protocell']},
 
 {id:'luca',r:27,x:700,s:'k',ic:'cell',name:'LUCA',line:'Last universal common ancestor',sz:-6,szt:'~1–2 µm',
- info:['All life shares one ancestor.','Estimated ~4.2 billion years ago.','Already had DNA, ribosomes, the code.'],
- L2:['## Recipe','~2,600 proteins (estimate), DNA genome, ribosomes.'],L3:[],
+ info:['All life shares one ancestor.','~4.2 billion years ago (estimate).','Already had DNA, ribosomes, the code.'],
+ L2:['## Recipe','~2,600 protein families (estimate), DNA genome, ribosomes.'],L3:[],
  src:['luca'],p:['origin']},
 
 {id:'proteins',r:28,x:350,s:'k',ic:'protein',name:'Proteins',line:'Folded amino-acid chains',sz:-8.3,szt:'~2–10 nm',
@@ -898,11 +945,11 @@ const N = [
 
 /* ---------------- LIFE ---------------- */
 {id:'prok',r:29,x:700,s:'k',ic:'prok',name:'Bacteria & archaea',line:'Simple cells, no nucleus',sz:-6,szt:'~1–2 µm',
- info:['First fossils ~3.5 billion years.','Still most of life by number.','E. coli: 4.6 million DNA pairs.'],L2:[],L3:[],
+ info:['First fossils ~3.5 billion years (debated).','Still most of life by number.','E. coli: 4.6 million DNA pairs.'],L2:[],L3:[],
  src:['dresser'],p:['luca','proteins','dna','code']},
 
 {id:'photosyn',r:29,x:1150,s:'k',ic:'leaf',name:'Photosynthesis',line:'Sunlight → food + oxygen',sz:-6,szt:'~1 µm cells',
- info:['Cyanobacteria split water with light.','Oxygen given off.','Later passed to algae and plants.'],L2:[],L3:[],
+ info:['First kinds made no oxygen.','Cyanobacteria then split water with light, giving off oxygen.','Later passed to algae and plants.'],L2:[],L3:[],
  src:['goe'],p:['prok']},
 
 {id:'goe',r:30,x:1150,s:'k',ic:'goe',name:'Oxygen rises',line:'~2.4 billion years ago',sz:7,szt:'Planet-wide',
@@ -950,7 +997,7 @@ const N = [
  src:['sender','bianconi','hatton'],p:['organsys','hsap','dna'],el:{organsys:'11 systems',hsap:'our species',dna:'1 genome, every cell'}},
 
 {id:'brain',r:37,x:800,s:'k',ic:'brain',name:'Brain',line:'86 billion neurons',sz:-0.8,szt:'~15 cm, ~1.4 kg',
- info:['~86 billion neurons.','~100 trillion connections (estimate).','Thinks, feels, remembers.'],L2:[],L3:[],
+ info:['~86 billion neurons.','100+ trillion connections (rough estimate).','Thinks, feels, remembers.'],L2:[],L3:[],
  src:['azevedo','nrcsyn','ctxsyn'],p:['body']},
 
 {id:'idea',r:37,x:1350,s:'p',ic:'idea',name:"Zyphullen's idea",line:'Personal note, not science',sz:null,szt:'—',
@@ -972,7 +1019,7 @@ const EXTRA = {
  chem:{L3:['## Ideas','Deep-sea hydrothermal vents (energy + minerals) vs. warm little ponds (wet–dry cycles, UV).','## New (2026)','A PNAS paper argues ancient alkaline vents were weaker and shorter-lived than thought. Not settled.','## How we know','Lab experiments make many of life\'s pieces under these conditions.','## Open','No single setting makes all the pieces at once.']},
  amino:{L2:['## Recipe','C + H + O + N (+ S): ~10–27 atoms each.','Glycine = C₂H₅NO₂ (10 atoms, the smallest).','## How they form','Sparks, UV or heat on simple gases and water; also inside asteroids.'],
   L3:['## The numbers','20 standard + selenocysteine + pyrrolysine = 22 genetically coded.','Meteorite Murchison: dozens of amino acids. Bennu (2025): 14 of the 20.','## Open','Life uses only "left-handed" amino acids. Why one hand won is not settled.']},
- nucleotides:{L3:['## Why orange','Lab routes exist (Powner, Gerland & Sutherland 2009), but they need special steps in a set order.','## How we know','Bennu (2025) had all 5 bases: A, G, C, T, U.','## Open','How whole nucleotides built up naturally on early Earth.']},
+ nucleotides:{L3:['## Why orange','Lab routes exist (Powner, Gerland & Sutherland 2009), but they need special steps in a set order.','## How we know','Bennu had all 5 bases (A, G, C, T, U) and phosphate; ribose (the RNA sugar) was found in Dec 2025 (Nature Geoscience). No deoxyribose (DNA sugar) was found.','## Open','How whole nucleotides built up naturally on early Earth.']},
  sugars:{L2:['## Recipe','Ribose = C₅H₁₀O₅ (5 carbons). Glucose = C₆H₁₂O₆.','## How they form','Formaldehyde + a mineral catalyst ("formose reaction") makes a messy mix of sugars.'],L3:['## Open','Formose makes many sugars; how ribose was picked out is unclear (borate minerals may help).']},
  lipids:{L2:['## Recipe','A water-loving head + 1–2 oily tails of ~10–20 carbons.','## How they form','Fischer–Tropsch-type reactions; also in meteorites.'],L3:['## Note','Modern cell membranes use phospholipids; the first ones were probably simpler fatty acids.']},
  peptides:{L2:['## Recipe','n amino acids → a chain + (n−1) water molecules.','## How they form','Wet–dry cycles, mineral surfaces, or hot vents can join them.','## Randomness','Order of letters: random at first.'],L3:['## New (2025)','Amino acids were attached to RNA in plain water, then joined into peptides on RNA (Powner lab, Nature 2025).','## Open','How a random chain gained a useful job.']},
@@ -983,8 +1030,8 @@ const EXTRA = {
  proteins:{L2:['## Recipe','~50–34,000 amino acids → a chain that folds into a 3D shape.','Median human protein: ~400 amino acids.','## How they form','A ribosome reads mRNA, adding ~5–20 amino acids per second.'],L3:['## Numbers','Humans: ~20,000 protein-coding genes; titin is the longest (~34,350).','## Open','Predicting the fold from the sequence is now mostly solved (AlphaFold, Nobel 2024); how the first proteins arose is not.']},
  code:{L2:['## Recipe','4 letters (A, U, G, C) read 3 at a time = 64 codons.','61 code for 20 amino acids, 3 mean "stop".'],L3:['## Open','Why this exact code? A "frozen accident" or chemistry? Debated.']},
  dna:{L2:['## Recipe','Pairs: A–T and G–C. 0.34 nm per pair, ~10.5 pairs per turn.','Human: ~3.1 billion pairs per set (×2 sets per cell ≈ 2 m of DNA).','## How it forms','Copied by enzymes from an existing strand.'],L3:['## How we know','X-ray photo by Rosalind Franklin; model by Watson & Crick (1953).','Complete human genome finished 2022 (T2T, 3.055 billion pairs).','## Open','Did RNA come first? Probably (orange RNA world).']},
- prok:{L2:['## Recipe','1 membrane + DNA loop + ~4,000 genes + ribosomes.','E. coli: ~2 µm long, 4.6 million DNA pairs.'],L3:['## How we know','Stromatolites 3.48 billion years old (Dresser Formation); chemical hints maybe older.']},
- photosyn:{L2:['## Recipe','6 CO₂ + 6 H₂O + light → sugar + 6 O₂.'],L3:['## Note','Oxygen-free photosynthesis came first. Oxygen-making evolved in cyanobacteria.']},
+ prok:{L2:['## Recipe','1 membrane + DNA loop + ~4,000 genes + ribosomes.','E. coli: ~2 µm long, 4.6 million DNA pairs.'],L3:['## How we know','Stromatolites 3.48 billion years old (Dresser Formation). The very oldest fossil claims are debated; chemical hints maybe older.']},
+ photosyn:{L2:['## Recipe','6 CO₂ + 6 H₂O + light → sugar + 6 O₂.'],L3:['## Note','The earliest photosynthesis was anoxygenic (made no oxygen). Oxygen-making evolved later, in cyanobacteria.']},
  goe:{L2:['## Numbers','~2.4–2.1 billion years ago.'],L3:['## How we know','Rust bands and sulfur isotopes in old rocks.']},
  eukaryote:{L2:['## Recipe','1 archaeal host (Asgard-type) + 1 swallowed bacterium → mitochondria.','Later, a cyanobacterium swallowed → chloroplasts (plants, algae).','## Size','~10–100 µm: often 1,000× or more the volume of a bacterium.'],L3:['## Numbers','Oldest clear fossils ~1.6–1.8 billion years; origin ~2 billion (estimate, range wide).','## Open','Exact order of steps.']},
  multicell:{L2:['## Recipe','Cells that stay stuck after dividing + glue proteins + signals.'],L3:['## Numbers','Red alga Bangiomorpha ~1 billion years. At least 25 separate origins.']},
@@ -996,7 +1043,7 @@ const EXTRA = {
  organsys:{L2:['## Recipe','Several organs → one system (e.g. heart + vessels + blood).'],L3:['## 11 systems','Skin, skeleton, muscle, nerves, hormones, blood, lymph/immune, breathing, digestion, urinary, reproductive.']},
  hsap:{L2:['## Recipe','Evolution by mutation + natural selection, ~6–7 million years since our split from chimps.'],L3:['## Numbers','Jebel Irhoud, Morocco: ~300,000 years (Hublin 2017).']},
  body:{L2:['## Recipe','~30–37 trillion cells (estimates differ).','~84% of them by number are red blood cells.','~400 cell types; 1 genome copied into nearly every cell.','## Order','Cells → tissues → organs → systems → body.'],L3:['## Numbers','Sender 2016: ~3.0×10¹³ human cells + ~3.8×10¹³ bacteria. Bianconi 2013: 3.72×10¹³. Hatton 2023: ~36 trillion (man), ~28 trillion (woman).']},
- brain:{L2:['## Recipe','~86 billion neurons + about as many glial cells.','~100 trillion or more synapses (rough estimate; the neocortex alone has ~150 trillion, Pakkenberg 2003).'],L3:['## Numbers','Azevedo 2009: 86 ± 8 billion neurons.','## Open','How memory and thought are coded in detail.']},
+ brain:{L2:['## Recipe','~86 billion neurons + about as many glial cells.','100+ trillion synapses (rough estimate). One count found ~150 trillion in the neocortex alone (Pakkenberg 2003), so the total may be higher.'],L3:['## Numbers','Azevedo 2009: 86 ± 8 billion neurons.','## Open','How memory and thought are coded in detail.']},
  idea:{L2:['## Zyphullen\'s idea','Life is the universe\'s knot trying to untie itself toward perfect symmetry.','Everything is one chain reaction.'],L3:['## Label','A personal idea, shown for interest. It is not science and not part of Chain Theory.']},
  mind:{L2:['## Theories','Global workspace, integrated information, higher-order and others.'],L3:['## Why red','No test yet tells which theory, if any, is right.','The 2025 "Cogitate" head-to-head test (256 people): results challenged both big theories; neither won.']},
 };
@@ -1455,17 +1502,21 @@ let WT = 0, HT = 0;
         n.gx = x; }); }
     placed.push(...row);
   }
+  { const rt = N.find(n => n.id === 'nothing'), x0 = rt ? rt.gx : 0, ys = N.map(n => n.gy), y0 = Math.max(...ys), y1 = Math.min(...ys); // v8b: spread wider towards the crown, like a real tree
+    N.forEach(n => { const u = (y0 - n.gy) / (y0 - y1 || 1); n.gx = x0 + (n.gx - x0) * (1 + 2.2 * Math.pow(u, 1.2)); }); }
   const mnx = Math.min(...N.map(n => n.gx - halfW(n))), mny = Math.min(...N.map(n => n.gy));
   N.forEach(n => { n.gx = Math.round(n.gx - mnx + 190); n.gy = Math.round(n.gy - mny + 330); });
   WT = Math.max(...N.map(n => n.gx + halfW(n))) + 160; HT = Math.max(...N.map(n => n.gy)) + 330;
 })();
 defs.innerHTML += `<linearGradient id="trunkG" gradientUnits="userSpaceOnUse" x1="0" y1="${HT}" x2="0" y2="0"><stop offset="0" stop-color="#ffd36b"/><stop offset=".45" stop-color="#d6ee9a"/><stop offset="1" stop-color="#4ff3e3"/></linearGradient>` +
   `<radialGradient id="usGlow"><stop offset="0" stop-color="#4ff3e3" stop-opacity=".22"/><stop offset="1" stop-color="#4ff3e3" stop-opacity="0"/></radialGradient>` +
+  `<linearGradient id="barkG" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#3a2a10"/><stop offset=".35" stop-color="#ffd36b" stop-opacity=".55"/><stop offset=".6" stop-color="#d6ee9a" stop-opacity=".35"/><stop offset="1" stop-color="#102a2a"/></linearGradient>` +
+  `<radialGradient id="leafGlow"><stop offset="0" stop-color="#3dff8a" stop-opacity=".07"/><stop offset="1" stop-color="#3dff8a" stop-opacity="0"/></radialGradient>` +
   `<radialGradient id="rootGlow"><stop offset="0" stop-color="#ffd36b" stop-opacity=".2"/><stop offset="1" stop-color="#ffd36b" stop-opacity="0"/></radialGradient>`;
 
 /* ============ ONE NODE (shared by both views, so status, pulse, tick and explored ring always match) ============ */
 function nodeSVG(n, i, tree) { const c = SC[n.s], u = n.s === 'u', open = isOpenQ(n), hw = halfW(n);
-  return `<g class="node${open ? ' open' : ''}${n.solved ? ' solved' : ''}" data-id="${n.id}" transform="translate(${n.x} ${n.y})">
+  return `<g class="node${open ? ' open' : ''}${n.solved ? ' solved' : ''}" data-id="${n.id}" tabindex="0" role="button" aria-label="${esc(n.name)}" transform="translate(${n.x} ${n.y})">
     <circle r="74" fill="url(#glow-${n.s})"/>
     ${open ? `<circle class="pulse" r="45" fill="none" stroke="${c}" stroke-width="2.2" style="animation-delay:-${((i * 1.37) % 4.2).toFixed(2)}s"/>` : ''}
     <circle class="seenr" r="50" fill="none" stroke="#ffd36b" stroke-width="1.6"/>
@@ -1475,8 +1526,8 @@ function nodeSVG(n, i, tree) { const c = SC[n.s], u = n.s === 'u', open = isOpen
     ${n.solved ? `<g class="tick" transform="translate(30 -30)"><circle r="12" fill="#06140d" stroke="${SC.k}" stroke-width="2"/><path d="M-5.5 .5L-1.5 4.5L6 -4" fill="none" stroke="${SC.k}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>` : ''}
     ${tree ? `<rect class="plq" x="${-hw - 4}" y="47" width="${2 * hw + 8}" height="${n.sz != null ? 60 : 44}" rx="11" fill="#050a18" fill-opacity=".82"/>` : ''}
     <text y="64" text-anchor="middle" font-size="16.5" font-weight="650" fill="${u ? '#c9b3b8' : '#eef7ff'}" stroke="#04060f" stroke-width="4" paint-order="stroke">${esc(n.name)}</text>
-    <text y="83" text-anchor="middle" font-size="12.5" fill="#8fa3bf" stroke="#04060f" stroke-width="3" paint-order="stroke">${esc(n.line)}</text>
-    ${n.sz != null ? `<text class="sz" y="101" text-anchor="middle" font-size="11.5" font-weight="600" fill="#6fe9dc" stroke="#04060f" stroke-width="3" paint-order="stroke">${szShort(n)}</text>` : ''}
+    <text y="83" text-anchor="middle" font-size="13" fill="#aabbd4" stroke="#04060f" stroke-width="3" paint-order="stroke">${esc(n.line)}</text>
+    ${n.sz != null ? `<text class="sz" y="101" text-anchor="middle" font-size="12" font-weight="600" fill="#7ff0e3" stroke="#04060f" stroke-width="3" paint-order="stroke">${szShort(n)}</text>` : ''}
   </g>`; }
 const labSVG = (e, c) => `<g class="elab" data-a="${e.a}" data-b="${e.b}" transform="translate(${e.lx.toFixed(1)} ${e.ly.toFixed(1)})"><rect x="${-e.lw / 2}" y="-10" width="${e.lw}" height="20" rx="10" fill="#070d1f" fill-opacity=".92" stroke="${c}" stroke-opacity=".55"/><text y="4.3" text-anchor="middle" font-size="12" fill="#dce8f8">${esc(e.lab)}</text></g>`;
 
@@ -1530,6 +1581,12 @@ N.forEach((n, i) => nodes += nodeSVG(n, i, false));
 return { html: `<g>${bands}</g><g>${edges}</g><g>${labs}</g><g>${nodes}</g>`, edges: EDGES }; }
 
 /* ============ TREE SCENE (bottom → top) ============ */
+function ribbon(P, w0, w1, n = 14) { const L = [], R = []; // filled tapering ribbon along a cubic bézier
+  for (let i = 0; i <= n; i++) { const t = i / n, [x, y] = bez(P, t), [xa, ya] = bez(P, Math.max(0, t - .02)), [xb, yb] = bez(P, Math.min(1, t + .02)); let dx = xb - xa, dy = yb - ya; const l = Math.hypot(dx, dy) || 1; dx /= l; dy /= l;
+    const w = (w0 + (w1 - w0) * t) / 2; L.push(`${(x - dy * w).toFixed(1)} ${(y + dx * w).toFixed(1)}`); R.push(`${(x + dy * w).toFixed(1)} ${(y - dx * w).toFixed(1)}`); }
+  return 'M' + L.join(' L') + ' L' + R.reverse().join(' L') + 'Z'; }
+function smoothPath(pts) { let d = `M${pts[0][0]} ${pts[0][1]}`; for (let i = 0; i < pts.length - 1; i++) { const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
+    d += ` C${(p1[0] + (p2[0] - p0[0]) / 6).toFixed(1)} ${(p1[1] + (p2[1] - p0[1]) / 6).toFixed(1)} ${(p2[0] - (p3[0] - p1[0]) / 6).toFixed(1)} ${(p2[1] - (p3[1] - p1[1]) / 6).toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`; } return d; }
 function buildTree() { N.forEach(n => { n.x = n.gx; n.y = n.gy; });
   const desc = {}; const cnt = id => desc[id] != null ? desc[id] : (desc[id] = (() => { const S = new Set(), go = i => byId[i].kids.forEach(k => { if (!S.has(k)) { S.add(k); go(k); } }); go(id); return S.size; })());
   const boxes = N.map(n => [n.x - halfW(n) - 4, n.y - 50, n.x + halfW(n) + 4, n.y + 110]);
@@ -1550,14 +1607,28 @@ function buildTree() { N.forEach(n => { n.x = n.gx; n.y = n.gy; });
       `<text class="tband" transform="translate(70 ${ym.toFixed(0)}) rotate(-90)" text-anchor="middle" fill="${c}">${esc(name)}</text></g>`; });
   // roots under "Nothing" and a glow over the crown ("Us")
   const rx = root.x, ry = root.y + 44; let roots = '';
-  [[-150, 150, 3.2], [-80, 190, 2.4], [-20, 210, 2], [60, 185, 2.4], [140, 160, 3], [-210, 110, 1.6], [200, 120, 1.6]].forEach(([dx, dy, w]) => roots += `<path d="M${rx} ${ry} C${rx + dx * .2} ${ry + dy * .5} ${rx + dx * .8} ${ry + dy * .55} ${rx + dx} ${ry + dy}" stroke="url(#trunkG)" stroke-width="${w}" fill="none" stroke-linecap="round" opacity=".55"/>`);
+  [[-260, 170, 16], [-140, 220, 12], [-30, 240, 9], [80, 225, 11], [220, 180, 15], [-380, 120, 7], [360, 130, 7], [-200, 250, 5], [170, 255, 5]].forEach(([dx, dy, w]) => { const P = [rx, ry + 40, rx + dx * .15, ry + 40 + dy * .55, rx + dx * .75, ry + 40 + dy * .5, rx + dx, ry + 40 + dy];
+    roots += `<path d="${ribbon(P, w * 2.2, 1.2)}" fill="url(#trunkG)" opacity=".42"/><path d="${ribbon(P, w * 4, 2)}" fill="url(#trunkG)" opacity=".06"/>`; });
   const crown = N.filter(n => n.r >= LASTR - 3), cx = crown.reduce((m, n) => m + n.x, 0) / crown.length;
   deco += `<g class="roots"><ellipse cx="${rx}" cy="${ry + 120}" rx="300" ry="120" fill="url(#rootGlow)"/>${roots}<text class="tend" x="${rx}" y="${ry + 270}" text-anchor="middle">NOTHING</text></g>` +
     `<g class="crown"><ellipse cx="${cx}" cy="${top - 40}" rx="560" ry="260" fill="url(#usGlow)"/><text class="tend us" x="${cx}" y="${top - 160}" text-anchor="middle">US</text></g>`;
+  // v8b "tree of everything": a glowing bark trunk up the busiest path, canopy glow, leaves/blossoms behind nodes
+  { const spine = [root]; let cur = root; for (let g = 0; g < 80; g++) { const ks = cur.kids.map(k => byId[k]).filter(k => k.y < cur.y); if (!ks.length) break; cur = ks.reduce((a, b) => cnt(b.id) > cnt(a.id) ? b : a); spine.push(cur); if (cnt(cur.id) < 12) break; }
+    const pts = [[rx, ry + 60], ...spine.map(n => [n.x, n.y])], segs = pts.length - 1; let L = [], R = [];
+    for (let i = 0; i < segs; i++) for (let k = 0; k < 8; k++) { const t = (i + k / 8) / segs, a = pts[i], b = pts[i + 1], u = k / 8, x = a[0] + (b[0] - a[0]) * (u * u * (3 - 2 * u)), y = a[1] + (b[1] - a[1]) * u, w = 86 * (1 - t) + 18 * t + Math.sin(y * .013) * 4;
+      L.push([x - w / 2, y]); R.push([x + w / 2, y]); }
+    const trunk = smoothPath(L) + ' L' + smoothPath(R.reverse()).slice(1) + 'Z';
+    let bark = ''; [-.28, -.05, .2].forEach((o, j) => { const pl = L.map((p, i) => { const r = R[R.length - 1 - i]; return [p[0] + (r[0] - p[0]) * (.5 + o) + Math.sin(p[1] * .02 + j * 2) * 3, p[1]]; }); bark += `<path d="${smoothPath(pl)}" fill="none" stroke="#04060f" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>`; });
+    deco += `<g class="trunk"><path d="${trunk}" fill="url(#trunkG)" opacity=".1" stroke="url(#trunkG)" stroke-opacity=".25" stroke-width="26" stroke-linejoin="round"/><path d="${trunk}" fill="url(#barkG)" opacity=".5"/>${bark}</g>`; }
+  { let cg = ''; const crownN = N.filter(n => n.y < top + (HT - top) * .45); for (let i = 0; i < crownN.length; i += 9) { const n = crownN[i]; cg += `<ellipse cx="${n.x}" cy="${n.y}" rx="${420 + (i * 37) % 260}" ry="${260 + (i * 53) % 160}" fill="url(#leafGlow)"/>`; } deco += `<g class="canopy">${cg}</g>`; }
+  { let lv = ''; N.forEach((n, i) => { const c = SC[n.s], hw = halfW(n), cr = n.r >= LASTR - 4;
+      if (cr) { for (let k = 0; k < 5; k++) lv += `<ellipse cx="${n.x}" cy="${n.y + 10}" rx="${hw + 22}" ry="22" transform="rotate(${k * 36 + (i % 7) * 5} ${n.x} ${n.y + 10})" fill="${c}" fill-opacity=".07"/>`; }
+      else { const a = (i * 47) % 50 - 25; lv += `<path d="M${n.x - hw - 26} ${n.y + 12} Q${n.x} ${n.y - 34} ${n.x + hw + 26} ${n.y + 12} Q${n.x} ${n.y + 58} ${n.x - hw - 26} ${n.y + 12}Z" transform="rotate(${a * .3} ${n.x} ${n.y + 12})" fill="${c}" fill-opacity=".09" stroke="${c}" stroke-opacity=".18"/>`; } });
+    deco += `<g class="leaves">${lv}</g>`; }
   EDGES.forEach((e, i) => { const P = e.P, d = `M${P[0]} ${P[1]} C${P[2]} ${P[3]} ${P[4]} ${P[5]} ${P[6]} ${P[7]}`, k = e.s === 'k';
     edges += e.long ? `<g class="edge long" data-a="${e.a}" data-b="${e.b}"><path class="core" d="${d}" fill="none" stroke="${SC[e.s]}" stroke-opacity=".3" stroke-width="1.5" stroke-dasharray="2 5"/></g>`
       : `<g class="edge" data-a="${e.a}" data-b="${e.b}"><path class="bg" d="${d}" fill="none" stroke="url(#trunkG)" stroke-opacity=".09" stroke-width="${(e.w + 9).toFixed(1)}" stroke-linecap="round"/>` +
-        `<path class="core" d="${d}" fill="none" stroke="url(#trunkG)" stroke-opacity="${k ? .82 : .32}" stroke-width="${e.w.toFixed(1)}" stroke-linecap="round"/>` +
+        `<path class="core rib" d="${ribbon(P, e.w * 1.5, Math.max(1.6, e.w * .5))}" fill="url(#trunkG)" fill-opacity="${k ? .85 : .34}"/>` +
         (k ? '' : `<path class="st" d="${d}" fill="none" stroke="${SC[e.s]}" stroke-opacity=".9" stroke-width="2.2" stroke-dasharray="7 6"/>`) + '</g>';
     if (e.lab) labs += labSVG(e, SC[e.s]); });
   N.forEach((n, i) => nodes += nodeSVG(n, i, true));
@@ -1634,8 +1705,12 @@ function buildCircle() { N.forEach(n => { n.x = n.ox; n.y = n.oy; });
   const ux = CIR.ux, uy = CIR.uy, last = N.filter(n => n.r === LASTR && n.lane !== 'chain');
   last.forEach(n => { const P = [n.x, n.y, (n.x + ux) / 2 + (C - (n.x + ux) / 2) * .08, (n.y + uy) / 2 + (C - (n.y + uy) / 2) * .08, ux, uy]; deco += `<path class="cto" d="M${P[0]} ${P[1]} Q${P[2].toFixed(1)} ${P[3].toFixed(1)} ${P[4]} ${P[5]}" fill="none" stroke="#4ff3e3" stroke-opacity=".35" stroke-width="2" stroke-dasharray="3 6"/>`; });
   // the closing arc: Us → Before the Big Bang? (red, dashed, unknown)
-  const nt = byId.nothing, oa = CIR.ua, na = nt.oa, RR = R + 560, [c1x, c1y] = pol(oa - .03, RR), [c2x, c2y] = pol(na + .03, RR);
+  const nt = byId.nothing, oa = CIR.ua, na = nt.oa;
   const ax = ux + Math.cos(oa) * 46, ay = uy + Math.sin(oa) * 46, bx_ = nt.x + Math.cos(na) * 50, by_ = nt.y + Math.sin(na) * 50;
+  // v8: a wider, rounder arch (close to a half-circle) instead of a tall narrow spike
+  const chx = bx_ - ax, chy = by_ - ay, chl = Math.hypot(chx, chy) || 1, tux = chx / chl, tuy = chy / chl, mxx = (ax + bx_) / 2, myy = (ay + by_) / 2;
+  let nox = mxx - C, noy = myy - C; const nol = Math.hypot(nox, noy) || 1; nox /= nol; noy /= nol;
+  const hh = Math.max(chl * .6, 400), wd = Math.max(chl * .75, 440), c1x = ax + nox * hh - tux * wd, c1y = ay + noy * hh - tuy * wd, c2x = bx_ + nox * hh + tux * wd, c2y = by_ + noy * hh + tuy * wd;
   const LP = [ax, ay, c1x, c1y, c2x, c2y, bx_, by_].map(v => +v.toFixed(1)), ld = `M${LP[0]} ${LP[1]} C${LP[2]} ${LP[3]} ${LP[4]} ${LP[5]} ${LP[6]} ${LP[7]}`, [lx, ly] = bez(LP, .5);
   CIR.loopP = LP; CIR.lx = lx; CIR.ly = ly;
   top += `<g class="loop loopl" data-a="us" data-b="nothing" data-s="u" aria-label="Closing link (unknown): ${esc(LOOP_NOTE)}">` +
@@ -1709,7 +1784,7 @@ function updRuler(x0, y0, x1, y1) { let lo = 99, hi = -99;
 
 /* ============ PAN / ZOOM ============ */
 let s = 1, tx = 0, ty = 0, anim = null, sel = null, cullQ = false, movT = 0;
-const MAXS = 3, UI = () => VIEW !== 'map' ? (innerWidth <= 600 ? 124 : 66) : innerWidth <= 600 ? 168 : 146; // height of the fixed bars at the top (the tree view has no column bar)
+const MAXS = 3, UI = () => typeof v8UI === 'function' && innerWidth <= 600 ? v8UI() : VIEW !== 'map' ? (innerWidth <= 600 ? 124 : 66) : innerWidth <= 600 ? 168 : 146; // height of the fixed bars at the top (the tree view has no column bar)
 const minS = () => Math.min(innerWidth / (W + 60), (innerHeight - UI()) / (H + 40)) * 0.96;
 function clamp() { const vw = innerWidth, vh = innerHeight, ww = W * s, hh = H * s, top = UI();
   tx = ww < vw ? Math.min(Math.max(tx, 0), vw - ww) : Math.min(Math.max(tx, vw - ww - 120), 120);
@@ -1732,7 +1807,7 @@ function animTo(s2, tx2, ty2, ms = 550, done) { cancelAnimationFrame(anim); cons
   const stepA = now => { const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3); s = s0 + (s2 - s0) * e; tx = x0 + (tx2 - x0) * e; ty = y0 + (ty2 - y0) * e; apply(); if (k < 1) anim = requestAnimationFrame(stepA); else if (done) done(); };
   anim = requestAnimationFrame(stepA); }
 // start view: the left (base) end of the map at a readable zoom
-function homeView() { if (VIEW === 'circle') return fitView();
+function homeView() { if (VIEW === 'circle') return innerWidth <= 600 && typeof v8CircleHome === 'function' ? v8CircleHome() : fitView();
   if (VIEW === 'tree') { const vw = innerWidth, vh = innerHeight, n = byId.nothing, s2 = vw <= 600 ? 0.5 : 0.6;
     return [s2, vw / 2 - n.x * s2, vh - 24 - (n.y + 300) * s2]; } // the tree starts at its roots
   const vw = innerWidth, vh = innerHeight, top = UI(), ns = N.filter(n => n.r <= 2), y0 = Math.min(...ns.map(n => n.y)) - 100, y1 = Math.max(...ns.map(n => n.y)) + 120;
@@ -1886,7 +1961,8 @@ keyEl.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
 // the key steps aside (fades out) whenever a pop-up, the phone bottom sheet or the search list would sit on top of it
 function keyAvoid() { if (!keyEl) return; const k = keyEl.getBoundingClientRect(), hit = el => { if (!el || el.offsetParent === null && getComputedStyle(el).position !== 'fixed') return false;
     if (getComputedStyle(el).display === 'none') return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.left < k.right + 6 && r.right > k.left - 6 && r.top < k.bottom + 6 && r.bottom > k.top - 6; };
-  keyEl.classList.toggle('tuck', hit(pop) || hit(sres)); }
+  if (innerWidth <= 600 && getComputedStyle(pop).display !== 'none' && !hit(sres)) { keyEl.classList.remove('tuck'); keyEl.style.bottom = (pop.offsetHeight + 14) + 'px'; return; } // v8: on phones the Key chip moves above the sheet
+  keyEl.style.bottom = ''; keyEl.classList.toggle('tuck', hit(pop) || hit(sres)); }
 
 /* ============ SEARCH (top bar; "/" focuses it) ============ */
 const ALIAS = { qft: 'quantum field theory, standard model', bigbang: 'big bang', cmb: 'cosmic microwave background', hadrons: 'proton, neutron, baryon, nucleon',
@@ -1919,7 +1995,7 @@ const snip = (t, q) => { const i = fold(t).indexOf(fold(q)); if (i < 0) return e
 const search = document.getElementById('search'), sq = document.getElementById('sq'), sres = document.getElementById('sres'); let hits = [], cur = 0;
 function renderHits() { const q = sq.value.trim(); search.classList.toggle('has', !!sq.value); if (!q) { closeHits(); return; } hits = searchFor(q); cur = 0;
   sres.innerHTML = hits.length ? hits.map((h, i) => { if (h.k === 'el') { const [z, sy, nm, , o] = h.E;
-      return `<li role="option" data-i="${i}"><i class="el" style="background:${ORI[o[0]][1]}">${esc(sy)}</i><span class="st"><b>${mark(nm, q)} <span style="color:#7f93b3;font-weight:400">(${esc(sy)})</span></b><small>Element ${z} · show in the periodic table</small></span></li>`; }
+      return `<li role="option" data-i="${i}"><i class="el" style="background:${ORI[o[0]][1]}">${esc(sy)}</i><span class="st"><b>${mark(nm, q)} <span style="color:#a3b4cf;font-weight:400">(${esc(sy)})</span></b><small>Element ${z} · show in the periodic table</small></span></li>`; }
     const n = h.r.n, c = SC[n.s], sub = h.why === 'text' ? snip(h.r.raw, q) : h.why === 'line' ? mark(n.line, q) : esc(n.line);
     return `<li role="option" data-i="${i}"><i style="background:${c};box-shadow:0 0 6px ${c}"></i><span class="st"><b>${mark(n.name, q)}</b><small>${sub}</small></span></li>`; }).join('')
     : `<li class="none">No match for “${esc(q)}”</li>`;
@@ -2164,12 +2240,605 @@ function closeLoop() { LOOPON = false; document.querySelectorAll('#gCircle .loop
 function placeLoop() { if (!LOOPON) return; if (innerWidth <= 600) { pop.style.left = ''; pop.style.top = ''; keyAvoid(); return; }
   const x = CIR.lx * s + tx, y = CIR.ly * s + ty, pw = pop.offsetWidth, ph = pop.offsetHeight, top = UI();
   let px = Math.min(innerWidth - pw - 10, Math.max(8, x + 230 * s + 14)), py = Math.max(top, Math.min(innerHeight - ph - 8, y + 30 * s + 12));
+  if (typeof v8BestSpot === 'function') { const b = v8BestSpot(pw, ph, x, y); if (b) [px, py] = b; }
   pop.style.left = px + 'px'; pop.style.top = py + 'px'; keyAvoid(); }
 function liftLoop() { if (innerWidth > 600 || !LOOPON) return; const y = CIR.ly * s + ty, x = CIR.lx * s + tx, top = UI(), pt = innerHeight - pop.offsetHeight - 6;
   if (y > top + 20 && y < pt - 20 && x > 10 && x < innerWidth - 10) return; animTo(s, tx + (innerWidth / 2 - x), ty + (top + (pt - top) / 2 - y), 300); }
 popBody.addEventListener('click', e => { const b = e.target.closest('button'); if (!b || !LOOPON) return; const a = b.dataset.act;
   if (a === 'lmore') { loopLayer = 2; renderLoop(); placeLoop(); liftLoop(); } else if (a === 'lless') { loopLayer = 1; renderLoop(); pop.scrollTop = 0; placeLoop(); }
   else if (a === 'lshare') { const u = SITE + '#tv=circle&loop=1'; copyText(u).then(ok => toast(ok ? 'Link copied' : 'Copy this link: ' + u)); } });
+/* ===== Virtual Cell (v8) — self-contained module =====
+   API: VCELL.init(host, opts) -> starts the view inside `host` (default document.body)
+          opts.onClose()  called when Back is pressed
+          opts.focus      part id to zoom to on open (e.g. 'mito')
+          opts.embedded   true = no Back bar (for a future body view that zooms into the cell)
+        VCELL.destroy()  stops the loop, removes all DOM and listeners
+        VCELL.focus(id)  zoom to a part and open its card
+        VCELL.isOpen()
+   Everything is drawn on one <canvas>. World units: ~110 units = 1 micrometre (sizes simplified). */
+const VCELL = (() => {
+  const W2UM = 110;
+  const W = 'https://en.wikipedia.org/wiki/';
+  // status: k = known (green), t = we think so (orange), u = unknown (red)
+  const P = {
+    membrane: { n: 'Cell membrane', s: 'k', a: ['A thin skin of fat molecules (two layers).', 'It lets some things in and keeps others out.'],
+      b: ['Made of a lipid bilayer about 5 nm thick, with proteins floating in it.', 'Channels and pumps move ions and food across.', 'Zoom right in to see the two layers of lipid heads.'], src: [['Cell membrane (Wikipedia)', W + 'Cell_membrane']] },
+    nucleus: { n: 'Nucleus', s: 'k', a: ['The control centre.', 'It holds the DNA, the cell’s instructions.'],
+      b: ['Wrapped in a double membrane with thousands of pores.', 'Genes are copied into messenger RNA (mRNA) here.', 'The mRNA leaves through the pores to the ribosomes.'], src: [['Cell nucleus (Wikipedia)', W + 'Cell_nucleus'], ['Nucleus (NIH genome.gov)', 'https://www.genome.gov/genetics-glossary/Nucleus']] },
+    dna: { n: 'DNA', s: 'k', a: ['A long double helix: the recipe for building the cell.', 'Wound around protein spools (histones).'],
+      b: ['Four letters: A, T, G, C. A pairs with T, G with C.', 'A human cell holds about 2 metres of DNA, packed into a nucleus ~6 µm wide.', 'A gene is copied into mRNA (the red thread) by RNA polymerase.'], src: [['DNA (Wikipedia)', W + 'DNA'], ['DNA (NIH genome.gov)', 'https://www.genome.gov/genetics-glossary/Deoxyribonucleic-Acid']] },
+    nucleolus: { n: 'Nucleolus', s: 'k', a: ['A dense spot inside the nucleus.', 'It builds the parts of ribosomes.'],
+      b: ['Has no membrane: it forms where ribosome genes cluster.', 'Ribosome pieces are exported through the nuclear pores.'], src: [['Nucleolus (Wikipedia)', W + 'Nucleolus']] },
+    pore: { n: 'Nuclear pore', s: 'k', a: ['A gate in the nucleus wall.', 'mRNA goes out, proteins come in.'],
+      b: ['One of the biggest protein machines in the cell (~30 different proteins).', 'A nucleus can have a few thousand pores.'], src: [['Nuclear pore (Wikipedia)', W + 'Nuclear_pore']] },
+    rib: { n: 'Ribosome', s: 'k', a: ['A tiny machine that builds proteins.', 'It reads mRNA and links amino acids into a chain.'],
+      b: ['Two parts: a small and a large subunit.', 'Zoom in to watch a protein chain grow, one bead (amino acid) at a time.', 'A cell has millions of them.'], src: [['Ribosome (Wikipedia)', W + 'Ribosome'], ['Ribosome (NIH genome.gov)', 'https://www.genome.gov/genetics-glossary/Ribosome']] },
+    rer: { n: 'Rough ER', s: 'k', a: ['Folded sheets next to the nucleus, dotted with ribosomes.', 'Makes proteins for export and for membranes.'],
+      b: ['ER = endoplasmic reticulum.', 'New proteins are folded inside the sheets, then sent on to the Golgi in vesicles.'], src: [['Endoplasmic reticulum (Wikipedia)', W + 'Endoplasmic_reticulum']] },
+    ser: { n: 'Smooth ER', s: 'k', a: ['Tubes with no ribosomes.', 'Makes fats and stores calcium.'],
+      b: ['Also helps break down some toxins (lots of it in liver cells).'], src: [['Endoplasmic reticulum (Wikipedia)', W + 'Endoplasmic_reticulum']] },
+    golgi: { n: 'Golgi apparatus', s: 'k', a: ['A stack of flat sacs: the cell’s post office.', 'It sorts, tags and packs proteins.'],
+      b: ['Proteins arrive from the ER, get sugar tags, and leave in vesicles.', 'Some go to the membrane, some outside the cell, some to lysosomes.'], src: [['Golgi apparatus (Wikipedia)', W + 'Golgi_apparatus']] },
+    ves: { n: 'Vesicle', s: 'k', a: ['A small bubble that carries cargo.', 'Motor proteins walk it along microtubules.'],
+      b: ['When it reaches the membrane it can fuse and release its cargo outside (exocytosis).'], src: [['Vesicle (Wikipedia)', W + 'Vesicle_(biology_and_chemistry)']] },
+    mito: { n: 'Mitochondrion', s: 'k', a: ['The power station.', 'Turns food and oxygen into ATP, the cell’s energy (gold sparks).'],
+      b: ['Has its own small DNA: it came from a bacterium swallowed long ago.', 'The folds inside (cristae) hold ATP synthase, a spinning motor.', 'Zoom in to see the little knobs.'], src: [['Mitochondrion (Wikipedia)', W + 'Mitochondrion'], ['ATP synthase (Wikipedia)', W + 'ATP_synthase']] },
+    atp: { n: 'ATP', s: 'k', map: 'molecules', a: ['The cell’s energy coin.', 'Made in mitochondria, spent everywhere.'],
+      b: ['A busy cell recycles its whole ATP supply in about a minute.'], src: [['Adenosine triphosphate (Wikipedia)', W + 'Adenosine_triphosphate']] },
+    lyso: { n: 'Lysosome', s: 'k', a: ['A recycling bag full of enzymes.', 'Breaks down old parts and waste.'],
+      b: ['Its inside is acidic, which keeps the enzymes safe from the rest of the cell.'], src: [['Lysosome (Wikipedia)', W + 'Lysosome']] },
+    cent: { n: 'Centrosome', s: 'k', a: ['Two small barrels at right angles.', 'Microtubules grow out from here.'],
+      b: ['Each barrel (centriole) is 9 groups of 3 tubes.', 'It helps pull chromosomes apart when the cell divides.'], src: [['Centrosome (Wikipedia)', W + 'Centrosome']] },
+    mt: { n: 'Microtubule', s: 'k', a: ['Hollow tubes: the cell’s roads and scaffolding.', 'Part of the cytoskeleton.'],
+      b: ['Motor proteins (kinesin, dynein) walk along them carrying vesicles.', 'They grow and shrink all the time.'], src: [['Microtubule (Wikipedia)', W + 'Microtubule']] },
+    actin: { n: 'Actin filaments', s: 'k', a: ['Thin fibres under the membrane.', 'They give the cell its shape and let it move.'],
+      b: ['Also part of the cytoskeleton, together with microtubules.'], src: [['Microfilament (Wikipedia)', W + 'Microfilament']] },
+    vault: { n: 'Vault', s: 't', a: ['A tiny hollow barrel made of protein and RNA.', 'What it does is still not clear.'],
+      b: ['Found in many animal cells, thousands per cell.', 'Ideas include transport or defence, but no job is proven.'], src: [['Vault (organelle) (Wikipedia)', W + 'Vault_(organelle)']] },
+    water: { n: 'Water molecule', s: 'k', map: 'water', a: ['One oxygen atom and two hydrogen atoms (H₂O).', 'About 70% of a cell is water.'], b: ['Here the molecules are spaced out so you can see them; real cytosol is packed tight.', 'Water’s slightly charged ends help proteins fold.'], src: [['Properties of water (Wikipedia)', W + 'Properties_of_water']] },
+    glucose: { n: 'Glucose', s: 'k', map: 'molecules', a: ['A sugar: a ring of carbon and oxygen.', 'Cells break it down for energy.'], b: ['Glycolysis in the cytosol starts the job; mitochondria finish it and make ATP.'], src: [['Glucose (Wikipedia)', W + 'Glucose']] },
+    lipid: { n: 'Phospholipid', s: 'k', map: 'lipids', a: ['A water-loving head and two oily tails.', 'Millions line up to make the membrane.'], b: ['The tails hide from water, so lipids form two layers by themselves.', 'A kink in one tail keeps the membrane fluid.'], src: [['Phospholipid (Wikipedia)', W + 'Phospholipid']] },
+    basepair: { n: 'Base pair (DNA)', s: 'k', map: 'nucleotides', a: ['Two DNA letters joined in the middle.', 'Each side hangs on a sugar-phosphate backbone.'], b: ['A pairs with T, G pairs with C, held by weak hydrogen bonds.', 'About 3 billion pairs make one copy of the human genome.'], src: [['Base pair (Wikipedia)', W + 'Base_pair'], ['Base pair (NIH genome.gov)', 'https://www.genome.gov/genetics-glossary/Base-Pair']] },
+    peptide: { n: 'Protein chain', s: 'k', map: 'amino', a: ['Amino acids linked in a chain by a ribosome.', 'The chain then folds into a working shape.'], b: ['There are 20 kinds of amino acid; the gene sets their order.', 'The backbone repeats N–C–C; side chains stick out.'], src: [['Peptide (Wikipedia)', W + 'Peptide']] },
+    protein: { n: 'Protein', s: 'k', map: 'proteins', a: ['A folded chain of thousands of atoms (shown as a simple blob).', 'Proteins do most of the work in a cell.'], b: ['Enzymes, motors, pumps and scaffolds are all proteins.', 'Real shapes are far more detailed than this.'], src: [['Protein (Wikipedia)', W + 'Protein']] },
+    elH: { n: 'Hydrogen atom', s: 'k', map: 'atoms', a: ['The smallest atom: 1 proton, 1 electron.', 'Made just after the Big Bang.'], b: ['Most of the atoms in your body are hydrogen.', 'Shown white here.'], src: [['Hydrogen (Wikipedia)', W + 'Hydrogen']] },
+    elC: { n: 'Carbon atom', s: 'k', map: 'atoms', a: ['6 protons. The backbone of life’s molecules.', 'Made inside stars.'], b: ['Carbon can bond to four other atoms, so it builds chains and rings.'], src: [['Carbon (Wikipedia)', W + 'Carbon']] },
+    elN: { n: 'Nitrogen atom', s: 'k', map: 'atoms', a: ['7 protons.', 'Found in every amino acid and DNA letter.'], b: ['Made inside stars (the CNO cycle).'], src: [['Nitrogen (Wikipedia)', W + 'Nitrogen']] },
+    elO: { n: 'Oxygen atom', s: 'k', map: 'atoms', a: ['8 protons.', 'In water, sugars and the phosphate groups of ATP.'], b: ['Made inside massive stars. By mass, most of your body is oxygen (in water).'], src: [['Oxygen (Wikipedia)', W + 'Oxygen']] },
+    elP: { n: 'Phosphorus atom', s: 'k', map: 'atoms', a: ['15 protons.', 'At the heart of ATP, DNA’s backbone and membrane lipids.'], b: ['Made in massive stars and spread by supernovae.'], src: [['Phosphorus (Wikipedia)', W + 'Phosphorus']] },
+    cloud: { n: 'Electron cloud', s: 'k', map: 'electrons', a: ['Electrons are not little planets.', 'The cloud shows where an electron is likely to be found.'], b: ['This comes from quantum mechanics (orbitals).', 'An atom is almost all empty space.'], src: [['Atomic orbital (Wikipedia)', W + 'Atomic_orbital']] },
+    anuc: { n: 'Atomic nucleus', s: 'k', map: 'hadrons', a: ['Protons and neutrons packed tight.', 'It holds over 99.9% of the atom’s mass.'], b: ['Really about 100,000 times smaller than the atom; drawn far too big here.', 'Protons and neutrons are made of quarks.'], src: [['Atomic nucleus (Wikipedia)', W + 'Atomic_nucleus']] },
+    cyto: { n: 'Cytosol', s: 'k', a: ['The watery gel that fills the cell.', 'Crowded with proteins, sugars and salts.'],
+      b: ['It is so crowded that molecules jostle constantly (shown as drifting specks).'], src: [['Cytosol (Wikipedia)', W + 'Cytosol']] }
+  };
+  const SCOL = { k: '#3dff8a', t: '#ffa53d', u: '#ff4d5e' }, SNAME = { k: 'Known', t: 'We think so', u: 'Unknown' };
+
+  let root, cv, cx, raf = 0, opts = {}, alive = false, t = 0, last = 0, speed = 1, paused = false;
+  let cam = { x: 0, y: 0, z: .4 }, anim = null, sel = null, layer = 1, fps = 0, fpsN = 0, fpsT = 0;
+  let D, pop, hint, scl, crEl, offs = [], Q = 1, qT = 0, qLow = 0, qHigh = 0;
+  function adapt(now) { if (now - qT < 1000) return; qT = now; if (!fps) return; if (fps < 42) { qLow++; qHigh = 0; } else if (fps > 57) { qHigh++; qLow = 0; } else { qLow = qHigh = 0; }
+    if (qLow >= 2 && Q > .35) { Q = Math.max(.35, Q - .3); qLow = 0; } if (qHigh >= 4 && Q < 1) { Q = Math.min(1, Q + .15); qHigh = 0; } root && (root.dataset.q = Q.toFixed(2)); }
+  const RM = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mob = () => innerWidth <= 600;
+
+  function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let x = Math.imul(seed ^ seed >>> 15, 1 | seed); x = x + Math.imul(x ^ x >>> 7, 61 | x) ^ x; return ((x ^ x >>> 14) >>> 0) / 4294967296; }; }
+  const RX = 1100, RY = 820;
+  const memR = (a, tt) => 1 + .022 * Math.sin(3 * a + tt * .25) + .014 * Math.sin(5 * a - tt * .18) + .01 * Math.sin(8 * a + tt * .4);
+  const memPt = (a, tt, k = 1) => { const m = memR(a, tt) * k; return [Math.cos(a) * RX * m, Math.sin(a) * RY * m]; };
+  const NUC = { x: -170, y: -40, r: 300 };
+
+  function build() {
+    const R = rng(8);
+    const d = { chrom: [], pores: [], rer: [], ser: [], mitos: [], lyso: [], vaults: [], ribs: [], mts: [], ves: [], atp: [], specks: [], actin: [], memprot: [] };
+    for (let i = 0; i < 12; i++) { // chromatin random walks inside nucleus
+      let a = R() * 6.28, rr = R() * 200, x = NUC.x + Math.cos(a) * rr, y = NUC.y + Math.sin(a) * rr, h = R() * 6.28; const pts = [[x, y]];
+      for (let j = 0; j < 26; j++) { h += (R() - .5) * 1.1; let nx = x + Math.cos(h) * 16, ny = y + Math.sin(h) * 16;
+        if (Math.hypot(nx - NUC.x, ny - NUC.y) > NUC.r - 30 || Math.hypot(nx + 200, ny + 80) < 95) { h += 2.2; continue; } x = nx; y = ny; pts.push([x, y]); }
+      d.chrom.push(pts); }
+    for (let i = 0; i < 28; i++) d.pores.push(i / 28 * 6.283 + R() * .08);
+    for (let i = 0; i < 4; i++) { const r = NUC.r + 70 + i * 52, a0 = -1.1 + R() * .3, a1 = 1.6 + R() * .4; const pts = [];
+      for (let a = a0; a <= a1; a += .035) pts.push([NUC.x + Math.cos(a) * (r + 12 * Math.sin(a * 7 + i)), NUC.y + Math.sin(a) * (r + 12 * Math.sin(a * 7 + i))]);
+      d.rer.push(pts); for (let k = 0; k < pts.length; k += 1) { const [px, py] = pts[k], nx = (px - NUC.x), ny = (py - NUC.y), L = Math.hypot(nx, ny);
+        for (const sgn of [-1, 1]) d.ribs.push({ x: px + nx / L * 15 * sgn, y: py + ny / L * 15 * sgn, ph: R() * 9, er: 1, ang: Math.atan2(ny, nx) + (sgn < 0 ? Math.PI : 0) }); } }
+    for (let i = 0; i < 5; i++) { let x = -620 + R() * 160, y = 330 + R() * 160, h = R() * 6.28; const pts = [[x, y]];
+      for (let j = 0; j < 22; j++) { h += (R() - .5) * 1.2; x += Math.cos(h) * 14; y += Math.sin(h) * 14; pts.push([x, y]); } d.ser.push(pts); }
+    const GO = { x: 470, y: -300, a: Math.atan2(-300 - NUC.y, 470 - NUC.x) }; d.golgi = GO;
+    const clear = (x, y, r) => { if (Math.hypot(x - NUC.x, y - NUC.y) < NUC.r + 300 + r) return false; if (Math.hypot(x - GO.x, y - GO.y) < 230 + r) return false;
+      if ((x / (RX - 120 - r)) ** 2 + (y / (RY - 120 - r)) ** 2 > 1) return false; if (Math.hypot(x - 330, y - 300) < 120 + r) return false; return true; };
+    let tries = 0;
+    while (d.mitos.length < 9 && tries++ < 4000) { const x = (R() - .5) * 2 * RX, y = (R() - .5) * 2 * RY; if (!clear(x, y, 90)) continue;
+      if (d.mitos.some(m => Math.hypot(m.x - x, m.y - y) < 230)) continue; d.mitos.push({ x, y, a: R() * 3.14, L: 170 + R() * 70, w: 66, ph: R() * 6 }); }
+    tries = 0; while (d.lyso.length < 5 && tries++ < 4000) { const x = (R() - .5) * 2 * RX, y = (R() - .5) * 2 * RY, r = 30 + R() * 14; if (!clear(x, y, r)) continue;
+      if (d.mitos.some(m => Math.hypot(m.x - x, m.y - y) < 150) || d.lyso.some(m => Math.hypot(m.x - x, m.y - y) < 120)) continue; d.lyso.push({ x, y, r, ph: R() * 6 }); }
+    tries = 0; while (d.vaults.length < 7 && tries++ < 4000) { const x = (R() - .5) * 2 * RX, y = (R() - .5) * 2 * RY; if (!clear(x, y, 10)) continue;
+      if (d.mitos.some(m => Math.hypot(m.x - x, m.y - y) < 130) || d.lyso.some(m => Math.hypot(m.x - x, m.y - y) < 70)) continue; d.vaults.push({ x, y, a: R() * 3.14 }); }
+    tries = 0; let nfree = 0; while (nfree < 260 && tries++ < 20000) { const x = (R() - .5) * 2 * RX, y = (R() - .5) * 2 * RY;
+      if (Math.hypot(x - NUC.x, y - NUC.y) < NUC.r + 260) continue; if ((x / (RX - 40)) ** 2 + (y / (RY - 40)) ** 2 > 1) continue;
+      if (d.mitos.some(m => Math.hypot(m.x - x, m.y - y) < 120)) continue; if (Math.hypot(x - GO.x, y - GO.y) < 200) continue; nfree++; d.ribs.push({ x, y, ph: R() * 9, ang: R() * 6.28 }); }
+    d.cent = { x: 330, y: 300 };
+    for (let i = 0; i < 30; i++) { const a = i / 30 * 6.283 + R() * .15; const [ex, ey] = memPt(a, 0, .96); const bend = (R() - .5) * 160;
+      const mx = (d.cent.x + ex) / 2 - Math.sin(a) * bend, my = (d.cent.y + ey) / 2 + Math.cos(a) * bend; const pp = [[d.cent.x, d.cent.y], [mx, my], [ex, ey]]; let okp = true; for (let u = 0; u <= 1; u += .05) { const [qx, qy] = q(pp, u); if (Math.hypot(qx - NUC.x, qy - NUC.y) < NUC.r + 30) okp = false; } if (okp) d.mts.push({ a, p: pp }); }
+    for (let i = 0; i < 16; i++) d.ves.push({ mt: (R() * d.mts.length) | 0, p: R(), v: .025 + R() * .03, r: 14 + R() * 8, c: R() < .5 ? 0 : 1 });
+    for (let i = 0; i < 260; i++) d.specks.push({ x: (R() - .5) * 2 * RX * .95, y: (R() - .5) * 2 * RY * .95, ph: R() * 6.28, f: .5 + R() });
+    for (let i = 0; i < 220; i++) { const a = R() * 6.283, k = .9 + R() * .07; d.actin.push({ a, k, l: 40 + R() * 70, d: R() * 6.28 }); }
+    for (let i = 0; i < 36; i++) d.memprot.push({ a: R() * 6.283, c: (R() * 3) | 0 });
+    return d;
+  }
+  // curve helper (quadratic through 3 points)
+  const q = (p, u) => { const [a, b, c] = p, v = 1 - u; return [v * v * a[0] + 2 * v * u * b[0] + u * u * c[0], v * v * a[1] + 2 * v * u * b[1] + u * u * c[1]]; };
+  // ================= v8b: deep zoom (molecules → atoms → inside an atom) =================
+  const A = W2UM / 1e4; // world units per ångström (1 µm = 10,000 Å)
+  const EL = { H: { c: '#eaf6ff', r: .38, p: 1, n: 0, nm: 'Hydrogen' }, C: { c: '#8fb4d8', r: .72, p: 6, n: 6, nm: 'Carbon' }, N: { c: '#5a9cff', r: .68, p: 7, n: 7, nm: 'Nitrogen' },
+    O: { c: '#ff5a6e', r: .64, p: 8, n: 8, nm: 'Oxygen' }, P: { c: '#ffa53d', r: 1.0, p: 15, n: 16, nm: 'Phosphorus' } };
+  const sm = (a, b, x) => { const u = Math.max(0, Math.min(1, (Math.log(x) - Math.log(a)) / (Math.log(b) - Math.log(a)))); return u * u * (3 - 2 * u); };
+  const SPR = {};
+  function sprite(key, size, paint) { if (SPR[key]) return SPR[key]; const c = document.createElement('canvas'); c.width = c.height = size; paint(c.getContext('2d'), size); return SPR[key] = c; }
+  const glowS = col => sprite('g' + col, 64, (g, s) => { const r = g.createRadialGradient(s / 2, s / 2, 0, s / 2, s / 2, s / 2); r.addColorStop(0, col + 'ff'); r.addColorStop(.18, col + 'cc'); r.addColorStop(.45, col + '40'); r.addColorStop(1, col + '00'); g.fillStyle = r; g.fillRect(0, 0, s, s); });
+  const SK = 48 / 30; // sphere sprite: drawn radius 30 inside a 96px canvas (room for glow)
+  const sphereS = col => sprite('s' + col, 96, (g, s) => { const c = s / 2; let r = g.createRadialGradient(c, c, 24, c, c, 48); r.addColorStop(0, col + '55'); r.addColorStop(1, col + '00'); g.fillStyle = r; g.fillRect(0, 0, s, s);
+    r = g.createRadialGradient(c - 10, c - 11, 1, c, c, 30); r.addColorStop(0, '#ffffff'); r.addColorStop(.28, col); r.addColorStop(1, '#0a1430'); g.fillStyle = r; g.beginPath(); g.arc(c, c, 30, 0, 6.283); g.fill();
+    g.lineWidth = 1.2; g.strokeStyle = col + 'aa'; g.stroke(); });
+  // molecule templates (positions in Å; shapes simplified)
+  function TP(list) { let mx = 0, my = 0; list.forEach(a => { mx += a[1]; my += a[2]; }); mx /= list.length; my /= list.length;
+    const at = list.map(([e, x, y]) => [e, x - mx, y - my]), bd = [];
+    for (let i = 0; i < at.length; i++) for (let j = i + 1; j < at.length; j++) { const d = Math.hypot(at[i][1] - at[j][1], at[i][2] - at[j][2]), lim = (at[i][0] === 'H' || at[j][0] === 'H') ? 1.2 : 1.75; if (d < lim && !(at[i][0] === 'H' && at[j][0] === 'H')) bd.push([i, j]); }
+    let r = 0; at.forEach(a => r = Math.max(r, Math.hypot(a[1], a[2]))); const co = at.filter((a, i) => a[0] !== 'H' && i % 3 === 0); if (!co.length) co.push(at[0]);
+    return { at, bd, r: r + 1, co }; }
+  const pol = (cx_, cy_, r, a) => [cx_ + Math.cos(a) * r, cy_ + Math.sin(a) * r];
+  function mkTemplates() {
+    const T = {};
+    T.water = [TP([['O', 0, 0], ['H', .76, .59], ['H', -.76, .59]])];
+    { const L = []; const el = ['C', 'C', 'C', 'C', 'C', 'O']; for (let k = 0; k < 6; k++) { const a = k * Math.PI / 3; L.push([el[k], ...pol(0, 0, 1.45, a)]); if (k < 5) { L.push(['O', ...pol(0, 0, 2.85, a)]); L.push(['H', ...pol(0, 0, 3.8, a)]); } } T.glu = [TP(L)]; }
+    { const L = [], d2r = Math.PI / 180, he = ['C', 'N', 'C', 'N', 'C', 'C']; for (let k = 0; k < 6; k++) L.push([he[k], ...pol(0, 0, 1.4, (90 + 60 * k) * d2r)]);
+      L.push(['N', 0, 2.8], ['H', .85, 3.35], ['H', -.85, 3.35]); const pc = [2.175, 0]; [['N', 72], ['C', 0], ['N', -72]].forEach(([e, a]) => L.push([e, ...pol(pc[0], pc[1], 1.19, a * d2r)]));
+      const n9 = pol(pc[0], pc[1], 1.19, -72 * d2r), dir = [n9[0] - pc[0], n9[1] - pc[1]], dl = Math.hypot(...dir); dir[0] /= dl; dir[1] /= dl;
+      const c1 = [n9[0] + dir[0] * 1.45, n9[1] + dir[1] * 1.45], rc = [c1[0] + dir[0] * 1.19, c1[1] + dir[1] * 1.19], a0 = Math.atan2(c1[1] - rc[1], c1[0] - rc[0]);
+      const rb = ['C', 'C', 'C', 'C', 'O'], rp = []; for (let k = 0; k < 5; k++) { const p = pol(rc[0], rc[1], 1.19, a0 + k * 72 * d2r); rp.push(p); L.push([rb[k], ...p]); }
+      [1, 2].forEach(k => { const v = [rp[k][0] - rc[0], rp[k][1] - rc[1]], l = Math.hypot(...v); L.push(['O', rp[k][0] + v[0] / l * 1.4, rp[k][1] + v[1] / l * 1.4]); });
+      const v4 = [rp[3][0] - rc[0], rp[3][1] - rc[1]], l4 = Math.hypot(...v4), u = [v4[0] / l4, v4[1] / l4], nn = [-u[1], u[0]]; let p = [rp[3][0] + u[0] * 1.5, rp[3][1] + u[1] * 1.5]; L.push(['C', ...p]);
+      const seq = ['O', 'P', 'O', 'P', 'O', 'P', 'O']; seq.forEach((e, k) => { const off = (k % 2 ? .45 : -.45); p = [p[0] + u[0] * 1.55, p[1] + u[1] * 1.55]; L.push([e, p[0] + nn[0] * off, p[1] + nn[1] * off]);
+        if (e === 'P') { L.push(['O', p[0] + nn[0] * (off + 1.5), p[1] + nn[1] * (off + 1.5)]); L.push(['O', p[0] - nn[0] * (1.5 - off), p[1] - nn[1] * (1.5 - off)]); } });
+      T.atp = [TP(L)]; }
+    { const L = [], hd = ['N', 'C', 'C', 'O', 'P', 'O', 'C', 'C']; hd.forEach((e, k) => L.push([e, -1.3 * k, (k % 2) * .75])); L.push(['O', -5.2, 1.55], ['O', -5.2, -1.5], ['C', -9.1, -.75]);
+      L.push(['H', 0, -1.0], ['H', .9, .6]);
+      for (const sg of [1, -1]) { L.push(['O', -10.4, 1.5 * sg]); for (let i = 0; i < 14; i++) { const x = -11.7 - 1.3 * i, y = sg * (1.5 + (i % 2) * .75) + (sg > 0 && i > 7 ? .5 : 0); L.push(['C', x, y]); if (i % 2 === 0) L.push(['H', x, y + sg * 1.0]); } }
+      T.lipid = [TP(L)]; }
+    { const L = [], d2r = Math.PI / 180; for (const sg of [1, -1]) { const he = sg > 0 ? ['C', 'N', 'C', 'N', 'C', 'C'] : ['N', 'C', 'N', 'C', 'C', 'N'];
+        for (let k = 0; k < 6; k++) L.push([he[k], ...pol(-2.5 * sg, 0, 1.4, (60 * k) * d2r)]);
+        const sc = -6.3 * sg, sp = ['C', 'C', 'C', 'O', 'C']; for (let k = 0; k < 5; k++) L.push([sp[k], ...pol(sc, 0, 1.19, (sg > 0 ? 0 : 180) * d2r + k * 72 * d2r)]);
+        L.push(['P', -8.6 * sg, .8 * sg], ['O', -8.6 * sg, 2.3 * sg], ['O', -9.95 * sg, .1 * sg], ['O', -9.0 * sg, -.65 * sg]);
+        L.push(['O', ...pol(-2.5 * sg, 0, 2.65, (sg > 0 ? 60 : 240) * d2r)], ['H', ...pol(-2.5 * sg, 0, 2.4, (sg > 0 ? -60 : 120) * d2r)]); }
+      T.dna = [TP(L)]; }
+    { const L = []; for (let k = 0; k < 12; k++) { const e = ['N', 'C', 'C'][k % 3], y = (k % 2) * .8; L.push([e, 1.25 * k, y]);
+        if (k % 3 === 2) L.push(['O', 1.25 * k, k % 2 ? 2.05 : -1.25]); if (k % 3 === 1) { const yy = k % 2 ? 2.3 : -1.5; L.push(['C', 1.25 * k, yy]); if (k % 6 === 1) L.push(['O', 1.25 * k + .9, yy + (k % 2 ? 1.0 : -1.0)]); }
+        if (k % 3 === 0) L.push(['H', 1.25 * k, k % 2 ? 1.8 : -1.0]); } T.aa = [TP(L)]; }
+    T.prot = []; for (let v = 0; v < 4; v++) { const R = rng(100 + v), L = []; let tries = 0;
+      while (L.length < 46 && tries++ < 3000) { const a = R() * 6.283, rr = Math.sqrt(R()), x = Math.cos(a) * rr * 10, y = Math.sin(a) * rr * 7.5; if (L.some(p => Math.hypot(p[1] - x, p[2] - y) < 1.38)) continue;
+        const q_ = R(); L.push([q_ < .52 ? 'C' : q_ < .68 ? 'N' : q_ < .9 ? 'O' : 'H', x, y]); } T.prot.push(TP(L)); }
+    return T; }
+  let TPL = null;
+  const MKEY = { water: 'water', glu: 'glucose', atp: 'atp', lipid: 'lipid', dna: 'basepair', aa: 'peptide', prot: 'protein' };
+  const MCOL = { water: '#4ff3e3', glu: '#a8ff6b', atp: '#ffd36b', lipid: '#ffc46b', dna: '#ff78be', aa: '#3dff8a', prot: '#c58cff' };
+  const MIX = { cyto: [['water', 44], ['prot', 22], ['glu', 12], ['atp', 12], ['aa', 6]], mito: [['atp', 40], ['water', 30], ['prot', 30]], nuc: [['water', 45], ['prot', 42], ['atp', 13]],
+    dna: [['dna', 100]], mem: [['lipid', 100]], ribo: [['aa', 70], ['water', 30]], prot: [['prot', 55], ['water', 45]], out: [['water', 28]] };
+  const TILE = 26 * A; let CACHE = new Map(), cacheTm = null, tm = 0;
+  function regionAt(x, y) {
+    const a = Math.atan2(y / RY, x / RX), m = memR(a, tm), rho = Math.hypot(x / RX, y / RY) / m, d = (rho - 1) * 950;
+    if (Math.abs(d) < 14) return { k: 'mem', n: 'Cell membrane', s: 'Lipid bilayer', o: Math.atan2(y / (RY * RY), x / (RX * RX)) + (d < 0 ? Math.PI : 0) };
+    if (rho > 1) return { k: 'out', n: 'Outside the cell', s: 'Water' };
+    for (const mi of D.mitos) { const c = Math.cos(-mi.a), s_ = Math.sin(-mi.a), lx = (x - mi.x) * c - (y - mi.y) * s_, ly = (x - mi.x) * s_ + (y - mi.y) * c; if (Math.abs(lx) < mi.L / 2 && Math.abs(ly) < mi.w / 2) return { k: 'mito', n: 'Mitochondrion', s: 'Cristae & ATP synthase' }; }
+    if (Math.hypot(x - NUC.x, y - NUC.y) < NUC.r) { let bd = 1e9, bo = 0; for (const c of D.chrom) for (let i = 1; i < c.length; i++) { const dd = Math.hypot(x - c[i][0], y - c[i][1]); if (dd < bd) { bd = dd; bo = Math.atan2(c[i][1] - c[i - 1][1], c[i][0] - c[i - 1][0]) + Math.PI / 2; } }
+      if (bd < 9) return { k: 'dna', n: 'Nucleus', s: 'Chromatin › DNA', o: bo }; return { k: 'nuc', n: Math.hypot(x + 200, y + 80) < 80 ? 'Nucleolus' : 'Nucleus', s: 'Nucleoplasm' }; }
+    for (const r of D.ribs) if (Math.abs(x - r.x) < 10 && Math.abs(y - r.y) < 10) return { k: 'ribo', n: 'Ribosome', s: 'Protein chain' };
+    for (const l of D.lyso) if (Math.hypot(x - l.x, y - l.y) < l.r) return { k: 'prot', n: 'Lysosome', s: 'Enzymes' };
+    if (Math.hypot(x - D.golgi.x, y - D.golgi.y) < 150) return { k: 'prot', n: 'Golgi apparatus', s: 'Cisterna' };
+    for (const s_ of D.rer) for (const p of s_) if (Math.hypot(x - p[0], y - p[1]) < 16) return { k: 'prot', n: 'Rough ER', s: 'ER sheet' };
+    return { k: 'cyto', n: 'Cytosol', s: 'Crowded fluid' }; }
+  function mol(i, j) { if (cacheTm !== tm) { CACHE.clear(); cacheTm = tm; } const key = i + ',' + j; let m = CACHE.get(key); if (m !== undefined) return m;
+    const cxw = (i + .5) * TILE, cyw = (j + .5) * TILE, R = rng(((i * 73856093) ^ (j * 19349663)) | 0), g = regionAt(cxw, cyw);
+    let roll = R() * 100, type = null; for (const [tp, w] of MIX[g.k]) { if ((roll -= w) < 0) { type = tp; break; } }
+    if (!type) { CACHE.set(key, null); return null; }
+    const vs = TPL[type], tp = vs[(R() * vs.length) | 0], ang = g.o != null ? g.o + (R() - .5) * .3 : R() * 6.283, X = cxw + (R() - .5) * TILE * .55, Y = cyw + (R() - .5) * TILE * .55, c = Math.cos(ang), s_ = Math.sin(ang);
+    const tf = ([e, ax, ay]) => ({ e, x: X + (ax * c - ay * s_) * A, y: Y + (ax * s_ + ay * c) * A, sd: (ax * 7.1 + ay * 3.3) });
+    m = { type, key: MKEY[type], col: MCOL[type], x: X, y: Y, r: tp.r, at: tp.at.map(tf), bd: tp.bd, co: tp.co.map(tf) };
+    if (CACHE.size > 12000) CACHE.clear(); CACHE.set(key, m); return m; }
+  function tilesInView(pad) { const [x0, y0] = s2w(-pad, -pad), [x1, y1] = s2w(VW() + pad, VH() + pad); return [Math.floor(x0 / TILE), Math.floor(y0 / TILE), Math.floor(x1 / TILE), Math.floor(y1 / TILE)]; }
+  const S2 = (x, y) => [(x - cam.x) * cam.z + VW() / 2 + offs[0], (y - cam.y) * cam.z + VH() / 2 + offs[1]];
+  function drawDeep() {
+    const z = cam.z, ma = sm(42, 85, z); if (ma <= .01) return;
+    const apx = A * z, [i0, j0, i1, j1] = tilesInView(60); if ((i1 - i0 + 1) * (j1 - j0 + 1) > 9000) return;
+    const coarseA = ma * (1 - sm(220, 420, z)), atomA = ma * sm(220, 420, z), W_ = VW(), H_ = VH();
+    if (coarseA > .01) { cx.globalCompositeOperation = 'lighter'; const sz = Math.max(3, 2.4 * apx) * 2.2;
+      for (let i = i0; i <= i1; i++) for (let j = j0; j <= j1; j++) { const m = mol(i, j); if (!m) continue; const spr = glowS(m.col); cx.globalAlpha = coarseA * (m.type === 'water' ? .5 : .85);
+        if (apx < 1.6 / Q) { const [sx, sy] = S2(m.x, m.y), k = Math.max(sz, m.r * apx * 1.6); cx.drawImage(spr, sx - k / 2, sy - k / 2, k, k); continue; }
+        for (const a of m.co) { const [sx, sy] = S2(a.x, a.y); cx.drawImage(spr, sx - sz / 2, sy - sz / 2, sz, sz); } }
+      cx.globalCompositeOperation = 'source-over'; cx.globalAlpha = 1; }
+    if (atomA > .01) { const inside = [];
+      for (let i = i0; i <= i1; i++) for (let j = j0; j <= j1; j++) { const m = mol(i, j); if (!m) continue;
+        const [mx, my] = S2(m.x, m.y), mr = m.r * apx + 30; if (mx < -mr || my < -mr || mx > W_ + mr || my > H_ + mr) continue;
+        if (apx < 70) { cx.globalAlpha = atomA * Math.min(1, (70 - apx) / 30); cx.lineCap = 'round'; cx.lineWidth = Math.max(1, Math.min(.28 * apx, 14)); cx.strokeStyle = 'rgba(200,225,245,.55)'; cx.beginPath();
+          for (const [p, q2] of m.bd) { const a = m.at[p], b = m.at[q2], [ax, ay] = S2(a.x, a.y), [bx, by] = S2(b.x, b.y); cx.moveTo(ax, ay); cx.lineTo(bx, by); } cx.stroke();
+          if (m.type === 'dna' && apx > 6) { cx.setLineDash([4, 4]); cx.lineWidth = 1.2; cx.strokeStyle = 'rgba(255,211,107,.6)'; cx.beginPath(); const a = S2(m.at[2].x, m.at[2].y), b = S2(m.at[2].x, m.at[2].y); cx.stroke(); cx.setLineDash([]); } }
+        for (const a of m.at) { const e = EL[a.e], R = e.r * apx, [sx, sy] = S2(a.x, a.y); if (sx < -R * 2 || sy < -R * 2 || sx > W_ + R * 2 || sy > H_ + R * 2) continue;
+          const ia = R > 90 ? Math.min(1, (R - 90) / 150) : 0; if (ia > 0) inside.push([a, R, sx, sy, ia]);
+          if (ia < 1) { cx.globalAlpha = atomA * (1 - ia); const k = R * SK; cx.drawImage(sphereS(e.c), sx - k, sy - k, 2 * k, 2 * k);
+            if (R >= 13 && R < 160) { cx.globalAlpha = atomA * (1 - ia) * .9; cx.font = `700 ${Math.min(22, R * .7).toFixed(0)}px system-ui,sans-serif`; cx.textAlign = 'center'; cx.textBaseline = 'middle'; cx.fillStyle = '#04060f'; cx.fillText(a.e, sx, sy + 1); } } } }
+      cx.globalAlpha = 1; for (const it of inside) atomInside(...it); }
+    cx.globalAlpha = 1; }
+  function atomInside(a, R, sx, sy, al) { const e = EL[a.e];
+    cx.globalAlpha = al; let g = cx.createRadialGradient(sx, sy, 0, sx, sy, R * 1.5); g.addColorStop(0, e.c + '50'); g.addColorStop(.45, e.c + '22'); g.addColorStop(1, e.c + '00'); cx.fillStyle = g; cx.beginPath(); cx.arc(sx, sy, R * 1.5, 0, 6.283); cx.fill();
+    // electron "cloud": where an electron is likely to be found (twinkling dots)
+    const Rr = rng(Math.abs(Math.round(a.sd * 1000)) + 7); cx.globalCompositeOperation = 'lighter'; const spr = glowS('#9ff5ea');
+    for (let k = 0; k < 170; k++) { const u1 = Rr() || 1e-6, u2 = Rr(), rr = Math.sqrt(-2 * Math.log(u1)) * .42 * R, an = u2 * 6.283 + t * .05 * (k % 2 ? 1 : -1); const tw = .35 + .65 * Math.abs(Math.sin(t * 1.3 + k * 1.7));
+      const x = sx + Math.cos(an) * rr, y = sy + Math.sin(an) * rr, sz = 5 + (k % 3) * 2; cx.globalAlpha = al * .5 * tw; cx.drawImage(spr, x - sz / 2, y - sz / 2, sz, sz); }
+    cx.globalCompositeOperation = 'source-over'; cx.globalAlpha = al * .35; cx.setLineDash([3, 7]); cx.lineWidth = 1; cx.strokeStyle = '#9ff5ea';
+    for (const f of (e.p > 2 ? [.35, .75] : [.6])) { cx.beginPath(); cx.arc(sx, sy, R * f, 0, 6.283); cx.stroke(); } cx.setLineDash([]);
+    // nucleus: protons (orange-red) and neutrons (blue-grey), drawn MUCH bigger than real
+    const Rn = Math.max(5, R * .05), n = e.p + e.n, ns = Rn / Math.sqrt(n) * 1.25; cx.globalAlpha = al; const glo = Rn * 4; cx.drawImage(glowS('#ffd36b'), sx - glo, sy - glo, glo * 2, glo * 2);
+    for (let k = 0; k < n; k++) { const rr = Rn * Math.sqrt((k + .5) / n), an = k * 2.39996; const x = sx + Math.cos(an) * rr, y = sy + Math.sin(an) * rr, kk = ns * SK;
+      cx.drawImage(sphereS((k * 7) % n < e.p ? '#ff7a5a' : '#9fb3c8'), x - kk, y - kk, kk * 2, kk * 2); }
+    if (R > 260) { cx.globalAlpha = al * .85; cx.font = '600 12px system-ui,sans-serif'; cx.textAlign = 'center'; cx.fillStyle = '#e8f4ff'; cx.fillText(`${e.nm} nucleus · ${e.p} proton${e.p > 1 ? 's' : ''}${e.n ? ', ' + e.n + ' neutrons' : ''}`, sx, sy + Rn + ns + 18);
+      cx.fillStyle = '#a8b9d2'; cx.fillText('(really ~100,000× smaller than the atom)', sx, sy + Rn + ns + 34); }
+    cx.globalAlpha = 1; }
+  function deepLabels() { const z = cam.z; if (z < 100 || z > 900) return; const apx = A * z, [ci, cj] = [Math.floor(cam.x / TILE), Math.floor(cam.y / TILE)], ms = [];
+    for (let i = ci - 2; i <= ci + 2; i++) for (let j = cj - 2; j <= cj + 2; j++) { const m = mol(i, j); if (m) ms.push(m); }
+    ms.sort((a, b) => Math.hypot(a.x - cam.x, a.y - cam.y) - Math.hypot(b.x - cam.x, b.y - cam.y)); const seen = new Set(); let n = 0;
+    cx.font = '600 13px system-ui,sans-serif'; cx.textAlign = 'center'; cx.textBaseline = 'middle';
+    for (const m of ms) { if (n >= 3 || seen.has(m.type)) continue; seen.add(m.type); n++; const [sx, sy0] = S2(m.x, m.y), sy = sy0 - m.r * apx - 14, txt = P[m.key].n, w = cx.measureText(txt).width + 16;
+      if (sy < TOP() + 30) continue; cx.globalAlpha = Math.min(1, sm(100, 160, z) * (1 - sm(500, 900, z)) * 1.2); cx.fillStyle = 'rgba(6,12,28,.8)'; cx.strokeStyle = m.col + '99'; cx.lineWidth = 1; cx.beginPath(); cx.roundRect ? cx.roundRect(sx - w / 2, sy - 11, w, 22, 11) : cx.rect(sx - w / 2, sy - 11, w, 22); cx.fill(); cx.stroke(); cx.fillStyle = '#e8f4ff'; cx.fillText(txt, sx, sy + .5); }
+    cx.globalAlpha = 1; }
+  function deepHit(wx, wy) { const z = cam.z, apx = A * z, slop = 14 / z, i = Math.floor(wx / TILE), j = Math.floor(wy / TILE); let best = null, bd = 1e9;
+    for (let di = -1; di <= 1; di++) for (let dj = -1; dj <= 1; dj++) { const m = mol(i + di, j + dj); if (!m) continue;
+      if (apx >= 3) { for (const a of m.at) { const d = Math.hypot(wx - a.x, wy - a.y) - EL[a.e].r * A; if (d < slop && d < bd) { bd = d; best = [m, a]; } } }
+      else for (const a of m.co) { const d = Math.hypot(wx - a.x, wy - a.y) - 2.4 * A; if (d < slop && d < bd) { bd = d; best = [m, null]; } } }
+    if (!best) return null; const [m, a] = best;
+    if (!a || apx < 9) return [m.key, m.x, m.y, Math.max(m.r, 12) * A];
+    const ra = EL[a.e].r * A, R = EL[a.e].r * apx;
+    if (R > 90) { const dn = Math.hypot(wx - a.x, wy - a.y); return dn < Math.max(9 / z, ra * .08) ? ['anuc', a.x, a.y, ra * .12] : ['cloud', a.x, a.y, ra * 1.25]; }
+    return ['el' + a.e, a.x, a.y, ra * 6]; }
+  function nearestAtom(wx, wy) { const i = Math.floor(wx / TILE), j = Math.floor(wy / TILE); let b = null, bd = 1e9;
+    for (let di = -1; di <= 1; di++) for (let dj = -1; dj <= 1; dj++) { const m = mol(i + di, j + dj); if (m) for (const a of m.at) { const d = Math.hypot(wx - a.x, wy - a.y); if (a.e !== 'H' && d < bd) { bd = d; b = a; } } }
+    return b && { x: b.x, y: b.y, e: b.e, r: EL[b.e].r * A }; }
+  let crumbTxt = '';
+  function crumb() { const z = cam.z, g = regionAt(cam.x, cam.y), parts = ['Cell'];
+    if (z >= 1.6 && g.k !== 'cyto' && g.k !== 'out') parts.push(g.n); else if (z >= 1.6) parts.push(g.n);
+    if (z >= 8) parts.push(g.s);
+    let hintT = 'Tap any part to learn about it · pinch or scroll to zoom';
+    if (z >= 70) { const m = mol(Math.floor(cam.x / TILE), Math.floor(cam.y / TILE)); parts.push('Molecules' + (m ? ': ' + P[m.key].n : '')); hintT = 'Keep zooming: every molecule is made of atoms'; }
+    if (z >= 380) { const a = nearestAtom(cam.x, cam.y); parts.push('Atoms' + (a ? ': ' + EL[a.e].nm : '')); hintT = 'Zoom into one atom to look inside it';
+      if (a && a.r * z > 90) { parts.push('Inside an atom'); hintT = 'Mostly empty space: a tiny nucleus in a cloud of electrons'; } }
+    const txt = parts.join(' › '); if (txt !== crumbTxt) { crumbTxt = txt; crEl.textContent = txt; } if (hint.textContent !== hintT) hint.textContent = hintT; }
+  // gentle parallax dust behind everything + soft vignette
+  let BG = null, VIG = null, vigKey = '';
+  function background(w, h) { if (!BG) { const R = rng(55); BG = [0, 1].map(L => Array.from({ length: L ? 26 : 60 }, () => ({ x: R(), y: R(), s: (L ? 5 : 2.2) + R() * (L ? 6 : 2), a: (L ? .1 : .25) + R() * .2, c: R() < .7 ? '#4ff3e3' : '#ffd36b' }))); }
+    cx.globalCompositeOperation = 'lighter'; BG.forEach((L, li) => { const f = li ? .09 : .03; for (const p of L) { let x = (p.x * w - cam.x * cam.z * f + Math.sin(t * .1 + p.y * 9) * 6) % w, y = (p.y * h - cam.y * cam.z * f) % h; if (x < 0) x += w; if (y < 0) y += h;
+      cx.globalAlpha = p.a; const sz = p.s * 2; cx.drawImage(glowS(p.c), x - sz / 2, y - sz / 2, sz, sz); } }); cx.globalAlpha = 1; cx.globalCompositeOperation = 'source-over'; }
+  function vignette(w, h) { const k = w + 'x' + h; if (k !== vigKey) { vigKey = k; VIG = cx.createRadialGradient(w / 2, h / 2, Math.min(w, h) * .35, w / 2, h / 2, Math.hypot(w, h) * .6); VIG.addColorStop(0, 'rgba(2,4,10,0)'); VIG.addColorStop(1, 'rgba(2,4,10,.6)'); }
+    cx.fillStyle = VIG; cx.fillRect(0, 0, w, h); }
+
+  // ---------- camera ----------
+  const VW = () => cv.clientWidth, VH = () => cv.clientHeight;
+  const TOP = () => mob() ? 56 : 60;
+  function fitZ() { return Math.min(VW() / (RX * 2.15), (VH() - TOP() - 20) / (RY * 2.15)); }
+  const ZMAX = 4e5;
+  const clampZ = z => Math.max(fitZ() * .8, Math.min(ZMAX, z));
+  function centreOff() { // where the focused thing should sit (leave room for the card)
+    if (!sel) return [0, TOP() / 2];
+    return mob() ? [0, -VH() * .2 + TOP() / 2] : [-170, TOP() / 2]; }
+  const w2s = (x, y) => [(x - cam.x) * cam.z + VW() / 2 + offs[0], (y - cam.y) * cam.z + VH() / 2 + offs[1]];
+  const s2w = (X, Y) => [(X - VW() / 2 - offs[0]) / cam.z + cam.x, (Y - VH() / 2 - offs[1]) / cam.z + cam.y];
+  function animTo(x, y, z, ms = 900) { anim = { f: { ...cam, o0: offs[0], o1: offs[1] }, t: { x, y, z: clampZ(z) }, o: centreOff(), s: performance.now(), ms: RM() ? 1 : ms }; }
+  function zoomAt(X, Y, f) { const [wx, wy] = s2w(X, Y); const z = clampZ(cam.z * f); cam.x = wx - (X - VW() / 2 - offs[0]) / z; cam.y = wy - (Y - VH() / 2 - offs[1]) / z; cam.z = z; anim = null; }
+  function fit() { sel = null; showPop(); animTo(0, 0, fitZ()); }
+
+  // ---------- drawing ----------
+  let VB; // visible world box
+  const vis = (x, y, r) => x + r > VB[0] && x - r < VB[2] && y + r > VB[1] && y - r < VB[3];
+  function path(pts) { cx.beginPath(); pts.forEach(([x, y], i) => i ? cx.lineTo(x, y) : cx.moveTo(x, y)); }
+  function frame(now) {
+    if (!alive) return; raf = requestAnimationFrame(frame);
+    const dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
+    fpsN++; if (now - fpsT > 1000) { fps = fpsN * 1000 / (now - fpsT); fpsN = 0; fpsT = now; root.dataset.fps = fps.toFixed(0); }
+    if (!paused) t += dt * speed;
+    if (anim) { let u = Math.min(1, (now - anim.s) / anim.ms); const e = u < .5 ? 2 * u * u : 1 - (-2 * u + 2) ** 2 / 2;
+      const lz = Math.log(anim.f.z) + (Math.log(anim.t.z) - Math.log(anim.f.z)) * e;
+      cam.x = anim.f.x + (anim.t.x - anim.f.x) * e; cam.y = anim.f.y + (anim.t.y - anim.f.y) * e; cam.z = Math.exp(lz);
+      offs = [anim.f.o0 + (anim.o[0] - anim.f.o0) * e, anim.f.o1 + (anim.o[1] - anim.f.o1) * e]; if (u >= 1) anim = null; }
+    if (cam.z < 25) tm = t; adapt(now);
+    const dpr = Math.min(mob() ? 1.5 : 2, devicePixelRatio || 1) * (Q < .5 ? .8 : 1), w = VW(), h = VH();
+    if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+    cx.setTransform(dpr, 0, 0, dpr, 0, 0); cx.clearRect(0, 0, w, h);
+    const [x0, y0] = s2w(0, 0), [x1, y1] = s2w(w, h); VB = [x0, y0, x1, y1];
+    background(w, h);
+    const ca = 1 - sm(40, 85, cam.z);
+    if (ca > .01) { cx.setTransform(dpr * cam.z, 0, 0, dpr * cam.z, dpr * (w / 2 + offs[0] - cam.x * cam.z), dpr * (h / 2 + offs[1] - cam.y * cam.z)); cx.globalAlpha = ca; draw(cam.z); cx.globalAlpha = 1; }
+    cx.setTransform(dpr, 0, 0, dpr, 0, 0); drawDeep(); vignette(w, h); if (cam.z < 60) labels(); deepLabels(); scale(); crumb();
+  }
+  const Z = () => cam.z, px = n => n / cam.z; // px(n) = world size of n screen pixels
+  function draw(z) {
+    const d = D;
+    // cytoplasm fill
+    cx.save(); cx.beginPath(); for (let i = 0; i <= 160; i++) { const [x, y] = memPt(i / 160 * 6.2832, tm); i ? cx.lineTo(x, y) : cx.moveTo(x, y); } cx.closePath();
+    const g = cx.createRadialGradient(0, 0, 100, 0, 0, RX); g.addColorStop(0, 'rgba(24,52,82,.6)'); g.addColorStop(.7, 'rgba(12,32,60,.72)'); g.addColorStop(1, 'rgba(8,24,48,.85)'); cx.fillStyle = g; cx.fill();
+    { const g2 = cx.createRadialGradient(-380, -320, 40, -380, -320, 1000); g2.addColorStop(0, 'rgba(79,243,227,.09)'); g2.addColorStop(1, 'rgba(79,243,227,0)'); cx.fillStyle = g2; cx.fill(); }
+    cx.lineWidth = Math.max(px(34), 70); cx.strokeStyle = 'rgba(79,243,227,.05)'; cx.stroke(); cx.lineWidth = Math.max(px(14), 26); cx.strokeStyle = 'rgba(79,243,227,.12)'; cx.stroke();
+    cx.lineWidth = Math.max(px(3), 9); cx.strokeStyle = 'rgba(79,243,227,.8)'; cx.stroke();
+    if (z > .6 && z < 2.6) { cx.save(); cx.globalAlpha *= Math.min(1, (z - .6) * 2) * Math.min(1, (2.6 - z) * 2); cx.setLineDash([px(2.2), px(5)]); cx.lineWidth = Math.max(px(4), 6); cx.strokeStyle = 'rgba(255,211,107,.55)'; cx.stroke(); cx.restore(); }
+    cx.lineWidth = Math.max(px(1), 3); cx.strokeStyle = 'rgba(255,211,107,.55)'; cx.stroke();
+    cx.clip();
+    // specks (cytosol crowding)
+    { const n = Math.floor(d.specks.length * Q), ga = cx.globalAlpha; for (let i = 0; i < n; i++) { const s = d.specks[i], dep = i % 3, x = s.x + Math.sin(t * s.f * .6 + s.ph) * (10 + dep * 6), y = s.y + Math.cos(t * s.f * .5 + s.ph) * (10 + dep * 6); if (!vis(x, y, 12)) continue;
+      const sz = Math.max([5, 8, 12][dep], px([3, 5, 8][dep])); cx.globalAlpha = ga * [.5, .32, .16][dep]; cx.drawImage(glowS(dep === 2 ? '#c58cff' : '#9fd8ff'), x - sz / 2, y - sz / 2, sz, sz); } cx.globalAlpha = ga; }
+    // actin cortex
+    if (z > .5) { cx.strokeStyle = `rgba(255,120,190,${Math.min(.35, (z - .5) * .5)})`; cx.lineWidth = Math.max(px(.8), 1.6);
+      for (const a of d.actin) { const [x, y] = memPt(a.a, tm, a.k); if (!vis(x, y, a.l)) continue; cx.beginPath(); cx.moveTo(x, y); cx.lineTo(x + Math.cos(a.d) * a.l, y + Math.sin(a.d) * a.l); cx.stroke(); } }
+    // microtubules
+    for (const m of d.mts) { path(m.p.length === 3 ? Array.from({ length: 21 }, (_, i) => q(m.p, i / 20)) : m.p);
+      if (z > 2) { cx.lineWidth = 12; cx.strokeStyle = 'rgba(79,243,227,.22)'; cx.stroke(); cx.lineWidth = Math.max(px(1), 1.2); cx.strokeStyle = 'rgba(79,243,227,.5)'; cx.setLineDash([5, 4]); cx.stroke(); cx.setLineDash([]); }
+      else { cx.lineWidth = Math.max(px(1.1), 2.5); cx.strokeStyle = 'rgba(79,243,227,.28)'; cx.stroke(); } }
+    // smooth ER
+    cx.lineCap = 'round'; cx.lineJoin = 'round';
+    for (const s of d.ser) { path(s); cx.lineWidth = 16; cx.strokeStyle = 'rgba(120,170,255,.22)'; cx.stroke(); cx.lineWidth = Math.max(px(1), 2); cx.strokeStyle = 'rgba(140,190,255,.55)'; cx.stroke(); }
+    // rough ER
+    for (const s of d.rer) { path(s); cx.lineWidth = 26; cx.strokeStyle = 'rgba(79,243,227,.14)'; cx.stroke(); cx.lineWidth = Math.max(px(1.2), 2.4); cx.strokeStyle = 'rgba(79,243,227,.5)'; cx.stroke(); }
+    // golgi
+    const GO = d.golgi; cx.save(); cx.translate(GO.x, GO.y); cx.rotate(GO.a);
+    for (let i = 0; i < 6; i++) { const r = 110 + i * 26, sp = .75 - i * .04; cx.beginPath(); cx.arc(-200, 0, r, -sp, sp); cx.lineWidth = 17; cx.strokeStyle = `rgba(255,211,107,${.32 - i * .02})`; cx.stroke();
+      cx.lineWidth = Math.max(px(1), 2); cx.strokeStyle = 'rgba(255,211,107,.75)'; cx.stroke(); }
+    for (let i = 0; i < 6; i++) { const a = (i / 6 - .5) * 1.5, r = 270 + ((t * 30 + i * 37) % 70); cx.beginPath(); cx.arc(-200 + Math.cos(a) * r, Math.sin(a) * r, 11, 0, 6.283); cx.fillStyle = 'rgba(255,211,107,.35)'; cx.fill(); cx.strokeStyle = 'rgba(255,211,107,.8)'; cx.lineWidth = Math.max(px(1), 1.5); cx.stroke(); }
+    cx.restore();
+    // nucleus
+    cx.beginPath(); cx.arc(NUC.x, NUC.y, NUC.r + 4 * Math.sin(t * .5), 0, 6.283);
+    const gn = cx.createRadialGradient(NUC.x - 100, NUC.y - 110, 20, NUC.x, NUC.y, NUC.r); gn.addColorStop(0, 'rgba(140,96,205,.85)'); gn.addColorStop(.5, 'rgba(72,44,128,.85)'); gn.addColorStop(1, 'rgba(34,22,82,.92)'); cx.fillStyle = gn; cx.fill();
+    cx.lineWidth = 46; cx.strokeStyle = 'rgba(197,140,255,.08)'; cx.stroke(); cx.lineWidth = 16; cx.strokeStyle = 'rgba(197,140,255,.3)'; cx.stroke(); cx.lineWidth = Math.max(px(1.2), 2.5); cx.strokeStyle = 'rgba(217,184,255,.85)'; cx.stroke();
+    // nucleolus
+    cx.beginPath(); cx.arc(-200, -80, 80, 0, 6.283); { const gl = cx.createRadialGradient(-225, -105, 5, -200, -80, 80); gl.addColorStop(0, 'rgba(220,170,255,.75)'); gl.addColorStop(1, 'rgba(120,70,180,.5)'); cx.fillStyle = gl; } cx.fill();
+    // chromatin / DNA
+    for (let ci = 0; ci < d.chrom.length; ci++) { const c = d.chrom[ci];
+      if (z < 3.5) { path(c); cx.lineWidth = 5; cx.strokeStyle = 'rgba(255,140,220,.5)'; cx.stroke(); continue; }
+      for (let i = 1; i < c.length; i++) { const [ax, ay] = c[i - 1], [bx, by] = c[i]; if (!vis(ax, ay, 30)) continue; const dx = bx - ax, dy = by - ay, L = Math.hypot(dx, dy), nx = -dy / L, ny = dx / L;
+        // histone spool every 3rd segment
+        if (i % 4 === 0) { cx.beginPath(); cx.arc(ax, ay, 4.2, 0, 6.283); cx.fillStyle = 'rgba(160,120,255,.6)'; cx.fill(); }
+        const A = 2.4, steps = 16; for (const ph of [0, Math.PI]) { cx.beginPath(); for (let k = 0; k <= steps; k++) { const u = k / steps, s = Math.sin((i + u) * 6.283 + ph + t * .4) * A; const x = ax + dx * u + nx * s, y = ay + dy * u + ny * s; k ? cx.lineTo(x, y) : cx.moveTo(x, y); }
+          cx.lineWidth = .7; cx.strokeStyle = ph ? 'rgba(79,243,227,.95)' : 'rgba(255,140,220,.95)'; cx.stroke(); }
+        if (z > 5) { const cols = ['#3dff8a', '#ffa53d', '#4ff3e3', '#ff6b9a']; for (let k = 0; k < 8; k++) { const u = (k + .5) / 8, s = Math.sin((i + u) * 6.283 + t * .4) * A; const x = ax + dx * u, y = ay + dy * u;
+          cx.beginPath(); cx.moveTo(x + nx * s, y + ny * s); cx.lineTo(x - nx * s, y - ny * s); cx.lineWidth = .35; cx.strokeStyle = cols[(i * 8 + k + ci) % 4]; cx.stroke(); } } } }
+    // transcription: polymerase moving along chromatin 0, making red mRNA
+    { const c = d.chrom[0], u = (t * .05) % 1, i = Math.max(1, Math.floor(u * (c.length - 1))); const [x, y] = c[i]; cx.beginPath(); cx.arc(x, y, 7, 0, 6.283); cx.fillStyle = 'rgba(255,211,107,.9)'; cx.fill();
+      if (z > 1.5) { cx.beginPath(); cx.moveTo(x, y); for (let k = 0; k < 12; k++) cx.lineTo(x + k * 3, y - k * 2 + Math.sin(t * 2 + k) * 3); cx.lineWidth = 1.2; cx.strokeStyle = '#ff4d5e'; cx.stroke(); } }
+    // nuclear pores
+    for (const a of d.pores) { const x = NUC.x + Math.cos(a) * NUC.r, y = NUC.y + Math.sin(a) * NUC.r; if (!vis(x, y, 20)) continue;
+      cx.beginPath(); cx.arc(x, y, 9, 0, 6.283); cx.fillStyle = '#0b1530'; cx.fill(); cx.lineWidth = Math.max(px(1), 2.2); cx.strokeStyle = '#ffd36b'; cx.stroke();
+      if (z > 3) for (let k = 0; k < 8; k++) { const b = k / 8 * 6.283; cx.beginPath(); cx.arc(x + Math.cos(b) * 9, y + Math.sin(b) * 9, 1.6, 0, 6.283); cx.fillStyle = '#ffd36b'; cx.fill(); } }
+    // mitochondria
+    for (const m of d.mitos) { if (!vis(m.x, m.y, m.L)) continue; cx.save(); cx.translate(m.x, m.y); cx.rotate(m.a + Math.sin(t * .2 + m.ph) * .05);
+      const L = m.L / 2, w = m.w / 2; cx.beginPath(); cx.moveTo(-L + w, -w); cx.lineTo(L - w, -w); cx.arc(L - w, 0, w, -1.5708, 1.5708); cx.lineTo(-L + w, w); cx.arc(-L + w, 0, w, 1.5708, 4.712); cx.closePath();
+      { const gm = cx.createLinearGradient(0, -w, 0, w); gm.addColorStop(0, 'rgba(255,190,110,.45)'); gm.addColorStop(.45, 'rgba(255,140,60,.3)'); gm.addColorStop(1, 'rgba(120,45,15,.4)'); cx.fillStyle = gm; } cx.fill();
+      cx.lineWidth = 16; cx.strokeStyle = 'rgba(255,165,61,.1)'; cx.stroke(); cx.lineWidth = Math.max(px(1.3), 3); cx.strokeStyle = 'rgba(255,175,80,.95)'; cx.stroke();
+      // cristae
+      cx.beginPath(); const n = Math.floor(m.L / 26); for (let i = 1; i < n; i++) { const x = -L + i * (m.L / n), up = i % 2; cx.moveTo(x, up ? -w + 5 : w - 5); cx.quadraticCurveTo(x + 8, 0, x, up ? w * .35 : -w * .35); }
+      cx.lineWidth = Math.max(px(1), 2); cx.strokeStyle = 'rgba(255,211,107,.75)'; cx.stroke();
+      if (z > 5) for (let i = 1; i < n; i++) { const x = -L + i * (m.L / n), up = i % 2; for (let k = 0; k < 4; k++) { const yy = (up ? -w + 8 : w - 8) * (1 - k * .22); const sp = t * 6 + i + k;
+        cx.beginPath(); cx.moveTo(x, yy); cx.lineTo(x + 4, yy); cx.lineWidth = .5; cx.strokeStyle = '#ffd36b'; cx.stroke(); cx.beginPath(); cx.arc(x + 5.5, yy, 1.5, sp, sp + 4.5); cx.stroke(); } }
+      cx.restore(); }
+    // ATP sparks
+    if (!paused && D.atp.length < 160 && Math.random() < .9 * speed) { const m = d.mitos[(Math.random() * d.mitos.length) | 0]; const a = Math.random() * 6.283; d.atp.push({ x: m.x, y: m.y, vx: Math.cos(a) * 60, vy: Math.sin(a) * 60, life: 0 }); }
+    cx.globalCompositeOperation = 'lighter';
+    for (let i = d.atp.length - 1; i >= 0; i--) { const s = d.atp[i]; if (!paused) { s.life += .016 * speed; s.x += s.vx * .016 * speed; s.y += s.vy * .016 * speed; } if (s.life > 2.4) { d.atp.splice(i, 1); continue; }
+      if (!vis(s.x, s.y, 10)) continue; const al = Math.min(1, s.life * 3) * (1 - s.life / 2.4), ga = cx.globalAlpha, sz = Math.max(px(12), 26); cx.globalAlpha = ga * al; cx.drawImage(glowS('#ffd36b'), s.x - sz / 2, s.y - sz / 2, sz, sz); cx.globalAlpha = ga; }
+    cx.globalCompositeOperation = 'source-over';
+    // lysosomes
+    for (const l of d.lyso) { if (!vis(l.x, l.y, l.r)) continue; cx.beginPath(); cx.arc(l.x, l.y, l.r, 0, 6.283); { const gy = cx.createRadialGradient(l.x - l.r * .35, l.y - l.r * .4, 1, l.x, l.y, l.r); gy.addColorStop(0, 'rgba(235,210,255,.55)'); gy.addColorStop(1, 'rgba(120,70,190,.3)'); cx.fillStyle = gy; } cx.fill(); cx.lineWidth = Math.max(px(1.2), 2.4); cx.strokeStyle = '#c58cff'; cx.stroke();
+      for (let k = 0; k < 6; k++) { const a = k + t * .3 + l.ph, r = l.r * .55; cx.beginPath(); cx.arc(l.x + Math.cos(a) * r, l.y + Math.sin(a * 1.3) * r, 3, 0, 6.283); cx.fillStyle = 'rgba(230,200,255,.8)'; cx.fill(); } }
+    // vaults (tiny barrels)
+    for (const v of d.vaults) { if (!vis(v.x, v.y, 10)) continue; cx.save(); cx.translate(v.x, v.y); cx.rotate(v.a); cx.beginPath(); cx.ellipse(0, 0, 7, 4, 0, 0, 6.283); cx.lineWidth = Math.max(px(1), .8); cx.strokeStyle = '#ffa53d'; cx.stroke();
+      if (z > 6) { cx.beginPath(); for (let k = -2; k <= 2; k++) { cx.moveTo(k * 2.4, -3.6); cx.lineTo(k * 2.4, 3.6); } cx.lineWidth = .25; cx.stroke(); } cx.restore(); }
+    // centrosome
+    { const c = d.cent; cx.save(); cx.translate(c.x, c.y); cx.fillStyle = 'rgba(79,243,227,.25)'; cx.strokeStyle = '#4ff3e3'; cx.lineWidth = Math.max(px(1), 2);
+      cx.beginPath(); cx.rect(-30, -12, 60, 24); cx.fill(); cx.stroke(); cx.beginPath(); cx.rect(-12, 8, 24, 60); cx.fill(); cx.stroke();
+      if (z > 3) { cx.lineWidth = .6; for (let k = 0; k < 9; k++) { cx.beginPath(); cx.moveTo(-30, -10 + k * 2.5); cx.lineTo(30, -10 + k * 2.5); cx.stroke(); } } cx.restore(); }
+    // ribosomes
+    const rz = z; for (const r of d.ribs) { if (!vis(r.x, r.y, 20)) continue;
+      if (rz < 2.5) { const sz = Math.max(13, px(4)); cx.drawImage(glowS(r.er ? '#7ff0e3' : '#ffd36b'), r.x - sz / 2, r.y - sz / 2, sz, sz); continue; }
+      cx.save(); cx.translate(r.x, r.y); cx.rotate(r.ang);
+      if (rz > 5) { cx.beginPath(); cx.moveTo(-14, 3.5); cx.lineTo(14, 3.5); cx.lineWidth = .5; cx.strokeStyle = '#ff4d5e'; cx.stroke(); // mRNA
+        const n = 3 + Math.floor(((t * 1.5 + r.ph) % 14)); cx.beginPath(); let x = 0, y = -6; cx.moveTo(x, y); const pts = [];
+        for (let k = 0; k < n; k++) { x += Math.sin(k * 1.7 + r.ph + t) * 1.4; y -= 1.6; pts.push([x, y]); cx.lineTo(x, y); } cx.lineWidth = .35; cx.strokeStyle = '#3dff8a'; cx.stroke();
+        for (const [bx, by] of pts) { cx.beginPath(); cx.arc(bx, by, .55, 0, 6.283); cx.fillStyle = '#3dff8a'; cx.fill(); } }
+      cx.beginPath(); cx.ellipse(0, -1.5, 6, 4.2, 0, 0, 6.283); cx.fillStyle = 'rgba(255,211,107,.95)'; cx.fill();
+      cx.beginPath(); cx.ellipse(0, 3.5, 4.5, 2.6, 0, 0, 6.283); cx.fillStyle = 'rgba(127,240,227,.95)'; cx.fill(); cx.restore(); }
+    // vesicles on microtubules
+    for (const v of d.ves) { if (!paused) { v.p += v.v * .016 * speed; if (v.p > 1) { v.p = 0; v.mt = (Math.random() * d.mts.length) | 0; } }
+      const m = d.mts[v.mt]; const [x, y] = q(m.p, Math.min(1, v.p)); if (!vis(x, y, 30)) continue; const fade = v.p > .93 ? (1 - v.p) / .07 : 1;
+      cx.beginPath(); cx.arc(x, y, v.r * (v.p > .93 ? 1 + (v.p - .93) * 4 : 1), 0, 6.283); { const gv = cx.createRadialGradient(x - v.r * .35, y - v.r * .4, 1, x, y, v.r); gv.addColorStop(0, `rgba(255,240,200,${.6 * fade})`); gv.addColorStop(1, `rgba(255,190,80,${.18 * fade})`); cx.fillStyle = gv; } cx.fill(); cx.lineWidth = Math.max(px(1), 2); cx.strokeStyle = `rgba(255,211,107,${.9 * fade})`; cx.stroke();
+      if (z > 4) { const [x2, y2] = q(m.p, Math.max(0, v.p - .01)), ang = Math.atan2(y - y2, x - x2), lx = x - Math.cos(ang) * v.r, ly = y - Math.sin(ang) * v.r, st = Math.sin(t * 8) * 2;
+        cx.beginPath(); cx.moveTo(lx, ly); cx.lineTo(lx - Math.cos(ang) * 4 + st, ly - Math.sin(ang) * 4); cx.lineWidth = .8; cx.strokeStyle = '#ff78be'; cx.stroke(); } }
+    // soft bloom on the bright parts
+    { const ga = cx.globalAlpha; cx.globalCompositeOperation = 'lighter'; const B = (col, x, y, r, a) => { cx.globalAlpha = ga * a; cx.drawImage(glowS(col), x - r, y - r, 2 * r, 2 * r); };
+      B('#c58cff', NUC.x, NUC.y, NUC.r * 1.5, .16); for (const m of d.mitos) B('#ffa53d', m.x, m.y, m.L * .85, .13); B('#ffd36b', d.golgi.x, d.golgi.y, 260, .12); B('#4ff3e3', d.cent.x, d.cent.y, 140, .22);
+      cx.globalCompositeOperation = 'source-over'; cx.globalAlpha = ga; }
+    cx.restore(); // end clip
+    // membrane detail: lipid bilayer + proteins
+    if (z > 2.2) { const step = 3.2 / 1000; const hr = 1.3; cx.fillStyle = 'rgba(255,211,107,.9)';
+      for (let a = 0; a < 6.2832; a += step * 1.0) { const [x, y] = memPt(a, tm); if (!vis(x, y, 8)) continue; const m = Math.hypot(x, y), nx = x / m, ny = y / m;
+        for (const o of [-3.2, 3.2]) { cx.beginPath(); cx.arc(x + nx * o, y + ny * o, hr, 0, 6.283); cx.fill(); }
+        if (z > 5) { cx.beginPath(); cx.moveTo(x + nx * 2, y + ny * 2); cx.lineTo(x + nx * .4, y + ny * .4); cx.moveTo(x - nx * 2, y - ny * 2); cx.lineTo(x - nx * .4, y - ny * .4); cx.lineWidth = .25; cx.strokeStyle = 'rgba(255,211,107,.6)'; cx.stroke(); } }
+      for (const p of d.memprot) { const [x, y] = memPt(p.a, tm); if (!vis(x, y, 12)) continue; cx.save(); cx.translate(x, y); cx.rotate(Math.atan2(y, x)); cx.beginPath(); cx.roundRect ? cx.roundRect(-6, -4, 12, 8, 3) : cx.rect(-6, -4, 12, 8);
+        cx.fillStyle = ['rgba(61,255,138,.55)', 'rgba(79,243,227,.55)', 'rgba(255,120,190,.55)'][p.c]; cx.fill(); if (p.c === 1) { cx.beginPath(); cx.moveTo(-6, 0); cx.lineTo(6, 0); cx.lineWidth = .8; cx.strokeStyle = '#0b1530'; cx.stroke(); } cx.restore(); } }
+  }
+  // labels: one per type, shown when its size on screen suits the zoom (semantic zoom)
+  function labels() {
+    const z = cam.z, L = [];
+    const add = (id, x, y, r, min = 22, max = 900) => { if (x == null) return; const s = r * z; if (s < min || s > max) return; const [X, Y] = w2s(x, y); if (X < 0 || Y < TOP() || X > VW() || Y > VH()) return; L.push([id, X, Y, s]); };
+    add('nucleus', NUC.x, NUC.y + NUC.r * .55, NUC.r, 40, 700); add('nucleolus', -200, -80, 80, 70, 900);
+    if (z > 3.5) { const c = D.chrom[3][10]; add('dna', c[0], c[1], 40, 60); }
+    const nearest = (arr, f) => { let b = null, bd = 1e18; const [cxw, cyw] = s2w(VW() / 2, VH() / 2); for (const a of arr) { const [x, y] = f(a), dd = (x - cxw) ** 2 + (y - cyw) ** 2; if (dd < bd) { bd = dd; b = a; } } return b; };
+    const m = nearest(D.mitos, m => [m.x, m.y]); m && add('mito', m.x, m.y + 60, 90, 30, 800);
+    add('golgi', D.golgi.x + 40, D.golgi.y + 40, 150, 40, 900);
+    { const p = D.rer[3][Math.floor(D.rer[3].length * .6)]; add('rer', p[0], p[1] + 30, 120, 40, 900); }
+    { const p = D.ser[0][10]; add('ser', p[0], p[1] + 20, 80, 30, 900); }
+    const l = nearest(D.lyso, l => [l.x, l.y]); l && add('lyso', l.x, l.y + l.r + 14, l.r, 22, 600);
+    add('cent', D.cent.x, D.cent.y + 80, 50, 30, 700);
+    const r = nearest(D.ribs.filter(r => !r.er), r => [r.x, r.y]); r && add('rib', r.x, r.y + 14, 8, 25, 700);
+    const v = nearest(D.vaults, v => [v.x, v.y]); v && add('vault', v.x, v.y + 14, 8, 25, 600);
+    { const p = memPt(-1.2, tm); add('membrane', p[0] * .97, p[1] * .97, 120, 20, 2000); }
+    cx.font = '600 13px system-ui,sans-serif'; cx.textAlign = 'center'; cx.textBaseline = 'middle';
+    const placed = [];
+    for (const [id, X, Y] of L) { const txt = P[id].n, w = cx.measureText(txt).width + 16; if (placed.some(([a, b, c]) => Math.abs(a - X) < (c + w) / 2 && Math.abs(b - Y) < 24)) continue; placed.push([X, Y, w]);
+      cx.fillStyle = 'rgba(6,12,28,.78)'; cx.strokeStyle = 'rgba(79,243,227,.45)'; cx.lineWidth = 1; cx.beginPath(); cx.roundRect ? cx.roundRect(X - w / 2, Y - 11, w, 22, 11) : cx.rect(X - w / 2, Y - 11, w, 22); cx.fill(); cx.stroke();
+      cx.fillStyle = '#e8f4ff'; cx.fillText(txt, X, Y + .5); }
+  }
+  const UMS = [20, 10, 5, 2, 1, .5, .2, .1, .05, .02, .01, .005, .002, .001, 5e-4, 2e-4, 1e-4, 5e-5, 2e-5, 1e-5, 5e-6, 2e-6, 1e-6];
+  const ulab = v => v >= 1 ? v + ' µm' : v >= 1e-3 ? +(v * 1e3).toPrecision(3) + ' nm' : v >= 1e-4 ? +(v * 1e4).toPrecision(3) + ' Å' : +(v * 1e6).toPrecision(3) + ' pm';
+  let sclKey = '';
+  function scale() { let pick = UMS[UMS.length - 1]; for (const v of UMS) { if (v * W2UM * cam.z <= 140) { pick = v; break; } }
+    const len = (pick * W2UM * cam.z).toFixed(0), k = len + pick; if (k === sclKey) return; sclKey = k;
+    scl.innerHTML = `<i style="width:${len}px"></i>${ulab(pick)} <small>· sizes and shapes simplified</small>`; }
+  // ---------- picking ----------
+  function hit(wx, wy) { return cam.z >= 60 ? deepHit(wx, wy) : hitCell(wx, wy); }
+  function hitCell(wx, wy) {
+    const z = cam.z, near = (x, y, r) => Math.hypot(wx - x, wy - y) <= r;
+    const slop = 14 / z; // finger-friendly
+    if (z > 2) for (const s of D.atp) if (near(s.x, s.y, 6 + slop)) return ['atp', s.x, s.y, 30];
+    for (const v of D.vaults) if (near(v.x, v.y, 8 + slop)) return ['vault', v.x, v.y, 14];
+    for (const r of D.ribs) if (near(r.x, r.y, 7 + slop * .6)) return ['rib', r.x, r.y, 16];
+    for (const v of D.ves) { const [x, y] = q(D.mts[v.mt].p, Math.min(1, v.p)); if (near(x, y, v.r + slop * .5)) return ['ves', x, y, 40]; }
+    for (const a of D.pores) { const x = NUC.x + Math.cos(a) * NUC.r, y = NUC.y + Math.sin(a) * NUC.r; if (near(x, y, 10 + slop * .5)) return ['pore', x, y, 30]; }
+    if (near(D.cent.x, D.cent.y + 20, 55)) return ['cent', D.cent.x, D.cent.y + 20, 70];
+    for (const l of D.lyso) if (near(l.x, l.y, l.r + slop * .5)) return ['lyso', l.x, l.y, l.r * 1.6];
+    for (const m of D.mitos) { const c = Math.cos(-m.a), s = Math.sin(-m.a), lx = (wx - m.x) * c - (wy - m.y) * s, ly = (wx - m.x) * s + (wy - m.y) * c;
+      if (Math.abs(lx) < m.L / 2 + slop * .5 && Math.abs(ly) < m.w / 2 + slop * .5) return ['mito', m.x, m.y, m.L * .75]; }
+    if (Math.hypot(wx - D.golgi.x, wy - D.golgi.y) < 150) return ['golgi', D.golgi.x, D.golgi.y, 190];
+    if (near(-200, -80, 82)) return ['nucleolus', -200, -80, 110];
+    const dn = Math.hypot(wx - NUC.x, wy - NUC.y);
+    if (dn < NUC.r + 8) { if (z > 3) for (const c of D.chrom) for (const p of c) if (near(p[0], p[1], 10 + slop * .4)) return ['dna', p[0], p[1], 40]; return ['nucleus', NUC.x, NUC.y, NUC.r * 1.15]; }
+    for (const s of D.rer) for (const p of s) if (near(p[0], p[1], 16 + slop * .4)) return ['rer', p[0], p[1], 120];
+    for (const s of D.ser) for (const p of s) if (near(p[0], p[1], 12 + slop * .4)) return ['ser', p[0], p[1], 120];
+    const ang = Math.atan2(wy / RY, wx / RX), [mx, my] = memPt(ang, tm), dm = Math.hypot(wx - mx, wy - my);
+    const inside = (wx / (RX * memR(ang, tm))) ** 2 + (wy / (RY * memR(ang, tm))) ** 2 <= 1;
+    if (dm < 12 + slop) return ['membrane', mx, my, 60];
+    if (!inside) return null;
+    if (z > 1.5) for (const m of D.mts) for (let i = 0; i <= 20; i++) { const [x, y] = q(m.p, i / 20); if (near(x, y, 5 + slop * .5)) return ['mt', x, y, 60]; }
+    for (const a of D.actin) { const [x, y] = memPt(a.a, tm, a.k); if (near(x + Math.cos(a.d) * a.l / 2, y + Math.sin(a.d) * a.l / 2, a.l / 2)) return ['actin', x, y, 90]; }
+    return ['cyto', wx, wy, 160];
+  }
+  function select(h) {
+    if (!h) { sel = null; showPop(); return; }
+    const [id, x, y, r] = h; sel = id; layer = 1; showPop();
+    const box = mob() ? Math.min(VW(), VH() * .45) : Math.min(VW() - 380, VH() - TOP());
+    animTo(x, y, (box * .42) / r);
+  }
+  function showPop() {
+    if (!sel) { pop.style.display = 'none'; hint.style.display = ''; return; }
+    const p = P[sel]; hint.style.display = 'none';
+    pop.innerHTML = `<button class="x" aria-label="close">×</button><b class="t1">${p.n}</b><div class="chip"><i style="background:${SCOL[p.s]}"></i>${SNAME[p.s]}</div>` +
+      p.a.map(s => `<p>${s}</p>`).join('') +
+      (layer > 1 ? `<div class="lay">${p.b.map(s => `<p>${s}</p>`).join('')}<p class="src">Source: ${p.src.map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join(' · ')}</p></div>` : '') +
+      `<div class="pact">${layer < 2 ? '<button class="more">Read more ▾</button>' : '<button class="more">Less ▴</button>'}<span class="lv">Layer ${layer} of 2</span></div>` +
+      (p.map && opts.onMapLink ? `<button class="vmap">${p.map === 'atoms' ? '⚛ Atoms on the map' : '🗺️ See it on the map'}</button>` : '');
+    pop.style.display = 'block';
+    pop.querySelector('.x').onclick = () => { sel = null; showPop(); };
+    pop.querySelector('.more').onclick = () => { layer = layer < 2 ? 2 : 1; showPop(); };
+    const mb = pop.querySelector('.vmap'); if (mb) mb.onclick = () => { const f = opts.onMapLink, id = p.map; destroy(); f(id); };
+  }
+
+  // ---------- input ----------
+  const ptrs = new Map(); let pinch = null, moved = 0, downAt = null;
+  function on(el, ev, f, o) { el.addEventListener(ev, f, o); offs2.push(() => el.removeEventListener(ev, f, o)); }
+  let offs2 = [];
+  function bindInput() {
+    on(cv, 'pointerdown', e => { cv.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]); moved = 0; downAt = [e.clientX, e.clientY]; anim = null;
+      if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; pinch = { d: Math.hypot(a[0] - b[0], a[1] - b[1]), z: cam.z }; } });
+    on(cv, 'pointermove', e => { if (!ptrs.has(e.pointerId)) return; const p = ptrs.get(e.pointerId), dx = e.clientX - p[0], dy = e.clientY - p[1]; ptrs.set(e.pointerId, [e.clientX, e.clientY]);
+      if (ptrs.size === 2 && pinch) { const [a, b] = [...ptrs.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]); const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2; const r = cv.getBoundingClientRect();
+        zoomAt(mx - r.left, my - r.top, (pinch.z * d / pinch.d) / cam.z); moved = 99; return; }
+      moved += Math.abs(dx) + Math.abs(dy); if (moved > 6) { cam.x -= dx / cam.z; cam.y -= dy / cam.z; } });
+    const up = e => { if (!ptrs.has(e.pointerId)) return; ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch = null;
+      if (ptrs.size === 0 && moved <= 6 && downAt) { const r = cv.getBoundingClientRect(); const [wx, wy] = s2w(e.clientX - r.left, e.clientY - r.top); select(hit(wx, wy)); } };
+    on(cv, 'pointerup', up); on(cv, 'pointercancel', e => { ptrs.delete(e.pointerId); pinch = null; });
+    on(cv, 'wheel', e => { e.preventDefault(); const r = cv.getBoundingClientRect(); zoomAt(e.clientX - r.left, e.clientY - r.top, Math.exp(-Math.max(-300, Math.min(300, e.deltaY)) * .0022)); }, { passive: false });
+    on(window, 'keydown', e => { if (!alive) return; const k = e.key; let used = true;
+      if (k === 'Escape') { if (sel) { sel = null; showPop(); } else close(); }
+      else if (k === '+' || k === '=') zoomAt(VW() / 2, VH() / 2, 1.4); else if (k === '-' || k === '_') zoomAt(VW() / 2, VH() / 2, 1 / 1.4);
+      else if (k === 'ArrowLeft') cam.x -= 60 / cam.z; else if (k === 'ArrowRight') cam.x += 60 / cam.z; else if (k === 'ArrowUp') cam.y -= 60 / cam.z; else if (k === 'ArrowDown') cam.y += 60 / cam.z;
+      else if (k === '0') fit(); else used = false;
+      if (used) { e.preventDefault(); } e.stopImmediatePropagation(); }, true);
+    on(window, 'resize', () => { if (!sel && !anim) cam.z = clampZ(cam.z); });
+  }
+  function close() { const f = opts.onClose; destroy(); if (f) f(); }
+
+  function init(host, o = {}) {
+    if (alive) destroy(); opts = o; alive = true; D = build(); t = 0; last = 0; sel = null; layer = 1; offs = [0, 0];
+    root = document.createElement('div'); root.id = 'vcell'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Virtual Cell');
+    root.innerHTML = (o.embedded ? '' : `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🧬 Virtual Cell <small>animal cell</small></b>
+      <div class="vzm"><button class="vpl" aria-label="Pause">⏸</button><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole cell">⤢</button></div></div>`) +
+      `<canvas aria-label="Animated animal cell. Tap a part to learn about it."></canvas><div class="vcrumb" aria-live="polite"></div><div class="vhint">Tap any part to learn about it · pinch or scroll to zoom</div><div class="vscl"></div><div class="vpop" role="dialog" aria-live="polite"></div>`;
+    (host || document.body).appendChild(root);
+    cv = root.querySelector('canvas'); cx = cv.getContext('2d'); pop = root.querySelector('.vpop'); hint = root.querySelector('.vhint'); scl = root.querySelector('.vscl'); crEl = root.querySelector('.vcrumb'); crumbTxt = ''; sclKey = ''; if (!TPL) TPL = mkTemplates(); CACHE = new Map(); Q = mob() ? .7 : 1; qT = 0;
+    paused = RM(); speed = RM() ? .3 : 1;
+    const $ = s => root.querySelector(s);
+    if (!o.embedded) { $('.vback').onclick = close; $('.vin').onclick = () => zoomAt(VW() / 2, VH() / 2, 1.5); $('.vout').onclick = () => zoomAt(VW() / 2, VH() / 2, 1 / 1.5); $('.vfit').onclick = fit;
+      const pl = $('.vpl'); const pp = () => { pl.textContent = paused ? '▶' : '⏸'; pl.setAttribute('aria-label', paused ? 'Play (slowly if reduced motion is on)' : 'Pause'); }; pp(); pl.onclick = () => { paused = !paused; pp(); }; }
+    bindInput(); cam = { x: 0, y: 0, z: fitZ() }; offs = centreOff();
+    raf = requestAnimationFrame(frame);
+    if (o.focus) setTimeout(() => focus(o.focus), 50);
+    setTimeout(() => { const b = root && root.querySelector('.vback'); b && b.focus({ preventScroll: true }); }, 30);
+    return api;
+  }
+  function destroy() { alive = false; cancelAnimationFrame(raf); offs2.forEach(f => f()); offs2 = []; ptrs.clear(); if (root) root.remove(); root = null; D = null; }
+  function focus(id) { if (!alive || !P[id]) return; const map = { nucleus: [NUC.x, NUC.y, NUC.r * 1.15], nucleolus: [-200, -80, 110], golgi: [D.golgi.x, D.golgi.y, 190], cent: [D.cent.x, D.cent.y + 20, 70],
+      mito: [D.mitos[0].x, D.mitos[0].y, D.mitos[0].L * .75], lyso: [D.lyso[0].x, D.lyso[0].y, 60], rib: (() => { const r = D.ribs.filter(r => !r.er)[40] || D.ribs[0]; return [r.x, r.y, 16]; })(), dna: [D.chrom[3][10][0], D.chrom[3][10][1], 40], vault: [D.vaults[0].x, D.vaults[0].y, 14] };
+    const m = map[id] || [0, 0, 400]; select([id, ...m]); }
+  const api = { init, destroy, focus, isOpen: () => alive, parts: P, nearestAtom, w2s: (x, y) => w2s(x, y), region: (x, y) => regionAt(x, y).k, pts: () => ({ dna: D.chrom[0][Math.floor(D.chrom[0].length / 2)], mito: [D.mitos[0].x, D.mitos[0].y], mem: memPt(-1.2, tm).map(v => v * .995) }), crumb: () => crumbTxt, go: (x, y, z) => { anim = null; sel = null; showPop(); cam = { x, y, z: clampZ(z) }; offs = centreOff(); }, debug: () => ({ cam: { ...cam }, sel, layer, fps, t, paused, Q }) };
+  return api;
+})();
+window.VCELL = VCELL;
+/* ============ v8: Explore menu, Virtual Cell, keyboard nodes, phone layout fixes ============ */
+const V8 = '8';
+// phones: height of the fixed bars at the top (matches the v8 compact CSS)
+function v8UI() { const rul = document.body.classList.contains('rul'); return VIEW !== 'map' ? 114 : rul ? 202 : 162; }
+// phones: the circle opens on the top of the ring (Nothing, Us and the closing loop) at a readable size; ⤢ still shows it all
+function v8CircleHome() { const vw = innerWidth, vh = innerHeight, top = UI(), s2 = 0.36, n = byId.nothing;
+  const cx = (n.x + CIR.ux) / 2, ly = Math.min(CIR.ly, n.y, CIR.uy) - 40; return [s2, vw / 2 - cx * s2, top + 30 - ly * s2]; }
+// desktop: put the loop card where it covers the fewest nodes (and never the loop label itself)
+function v8BestSpot(pw, ph, lx, ly) { const vw = innerWidth, vh = innerHeight, top = UI(), r = 46 * s, pts = [];
+  for (const n of N) { const x = n.x * s + tx, y = n.y * s + ty; if (x > -r && x < vw + r && y > top - r && y < vh + r) pts.push([x, y]); }
+  const ctl = document.getElementById('ctl').getBoundingClientRect(), key = keyEl ? keyEl.getBoundingClientRect() : null;
+  const ov = (a, b) => !(a[2] < b.left || a[0] > b.right || a[3] < b.top || a[1] > b.bottom);
+  const lab = { left: lx - 240 * s, right: lx + 240 * s, top: ly - 50 * s, bottom: ly + 50 * s };
+  let best = null, bc = 1e9;
+  for (let py = top; py <= vh - ph - 8; py += 24) for (let px = 8; px <= vw - pw - 10; px += 24) {
+    const R = [px, py, px + pw, py + ph]; let c = 0; for (const [x, y] of pts) if (x + r > R[0] && x - r < R[2] && y + r > R[1] && y - r < R[3]) c += 10;
+    if (ov(R, lab)) c += 60; if (ov(R, ctl)) c += 40; if (key && ov(R, key)) c += 8; c += Math.hypot(px + pw / 2 - lx, py + ph / 2 - ly) / 400;
+    if (c < bc) { bc = c; best = [px, py]; } }
+  return best; }
+(() => {
+  const btn = document.getElementById('ptbtn'), menu = document.getElementById('xmenu');
+  btn.onclick = e => { e.stopPropagation(); menu.classList.contains('on') ? closeMenu() : openMenu(); };
+  function openMenu() { const r = btn.getBoundingClientRect(); menu.style.left = Math.max(8, r.left) + 'px'; menu.style.top = (r.bottom + 6) + 'px'; menu.classList.add('on'); btn.setAttribute('aria-expanded', 'true');
+    menu.querySelector('button').focus({ preventScroll: true }); }
+  function closeMenu(back) { menu.classList.remove('on'); btn.setAttribute('aria-expanded', 'false'); if (back) btn.focus({ preventScroll: true }); }
+  menu.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; closeMenu(); if (b.dataset.x === 'pt') openPT(); else if (b.dataset.x === 'cell') openCell(); });
+  menu.addEventListener('keydown', e => { const items = [...menu.querySelectorAll('button')], i = items.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); } else if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+    else if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeMenu(true); } else if (e.key === 'Tab') closeMenu(); });
+  addEventListener('pointerdown', e => { if (menu.classList.contains('on') && !menu.contains(e.target) && e.target !== btn) closeMenu(); }, true);
+  function openCell(focus) { if (sel || LOOPON) closePop(); if (typeof HOWTO !== 'undefined' && HOWTO.close) HOWTO.close();
+    VCELL.init(document.body, { focus, onMapLink: id => { if (/cell/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); if (VIEW !== 'map') { setScene('map'); if (typeof syncSwitch === 'function') syncSwitch(); } setTimeout(() => openShared(id), 80); }, onClose: () => { if (/cell/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); btn.focus({ preventScroll: true }); } }); }
+  window.openCell = openCell;
+  // size ruler toggle (phones)
+  const rb = document.getElementById('rulb');
+  rb.onclick = () => { const on = document.body.classList.toggle('rul'); rb.setAttribute('aria-pressed', on); prefSet('fntu-rul', on ? '1' : ''); apply(); };
+  if (prefGet('fntu-rul') === '1') { document.body.classList.add('rul'); rb.setAttribute('aria-pressed', 'true'); }
+  // keyboard: Tab reaches the nodes, Enter/Space opens them, focus slides the map so the node is visible
+  svg.addEventListener('keydown', e => { const g = e.target.closest && e.target.closest('.node'); if (!g) return;
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); const id = g.dataset.id; if (sel === id) closePop(); else openPop(id); } });
+  svg.addEventListener('focusin', e => { const g = e.target.closest && e.target.closest('.node'); if (!g) return; const n = byId[g.dataset.id], x = n.x * s + tx, y = n.y * s + ty, top = UI(), m = 60;
+    if (x < m || x > innerWidth - m || y < top + m || y > innerHeight - m) animTo(s, tx + (innerWidth / 2 - x), ty + (top + (innerHeight - top) / 2 - y), 300); });
+  // #cell or #cell=mito opens the Virtual Cell
+  const h = new URLSearchParams(location.hash.slice(1)); if (h.has('cell')) setTimeout(() => openCell(h.get('cell') || undefined), 60);
+  apply();
+})();
 
 
 /* ============ START ============ */
