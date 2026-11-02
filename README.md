@@ -2,7 +2,7 @@
 
 An interactive dark-mode tree of how everything emerges, from the quantum field to humans.
 
-Current version: **v6** (26 Oct 2026)
+Current version: **v7** (2 Nov 2026)
 
 Live site: https://zyphullen.github.io/from-nothing-to-us/
 
@@ -19,6 +19,13 @@ A single static HTML file, plain JavaScript and WebGL, no libraries, no tracking
 Piano: Salamander Grand Piano by Alexander Holm (CC BY 3.0), via FreePats
 
 Made by Zyphullen
+
+## What's new in v7
+
+- Circle view: a third option next to Map and Tree (Map / Tree / Circle). The whole journey sits on one ring in stage order, with Chain Theory on an inner ring and "Is it all one loop?" in the centre.
+- The loop: a red, dashed, glowing line joins "Us" back to "Before the Big Bang?". Both ends are unknown. Its pop-up explains related ideas (the block universe, Wheeler's participatory universe, Penrose's cycles) and is clear that no experiment has tested this yet.
+- Share links: they work in the Circle view (`#tv=circle`, and `#tv=circle&loop=1` for the loop).
+- How to use: the first-visit card now mentions all three views.
 
 ## What's new in v6
 

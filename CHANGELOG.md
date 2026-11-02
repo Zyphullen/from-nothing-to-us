@@ -1,3 +1,11 @@
+## v7 (2 Nov 2026)
+
+**New**
+- **Circle view**: a third option next to Map and Tree (Map / Tree / Circle). The whole journey sits on one ring in stage order, with Chain Theory on an inner ring and "Is it all one loop?" in the centre.
+- **The loop**: a red, dashed, glowing line joins "Us" back to "Before the Big Bang?". Both ends are unknown. Its pop-up explains related ideas (the block universe, Wheeler's participatory universe, Penrose's cycles) and is clear that no experiment has tested this yet.
+- **Share links**: work in the Circle view (`#tv=circle`, and `#tv=circle&loop=1` for the loop).
+- **How to use**: the first-visit card now mentions all three views.
+
 ## v6 (26 Oct 2026)
 
 **New**
