@@ -1,3 +1,14 @@
+## v9 (2 Nov 2026)
+
+**New**
+- **Human cell**: look inside a typical human cell. The parts are drawn to scale and move at real measured speeds. You can pause the cell, slow it down or speed it up.
+- **DNA zoom**: zoom from the nucleus to the chromatin, then to "beads on a string", then to the double helix. Tap any part to read about it.
+- **Human Body**: a new front view with real proportions. It has 5 layers you can turn on and off: muscles, skeleton, organs, blood vessels and nerves. Zoom from cm down to mm, and tap a part to see its card and sources.
+- **Explore menu**: the Explore menu now has entries for the cell and the body.
+
+**Better**
+- **Fixes**: all card text was fact-checked. Anything simplified is labelled "simplified". On phones, the note no longer covers the head. You can't tap through to parts hidden underneath. Labels are tidier, and the version labels now say v9.
+
 ## v8 (2 Nov 2026)
 
 **New**

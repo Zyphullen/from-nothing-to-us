@@ -2,7 +2,7 @@
 
 An interactive dark-mode tree of how everything emerges, from the quantum field to humans.
 
-Current version: **v8** (2 Nov 2026)
+Current version: **v9** (2 Nov 2026)
 
 Live site: https://zyphullen.github.io/from-nothing-to-us/
 
@@ -19,6 +19,13 @@ A single static HTML file, plain JavaScript and WebGL, no libraries, no tracking
 Piano: Salamander Grand Piano by Alexander Holm (CC BY 3.0), via FreePats
 
 Made by Zyphullen
+
+## What's new in v9
+
+- Human Body: a front view with real proportions and five layers you can turn on and off (muscles, skeleton, organs, blood vessels and nerves). Zoom from cm down to mm, and tap a part for its card and sources.
+- Virtual Cell: a typical human cell, drawn to scale and moving at real measured speeds, with time control (pause, slow down or speed up) and a DNA zoom from the nucleus to chromatin, "beads on a string", and the double helix.
+- Explore menu: entries for the cell and the body.
+- Fixes: fact-checked card text (simplifications labelled "simplified"), the phone note no longer covers the head, hidden parts can't be tapped through, and tidier labels. Version labels say v9.
 
 ## What's new in v8
 
