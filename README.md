@@ -2,7 +2,7 @@
 
 An interactive dark-mode tree of how everything emerges, from the quantum field to humans.
 
-Current version: **v7** (2 Nov 2026)
+Current version: **v8** (2 Nov 2026)
 
 Live site: https://zyphullen.github.io/from-nothing-to-us/
 
@@ -19,6 +19,18 @@ A single static HTML file, plain JavaScript and WebGL, no libraries, no tracking
 Piano: Salamander Grand Piano by Alexander Holm (CC BY 3.0), via FreePats
 
 Made by Zyphullen
+
+## What's new in v8
+
+- Explore menu: a side menu with All the elements and a living Virtual Cell.
+- Virtual Cell: zoom from the whole cell to organelles, molecules, atoms, and inside an atom. Tap a part for a short card; a breadcrumb and scale bar show where you are, down to picometres.
+- Tree of everything: the Tree view is an organic tree, with roots, a glowing trunk, tapering branches and leaves, and "Us" in the crown.
+- Keyboard: Tab to any node, Enter to open.
+- Phones: a compact top bar, the Circle opens at a readable size, and the Key chip sits above the pop-up.
+- Circle: a wider, rounder loop, placed so the loop card no longer covers the map.
+- Text: bigger small text and brighter greys, so the writing is easier to read.
+- Science wording: Bennu ribose (Dec 2025), LUCA figures marked as estimates, the oldest bacterial fossils marked debated, the first photosynthesis made no oxygen, and brain synapse numbers made consistent.
+- Link preview: a new image (`og-preview-2026.png`) for shared links.
 
 ## What's new in v7
 
