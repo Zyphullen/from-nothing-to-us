@@ -2,7 +2,7 @@
 
 An interactive dark-mode tree of how everything emerges, from the quantum field to humans.
 
-Current version: **v10** (5 Nov 2026)
+Current version: **v11** (5 Nov 2026)
 
 Live site: https://zyphullen.github.io/from-nothing-to-us/
 
@@ -12,13 +12,21 @@ An interactive map of how everything emerges, from the quantum base layer to us,
 
 ## How it's made
 
-A single static HTML file, plain JavaScript and WebGL, no libraries, no tracking, no accounts, built with AI assistance. The same facts are also in `facts.json`, with `llms.txt` pointing AIs to that file.
+A single static HTML file, plain JavaScript and WebGL, no libraries, no tracking, no accounts, built with AI assistance. The same facts are also in `facts.json` and plain `knowledge.html`, with `llms.txt` pointing AIs to that file first. `AUDIT-v11.md` checks those facts.
 
 ## Credits
 
 Piano: Salamander Grand Piano by Alexander Holm (CC BY 3.0), via FreePats
 
 Made by Zyphullen
+
+## What's new in v11
+
+- Planet Earth: zoom from space, layer by layer, and back out.
+- Site data: a link at the top opens `facts.json`, and `llms.txt` points to that file first.
+- AI audit: `AUDIT-v11.md` checks `facts.json`. No hard problems.
+- Plain facts: `knowledge.html` is the same facts, with no JavaScript.
+- UI: purple personal ideas removed; scale and size bars gone; Tree removed (Map and Ring); Explore sits under the title; the title panel is back; the KEY floats; Ring spacing and fit adjusted.
 
 ## What's new in v10
 

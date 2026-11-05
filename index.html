@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>From Nothing to Us · v10</title>
+<title>From Nothing to Us · v11</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23070d1f%22 stroke=%22%23ffd36b%22 stroke-width=%228%22/%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2214%22 fill=%22%234ff3e3%22/%3E%3C/svg%3E">
 <meta property="og:title" content="From Nothing to Us">
 <meta property="og:description" content="An interactive map of everything, from before the Big Bang to us. Zoom from the cosmos down into a living cell.">
@@ -29,27 +29,13 @@ header *{pointer-events:auto}
 h1{margin:0;font-size:22px;font-weight:650;letter-spacing:.4px;background:linear-gradient(90deg,#ffd36b,#4ff3e3);-webkit-background-clip:text;background-clip:text;color:transparent}
 .legend{margin-top:6px;display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#b9c8dc;align-items:center}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
-.k{background:#3dff8a;box-shadow:0 0 8px #3dff8a}.t{background:#ffa53d;box-shadow:0 0 8px #ffa53d}.u{background:#ff4d5e;box-shadow:0 0 8px #ff4d5e}.p{background:#c58cff;box-shadow:0 0 8px #c58cff}
+.k{background:#3dff8a;box-shadow:0 0 8px #3dff8a}.t{background:#ffa53d;box-shadow:0 0 8px #ffa53d}.u{background:#ff4d5e;box-shadow:0 0 8px #ff4d5e}
 .hbtn{font:inherit;font-size:12px;color:#9ff5ea;background:rgba(10,18,36,.85);border:1px solid #23355a;border-radius:9px;padding:3px 8px;cursor:pointer}
 .hbtn:hover{border-color:#4ff3e3}
 .zoom{position:fixed;left:14px;bottom:14px;z-index:3;display:flex;flex-direction:column;gap:8px}
 .zoom button{width:44px;height:44px;border-radius:12px;border:1px solid #23355a;background:rgba(10,18,36,.85);color:#9ff5ea;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
 .zoom button:hover{border-color:#4ff3e3}
-#topcover{position:fixed;left:0;right:0;top:0;height:143px;z-index:2;pointer-events:none;background:#04060f;box-shadow:0 6px 14px 4px #04060f}
-#strip{position:fixed;left:0;right:0;top:86px;height:40px;z-index:3;pointer-events:none;background:rgba(6,10,24,.82);border-top:1px solid #1b2a48;border-bottom:1px solid #1b2a48}
-.seg{position:absolute;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:0 10px;box-sizing:border-box;overflow:hidden;white-space:nowrap;cursor:pointer;pointer-events:auto;border-left:1px dashed rgba(255,255,255,.12)}
-.seg b{font-size:12px;letter-spacing:.5px;font-weight:700;overflow:hidden;text-overflow:ellipsis}
-.seg span{font-size:11.5px;color:#9fb0c8;overflow:hidden;text-overflow:ellipsis}
-.seg.narrow{padding:0 5px}.seg.narrow span{display:none}
-#mini{position:fixed;left:8px;right:8px;top:130px;height:12px;z-index:3;cursor:pointer;border-radius:6px;overflow:hidden;background:rgba(6,10,24,.88);border:1px solid #1b2a48}
-.mseg{position:absolute;top:0;bottom:0;font-size:0;border-right:1px solid rgba(0,0,0,.4)}
-#vp{position:absolute;top:0;bottom:0;border:1.5px solid #ffd36b;border-radius:5px;background:rgba(255,211,107,.12);box-shadow:0 0 8px rgba(255,211,107,.4);pointer-events:none;box-sizing:border-box}
-#ruler{position:fixed;right:10px;top:10px;height:48px;width:min(560px,44vw);z-index:3;border-radius:12px;background:rgba(6,10,24,.88);border:1px solid #1b2a48;pointer-events:none;overflow:hidden}
-#ruler .rt{position:absolute;bottom:3px;font-size:11px;color:#a3b4cf;transform:translateX(-50%);white-space:nowrap}
-#ruler .rt:after{content:'';position:absolute;left:50%;top:-6px;height:4px;border-left:1px solid #4a5f85}
-#ruler .rk{position:absolute;top:8px;height:16px;width:2px;border-radius:1px;transform:translateX(-50%);transition:left .25s}
-#ruler .rh{position:absolute;top:4px;height:24px;border-radius:7px;background:rgba(79,243,227,.12);border:1px solid rgba(79,243,227,.45);transition:left .25s,width .25s;box-sizing:border-box}
-#ruler .rtitle{position:absolute;top:0;bottom:0;left:7px;display:flex;align-items:center;font-size:11px;color:#9ff5ea;letter-spacing:.3px}
+#topcover{display:none}
 #pop{position:fixed;z-index:8;width:300px;max-height:72vh;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;padding:12px 30px 12px 14px;border-radius:14px;background:rgba(8,14,30,.96);border:1.5px solid #4ff3e3;display:none;font-size:14px;line-height:1.45;color:#d6e4f5;-webkit-user-select:text;user-select:text;box-sizing:border-box}
 #pop b.t1{display:block;font-size:15.5px;color:#fff;margin-bottom:2px}
 #pop .chip{font-size:11.5px;color:#9fb0c8;margin-bottom:4px}
@@ -66,7 +52,7 @@ h1{margin:0;font-size:22px;font-weight:650;letter-spacing:.4px;background:linear
 #pop .riv li,#pop .tst li{margin:4px 0;line-height:1.35}
 #pop .riv .d{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:1px}
 #pop .tst li::before{content:'▸ ';color:#4ff3e3}
-#pop .idea{font-size:10.5px;padding:0 5px;border:1px dashed #c58cff;border-radius:6px;color:#d9b8ff;white-space:nowrap}
+
 #pop a.sl{font-size:11.5px}
 #pop .more{margin-top:10px;font:inherit;font-size:12.5px;color:#04060f;background:linear-gradient(90deg,#ffd36b,#4ff3e3);border:0;border-radius:9px;padding:5px 11px;cursor:pointer;font-weight:650}
 #pop .more.less{background:#16233f;color:#9ff5ea}
@@ -162,33 +148,27 @@ svg.moving .ic{filter:none}
 #key .kchip:hover{border-color:#4ff3e3}
 #key.min .kp{display:none}#key.min .kchip{display:block}
 @media (max-width:600px){#key{right:8px;bottom:10px}#key .kp{width:214px;font-size:11.5px}}
-@media (max-width:600px){header{padding:6px 9px;top:8px;left:8px}h1{font-size:16px}.legend{font-size:11px;gap:7px}#ruler{left:8px;right:8px;width:auto;top:80px;height:36px}#ruler .rt{font-size:10px}#ruler .rk{top:5px;height:12px}#ruler .rh{top:2px;height:18px}#ruler .rtitle{display:none}#strip{top:120px;height:32px}.seg b{font-size:10.5px}.seg span{display:none}#mini{top:154px;height:10px}#topcover{height:165px}
+@media (max-width:600px){header{padding:6px 9px;top:8px;left:8px}h1{font-size:16px}.legend{font-size:11px;gap:7px}
  #pop{left:6px!important;right:6px;width:auto!important;top:auto!important;bottom:6px;max-height:58vh}}
 
 /* 3D view (viewer3d.js) */
 #popBody .v3d-btn{display:flex;align-items:center;gap:7px;margin:8px 0 2px;padding:6px 12px;border-radius:9px;border:1.5px solid #3ff0dc;background:rgba(63,240,220,.08);color:#bffcf4;font:600 13px system-ui,sans-serif;cursor:pointer;box-shadow:0 0 10px rgba(63,240,220,.25)}#popBody .v3d-btn:hover,#popBody .v3d-btn:focus-visible{background:rgba(63,240,220,.18);box-shadow:0 0 16px rgba(63,240,220,.45);outline:none}#popBody .v3d-btn i{width:14px;height:14px;border:2px solid #ffd54a;border-radius:3px;transform:rotate(45deg) scale(.8);box-shadow:0 0 6px #ffd54a}#v3d{position:fixed;inset:0;z-index:40;display:none;background:radial-gradient(ellipse at 50% 45%,#0b1530 0%,#03050d 75%);color:#e8f4ff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;touch-action:none;-webkit-user-select:none;user-select:none}#v3d.on{display:block}#v3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}#v3d canvas:active{cursor:grabbing}#v3d .v3d-top{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:12px 14px 12px 18px;pointer-events:none}#v3d .v3d-top b{font-size:17px;color:#ffd54a;text-shadow:0 0 12px rgba(255,213,74,.55);letter-spacing:.3px}#v3d .v3d-x{pointer-events:auto;width:42px;height:42px;border-radius:50%;border:1.5px solid #3ff0dc;background:rgba(4,10,24,.8);color:#bffcf4;font-size:24px;line-height:1;cursor:pointer;box-shadow:0 0 12px rgba(63,240,220,.4)}#v3d .v3d-x:focus-visible{outline:2px solid #ffd54a;outline-offset:2px}#v3d .v3d-cap{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);max-width:min(860px,92vw);padding:8px 14px;border-radius:10px;background:rgba(4,10,24,.78);border:1px solid rgba(63,240,220,.35);font-size:13px;line-height:1.4;color:#cfe6f2;text-align:center;pointer-events:none}#v3d .v3d-hint{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:11.5px;color:#7f93ad;pointer-events:none}#v3d .v3d-l{position:absolute;inset:0;pointer-events:none;overflow:hidden}#v3d .v3d-l span{position:absolute;left:0;top:0;white-space:nowrap;font-size:12.5px;font-weight:600;will-change:transform}#v3d .v3d-g{color:#ffe28a;text-shadow:0 0 8px rgba(255,213,74,.8)}#v3d .v3d-t{color:#9ffcf0;text-shadow:0 0 8px rgba(63,240,220,.8)}#v3d .v3d-l .v3d-k{font-size:10.5px;font-weight:500;color:#b9c7da;opacity:.85}@media (max-width:600px){#v3d .v3d-cap{font-size:12px;bottom:30px;padding:7px 10px}#v3d .v3d-top b{font-size:15px}}
 
-/* v5: map ⇄ tree, bounties, Echo-Flame, music */
+/* v5: map ⇄ ring, bounties, Echo-Flame, music */
 #tree{transition:opacity .28s ease}#tree.fade{opacity:0}
-#strip,#mini,#topcover{transition:opacity .28s ease}
-body.tv #strip,body.tv #mini{opacity:0;pointer-events:none}body.tv #topcover{height:60px;box-shadow:0 8px 16px 6px #04060f}body.tv #strip .seg{pointer-events:none}
+
+
 .node .pulse{transform-box:fill-box;transform-origin:center;animation:bpulse 4.2s ease-out infinite;opacity:0;pointer-events:none}
 @keyframes bpulse{0%{transform:scale(.95);opacity:.5}75%{opacity:0}100%{transform:scale(1.42);opacity:0}}
 svg.moving .node .pulse{animation-play-state:paused}
 .node .seenr{display:none;pointer-events:none}.node.seen .seenr{display:inline;stroke-opacity:.42}
 .node.seen .seenr{filter:drop-shadow(0 0 3px rgba(255,211,107,.5))}
-#gTree .elab{visibility:hidden}svg.focus #gTree .elab.lit{visibility:visible}
-svg.focus #gTree .edge.lit .core{stroke-opacity:1}svg.focus #gTree .edge.long.lit .core{stroke-width:2.6;stroke-opacity:.9}
-svg.focus #gTree .edge.lit .bg{stroke-opacity:.2}svg.focus #gTree .edge.lit .core.rib{fill-opacity:1}svg.focus #gTree .leaves,svg.focus #gTree .trunk{opacity:.35}
-#gTree .tband{font-size:30px;font-weight:700;letter-spacing:4px;opacity:.5}
-#gTree .tend{font-size:46px;font-weight:800;letter-spacing:14px;fill:#ffd36b;opacity:.75;filter:drop-shadow(0 0 10px rgba(255,211,107,.55))}
-#gTree .tend.us{fill:#4ff3e3;filter:drop-shadow(0 0 12px rgba(79,243,227,.6))}
 #pop .bty{display:flex;align-items:center;gap:7px;margin:12px 0 2px;font:inherit;font-size:13.5px;font-weight:700;color:#1a1204;background:linear-gradient(180deg,#ffe08a,#ffc94a);border:0;border-radius:999px;padding:7px 16px;cursor:pointer;box-shadow:0 0 0 4px rgba(255,211,107,.14),0 0 16px rgba(255,211,107,.45)}
 #pop .bty:hover,#pop .bty:focus-visible{box-shadow:0 0 0 5px rgba(255,211,107,.22),0 0 22px rgba(255,211,107,.7);outline:none}
 #pop .solv{color:#3dff8a}
 /* corner controls: one neat group, top right, under the bars */
 #ctl{position:fixed;right:10px;top:152px;z-index:7;display:flex;flex-direction:column;align-items:flex-end;gap:6px;transition:top .28s ease;touch-action:manipulation}
-body.tv #ctl{top:66px}
+
 #ctl button{font:inherit;color:#cfe9f2;background:rgba(6,10,24,.9);border:1px solid #23355a;border-radius:11px;cursor:pointer;height:34px;padding:0 10px;display:flex;align-items:center;gap:5px;font-size:13px}
 #ctl button:hover,#ctl button:focus-visible{border-color:#4ff3e3;outline:none}
 #vsw{padding:3px!important;gap:2px!important;border-radius:999px!important;border-color:rgba(255,211,107,.55)!important;box-shadow:0 0 12px rgba(255,211,107,.18)}
@@ -236,15 +216,15 @@ body.tv #ctl{top:66px}
 #bty h5{margin:12px 0 4px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#4ff3e3}
 #bty .bq{font-size:15px;color:#fff;margin:0}
 #bty ul{list-style:none;margin:0;padding-left:2px}#bty li{margin:5px 0;line-height:1.35}#bty li::before{content:'▸ ';color:#4ff3e3}
-#bty a.sl{color:#4ff3e3;font-size:11.5px}#bty .idea{font-size:10.5px;padding:0 5px;border:1px dashed #c58cff;border-radius:6px;color:#d9b8ff;white-space:nowrap}
+#bty a.sl{color:#4ff3e3;font-size:11.5px}
 #bty .bsoon{display:flex;gap:10px;align-items:center;margin-top:14px;padding:9px 11px;border-radius:12px;border:1px dashed rgba(255,211,107,.5);background:rgba(255,211,107,.06)}
 #bty .bsoon span{font-size:22px}#bty .bsoon b{display:block;color:#ffd36b;font-size:13.5px}#bty .bsoon small{color:#9fb0c8;font-size:11.5px}
-@media (max-width:600px){#ctl{right:8px;top:172px}body.tv #ctl{top:124px}#vsw b{display:none}#vsw span{padding:0 7px}#ctl .snd #vol{display:none}#ctl .snd button{padding:0 8px}#ctl button{height:32px}#ctl .snd{height:32px}body.tv #topcover{height:118px}
+@media (max-width:600px){#ctl{right:8px;top:172px}#vsw b{display:none}#vsw span{padding:0 7px}#ctl .snd #vol{display:none}#ctl .snd button{padding:0 8px}#ctl button{height:32px}#ctl .snd{height:32px}
  #bty{top:auto;bottom:8px;transform:translateX(-50%);max-height:78vh}.panel{right:8px;width:calc(100vw - 16px)}}
 #pop .pact{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}#pop .pact .more{margin-top:0}
 #pop .shr{font:inherit;font-size:12px;color:#9ff5ea;background:transparent;border:1px solid #2c4a7a;border-radius:9px;padding:4px 9px;cursor:pointer}#pop .shr:hover,#pop .shr:focus-visible{border-color:#4ff3e3;outline:none}
-#pop .ctb{display:inline-block;font-size:11px;color:#d9c6ff;border:1px dashed rgba(197,140,255,.55);border-radius:8px;padding:1px 7px;margin:0 0 6px}
-#pop .ctn{font-size:12.5px;color:#d9c6ff;font-style:italic;margin:0 0 6px!important}
+#pop .ctb{display:inline-block;font-size:11px;color:#ffc477;border:1px dashed rgba(255,165,61,.65);border-radius:8px;padding:1px 7px;margin:0 0 6px}
+#pop .ctn{font-size:12.5px;color:#ffc477;font-style:italic;margin:0 0 6px!important}
 #pop .svd{font-size:12px;color:#3dff8a;margin:0 0 6px}#pop .svd a{color:#3dff8a}
 #pop a.sug{display:block;margin-top:10px;font-size:11.5px;color:#a3b4cf;text-decoration:none}#pop a.sug:hover,#pop a.sug:focus-visible{color:#4ff3e3;text-decoration:underline}
 #bty .bchk{font-size:11.5px;color:#a3b4cf;margin:10px 0 0}
@@ -257,7 +237,7 @@ body.tv #ctl{top:66px}
 #howto .hs span.hsw{font-size:15px;white-space:nowrap;letter-spacing:-1px}#howto.mob .hs span.hsw{font-size:13px}#howto .hdots{display:flex;justify-content:center;gap:4px}#howto .hdots i{display:inline-block;width:11px;height:11px;border-radius:50%}
 #howto #htok{display:block;margin:12px auto 0;font:inherit;font-size:13.5px;font-weight:700;color:#04060f;background:linear-gradient(90deg,#ffd36b,#4ff3e3);border:0;border-radius:999px;padding:6px 22px;cursor:pointer}
 #howto.mob{background:none;pointer-events:none;align-items:flex-end}#howto.mob .hcard{pointer-events:auto;margin-bottom:10px;padding:10px 14px}#howto.mob .hs{margin:4px 0}#howto.mob .hs span{font-size:17px;width:50px}#howto.mob .hs b{font-size:13px}
-@media (prefers-reduced-motion:reduce){#toast{transition:none}.node .pulse{animation:none;opacity:.38;transform:scale(1.1)}#tree,#strip,#mini,#topcover,#ctl{transition:none}.effloat{animation:effl2 1.4s linear forwards}@keyframes effl2{0%,70%{opacity:1}100%{opacity:0}}#efb.bump{animation:none}}
+@media (prefers-reduced-motion:reduce){#toast{transition:none}.node .pulse{animation:none;opacity:.38;transform:scale(1.1)}#tree,#ctl{transition:none}.effloat{animation:effl2 1.4s linear forwards}@keyframes effl2{0%,70%{opacity:1}100%{opacity:0}}#efb.bump{animation:none}}
 
 /* ===== v8 ===== */
 h1 .ver{display:inline-block;margin-left:6px;padding:0 7px;font-size:11px;line-height:18px;vertical-align:3px;border-radius:9px;color:#ffd36b;border:1px solid rgba(255,211,107,.6);background:rgba(255,211,107,.08);letter-spacing:.4px;font-weight:700}
@@ -271,89 +251,145 @@ h1 .ver{display:inline-block;margin-left:6px;padding:0 7px;font-size:11px;line-h
 #ptbtn[aria-expanded="true"]{border-color:#ffd36b;color:#ffd36b}
 .node:focus{outline:none}.node:focus-visible .disc{stroke:#ffd36b!important;stroke-width:6!important}
 .node:focus-visible{filter:drop-shadow(0 0 8px rgba(255,211,107,.9))}
-#rulb{display:none}
+
 @media (max-width:600px){
- #ruler{display:none}body.rul #ruler{display:block;top:74px}
- #strip{top:74px}#mini{top:108px}#topcover{height:120px}
- body.rul #strip{top:114px}body.rul #mini{top:148px}body.rul #topcover{height:160px}
- #ctl{flex-direction:row;align-items:center;top:124px}body.rul #ctl{top:164px}body.tv #ctl,body.rul.tv #ctl{top:76px}body.tv #topcover{height:112px}
- #rulb{display:block}body.tv #rulb{display:none}body.tv #ruler{display:none!important}body.rul #rulb{border-color:#ffd36b}
  #xmenu{left:8px!important;right:8px;min-width:0}
 }
 /* Virtual Cell */
 #vcell{position:fixed;inset:0;z-index:20;background:radial-gradient(ellipse at 50% 45%,#0b1834 0%,#04060f 75%);color:#d6e4f5;font-family:system-ui,sans-serif;touch-action:none}
 #vbody{position:fixed;inset:0;z-index:20;background:radial-gradient(ellipse at 50% 45%,#0b1834 0%,#04060f 75%);color:#d6e4f5;font-family:system-ui,sans-serif;touch-action:none}
+#vplanet{position:fixed;inset:0;z-index:20;background:radial-gradient(ellipse at 50% 45%,#0b1834 0%,#04060f 75%);color:#d6e4f5;font-family:system-ui,sans-serif;touch-action:none}
 #vcell canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
 #vbody canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
+#vplanet canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
 #vcell .vcbar{position:absolute;left:0;right:0;top:0;z-index:2;display:flex;align-items:center;gap:10px;padding:10px 12px;background:linear-gradient(#04060f,rgba(4,6,15,0))}
 #vbody .vcbar{position:absolute;left:0;right:0;top:0;z-index:2;display:flex;align-items:center;gap:10px;padding:10px 12px;background:linear-gradient(#04060f,rgba(4,6,15,0))}
+#vplanet .vcbar{position:absolute;left:0;right:0;top:0;z-index:2;display:flex;align-items:center;gap:10px;padding:10px 12px;background:linear-gradient(#04060f,rgba(4,6,15,0))}
 #vcell .vtit{font-size:15px;color:#fff;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#vcell .vtit small{color:#a8b9d2;font-weight:500;font-size:12px;margin-left:4px}
 #vbody .vtit{font-size:15px;color:#fff;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#vbody .vtit small{color:#a8b9d2;font-weight:500;font-size:12px;margin-left:4px}
+#vplanet .vtit{font-size:15px;color:#fff;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#vplanet .vtit small{color:#a8b9d2;font-weight:500;font-size:12px;margin-left:4px}
 #vcell button{font:600 14px system-ui,sans-serif;color:#9ff5ea;background:rgba(10,18,36,.92);border:1px solid #2c4a7a;border-radius:11px;height:36px;min-width:36px;padding:0 12px;cursor:pointer}
 #vbody button{font:600 14px system-ui,sans-serif;color:#9ff5ea;background:rgba(10,18,36,.92);border:1px solid #2c4a7a;border-radius:11px;height:36px;min-width:36px;padding:0 12px;cursor:pointer}
+#vplanet button{font:600 14px system-ui,sans-serif;color:#9ff5ea;background:rgba(10,18,36,.92);border:1px solid #2c4a7a;border-radius:11px;height:36px;min-width:36px;padding:0 12px;cursor:pointer}
 #vcell button:hover,#vcell button:focus-visible{border-color:#4ff3e3;outline:none;box-shadow:0 0 10px rgba(79,243,227,.3)}
 #vbody button:hover,#vbody button:focus-visible{border-color:#4ff3e3;outline:none;box-shadow:0 0 10px rgba(79,243,227,.3)}
+#vplanet button:hover,#vplanet button:focus-visible{border-color:#4ff3e3;outline:none;box-shadow:0 0 10px rgba(79,243,227,.3)}
 #vcell .vback{color:#ffd36b;border-color:rgba(255,211,107,.6)}
 #vbody .vback{color:#ffd36b;border-color:rgba(255,211,107,.6)}
+#vplanet .vback{color:#ffd36b;border-color:rgba(255,211,107,.6)}
 #vcell .vzm{display:flex;gap:6px}#vcell .vzm button{padding:0;width:38px;font-size:17px}
 #vbody .vzm{display:flex;gap:6px}#vbody .vzm button{padding:0;width:38px;font-size:17px}
+#vplanet .vzm{display:flex;gap:6px}#vplanet .vzm button{padding:0;width:38px;font-size:17px}
+#vplanet button:disabled{opacity:.35;cursor:default}
 #vcell .vhint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:13px;color:#a8b9d2;background:rgba(6,10,24,.75);padding:6px 12px;border-radius:12px;white-space:nowrap;pointer-events:none}
 #vbody .vhint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:13px;color:#a8b9d2;background:rgba(6,10,24,.75);padding:6px 12px;border-radius:12px;white-space:nowrap;pointer-events:none}
+#vplanet .vhint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:13px;color:#a8b9d2;background:rgba(6,10,24,.75);padding:6px 12px;border-radius:12px;white-space:nowrap;pointer-events:none}
 #vcell .vscl{position:absolute;left:10px;bottom:48px;padding:5px 8px;border-radius:9px;background:rgba(4,6,15,.75);font-size:12px;color:#c9d6ea;pointer-events:none}#vcell .vscl i{display:block;height:4px;margin-bottom:4px;border:1.5px solid #ffd36b;border-top:0;border-radius:0 0 2px 2px}#vcell .vscl small{color:#8a9bb6}
 #vbody .vscl{position:absolute;left:10px;bottom:48px;padding:5px 8px;border-radius:9px;background:rgba(4,6,15,.75);font-size:12px;color:#c9d6ea;pointer-events:none}#vbody .vscl i{display:block;height:4px;margin-bottom:4px;border:1.5px solid #ffd36b;border-top:0;border-radius:0 0 2px 2px}#vbody .vscl small{color:#8a9bb6}
+#vplanet .vscl{position:absolute;left:10px;bottom:48px;padding:5px 8px;border-radius:9px;background:rgba(4,6,15,.75);font-size:12px;color:#c9d6ea;pointer-events:none}#vplanet .vscl i{display:block;height:4px;margin-bottom:4px;border:1.5px solid #ffd36b;border-top:0;border-radius:0 0 2px 2px}#vplanet .vscl small{color:#8a9bb6}
 #vcell .vcrumb{position:absolute;left:50%;top:58px;transform:translateX(-50%);max-width:92vw;font-size:12.5px;color:#cfe3f5;background:rgba(6,10,24,.72);border:1px solid rgba(79,243,227,.25);padding:4px 12px;border-radius:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
 #vbody .vcrumb{position:absolute;left:50%;top:58px;transform:translateX(-50%);max-width:92vw;font-size:12.5px;color:#cfe3f5;background:rgba(6,10,24,.72);border:1px solid rgba(79,243,227,.25);padding:4px 12px;border-radius:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
+#vplanet .vcrumb{position:absolute;left:50%;top:58px;transform:translateX(-50%);max-width:92vw;font-size:12.5px;color:#cfe3f5;background:rgba(6,10,24,.72);border:1px solid rgba(79,243,227,.25);padding:4px 12px;border-radius:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
 #vcell .vmap{margin-top:10px;width:100%;color:#ffd36b;border-color:rgba(255,211,107,.55)}
 #vbody .vmap{margin-top:10px;width:100%;color:#ffd36b;border-color:rgba(255,211,107,.55)}
+#vplanet .vmap{margin-top:10px;width:100%;color:#ffd36b;border-color:rgba(255,211,107,.55)}
 #vcell .vpop{position:absolute;z-index:3;right:14px;top:62px;width:310px;max-height:calc(100vh - 90px);overflow-y:auto;display:none;padding:12px 30px 12px 14px;border-radius:14px;background:rgba(8,14,30,.96);border:1.5px solid #4ff3e3;box-shadow:0 0 24px rgba(79,243,227,.25);font-size:14px;line-height:1.45;touch-action:pan-y}
 #vbody .vpop{position:absolute;z-index:3;right:14px;top:62px;width:310px;max-height:calc(100vh - 90px);overflow-y:auto;display:none;padding:12px 30px 12px 14px;border-radius:14px;background:rgba(8,14,30,.96);border:1.5px solid #4ff3e3;box-shadow:0 0 24px rgba(79,243,227,.25);font-size:14px;line-height:1.45;touch-action:pan-y}
+#vplanet .vpop{position:absolute;z-index:3;right:14px;top:62px;width:310px;max-height:calc(100vh - 90px);overflow-y:auto;display:none;padding:12px 30px 12px 14px;border-radius:14px;background:rgba(8,14,30,.96);border:1.5px solid #4ff3e3;box-shadow:0 0 24px rgba(79,243,227,.25);font-size:14px;line-height:1.45;touch-action:pan-y}
 #vcell .vpop b.t1{display:block;font-size:16px;color:#fff;margin-bottom:2px}
 #vbody .vpop b.t1{display:block;font-size:16px;color:#fff;margin-bottom:2px}
+#vplanet .vpop b.t1{display:block;font-size:16px;color:#fff;margin-bottom:2px}
 #vcell .vpop .chip{font-size:12px;color:#a8b9d2;margin-bottom:6px}#vcell .vpop .chip i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
 #vbody .vpop .chip{font-size:12px;color:#a8b9d2;margin-bottom:6px}#vbody .vpop .chip i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+#vplanet .vpop .chip{font-size:12px;color:#a8b9d2;margin-bottom:6px}#vplanet .vpop .chip i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
 #vcell .vpop p{margin:3px 0}#vcell .vpop .x{position:absolute;top:6px;right:6px;background:none;border:0;color:#a8b9d2;font-size:20px;height:auto;min-width:0;padding:2px 6px}
 #vbody .vpop p{margin:3px 0}#vbody .vpop .x{position:absolute;top:6px;right:6px;background:none;border:0;color:#a8b9d2;font-size:20px;height:auto;min-width:0;padding:2px 6px}
+#vplanet .vpop p{margin:3px 0}#vplanet .vpop .x{position:absolute;top:6px;right:6px;background:none;border:0;color:#a8b9d2;font-size:20px;height:auto;min-width:0;padding:2px 6px}
 #vcell .vpop .lay{margin-top:8px;padding-top:8px;border-top:1px dashed #2a3b5e;font-size:13.5px}#vcell .vpop .src{font-size:12.5px;color:#a8b9d2;margin-top:6px}#vcell .vpop a{color:#4ff3e3}
 #vbody .vpop .lay{margin-top:8px;padding-top:8px;border-top:1px dashed #2a3b5e;font-size:13.5px}#vbody .vpop .src{font-size:12.5px;color:#a8b9d2;margin-top:6px}#vbody .vpop a{color:#4ff3e3}
+#vplanet .vpop .lay{margin-top:8px;padding-top:8px;border-top:1px dashed #2a3b5e;font-size:13.5px}#vplanet .vpop .src{font-size:12.5px;color:#a8b9d2;margin-top:6px}#vplanet .vpop a{color:#4ff3e3}
 #vcell .vpop .pact{display:flex;align-items:center;gap:10px;margin-top:10px}#vcell .vpop .more{height:30px;font-size:13px}#vcell .vpop .lv{font-size:12px;color:#8a9bb6}
 #vbody .vpop .pact{display:flex;align-items:center;gap:10px;margin-top:10px}#vbody .vpop .more{height:30px;font-size:13px}#vbody .vpop .lv{font-size:12px;color:#8a9bb6}
+#vplanet .vpop .pact{display:flex;align-items:center;gap:10px;margin-top:10px}#vplanet .vpop .more{height:30px;font-size:13px}#vplanet .vpop .lv{font-size:12px;color:#8a9bb6}
 @media (max-width:600px){#vcell .vpop{left:6px;right:6px;top:auto;bottom:6px;width:auto;max-height:44vh}#vcell .vtit small{display:none}#vcell .vcbar{gap:6px;padding:8px}#vcell .vzm button{width:34px}#vcell .vhint{font-size:12px;white-space:normal;text-align:center;width:80%}}
 @media (max-width:600px){#vbody .vpop{left:6px;right:6px;top:auto;bottom:6px;width:auto;max-height:44vh}#vbody .vtit small{display:none}#vbody .vcbar{gap:6px;padding:8px}#vbody .vzm button{width:34px}#vbody .vhint{font-size:12px;white-space:normal;text-align:center;width:80%}}
+@media (max-width:600px){#vplanet .vpop{left:6px;right:6px;top:auto;bottom:6px;width:auto;max-height:44vh}#vplanet .vtit small{display:none}#vplanet .vcbar{gap:6px;padding:8px}#vplanet .vzm button{width:34px}#vplanet .vhint{font-size:12px;white-space:normal;text-align:center;width:80%}}
 /* ===== v9: virtual human cell, time control, banner ===== */
 #vcell .vcrumb{top:102px}
 #vbody .vcrumb{top:102px}
+#vplanet .vcrumb{top:102px}
 #vcell .vpop{top:104px;max-height:calc(100vh - 130px)}
 #vcell .vtis{position:absolute;z-index:2;left:14px;bottom:44px;max-width:420px;padding:8px 12px;border-radius:12px;background:rgba(8,14,30,.92);border:1.5px solid #ffd36b;color:#dfe8f5;font-size:13px;line-height:1.4}#vcell .vtis b{color:#ffd36b}#vcell .vtis a{color:#4ff3e3}
 @media (max-width:600px){#vcell .vtis{left:6px;right:6px;top:96px;bottom:auto;max-width:none;font-size:12px}}
 #vbody .vpop{top:104px;max-height:calc(100vh - 130px)}
+#vplanet .vpop{top:104px;max-height:calc(100vh - 130px)}
 #vcell .vtime{position:absolute;left:12px;top:56px;z-index:2;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
 #vbody .vtime{position:absolute;left:12px;top:56px;z-index:2;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+#vplanet .vtime{position:absolute;left:12px;top:56px;z-index:2;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
 #vcell .vtime button{height:32px;min-width:44px;padding:0 8px;font-size:13px}
 #vbody .vtime button{height:32px;min-width:44px;padding:0 8px;font-size:13px}
+#vplanet .vtime button{height:32px;min-width:44px;padding:0 8px;font-size:13px}
 #vcell .vtime button.on{background:rgba(79,243,227,.18);border-color:#4ff3e3;color:#fff}
 #vbody .vtime button.on{background:rgba(79,243,227,.18);border-color:#4ff3e3;color:#fff}
+#vplanet .vtime button.on{background:rgba(79,243,227,.18);border-color:#4ff3e3;color:#fff}
 #vcell .vclk{font:600 13px system-ui,sans-serif;color:#ffd36b;background:rgba(4,6,15,.75);padding:6px 10px;border-radius:9px;margin-left:4px;font-variant-numeric:tabular-nums}
 #vbody .vclk{font:600 13px system-ui,sans-serif;color:#ffd36b;background:rgba(4,6,15,.75);padding:6px 10px;border-radius:9px;margin-left:4px;font-variant-numeric:tabular-nums}
+#vplanet .vclk{font:600 13px system-ui,sans-serif;color:#ffd36b;background:rgba(4,6,15,.75);padding:6px 10px;border-radius:9px;margin-left:4px;font-variant-numeric:tabular-nums}
 #vcell .vclk small{color:#a8b9d2;font-weight:500;margin-left:6px}
 #vbody .vclk small{color:#a8b9d2;font-weight:500;margin-left:6px}
+#vplanet .vclk small{color:#a8b9d2;font-weight:500;margin-left:6px}
 #vcell .vban{position:absolute;left:50%;bottom:50px;transform:translateX(-50%);max-width:58vw;z-index:1;font-size:12px;color:#9ff5ea;background:rgba(4,6,15,.7);border:1px solid rgba(79,243,227,.25);padding:4px 10px;border-radius:9px;text-align:center;pointer-events:none}
 #vbody .vban{position:absolute;left:50%;bottom:50px;transform:translateX(-50%);max-width:58vw;z-index:1;font-size:12px;color:#9ff5ea;background:rgba(4,6,15,.7);border:1px solid rgba(79,243,227,.25);padding:4px 10px;border-radius:9px;text-align:center;pointer-events:none}
+#vplanet .vban{position:absolute;left:50%;bottom:50px;transform:translateX(-50%);max-width:58vw;z-index:1;font-size:12px;color:#9ff5ea;background:rgba(4,6,15,.7);border:1px solid rgba(79,243,227,.25);padding:4px 10px;border-radius:9px;text-align:center;pointer-events:none}
 @media (max-width:600px){#vcell .vpop{top:auto;max-height:44vh}#vcell .vtime{top:50px;left:6px;right:6px;gap:4px}#vcell .vtime button{height:30px;min-width:38px;padding:0 5px;font-size:12px}#vcell .vclk{font-size:12px;padding:5px 7px;margin-left:0}#vcell .vclk small{display:none}#vcell .vcrumb{top:90px;font-size:11.5px}#vcell .vban{bottom:auto;top:122px;max-width:94vw;font-size:11px}#vcell .vscl{bottom:46px}}
 @media (max-width:600px){#vbody .vpop{top:auto;max-height:44vh}#vbody .vtime{top:50px;left:6px;right:6px;gap:4px}#vbody .vtime button{height:30px;min-width:38px;padding:0 5px;font-size:12px}#vbody .vclk{font-size:12px;padding:5px 7px;margin-left:0}#vbody .vclk small{display:none}#vbody .vcrumb{top:90px;font-size:11.5px}#vbody .vban{bottom:auto;top:122px;max-width:94vw;font-size:11px}#vbody .vscl{bottom:46px}}
+@media (max-width:600px){#vplanet .vpop{top:auto;max-height:44vh}#vplanet .vtime{top:50px;left:6px;right:6px;gap:4px}#vplanet .vtime button{height:30px;min-width:38px;padding:0 5px;font-size:12px}#vplanet .vclk{font-size:12px;padding:5px 7px;margin-left:0}#vplanet .vclk small{display:none}#vplanet .vcrumb{top:90px;font-size:11.5px}#vplanet .vban{bottom:auto;top:122px;max-width:94vw;font-size:11px}#vplanet .vscl{bottom:46px}}
 #vbody .vlab{position:absolute;left:0;top:0;z-index:1;pointer-events:none;font:600 12px system-ui,sans-serif;color:#fff;background:rgba(6,10,24,.78);border:1px solid rgba(79,243,227,.4);padding:2px 8px;border-radius:9px;white-space:nowrap}
+#vplanet .vlab{position:absolute;left:0;top:0;z-index:1;pointer-events:none;font:600 12px system-ui,sans-serif;color:#fff;background:rgba(6,10,24,.78);border:1px solid rgba(79,243,227,.4);padding:2px 8px;border-radius:9px;white-space:nowrap}
 #vbody .vlay button{display:inline-flex;align-items:center;gap:6px}#vbody .vlay button i{width:9px;height:9px;border-radius:50%;opacity:.4}#vbody .vlay button.on i{opacity:1;box-shadow:0 0 6px currentColor}
+#vplanet .vlay button{display:inline-flex;align-items:center;gap:6px}#vplanet .vlay button i{width:9px;height:9px;border-radius:50%;opacity:.4}#vplanet .vlay button.on i{opacity:1;box-shadow:0 0 6px currentColor}
 #vbody .vsex{font-size:12px;color:#a8b9d2;background:rgba(4,6,15,.75);padding:6px 10px;border-radius:9px}
+#vplanet .vsex{font-size:12px;color:#a8b9d2;background:rgba(4,6,15,.75);padding:6px 10px;border-radius:9px}
 @media (max-width:600px){#vbody .vlay{flex-wrap:nowrap;overflow-x:auto;max-width:calc(100vw - 16px);scrollbar-width:none}#vbody .vlay button{flex:0 0 auto;font-size:12px;padding:5px 9px}#vbody .vsex{display:none}#vbody .vlab{font-size:11px}}
+@media (max-width:600px){#vplanet .vlay{flex-wrap:nowrap;overflow-x:auto;max-width:calc(100vw - 16px);scrollbar-width:none}#vplanet .vlay button{flex:0 0 auto;font-size:12px;padding:5px 9px}#vplanet .vsex{display:none}#vplanet .vlab{font-size:11px}}
+#aib{pointer-events:auto;text-decoration:none;display:inline-flex;align-items:center;margin-left:6px}#aib b{font-weight:inherit}
+@media (max-width:600px){#aib{margin-left:6px;padding:2px 5px;font-size:10px}h1 #aib{margin-left:6px;font-size:10px}h1 #aib b{display:inline}}
+#vplanet .vzm .vup,#vplanet .vzm .vdn{color:#ffd36b}
+/* colour key */
+#key{position:fixed;right:12px;bottom:12px;z-index:4;font-size:12px;color:#c9d6ea;transition:opacity .2s}
+#key.tuck{opacity:0;pointer-events:none}
+#key .kp{width:228px;padding:9px 11px 9px;border-radius:13px;background:rgba(6,10,24,.9);border:1px solid #23355a;box-shadow:0 0 14px rgba(79,243,227,.08);box-sizing:border-box}
+#key .kh{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+#key .kh b{font-size:11px;letter-spacing:1.5px;font-weight:700;background:linear-gradient(90deg,#ffd36b,#4ff3e3);-webkit-background-clip:text;background-clip:text;color:transparent}
+#key .kc{background:none;border:0;color:#a8b9d2;font-size:16px;line-height:1;cursor:pointer;padding:0 2px}
+#key .kr{display:flex;align-items:center;gap:8px;margin:3px 0;line-height:1.25}
+#key .kr svg{flex:none}
+#key .ks{font-size:11px;letter-spacing:1px;color:#a3b4cf;margin:7px 0 2px}
+#key .kchip{display:none;font:inherit;font-size:12px;font-weight:650;color:#9ff5ea;background:rgba(10,18,36,.9);border:1px solid #23355a;border-radius:11px;padding:6px 12px;cursor:pointer;box-shadow:0 0 10px rgba(79,243,227,.12)}
+#key .kchip:hover{border-color:#4ff3e3}
+#key.min .kp{display:none}#key.min .kchip{display:block}
+@media (max-width:600px){#key{right:8px;bottom:10px}#key .kp{width:214px;font-size:11.5px}}
+
+h1{display:flex;align-items:center;gap:8px;min-height:38px;white-space:nowrap}h1 .ver{flex:none;margin:0;vertical-align:0;line-height:20px}h1 #aib{flex:none;margin:0;vertical-align:0;min-height:28px;font-size:12px;line-height:1}
+header .legend{margin:0;gap:12px;min-height:20px}header #ptbtn{display:block;margin:4px 0 0;width:max-content;min-height:28px;line-height:1}
+#gMap .mapband{font-size:19px;font-weight:750;letter-spacing:1.5px;paint-order:stroke;stroke:#04060f;stroke-width:5px;stroke-linejoin:round}#gMap .mapbandsz{font-size:13px;fill:#b9c8dc;paint-order:stroke;stroke:#04060f;stroke-width:4px}
+/* Desktop: one shared header row. Title, search and controls have matching top edges. */
+@media(min-width:1100px){header{top:10px;left:10px;padding:6px 12px 10px;background:rgba(4,8,20,.78);border:1px solid rgba(44,74,122,.7);border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.28),0 0 14px rgba(79,243,227,.06)}h1{height:38px;font-size:22px;line-height:38px}header .legend{margin-top:6px}header #ptbtn{margin-top:6px}
+ #search{position:fixed;left:50%;top:10px;right:auto;width:320px;transform:translateX(-50%)}#search .sbox{width:100%;height:38px}
+ #ctl{top:10px;right:10px;height:38px;gap:8px;max-width:none;flex-flow:row nowrap;align-items:center}#ctl>*{flex:none}#ctl .row{flex:none;gap:8px}#ctl button,#ctl .snd,#vsw{height:38px;box-sizing:border-box}#ctl .snd button{height:36px}#vsw span{height:28px}#infob{width:38px}
+}
+@media(min-width:1100px) and (max-width:1350px){#search{width:260px;left:53%}}
+@media(min-width:601px) and (max-width:1099px){header{top:10px;padding:6px 10px 10px;background:rgba(4,8,20,.78);border:1px solid rgba(44,74,122,.7);border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.28)}h1{height:38px}#ctl{top:10px;right:10px;height:38px;gap:6px}#ctl button,#ctl .snd,#vsw{height:38px;box-sizing:border-box}#ctl .snd button{height:36px}}
+@media(max-width:600px){header{padding:5px 8px 8px;background:rgba(4,8,20,.82);border:1px solid rgba(44,74,122,.7);border-radius:13px;box-shadow:0 8px 22px rgba(0,0,0,.28)}h1{min-height:34px;gap:6px;flex-wrap:nowrap}h1 #aib{min-height:26px;font-size:10px}header .legend{margin-top:5px}header #ptbtn{margin-top:6px;min-height:26px}#ctl{top:116px;right:8px;flex-direction:row;align-items:center;max-width:calc(100vw - 16px);gap:6px}}
 </style>
 <link rel="alternate" type="application/json" href="facts.json" title="All facts (machine-readable)">
 </head>
 <body>
 <canvas id="sky"></canvas>
-<div id="topcover"></div>
 <svg id="tree" xmlns="http://www.w3.org/2000/svg"><defs id="defs"></defs><g id="world"></g></svg>
 <header>
-  <h1>From Nothing to Us <span class="ver" title="Version 10">v10</span></h1>
-  <div class="legend"><span><i class="k"></i>known</span><span><i class="t"></i>we think</span><span><i class="u"></i>unknown</span><span><i class="p"></i>idea</span><button class="hbtn" id="ptbtn" title="Explore: elements, Virtual Cell" aria-haspopup="menu" aria-expanded="false" aria-controls="xmenu">☰ Explore</button></div>
+  <h1>From Nothing to Us <span class="ver" title="Version 11">v11</span><a class="hbtn" id="aib" href="facts.json" title="Site data: every fact and source in facts.json, for AIs and people. Plain text version: knowledge.html" aria-label="Site data: facts.json for AIs and people">🤖<b> Site data</b></a></h1>
+  <button class="hbtn" id="ptbtn" title="Explore: elements, Virtual Cell" aria-haspopup="menu" aria-expanded="false" aria-controls="xmenu">☰ Explore</button>
   <div id="search" role="search"><button id="sbtn" title="Search (/)" aria-label="Search"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#9ff5ea" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg></button>
     <div class="sbox"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#9ff5ea" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg><input id="sq" type="search" placeholder="Search: carbon, DNA, gold…" autocomplete="off" spellcheck="false" aria-label="Search the map" aria-controls="sres"><span class="skbd">/</span><button id="sx" aria-label="Clear search">×</button></div>
     <ul id="sres" role="listbox"></ul></div>
@@ -364,15 +400,11 @@ h1 .ver{display:inline-block;margin-left:6px;padding:0 7px;font-size:11px;line-h
   <button id="zfit" title="See everything"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#9ff5ea" stroke-width="2" stroke-linecap="round"><path d="M3 8V3h5M14 3h5v5M19 14v5h-5M8 19H3v-5"/></svg></button>
   <button id="ztop" title="Back to the start"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#9ff5ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l-6 6 6 6M6 11h12"/></svg></button>
 </div>
-<div id="xmenu" role="menu" aria-label="Explore"><button role="menuitem" data-x="pt"><i>⚛</i>All the elements</button><button role="menuitem" data-x="cell"><i>🧬</i>Virtual Cell</button><button role="menuitem" data-x="body"><i>🫀</i>Human Body</button><div class="soon" aria-disabled="true"><i>✦</i>More coming soon</div></div>
-<div id="ruler"><div class="rtitle">size</div></div>
-<div id="strip"></div>
-<div id="mini"><div id="vp"></div></div>
+<div id="xmenu" role="menu" aria-label="Explore"><button role="menuitem" data-x="pt"><i>⚛</i>All the elements</button><button role="menuitem" data-x="cell"><i>🧬</i>Virtual Cell</button><button role="menuitem" data-x="body"><i>🫀</i>Human Body</button><button role="menuitem" data-x="planet"><i>🌍</i>Planet Earth</button><div class="soon" aria-disabled="true"><i>✦</i>More coming soon</div></div>
 <div id="key" aria-label="Colour key"><div class="kp"><div class="kh"><b>KEY</b><button class="kc" title="Hide key" aria-label="Hide key">–</button></div>
   <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#3dff8a" stroke-width="2"/></svg><span>Known (tested, confirmed)</span></div>
   <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#ffa53d" stroke-width="2"/></svg><span>We think so (best guess)</span></div>
   <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#ff4d5e" stroke-width="2" stroke-dasharray="3 2.4"/><path d="M5.5 5.5L12.5 12.5M12.5 5.5L5.5 12.5" stroke="#ff4d5e" stroke-width="1.8" stroke-linecap="round"/></svg><span>Unknown (dashed ring, X)</span></div>
-  <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#c58cff" stroke-width="2"/></svg><span>Personal idea (not science)</span></div>
   <div class="ks">LINES · colour = less certain end</div>
   <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#3dff8a" stroke-width="2.2" stroke-opacity=".8"/><path d="M24 1.5L29 5L24 8.5Z" fill="#3dff8a" opacity=".85"/></svg><span>Solid: known step</span></div>
   <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#ffa53d" stroke-width="2.2" stroke-opacity=".8" stroke-dasharray="5 4"/><path d="M24 1.5L29 5L24 8.5Z" fill="#ffa53d" opacity=".85"/></svg><span>Dashed: uncertain step</span></div>
@@ -395,10 +427,10 @@ h1 .ver{display:inline-block;margin-left:6px;padding:0 7px;font-size:11px;line-h
   <div class="note">Origins follow Jennifer Johnson's "nucleosynthesis periodic table" (<a href="https://www.science.org/doi/10.1126/science.aau9540" target="_blank" rel="noopener">Science 2019</a>; <a href="https://blog.sdss.org/2017/01/09/origin-of-the-elements-in-the-solar-system/" target="_blank" rel="noopener">SDSS chart</a>), simplified to main and secondary sources for Solar System matter. Shares are estimates and still debated, especially how much of the heaviest elements come from neutron-star crashes versus rare kinds of supernova. 94 elements occur in nature (Tc, Pm, Np, Pu only in traces). 95–118 have only been made in labs; 113, 115, 117 and 118 were named in 2016 (<a href="https://iupac.org/what-we-do/periodic-table-of-elements/" target="_blank" rel="noopener">IUPAC</a>).</div>
 </div></div>
 <div id="ctl" aria-label="View, Echo-Flame and sound">
-  <button id="vsw" title="Switch between the map, the tree and the circle"><span class="vm" data-v="map">🗺️<b>Map</b></span><span class="vt" data-v="tree">🌳<b>Tree</b></span><span class="vc" data-v="circle"><em>◯</em><b>Circle</b></span></button>
+  <button id="vsw" title="Switch between the map and the ring"><span class="vm" data-v="map">🗺️<b>Map</b></span><span class="vc" data-v="circle"><em>◯</em><b>Ring</b></span></button>
   <div class="row"><button id="efb" title="Your Echo-Flame and save code" aria-label="Echo-Flame">🔥<b id="efn">0</b></button>
     <div class="snd"><button id="mute" title="Music on" aria-label="Mute music">🔊</button><input id="vol" type="range" min="0" max="100" step="1" aria-label="Music volume"></div>
-    <button id="rulb" title="Show or hide the size ruler" aria-label="Size ruler" aria-pressed="false">📏</button><button id="infob" title="About and credits" aria-label="About and credits">i</button></div>
+    <button id="infob" title="About and credits" aria-label="About and credits">i</button></div>
 </div>
 <div id="efp" class="panel" role="dialog" aria-label="Echo-Flame"><div class="ph"><b>🔥 ECHO-FLAME</b><button class="x" aria-label="close">×</button></div>
   <div class="big"><span id="efbig">0</span> <small>flame</small></div><div id="efst"></div>
@@ -408,29 +440,29 @@ h1 .ver{display:inline-block;margin-left:6px;padding:0 7px;font-size:11px;line-h
   <div id="efmsg"></div><p class="tag">“Don't collect cards. Collect understanding.”</p></div>
 <div id="infp" class="panel" role="dialog" aria-label="About"><div class="ph"><b>ABOUT</b><button class="x" aria-label="close">×</button></div>
   <p>From Nothing to Us: how everything emerges, from the quantum field to us. Made by Zyphullen.</p>
-  <p class="verl">Version 10 (v10)</p>
+  <p class="verl">Version 11 (v11)</p>
   <h5>Music</h5><div class="sndrow"><button id="mute2">🔊 Music on</button><input id="vol2" type="range" min="0" max="100" step="1" aria-label="Music volume"></div>
   <p class="cred">Piano: Salamander Grand Piano by Alexander Holm (<a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>), via <a href="https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html" target="_blank" rel="noopener">FreePats</a></p>
   <div class="irow"><button id="howb">❔ How to use</button><a id="sugg" href="https://github.com/Zyphullen/from-nothing-to-us/issues/new" target="_blank" rel="noopener">✎ Suggest a fix</a></div></div>
-<div id="howto" role="dialog" aria-label="How to use"><div class="hcard"><div class="hk">HOW TO USE · v10</div>
+<div id="howto" role="dialog" aria-label="How to use"><div class="hcard"><div class="hk">HOW TO USE · v11</div>
   <div class="hs"><span id="hti1">🖱️</span><b id="ht1">Scroll to zoom, drag to move</b></div>
   <div class="hs"><span id="hti2">✨</span><b id="ht2">Click a node to learn</b></div>
   <div class="hs"><span class="hdots"><i style="background:#3dff8a"></i><i style="background:#ffa53d"></i><i style="background:#ff4d5e"></i></span><b>Green = known, orange = we think, red = unknown</b></div>
-  <div class="hs"><span class="hsw">🗺️🌳◯</span><b>Map / Tree / Circle</b></div>
+  <div class="hs"><span class="hsw">🗺️◯</span><b>Map / Ring</b></div>
   <button id="htok">Got it</button></div></div>
 <div id="btyBack"></div><div id="bty" role="dialog" aria-label="Open bounty"><button class="x" aria-label="close">×</button><div id="btyBody"></div></div>
 <script>
 'use strict';
 /* ============ COLOURS ============ */
-const SC = { k: '#3dff8a', t: '#ffa53d', u: '#ff4d5e', p: '#c58cff' };
-const SN = { k: 'Known science', t: 'We think so (leading idea / hypothesis)', u: 'Unknown', p: 'Personal idea (not science)' };
+const SC = { k: '#3dff8a', t: '#ffa53d', u: '#ff4d5e' };
+const SN = { k: 'Known science', t: 'We think so (leading idea / hypothesis)', u: 'Unknown' };
 const T = '#4ff3e3', G = '#ffd36b', WH = '#e8f4ff';
-const RANK = { k: 0, t: 1, p: 1, u: 2 };
+const RANK = { k: 0, t: 1, u: 2 };
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const SUP = { '-': '⁻', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
 const pow10 = e => '10' + String(Math.round(e)).split('').map(c => SUP[c]).join('');
 const szShort = n => n.sz == null ? '' : (Math.round(n.sz) === 0 ? '~1 m' : '~' + pow10(n.sz) + ' m');
-const DATA_HASH = '488634fe65bd'; // same hash is in facts.json
+const DATA_HASH = 'c52407352f1c'; // same hash is in facts.json
 const SRC = {
  katrin:['KATRIN, Science 2025: neutrino mass below 0.45 eV','https://doi.org/10.1126/science.adq9592'],
  ctpost:['Alex Wissner-Gross: "Chain Theory" (Substack, 24 Oct 2026)','https://theinnermostloop.substack.com/p/chain-theory'],
@@ -553,7 +585,7 @@ const SRC = {
  osys:['OpenStax Anatomy & Physiology 2e: 1.2 — eleven organ systems','https://openstax.org/books/anatomy-and-physiology-2e/pages/1-2-structural-organization-of-the-human-body'],
  pdgh:['PDG 2024 Higgs listing: mass 125.20 ± 0.11 GeV','https://pdg.lbl.gov/2024/listings/rpp2024-list-higgs-boson.pdf'],
 };
-/* s: k = known, t = we think (hypothesis / leading idea), u = unknown, p = personal idea (not science)
+/* s: k = known, t = we think (hypothesis / leading idea), u = unknown
    sz: rough size, log10 of metres.  L2 / L3: the "Read more" layers ('## ' starts a heading).
    el: label on the line from a parent.  es: force a line's status (e.g. a link nobody has shown). */
 const N = [
@@ -968,7 +1000,7 @@ const N = [
 {id:'origin',r:26,x:700,s:'u',ic:'spark',name:'The first spark',line:'Chemistry → alive: how?',sz:-6,szt:'Unknown (the first cells were probably ~1 µm)',
  info:['How chemistry became life is unknown.','2026 lab cells grow and divide, but are not alive.','Many gaps remain.'],
  L2:['## What would fill it','A lab protocell that copies, evolves and runs a metabolism on its own.'],
- L3:['## Zyphullen\'s idea (personal, not science)','Maybe life is the universe\'s knot trying to untie itself toward perfect symmetry: one long chain reaction.'],
+ 
  src:['abiogenesis','spudcell'],p:['protocell']},
 
 {id:'luca',r:27,x:700,s:'k',ic:'cell',name:'LUCA',line:'Last universal common ancestor',sz:-6,szt:'~1–2 µm',
@@ -1047,9 +1079,6 @@ const N = [
  info:['~86 billion neurons.','100+ trillion connections (rough estimate).','Thinks, feels, remembers.'],L2:[],L3:[],
  src:['azevedo','nrcsyn','ctxsyn'],p:['body']},
 
-{id:'idea',r:37,x:1350,s:'p',ic:'idea',name:"Zyphullen's idea",line:'Personal note, not science',sz:null,szt:'—',
- info:['Life as the universe\'s knot untying.','Everything as one chain reaction.','A personal idea. Not tested.'],L2:[],L3:[],
- src:[],p:['origin']},
 
 {id:'mind',r:38,x:800,s:'u',ic:'mind',name:'Consciousness',line:'Why it feels: unknown',sz:null,szt:'—',
  info:['How brain activity becomes feeling','is one of the biggest unknowns.','Many theories, none confirmed.'],L2:[],L3:[],
@@ -1072,7 +1101,7 @@ const EXTRA = {
  peptides:{L2:['## Recipe','n amino acids → a chain + (n−1) water molecules.','## How they form','Wet–dry cycles, mineral surfaces, or hot vents can join them.','## Randomness','Order of letters: random at first.'],L3:['## New (2025)','Amino acids were attached to RNA in plain water, then joined into peptides on RNA (Powner lab, Nature 2025).','## Open','How a random chain gained a useful job.']},
  vesicles:{L3:['## How we know','Szostak lab: fatty-acid bubbles grow, split and let small molecules in.']},
  protocell:{L3:['## How we know','Parts have been built in labs (RNA copying inside vesicles, partly).','2026: "SpudCells" copy DNA, grow and divide, but scientists feed them ribosomes. Their maker says they are not alive.','## Open','A full self-copying, evolving protocell has not been made.']},
- origin:{L3:['## Why red','No accepted step-by-step path from chemistry to the first living cell.','## Zyphullen\'s idea (personal, not science)','Life as the universe\'s knot trying to untie itself toward perfect symmetry; everything one chain reaction.']},
+ origin:{L3:['## Why red','No accepted step-by-step path from chemistry to the first living cell.']},
  luca:{L2:['## What it had','DNA genome, ribosomes, the genetic code, a membrane, ATP energy.','~2,600 protein families (estimate, Moody 2024).','## Size','Probably like a bacterium: ~1–2 µm.'],L3:['## How we know','All life shares the same code and core genes, so one ancestor is the best fit.','## Numbers','~4.2 billion years ago (range ~4.09–4.33, estimate).','## Note','LUCA is the cell all life traces back to, not the very first cell.']},
  proteins:{L2:['## Recipe','~50–34,000 amino acids → a chain that folds into a 3D shape.','Median human protein: ~400 amino acids.','## How they form','A ribosome reads mRNA, adding ~5–20 amino acids per second.'],L3:['## Numbers','Humans: ~20,000 protein-coding genes; titin is the longest (~34,350).','## Open','Predicting the fold from the sequence is now mostly solved (AlphaFold, Nobel 2024); how the first proteins arose is not.']},
  code:{L2:['## Recipe','4 letters (A, U, G, C) read 3 at a time = 64 codons.','61 code for 20 amino acids, 3 mean "stop".'],L3:['## Open','Why this exact code? A "frozen accident" or chemistry? Debated.']},
@@ -1091,7 +1120,6 @@ const EXTRA = {
  hsap:{L2:['## Recipe','Evolution by mutation + natural selection, ~6–7 million years since our split from chimps.'],L3:['## Numbers','Jebel Irhoud, Morocco: ~300,000 years (Hublin 2017).']},
  body:{L2:['## Recipe','~30–37 trillion cells (estimates differ).','~84% of them by number are red blood cells.','~400 cell types; 1 genome copied into nearly every cell.','## Order','Cells → tissues → organs → systems → body.'],L3:['## Numbers','Sender 2016: ~3.0×10¹³ human cells + ~3.8×10¹³ bacteria. Bianconi 2013: 3.72×10¹³. Hatton 2023: ~36 trillion (man), ~28 trillion (woman).']},
  brain:{L2:['## Recipe','~86 billion neurons + about as many glial cells.','100+ trillion synapses (rough estimate). One count found ~150 trillion in the neocortex alone (Pakkenberg 2003), so the total may be higher.'],L3:['## Numbers','Azevedo 2009: 86 ± 8 billion neurons.','## Open','How memory and thought are coded in detail.']},
- idea:{L2:['## Zyphullen\'s idea','Life is the universe\'s knot trying to untie itself toward perfect symmetry.','Everything is one chain reaction.'],L3:['## Label','A personal idea, shown for interest. It is not science and not part of Chain Theory.']},
  mind:{L2:['## Theories','Global workspace, integrated information, higher-order and others.'],L3:['## Why red','No test yet tells which theory, if any, is right.','The 2025 "Cogitate" head-to-head test (256 people): results challenged both big theories; neither won.']},
 };
 const ELS=[[1,"H","Hydrogen","nm","B",1,1],[2,"He","Helium","nob","B",1,18],[3,"Li","Lithium","alk","LBC",2,1],[4,"Be","Beryllium","ae","C",2,2],[5,"B","Boron","met","C",2,13],[6,"C","Carbon","nm","LM",2,14],[7,"N","Nitrogen","nm","LM",2,15],[8,"O","Oxygen","nm","M",2,16],[9,"F","Fluorine","hal","M",2,17],[10,"Ne","Neon","nob","M",2,18],[11,"Na","Sodium","alk","M",3,1],[12,"Mg","Magnesium","ae","M",3,2],[13,"Al","Aluminium","post","M",3,13],[14,"Si","Silicon","met","MW",3,14],[15,"P","Phosphorus","nm","M",3,15],[16,"S","Sulfur","nm","MW",3,16],[17,"Cl","Chlorine","hal","MW",3,17],[18,"Ar","Argon","nob","MW",3,18],[19,"K","Potassium","alk","MW",4,1],[20,"Ca","Calcium","ae","MW",4,2],[21,"Sc","Scandium","tm","M",4,3],[22,"Ti","Titanium","tm","WM",4,4],[23,"V","Vanadium","tm","WM",4,5],[24,"Cr","Chromium","tm","WM",4,6],[25,"Mn","Manganese","tm","W",4,7],[26,"Fe","Iron","tm","WM",4,8],[27,"Co","Cobalt","tm","WM",4,9],[28,"Ni","Nickel","tm","WM",4,10],[29,"Cu","Copper","tm","WM",4,11],[30,"Zn","Zinc","tm","WM",4,12],[31,"Ga","Gallium","post","M",4,13],[32,"Ge","Germanium","met","M",4,14],[33,"As","Arsenic","met","M",4,15],[34,"Se","Selenium","nm","M",4,16],[35,"Br","Bromine","hal","M",4,17],[36,"Kr","Krypton","nob","ML",4,18],[37,"Rb","Rubidium","alk","ML",5,1],[38,"Sr","Strontium","ae","L",5,2],[39,"Y","Yttrium","tm","L",5,3],[40,"Zr","Zirconium","tm","L",5,4],[41,"Nb","Niobium","tm","L",5,5],[42,"Mo","Molybdenum","tm","LMN",5,6],[43,"Tc","Technetium","tm","H",5,7],[44,"Ru","Ruthenium","tm","NL",5,8],[45,"Rh","Rhodium","tm","N",5,9],[46,"Pd","Palladium","tm","LN",5,10],[47,"Ag","Silver","tm","NL",5,11],[48,"Cd","Cadmium","tm","LN",5,12],[49,"In","Indium","post","NL",5,13],[50,"Sn","Tin","post","L",5,14],[51,"Sb","Antimony","met","NL",5,15],[52,"Te","Tellurium","met","N",5,16],[53,"I","Iodine","hal","N",5,17],[54,"Xe","Xenon","nob","N",5,18],[55,"Cs","Caesium","alk","NL",6,1],[56,"Ba","Barium","ae","L",6,2],[57,"La","Lanthanum","lan","L",9,3],[58,"Ce","Cerium","lan","L",9,4],[59,"Pr","Praseodymium","lan","LN",9,5],[60,"Nd","Neodymium","lan","LN",9,6],[61,"Pm","Promethium","lan","H",9,7],[62,"Sm","Samarium","lan","NL",9,8],[63,"Eu","Europium","lan","N",9,9],[64,"Gd","Gadolinium","lan","N",9,10],[65,"Tb","Terbium","lan","N",9,11],[66,"Dy","Dysprosium","lan","N",9,12],[67,"Ho","Holmium","lan","N",9,13],[68,"Er","Erbium","lan","N",9,14],[69,"Tm","Thulium","lan","N",9,15],[70,"Yb","Ytterbium","lan","NL",9,16],[71,"Lu","Lutetium","lan","N",9,17],[72,"Hf","Hafnium","tm","LN",6,4],[73,"Ta","Tantalum","tm","NL",6,5],[74,"W","Tungsten","tm","LN",6,6],[75,"Re","Rhenium","tm","N",6,7],[76,"Os","Osmium","tm","N",6,8],[77,"Ir","Iridium","tm","N",6,9],[78,"Pt","Platinum","tm","N",6,10],[79,"Au","Gold","tm","N",6,11],[80,"Hg","Mercury","tm","L",6,12],[81,"Tl","Thallium","post","L",6,13],[82,"Pb","Lead","post","L",6,14],[83,"Bi","Bismuth","post","NL",6,15],[84,"Po","Polonium","post","R",6,16],[85,"At","Astatine","hal","R",6,17],[86,"Rn","Radon","nob","R",6,18],[87,"Fr","Francium","alk","R",7,1],[88,"Ra","Radium","ae","R",7,2],[89,"Ac","Actinium","act","R",10,3],[90,"Th","Thorium","act","N",10,4],[91,"Pa","Protactinium","act","R",10,5],[92,"U","Uranium","act","N",10,6],[93,"Np","Neptunium","act","H",10,7],[94,"Pu","Plutonium","act","H",10,8],[95,"Am","Americium","act","H",10,9],[96,"Cm","Curium","act","H",10,10],[97,"Bk","Berkelium","act","H",10,11],[98,"Cf","Californium","act","H",10,12],[99,"Es","Einsteinium","act","H",10,13],[100,"Fm","Fermium","act","H",10,14],[101,"Md","Mendelevium","act","H",10,15],[102,"No","Nobelium","act","H",10,16],[103,"Lr","Lawrencium","act","H",10,17],[104,"Rf","Rutherfordium","tm","H",7,4],[105,"Db","Dubnium","tm","H",7,5],[106,"Sg","Seaborgium","tm","H",7,6],[107,"Bh","Bohrium","tm","H",7,7],[108,"Hs","Hassium","tm","H",7,8],[109,"Mt","Meitnerium","tm","H",7,9],[110,"Ds","Darmstadtium","tm","H",7,10],[111,"Rg","Roentgenium","tm","H",7,11],[112,"Cn","Copernicium","tm","H",7,12],[113,"Nh","Nihonium","post","H",7,13],[114,"Fl","Flerovium","post","H",7,14],[115,"Mc","Moscovium","post","H",7,15],[116,"Lv","Livermorium","post","H",7,16],[117,"Ts","Tennessine","hal","H",7,17],[118,"Og","Oganesson","nob","H",7,18]];
@@ -1352,7 +1380,7 @@ const PTX = [
 /* CELL_P: the cards for the Virtual Cell (one source for the site AND facts.json). s: k known, t we think, u unknown */
 const CELL_P = (W => ({
     cell: { n: 'Typical human cell (generalised)', s: 't', a: ['A general human body cell, about 20 µm across: it has the parts most human cells share.', 'No single real cell type looks exactly like this; the shape is simplified.'],
-      b: ['Real human cells range from about 7 µm (red blood cells) to over 100 µm, and from round to long and branched.', 'Sizes and speeds of the parts inside are real measured values, drawn to scale.', 'Some counts are reduced so you can see between things: proteins at ~1/8 of real crowding, 30 of ~10,000 vaults, fewer microtubules and ribosomes.'], src: [['Cell (Wikipedia)', W + 'Cell_(biology)'], ['Cell Biology by the Numbers', 'http://book.bionumbers.org/']] },
+      b: ['Real human cells range from about 7 µm (red blood cells) to over 100 µm, and from round to long and branched.', 'Sizes and speeds of the parts inside are real measured values, drawn to scale.', 'Some counts are reduced so you can see between things: proteins at ~1/8 of real crowding, 30 of ~10,000 vaults, fewer microtubules and ribosomes.'], src: [['Cell (Wikipedia)', W + 'Cell_(biology)'], ['Cell Biology by the Numbers', 'https://book.bionumbers.org/']] },
     membrane: { n: 'Cell membrane', s: 'k', a: ['A skin of fat molecules two layers thick, about 5 nm.', 'It lets some things in and keeps others out.'],
       b: ['Made of roughly a billion lipid molecules, with proteins floating in it.', 'In cells that crawl, the front edge ruffles and moves forward a few µm per minute (a lamellipodium).', 'Zoom right in to see the two layers of lipids.'], src: [['Cell membrane (Wikipedia)', W + 'Cell_membrane'], ['Lamellipodium (Wikipedia)', W + 'Lamellipodium']] },
     nucleus: { n: 'Nucleus', s: 'k', a: ['The control centre: about 10 × 8 µm here (typically 5–10 µm).', 'It holds 46 chromosomes: about 2 metres of DNA.'],
@@ -1395,7 +1423,7 @@ const CELL_P = (W => ({
     vault: { n: 'Vault', s: 't', a: ['A hollow barrel of protein and RNA, about 40 × 70 nm.', 'What it does is still not clear.'],
       b: ['About 10,000 per cell (some cells have more).', 'Ideas include transport or defence, but no job is proven.'], src: [['Vault (organelle) (Wikipedia)', W + 'Vault_(organelle)']] },
     cyto: { n: 'Cytosol', s: 'k', a: ['The gel that fills the cell: about 70% water.', 'Packed with roughly 3 million proteins per cubic µm.'],
-      b: ['So crowded that big things barely drift unless motors carry them.', 'Small molecules still diffuse fast: across the cell in seconds.'], src: [['Cytosol (Wikipedia)', W + 'Cytosol'], ['Cell Biology by the Numbers', 'http://book.bionumbers.org/']] },
+      b: ['So crowded that big things barely drift unless motors carry them.', 'Small molecules still diffuse fast: across the cell in seconds.'], src: [['Cytosol (Wikipedia)', W + 'Cytosol'], ['Cell Biology by the Numbers', 'https://book.bionumbers.org/']] },
     water: { n: 'Water molecule', s: 'k', map: 'water', a: ['One oxygen atom and two hydrogen atoms (H₂O).', 'About 99 of every 100 molecules in a cell are water.'], b: ['Real water molecules jiggle and tumble trillions of times a second; here they are shown frozen or hugely slowed.', 'Water’s slightly charged ends help proteins fold.'], src: [['Properties of water (Wikipedia)', W + 'Properties_of_water']] },
     glucose: { n: 'Glucose', s: 'k', map: 'molecules', a: ['A sugar: a ring of carbon and oxygen.', 'Cells break it down for energy.'], b: ['Glycolysis in the cytosol starts the job; mitochondria finish it and make ATP.'], src: [['Glucose (Wikipedia)', W + 'Glucose']] },
     lipid: { n: 'Phospholipid', s: 'k', map: 'lipids', a: ['A water-loving head and two oily tails, about 2.5 nm long.', 'Two layers of them make every membrane.'], b: ['The tails hide from water, so lipids form two layers by themselves.', 'A kink in one tail keeps the membrane fluid.'], src: [['Phospholipid (Wikipedia)', W + 'Phospholipid']] },
@@ -1515,6 +1543,27 @@ const BODY_CELLS = {
   thyroid: ['Thyroid cell (thyrocyte)', 'Makes the hormones T3 and T4 using iodine.', 'Thyroid'],
   pancreas: ['Pancreas cell (acinar or beta cell)', 'Acinar cells make digestive enzymes; beta cells make insulin.', 'Pancreas'],
 };
+// v11 Planet view cards. r0/r1 = depth (km below sea level; negative = height above). Average values; real boundaries vary.
+const PLANET_P = (W => ({
+  earth: { n: 'Earth', s: 'k', a: ['Radius about 6,371 km. Mass about 6 × 10²⁴ kg.', 'Formed about 4.54 billion years ago.'], b: ['Drawn as a cut-away: real layers to scale, shapes simplified (land on the left half, ocean on the right).'], src: [['Earth (Wikipedia)', W + 'Earth'], ['Structure of Earth (Wikipedia)', W + 'Internal_structure_of_Earth']] },
+  exo: { n: 'Exosphere', s: 'k', s2: 't', r0: -10000, r1: -600, g: 'atmo', a: ['From about 600 km up to about 10,000 km.', 'Gas so thin its atoms hardly ever meet.'], b: ['Its outer edge is fuzzy; it fades into space (some count it out to the Moon).'], src: [['Exosphere (Wikipedia)', W + 'Exosphere']] },
+  thermo: { n: 'Thermosphere', s: 'k', r0: -600, r1: -85, g: 'atmo', a: ['From about 85 to 600 km up. Auroras glow here.', 'The ISS flies here, about 400 km up.'], b: ['Thin gas can reach 2,000 °C, but it would feel cold: too few atoms to warm you.'], src: [['Thermosphere (Wikipedia)', W + 'Thermosphere']] },
+  meso: { n: 'Mesosphere', s: 'k', r0: -85, r1: -50, g: 'atmo', a: ['From about 50 to 85 km up.', 'Most meteors burn up here.'], b: ['The coldest part of the atmosphere, about −90 °C at the top.'], src: [['Mesosphere (Wikipedia)', W + 'Mesosphere']] },
+  strato: { n: 'Stratosphere', s: 'k', r0: -50, r1: -12, g: 'atmo', a: ['From about 12 to 50 km up.', 'Holds the ozone layer, which blocks most UV light.'], b: [], src: [['Stratosphere (Wikipedia)', W + 'Stratosphere']] },
+  tropo: { n: 'Troposphere', s: 'k', r0: -12, r1: 0, g: 'atmo', a: ['From the ground up to about 12 km (8 km at the poles, 18 km at the equator).', 'Almost all weather happens here.'], b: ['Holds about three quarters of the air’s mass.'], src: [['Troposphere (Wikipedia)', W + 'Troposphere']] },
+  atmo: { n: 'Atmosphere', s: 'k', a: ['A thin layer of gas: 78% nitrogen, 21% oxygen.', 'Zoom in to see its 5 layers.'], b: ['Half of all air is below about 5.5 km.'], src: [['Atmosphere of Earth (Wikipedia)', W + 'Atmosphere_of_Earth']] },
+  karman: { n: 'Kármán line', s: 'k', a: ['100 km up: a common agreed edge of space.', 'It is a convention, not a physical wall.'], b: [], src: [['Kármán line (Wikipedia)', W + 'K%C3%A1rm%C3%A1n_line']] },
+  iss: { n: 'Space Station (ISS)', s: 'k', a: ['Orbits about 400–420 km up.', 'Goes round Earth about every 90 minutes.'], b: ['Shown far bigger than real (it is about 109 m wide).'], src: [['International Space Station (Wikipedia)', W + 'International_Space_Station']] },
+  ocean: { n: 'Ocean', s: 'k', r0: 0, r1: 3.7, side: 'sea', a: ['Covers about 71% of Earth. Average depth about 3.7 km.', 'Deepest point: about 10.9 km (Challenger Deep).'], b: [], src: [['Ocean (Wikipedia)', W + 'Ocean']] },
+  ocrust: { n: 'Oceanic crust', s: 'k', r0: 3.7, r1: 10.7, side: 'sea', g: 'crust', a: ['About 7 km thick, mostly basalt.', 'Young: rarely older than about 200 million years.'], b: ['Made at mid-ocean ridges and sinks back into the mantle.'], src: [['Oceanic crust (Wikipedia)', W + 'Oceanic_crust']] },
+  ccrust: { n: 'Continental crust', s: 'k', r0: 0, r1: 35, side: 'land', g: 'crust', a: ['About 35 km thick on average, up to 70 km under big mountains.', 'Lighter granite-like rock; parts are over 4 billion years old.'], b: ['Its base is the Moho, where rock gets much denser.'], src: [['Continental crust (Wikipedia)', W + 'Continental_crust']] },
+  crust: { n: 'Crust', s: 'k', a: ['Earth’s thin rocky skin: less than 1% of its volume.', 'Zoom in to see ocean and continent crust.'], b: [], src: [["Earth's crust (Wikipedia)", W + "Earth%27s_crust"]] },
+  umantle: { n: 'Upper mantle', s: 'k', r0: 35, r1: 410, a: ['From the crust down to about 410 km. Solid rock (peridotite).', 'It flows very slowly, a few cm a year, moving the plates.'], b: ['The plates (lithosphere) are the stiff top ~100 km; below is the softer asthenosphere.'], src: [['Upper mantle (Wikipedia)', W + 'Upper_mantle_(Earth)']] },
+  tzone: { n: 'Transition zone', s: 'k', s2: 't', r0: 410, r1: 660, a: ['From about 410 to 660 km down. Minerals squeeze into new forms.', 'It may hold a lot of water inside minerals (how much is still debated).'], b: ['A diamond found in 2014 held ringwoodite with water, from this zone.'], src: [['Transition zone (Wikipedia)', W + 'Transition_zone_(Earth)']] },
+  lmantle: { n: 'Lower mantle', s: 'k', s2: 'u', r0: 660, r1: 2891, a: ['From about 660 to 2,891 km down. Hot solid rock.', 'Its main mineral, bridgmanite, is the most common mineral on Earth.'], b: ['Two continent-sized blobs sit at its base; where they came from is unknown.'], src: [['Lower mantle (Wikipedia)', W + 'Lower_mantle']] },
+  ocore: { n: 'Outer core', s: 'k', r0: 2891, r1: 5150, a: ['From about 2,891 to 5,150 km down. Liquid iron and nickel.', 'Its flow makes Earth’s magnetic field.'], b: ['About 4,000–5,000 °C.'], src: [["Earth's outer core (Wikipedia)", W + "Earth%27s_outer_core"]] },
+  icore: { n: 'Inner core', s: 'k', s2: 't', r0: 5150, r1: 6371, a: ['A solid iron-nickel ball, radius about 1,220 km.', 'About 5,000–5,400 °C, near the Sun’s surface temperature.'], b: ['It is solid because of the huge pressure.', 'Its age is debated: roughly 0.5–1.5 billion years.'], src: [["Earth's inner core (Wikipedia)", W + "Earth%27s_inner_core"]] },
+}))('https://en.wikipedia.org/wiki/');
 
 for (const n of N) { const x = EXTRA[n.id]; if (x) { if (x.L2 && x.L2.length) n.L2 = x.L2; if (x.L3 && x.L3.length) n.L3 = x.L3; } n.L2 = n.L2 || []; n.L3 = n.L3 || []; }
 /* status is single-source: a node's own data decides its colour in BOTH views. Set solved:true on a node to turn it green with a tick everywhere. */
@@ -1525,13 +1574,13 @@ const isOpenQ = n => n.s === 't' || n.s === 'u'; // orange or red = an open boun
 /* ============ LAYOUT ============ */
 /* Left → right: one column per stage (n.r), grouped into size levels (BANDS).
    Rows = branches: space & planets on top, matter & chemistry in the middle, Chain Theory and life below. */
-const COL = 340, LEFT = 150, GAP = 196, LANEGAP = 50, LASTR = Math.max(...N.map(n => n.r));
+const COL = 510, LEFT = 150, GAP = 294, LANEGAP = 75, LASTR = Math.max(...N.map(n => n.r));
 const X = r => LEFT + r * COL;
 const LANES = { cosmic: ['SPACE & PLANETS', -720, 0], matter: ['MATTER & CHEMISTRY', 0, 1], chain: ['CHAIN THEORY (base idea)', 700, 2], life: ['LIFE', 640, 2] };
 const LANE_OF = {};
 'qgrav strings lqg inflation seeds bigbang dm de h0 gravity halos cmb gas firststars stars galaxies smbh supernova sn1a nsmerger bh cosmicray dust planets solar earth exo moon'.split(' ').forEach(i => LANE_OF[i] = 'cosmic');
 'axiom qudits distill genres gauge alpha chainmail ctspace gap'.split(' ').forEach(i => LANE_OF[i] = 'chain');
-'amino nucleotides sugars lipids peptides rnaworld vesicles protocell origin luca proteins code dna prok photosyn goe eukaryote multicell tissues plants animals organs mammals organsys hsap body brain idea mind'.split(' ').forEach(i => LANE_OF[i] = 'life');
+'amino nucleotides sugars lipids peptides rnaworld vesicles protocell origin luca proteins code dna prok photosyn goe eukaryote multicell tissues plants animals organs mammals organsys hsap body brain mind'.split(' ').forEach(i => LANE_OF[i] = 'life');
 const byId = {}; N.forEach(n => { n.x = X(n.r); n.kids = []; n.lane = LANE_OF[n.id] || 'matter'; byId[n.id] = n; });
 N.forEach(n => n.p.forEach(p => byId[p].kids.push(n.id)));
 (() => { // place each column: pull towards parents (straight lines) and towards the branch's row, keep branches in order, never overlap
@@ -1550,7 +1599,7 @@ N.forEach(n => n.p.forEach(p => byId[p].kids.push(n.id)));
   }
   const mn = Math.min(...N.map(n => n.y)); N.forEach(n => n.y = Math.round(n.y - mn + 190));
 })();
-const WM = X(LASTR) + 260, HM = Math.max(...N.map(n => n.y)) + 190; let W = WM, H = HM;
+const WM = X(LASTR) + 390, HM = Math.max(...N.map(n => n.y)) + 190; let W = WM, H = HM;
 N.forEach(n => { n.mx = n.x; n.my = n.y; });
 for (const id in EL2) { const n = byId[id]; if (!n) continue; n.el = n.el || {}; for (const p in EL2[id]) if (n.p.includes(p) && !n.el[p]) n.el[p] = EL2[id][p]; }
 
@@ -1559,7 +1608,7 @@ const BANDS = [
  ['BASE LAYER', 'base', 0, 4.5, '#4ff3e3', '— (links, fields)'],
  ['PARTICLES & FORCES', 'particles', 4.5, 6.5, '#7fc8ff', 'point-like, < 10⁻¹⁸ m'],
  ['NUCLEAR', 'nuclear', 6.5, 9.5, '#9fb4ff', '10⁻¹⁵ – 10⁻¹⁴ m'],
- ['ATOMS', 'atoms', 9.5, 11.5, '#c9b6ff', '~10⁻¹⁰ m'],
+ ['ATOMS', 'atoms', 9.5, 11.5, '#a8b9d2', '~10⁻¹⁰ m'],
  ['STARS & GALAXIES', 'cosmic', 11.5, 15.5, '#ffb46b', '10⁴ – 10²¹ m'],
  ['ELEMENTS · CHEMISTRY · PLANETS', 'chem + planets', 15.5, 22.5, '#ffd36b', 'atoms 10⁻¹⁰ m · planets 10⁷ m'],
  ["LIFE'S MOLECULES", 'life molecules', 22.5, 26.5, '#ff9ad5', '10⁻⁹ – 10⁻⁶ m'],
@@ -1677,7 +1726,6 @@ Object.assign(ICON, {
  mammal: () => `<path d="M-20 8 C-20 -6 -4 -10 8 -6 L14 -14 L16 -4 C22 -2 22 6 16 8 L14 18 M-14 8 L-16 18 M4 8 L4 18 M-20 4 L-26 -2" ${st('#ffb46b', 2.2)}/>` + circ(15, -4, 1.4, fill(WH)),
  organsys: () => `<path d="M0 -22 L0 18 M0 -10 L-14 -2 M0 -10 L14 -2 M0 4 L-10 20 M0 4 L10 20" ${st('#ff9ad5', 1.6)}/>` + circ(0, -14, 4, fill('#ff7b91')) + circ(-14, -2, 3, fill(T)) + circ(14, -2, 3, fill(T)) + circ(0, 8, 3.5, fill(G)),
  body: () => circ(0, -18, 6, fill(G)) + `<path d="M-13 6 L-7 -6 Q0 -9 7 -6 L13 6 M-6 -6 L-5 8 L-7 24 M6 -6 L5 8 L7 24 M-5 8 L5 8" ${st(G, 3.2)}/>` + circ(0, -1, 2.4, fill('#ff7b91')),
- idea: () => `<path d="M-14 -2 C-14 -20 14 -20 14 -2 C14 6 6 10 6 16 L-6 16 C-6 10 -14 6 -14 -2Z" fill="rgba(197,140,255,.18)" ${st('#c58cff', 2)}/><path d="M-5 21 L5 21" ${st('#c58cff', 2)}/>` + `<path d="M-6 -4 C-2 -10 2 2 6 -4" ${st('#e8d4ff', 1.4)}/>`,
 });
 
 
@@ -1696,49 +1744,12 @@ const halfW = n => Math.max(62, n.name.length * 4.7 + 6, n.line.length * 3.5 + 6
 const bx = v => v <= 0 ? 0 : Math.max(0, Math.min(WM, X(v))); // map x of a stage boundary
 const edgeStatus = (n, p) => (n.es && n.es[p.id]) || (RANK[n.s] >= RANK[p.s] ? n.s : p.s);
 
-/* ============ TREE LAYOUT (same nodes, grown upwards: roots at "Nothing", crown at "Us") ============
-   One row per stage (n.r); a node fed by a parent in its own stage sits half a row higher.
-   Space & planets branch out to the left, Chain Theory to the right, matter and then life form the trunk. */
-const TROW = 215, TLX = 640, TLANE = { cosmic: -1, matter: 0, chain: 1, life: 0 }, TORD = { cosmic: 0, matter: 1, life: 1, chain: 2 };
-let WT = 0, HT = 0;
-(() => {
-  const lvOf = n => n.lv != null ? n.lv : (n.lv = Math.max(n.r, ...n.p.map(p => byId[p]).filter(p => p.r === n.r).map(p => lvOf(p) + .5))); N.forEach(lvOf);
-  const levels = [...new Set(N.map(n => n.lv))].sort((a, b) => a - b), placed = [], sep = (a, b) => halfW(a) + halfW(b) + 34;
-  for (const L of levels) {
-    const row = N.filter(n => n.lv === L);
-    for (const n of row) { const ps = n.p.map(p => byId[p]).filter(p => p.gx != null), lc = TLANE[n.lane] * TLX;
-      n.gwant = ps.length ? 0.62 * ps.reduce((m, p) => m + p.gx, 0) / ps.length + 0.38 * lc : lc; n.gx = n.gwant; n.gy = -L * TROW; }
-    row.sort((a, b) => TORD[a.lane] - TORD[b.lane] || a.gwant - b.gwant);
-    const tidy = () => { for (let it = 0; it < 300; it++) { let ok = true;
-        for (let i = 1; i < row.length; i++) { const a = row[i - 1], b = row[i], d = a.gx + sep(a, b) - b.gx; if (d > .01) { ok = false; a.gx -= d / 2; b.gx += d / 2; } }
-        if (ok) break; }
-      for (let i = 1; i < row.length; i++) row[i].gx = Math.max(row[i].gx, row[i - 1].gx + sep(row[i - 1], row[i])); };
-    tidy();
-    for (let k = 0; k < 60; k++) { let moved = false; // keep clear of nodes half a row below
-      for (const n of row) for (const m of placed) if (Math.abs(n.gy - m.gy) < 175) { const need = sep(n, m), d = n.gx - m.gx; if (Math.abs(d) < need) { n.gx = m.gx + (d >= 0 ? need : -need); moved = true; } }
-      if (!moved) break; row.sort((a, b) => a.gx - b.gx); for (let i = 1; i < row.length; i++) row[i].gx = Math.max(row[i].gx, row[i - 1].gx + sep(row[i - 1], row[i])); }
-    { row.sort((a, b) => a.gx - b.gx); const near = placed.filter(m => Math.abs(m.gy - row[0].gy) < 175); // final hard pass: nearest free spot, never overlapping
-      const free = (x, n, lo) => x >= lo - .01 && near.every(m => Math.abs(x - m.gx) >= sep(n, m) - .01);
-      row.forEach((n, i) => { const lo = i ? row[i - 1].gx + sep(row[i - 1], n) : -1e9; if (free(n.gx, n, lo)) return;
-        const cand = [lo, ...near.flatMap(m => [m.gx - sep(n, m), m.gx + sep(n, m)])].filter(x => free(x, n, lo)).sort((a, b) => Math.abs(a - n.gx) - Math.abs(b - n.gx));
-        let x = cand.length ? cand[0] : Math.max(lo, n.gx); for (let g = 0; g < 200 && !free(x, n, lo); g++) { const m = near.find(m => Math.abs(x - m.gx) < sep(n, m)); x = m ? m.gx + sep(n, m) : lo; }
-        n.gx = x; }); }
-    placed.push(...row);
-  }
-  { const rt = N.find(n => n.id === 'nothing'), x0 = rt ? rt.gx : 0, ys = N.map(n => n.gy), y0 = Math.max(...ys), y1 = Math.min(...ys); // v8b: spread wider towards the crown, like a real tree
-    N.forEach(n => { const u = (y0 - n.gy) / (y0 - y1 || 1); n.gx = x0 + (n.gx - x0) * (1 + 2.2 * Math.pow(u, 1.2)); }); }
-  const mnx = Math.min(...N.map(n => n.gx - halfW(n))), mny = Math.min(...N.map(n => n.gy));
-  N.forEach(n => { n.gx = Math.round(n.gx - mnx + 190); n.gy = Math.round(n.gy - mny + 330); });
-  WT = Math.max(...N.map(n => n.gx + halfW(n))) + 160; HT = Math.max(...N.map(n => n.gy)) + 330;
-})();
-defs.innerHTML += `<linearGradient id="trunkG" gradientUnits="userSpaceOnUse" x1="0" y1="${HT}" x2="0" y2="0"><stop offset="0" stop-color="#ffd36b"/><stop offset=".45" stop-color="#d6ee9a"/><stop offset="1" stop-color="#4ff3e3"/></linearGradient>` +
-  `<radialGradient id="usGlow"><stop offset="0" stop-color="#4ff3e3" stop-opacity=".22"/><stop offset="1" stop-color="#4ff3e3" stop-opacity="0"/></radialGradient>` +
-  `<linearGradient id="barkG" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#3a2a10"/><stop offset=".35" stop-color="#ffd36b" stop-opacity=".55"/><stop offset=".6" stop-color="#d6ee9a" stop-opacity=".35"/><stop offset="1" stop-color="#102a2a"/></linearGradient>` +
-  `<radialGradient id="leafGlow"><stop offset="0" stop-color="#3dff8a" stop-opacity=".07"/><stop offset="1" stop-color="#3dff8a" stop-opacity="0"/></radialGradient>` +
-  `<radialGradient id="rootGlow"><stop offset="0" stop-color="#ffd36b" stop-opacity=".2"/><stop offset="1" stop-color="#ffd36b" stop-opacity="0"/></radialGradient>`;
+const TORD = { cosmic: 0, matter: 1, life: 1, chain: 2 };
 
-/* ============ ONE NODE (shared by both views, so status, pulse, tick and explored ring always match) ============ */
-function nodeSVG(n, i, tree) { const c = SC[n.s], u = n.s === 'u', open = isOpenQ(n), hw = halfW(n);
+defs.innerHTML += `<radialGradient id="usGlow"><stop offset="0" stop-color="#4ff3e3" stop-opacity=".22"/><stop offset="1" stop-color="#4ff3e3" stop-opacity="0"/></radialGradient>`;
+
+/* ============ ONE NODE (shared by map and ring, so status, pulse, tick and explored ring always match) ============ */
+function nodeSVG(n, i, ring) { const c = SC[n.s], u = n.s === 'u', open = isOpenQ(n), hw = halfW(n);
   return `<g class="node${open ? ' open' : ''}${n.solved ? ' solved' : ''}" data-id="${n.id}" tabindex="0" role="button" aria-label="${esc(n.name)}" transform="translate(${n.x} ${n.y})">
     <circle r="74" fill="url(#glow-${n.s})"/>
     ${open ? `<circle class="pulse" r="45" fill="none" stroke="${c}" stroke-width="2.2" style="animation-delay:-${((i * 1.37) % 4.2).toFixed(2)}s"/>` : ''}
@@ -1747,7 +1758,7 @@ function nodeSVG(n, i, tree) { const c = SC[n.s], u = n.s === 'u', open = isOpen
     <g class="ic" filter="url(#sketch)" ${u ? 'opacity=".45"' : ''}>${ICON[n.ic] ? ICON[n.ic]() : ''}</g>
     ${u ? `<path d="M-19 -19 L19 19 M19 -19 L-19 19" stroke="${c}" stroke-width="3.2" stroke-linecap="round" opacity=".85"/>` : ''}
     ${n.solved ? `<g class="tick" transform="translate(30 -30)"><circle r="12" fill="#06140d" stroke="${SC.k}" stroke-width="2"/><path d="M-5.5 .5L-1.5 4.5L6 -4" fill="none" stroke="${SC.k}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>` : ''}
-    ${tree ? `<rect class="plq" x="${-hw - 4}" y="47" width="${2 * hw + 8}" height="${n.sz != null ? 60 : 44}" rx="11" fill="#050a18" fill-opacity=".82"/>` : ''}
+    ${ring ? `<rect class="plq" x="${-hw - 4}" y="47" width="${2 * hw + 8}" height="${n.sz != null ? 60 : 44}" rx="11" fill="#050a18" fill-opacity=".82"/>` : ''}
     <text y="64" text-anchor="middle" font-size="16.5" font-weight="650" fill="${u ? '#c9b3b8' : '#eef7ff'}" stroke="#04060f" stroke-width="4" paint-order="stroke">${esc(n.name)}</text>
     <text y="83" text-anchor="middle" font-size="13" fill="#aabbd4" stroke="#04060f" stroke-width="3" paint-order="stroke">${esc(n.line)}</text>
     ${n.sz != null ? `<text class="sz" y="101" text-anchor="middle" font-size="12" font-weight="600" fill="#7ff0e3" stroke="#04060f" stroke-width="3" paint-order="stroke">${szShort(n)}</text>` : ''}
@@ -1780,7 +1791,8 @@ for (const e of EDGES) { if (!e.lab) continue;
 
 let bands = '', edges = '', labs = '', nodes = '';
 BANDS.forEach(([name, , a, b, c, sz], i) => { const x0 = bx(a), x1 = bx(b);
-  bands += `<g class="band"><rect x="${x0}" y="-600" width="${x1 - x0}" height="${H + 1200}" fill="${c}" opacity="${i % 2 ? .035 : .055}"/><line y1="-600" y2="${H + 600}" x1="${x0}" x2="${x0}" stroke="${c}" stroke-opacity=".25" stroke-dasharray="4 8"/>`;
+  bands += `<g class="band"><rect x="${x0}" y="-600" width="${x1 - x0}" height="${H + 1200}" fill="${c}" opacity="${i % 2 ? .035 : .055}"/><line y1="-600" y2="${H + 600}" x1="${x0}" x2="${x0}" stroke="${c}" stroke-opacity=".25" stroke-dasharray="4 8"/>` +
+    `<text class="mapband" x="${(x0 + x1) / 2}" y="-35" text-anchor="middle" fill="${c}">${esc(name)}</text><text class="mapbandsz" x="${(x0 + x1) / 2}" y="-10" text-anchor="middle" fill="${c}">${esc(sz)}</text>`;
   bands += '</g>'; });
 // lane names: ONE label per lane, beside the lane's first nodes, in a spot clear of nodes, line labels and lines
 const LANE_FROM = { matter: 1 }; // skip the shared root ("Before the Big Bang?") for matter
@@ -1803,60 +1815,6 @@ EDGES.forEach((e, i) => { const P = e.P, c = SC[e.s];
 N.forEach((n, i) => nodes += nodeSVG(n, i, false));
 return { html: `<g>${bands}</g><g>${edges}</g><g>${labs}</g><g>${nodes}</g>`, edges: EDGES }; }
 
-/* ============ TREE SCENE (bottom → top) ============ */
-function ribbon(P, w0, w1, n = 14) { const L = [], R = []; // filled tapering ribbon along a cubic bézier
-  for (let i = 0; i <= n; i++) { const t = i / n, [x, y] = bez(P, t), [xa, ya] = bez(P, Math.max(0, t - .02)), [xb, yb] = bez(P, Math.min(1, t + .02)); let dx = xb - xa, dy = yb - ya; const l = Math.hypot(dx, dy) || 1; dx /= l; dy /= l;
-    const w = (w0 + (w1 - w0) * t) / 2; L.push(`${(x - dy * w).toFixed(1)} ${(y + dx * w).toFixed(1)}`); R.push(`${(x + dy * w).toFixed(1)} ${(y - dx * w).toFixed(1)}`); }
-  return 'M' + L.join(' L') + ' L' + R.reverse().join(' L') + 'Z'; }
-function smoothPath(pts) { let d = `M${pts[0][0]} ${pts[0][1]}`; for (let i = 0; i < pts.length - 1; i++) { const p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
-    d += ` C${(p1[0] + (p2[0] - p0[0]) / 6).toFixed(1)} ${(p1[1] + (p2[1] - p0[1]) / 6).toFixed(1)} ${(p2[0] - (p3[0] - p1[0]) / 6).toFixed(1)} ${(p2[1] - (p3[1] - p1[1]) / 6).toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`; } return d; }
-function buildTree() { N.forEach(n => { n.x = n.gx; n.y = n.gy; });
-  const desc = {}; const cnt = id => desc[id] != null ? desc[id] : (desc[id] = (() => { const S = new Set(), go = i => byId[i].kids.forEach(k => { if (!S.has(k)) { S.add(k); go(k); } }); go(id); return S.size; })());
-  const boxes = N.map(n => [n.x - halfW(n) - 4, n.y - 50, n.x + halfW(n) + 4, n.y + 110]);
-  const overlap = b => boxes.reduce((m, o) => m + Math.max(0, Math.min(b[2], o[2]) - Math.max(b[0], o[0])) * Math.max(0, Math.min(b[3], o[3]) - Math.max(b[1], o[1])), 0);
-  const EDGES = [];
-  for (const n of N) for (const pid of n.p) { const p = byId[pid], s = edgeStatus(n, p), x1 = p.x, y1 = p.y - 40, x2 = n.x, y2 = n.y + 42, dy = y1 - y2;
-    const P = [x1, y1, x1, y1 - dy * .55, x2, y2 + dy * .55, x2, y2];
-    EDGES.push({ a: pid, b: n.id, s, P, lab: n.el && n.el[pid], dr: n.r - p.r, long: n.r - p.r >= 4, w: Math.min(13, 2.4 + 1.05 * Math.sqrt(cnt(n.id) + 1)) }); }
-  for (const e of EDGES) { if (!e.lab) continue; const w = Math.min(260, e.lab.length * 6.4 + 16), h = 19; let best = null, bo = 1e18;
-    const ts = []; for (let t = .2; t < .85; t += .04) ts.push(t); ts.sort((a, b) => Math.abs(a - .5) - Math.abs(b - .5));
-    for (const t of ts) { const [x, y] = bez(e.P, t), b = [x - w / 2 - 3, y - h / 2 - 3, x + w / 2 + 3, y + h / 2 + 3], o = overlap(b); if (o < bo) { bo = o; best = [x, y]; if (!o) break; } }
-    e.lx = best[0]; e.ly = best[1]; e.lw = w; }
-  let deco = '', edges = '', labs = '', nodes = '';
-  // size levels as soft horizontal bands, named along the left edge
-  const top = Math.min(...N.map(n => n.y)), root = byId.nothing, yr = r => root.y - r * TROW + 20;
-  BANDS.forEach(([name, , a, b, c], i) => { const y0 = i === BANDS.length - 1 ? top - 330 : yr(b), y1 = i === 0 ? HT : yr(a), ym = (y0 + y1) / 2;
-    deco += `<g class="band"><rect x="-6000" y="${y0}" width="${WT + 12000}" height="${y1 - y0}" fill="${c}" opacity="${i % 2 ? .03 : .05}"/><line x1="-6000" x2="${WT + 6000}" y1="${y1}" y2="${y1}" stroke="${c}" stroke-opacity=".22" stroke-dasharray="4 8"/>` +
-      `<text class="tband" transform="translate(70 ${ym.toFixed(0)}) rotate(-90)" text-anchor="middle" fill="${c}">${esc(name)}</text></g>`; });
-  // roots under "Nothing" and a glow over the crown ("Us")
-  const rx = root.x, ry = root.y + 44; let roots = '';
-  [[-260, 170, 16], [-140, 220, 12], [-30, 240, 9], [80, 225, 11], [220, 180, 15], [-380, 120, 7], [360, 130, 7], [-200, 250, 5], [170, 255, 5]].forEach(([dx, dy, w]) => { const P = [rx, ry + 40, rx + dx * .15, ry + 40 + dy * .55, rx + dx * .75, ry + 40 + dy * .5, rx + dx, ry + 40 + dy];
-    roots += `<path d="${ribbon(P, w * 2.2, 1.2)}" fill="url(#trunkG)" opacity=".42"/><path d="${ribbon(P, w * 4, 2)}" fill="url(#trunkG)" opacity=".06"/>`; });
-  const crown = N.filter(n => n.r >= LASTR - 3), cx = crown.reduce((m, n) => m + n.x, 0) / crown.length;
-  deco += `<g class="roots"><ellipse cx="${rx}" cy="${ry + 120}" rx="300" ry="120" fill="url(#rootGlow)"/>${roots}<text class="tend" x="${rx}" y="${ry + 270}" text-anchor="middle">NOTHING</text></g>` +
-    `<g class="crown"><ellipse cx="${cx}" cy="${top - 40}" rx="560" ry="260" fill="url(#usGlow)"/><text class="tend us" x="${cx}" y="${top - 160}" text-anchor="middle">US</text></g>`;
-  // v8b "tree of everything": a glowing bark trunk up the busiest path, canopy glow, leaves/blossoms behind nodes
-  { const spine = [root]; let cur = root; for (let g = 0; g < 80; g++) { const ks = cur.kids.map(k => byId[k]).filter(k => k.y < cur.y); if (!ks.length) break; cur = ks.reduce((a, b) => cnt(b.id) > cnt(a.id) ? b : a); spine.push(cur); if (cnt(cur.id) < 12) break; }
-    const pts = [[rx, ry + 60], ...spine.map(n => [n.x, n.y])], segs = pts.length - 1; let L = [], R = [];
-    for (let i = 0; i < segs; i++) for (let k = 0; k < 8; k++) { const t = (i + k / 8) / segs, a = pts[i], b = pts[i + 1], u = k / 8, x = a[0] + (b[0] - a[0]) * (u * u * (3 - 2 * u)), y = a[1] + (b[1] - a[1]) * u, w = 86 * (1 - t) + 18 * t + Math.sin(y * .013) * 4;
-      L.push([x - w / 2, y]); R.push([x + w / 2, y]); }
-    const trunk = smoothPath(L) + ' L' + smoothPath(R.reverse()).slice(1) + 'Z';
-    let bark = ''; [-.28, -.05, .2].forEach((o, j) => { const pl = L.map((p, i) => { const r = R[R.length - 1 - i]; return [p[0] + (r[0] - p[0]) * (.5 + o) + Math.sin(p[1] * .02 + j * 2) * 3, p[1]]; }); bark += `<path d="${smoothPath(pl)}" fill="none" stroke="#04060f" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>`; });
-    deco += `<g class="trunk"><path d="${trunk}" fill="url(#trunkG)" opacity=".1" stroke="url(#trunkG)" stroke-opacity=".25" stroke-width="26" stroke-linejoin="round"/><path d="${trunk}" fill="url(#barkG)" opacity=".5"/>${bark}</g>`; }
-  { let cg = ''; const crownN = N.filter(n => n.y < top + (HT - top) * .45); for (let i = 0; i < crownN.length; i += 9) { const n = crownN[i]; cg += `<ellipse cx="${n.x}" cy="${n.y}" rx="${420 + (i * 37) % 260}" ry="${260 + (i * 53) % 160}" fill="url(#leafGlow)"/>`; } deco += `<g class="canopy">${cg}</g>`; }
-  { let lv = ''; N.forEach((n, i) => { const c = SC[n.s], hw = halfW(n), cr = n.r >= LASTR - 4;
-      if (cr) { for (let k = 0; k < 5; k++) lv += `<ellipse cx="${n.x}" cy="${n.y + 10}" rx="${hw + 22}" ry="22" transform="rotate(${k * 36 + (i % 7) * 5} ${n.x} ${n.y + 10})" fill="${c}" fill-opacity=".07"/>`; }
-      else { const a = (i * 47) % 50 - 25; lv += `<path d="M${n.x - hw - 26} ${n.y + 12} Q${n.x} ${n.y - 34} ${n.x + hw + 26} ${n.y + 12} Q${n.x} ${n.y + 58} ${n.x - hw - 26} ${n.y + 12}Z" transform="rotate(${a * .3} ${n.x} ${n.y + 12})" fill="${c}" fill-opacity=".09" stroke="${c}" stroke-opacity=".18"/>`; } });
-    deco += `<g class="leaves">${lv}</g>`; }
-  EDGES.forEach((e, i) => { const P = e.P, d = `M${P[0]} ${P[1]} C${P[2]} ${P[3]} ${P[4]} ${P[5]} ${P[6]} ${P[7]}`, k = e.s === 'k';
-    edges += e.long ? `<g class="edge long" data-a="${e.a}" data-b="${e.b}"><path class="core" d="${d}" fill="none" stroke="${SC[e.s]}" stroke-opacity=".3" stroke-width="1.5" stroke-dasharray="2 5"/></g>`
-      : `<g class="edge" data-a="${e.a}" data-b="${e.b}"><path class="bg" d="${d}" fill="none" stroke="url(#trunkG)" stroke-opacity=".09" stroke-width="${(e.w + 9).toFixed(1)}" stroke-linecap="round"/>` +
-        `<path class="core rib" d="${ribbon(P, e.w * 1.5, Math.max(1.6, e.w * .5))}" fill="url(#trunkG)" fill-opacity="${k ? .85 : .34}"/>` +
-        (k ? '' : `<path class="st" d="${d}" fill="none" stroke="${SC[e.s]}" stroke-opacity=".9" stroke-width="2.2" stroke-dasharray="7 6"/>`) + '</g>';
-    if (e.lab) labs += labSVG(e, SC[e.s]); });
-  N.forEach((n, i) => nodes += nodeSVG(n, i, true));
-  return { html: `<g>${deco}</g><g>${edges}</g><g class="tlabs">${labs}</g><g>${nodes}</g>`, edges: EDGES }; }
-
 /* ============ CIRCLE LAYOUT (v7 draft: the same nodes on one big ring, the end joined back to the start) ============
    Stage order runs clockwise from the top: Before the Big Bang? → particles → atoms → stars → chemistry → life → Us.
    Two zig-zag tracks on the outer ring keep it compact; Chain Theory sits on an inner ring. A red dashed arc closes the loop. */
@@ -1868,12 +1826,12 @@ let WC = 0, HC = 0; const CIR = {};
   const bxOf = (n, x, y) => [x - halfW(n) - 10, y - 54, x + halfW(n) + 10, y + (n.sz != null ? 112 : 96)];
   const hit = (a, b) => a[0] < b[2] && a[2] > b[0] && a[1] < b[3] && a[3] > b[1];
   const T0 = -Math.PI / 2, TS = 0.075, TE = 2 * Math.PI - 0.27; // Nothing just right of the top; "Us" just left of it
-  for (let R = 1500; R < 6000; R += 60) {
+  for (let R = 2250; R < 6000; R += 60) {
     const gaps = [0]; for (let i = 1; i < outer.length; i++) { const a = outer[i - 1], b = outer[i]; gaps.push(0.5 * (halfW(a) + halfW(b)) + 20 + (a.r !== b.r ? 26 : 0)); }
     const tot = gaps.reduce((m, g) => m + g, 0), span = TE - TS; let acc = 0, ok = true; const placed = [];
-    const TR = [0, -250, 250];
+    const TR = [0, -300, 300];
     for (let i = 0; i < outer.length && ok; i++) { acc += gaps[i]; const n = outer[i], th = T0 + TS + span * acc / tot;
-      const pref = i % 2 ? [1, 0, 2] : [0, 1, 2]; let done = false;
+      const pref = [[0, 1, 2], [1, 2, 0], [2, 0, 1]][i % 3]; let done = false;
       for (const k of pref) { const r = R + TR[k], x = Math.cos(th) * r, y = Math.sin(th) * r, b = bxOf(n, x, y);
         if (placed.every(p => !hit(p.b, b))) { placed.push({ n, b }); n.ox = x; n.oy = y; n.oa = th; n.orr = r; done = true; break; } }
       if (!done) ok = false; }
@@ -1882,7 +1840,7 @@ let WC = 0, HC = 0; const CIR = {};
     const ua = T0 + TE + 0.13, ux = Math.cos(ua) * R, uy = Math.sin(ua) * R, ub = bxOf(US, ux, uy);
     if (placed.some(p => hit(p.b, ub))) continue; placed.push({ n: US, b: ub });
     const stageA = r => { const m = outer.filter(n => n.r === r); return m.length ? m.reduce((s, n) => s + n.oa, 0) / m.length : null; };
-    let Ri = R - 650, last = -1e9;
+    let Ri = R - 975, last = -1e9;
     for (const n of inner) { let th = stageA(n.r); if (th == null) th = last + 0.1; th = Math.max(th, last + (halfW(n) * 2 + 40) / Ri); let done = false;
       for (let g = 0; g < 80 && !done; g++) { const x = Math.cos(th) * Ri, y = Math.sin(th) * Ri, b = bxOf(n, x, y);
         if (placed.every(p => !hit(p.b, b))) { placed.push({ n, b }); n.ox = x; n.oy = y; n.oa = th; n.orr = Ri; done = true; } else th += 0.02; }
@@ -1890,7 +1848,7 @@ let WC = 0, HC = 0; const CIR = {};
     if (!ok) continue;
     CIR.R = R; CIR.Ri = Ri; CIR.ua = ua; CIR.ux = ux; CIR.uy = uy; break;
   }
-  const M = CIR.R + 900; WC = HC = 2 * M; CIR.c = M;
+  const M = CIR.R + 1300; WC = HC = 2 * M; CIR.c = M;
   N.forEach(n => { n.ox = Math.round(n.ox + M); n.oy = Math.round(n.oy + M); });
   CIR.ux = Math.round(CIR.ux + M); CIR.uy = Math.round(CIR.uy + M);
 })();
@@ -1915,10 +1873,10 @@ function buildCircle() { N.forEach(n => { n.x = n.ox; n.y = n.oy; });
     e.lx = best[0]; e.ly = best[1]; e.lw = w; }
   let deco = '', edges = '', labs = '', nodes = '', top = '';
   // soft ring + stage arcs named around the outside
-  deco += `<circle cx="${C}" cy="${C}" r="${R - 125}" fill="none" stroke="url(#ringG)" stroke-opacity=".07" stroke-width="560"/>`;
-  deco += `<circle cx="${C}" cy="${C}" r="${R + 330}" fill="none" stroke="#ffd36b" stroke-opacity=".08" stroke-width="1.5" stroke-dasharray="3 10"/>`;
+  deco += `<circle cx="${C}" cy="${C}" r="${R}" fill="none" stroke="url(#ringG)" stroke-opacity=".09" stroke-width="1030"/>`;
+  deco += `<circle cx="${C}" cy="${C}" r="${R + 750}" fill="none" stroke="#ffd36b" stroke-opacity=".08" stroke-width="1.5" stroke-dasharray="3 10"/>`;
   BANDS.forEach(([name, , a, b, c]) => { const ms = N.filter(n => n.lane !== 'chain' && n.r >= a && n.r < b); if (!ms.length) return;
-    const a0 = Math.min(...ms.map(n => n.oa)) - .02, a1 = Math.max(...ms.map(n => n.oa)) + .02, rr = R + 330, [x0, y0] = pol(a0, rr), [x1, y1] = pol(a1, rr), am = (a0 + a1) / 2, [tx_, ty_] = pol(am, rr + 70);
+    const a0 = Math.min(...ms.map(n => n.oa)) - .02, a1 = Math.max(...ms.map(n => n.oa)) + .02, rr = R + 740, [x0, y0] = pol(a0, rr), [x1, y1] = pol(a1, rr), am = (a0 + a1) / 2, [tx_, ty_] = pol(am, rr - 55);
     let rot = am * 180 / Math.PI + 90; if (rot > 90 && rot < 270) rot -= 180;
     deco += `<g class="band"><path d="M${x0.toFixed(1)} ${y0.toFixed(1)} A${rr} ${rr} 0 ${a1 - a0 > Math.PI ? 1 : 0} 1 ${x1.toFixed(1)} ${y1.toFixed(1)}" fill="none" stroke="${c}" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/>` +
       `<text class="cband" transform="translate(${tx_.toFixed(1)} ${ty_.toFixed(1)}) rotate(${rot.toFixed(1)})" text-anchor="middle" dominant-baseline="middle" fill="${c}">${esc(name)}</text></g>`; });
@@ -1964,10 +1922,10 @@ function collect(gid, edges, Wv, Hv, xk, yk) { const g = document.getElementById
 function setScene(v) { VIEW = v; const S = SCN[v]; N.forEach(n => { n.x = n[S.xk]; n.y = n[S.yk]; });
   ({ nodeEls, edgeEls, labEls, nodeBB, edgeBB, labBB } = S); EDGES = S.edges; W = S.W; H = S.H;
   for (const k in SCN) SCN[k].g.style.display = v === k ? '' : 'none';
-  document.body.classList.toggle('tv', v !== 'map'); document.body.classList.toggle('cv', v === 'circle'); }
-function buildScenes() { const v = VIEW, m = buildMap(), t = buildTree(), c = buildCircle();
-  world.innerHTML = `<g id="gMap">${m.html}</g><g id="gTree">${t.html}</g><g id="gCircle">${c.html}</g>`;
-  SCN.map = collect('gMap', m.edges, WM, HM, 'mx', 'my'); SCN.tree = collect('gTree', t.edges, WT, HT, 'gx', 'gy'); SCN.circle = collect('gCircle', c.edges, WC, HC, 'ox', 'oy'); setScene(v);
+  document.body.classList.toggle('cv', v === 'circle'); }
+function buildScenes() { const v = VIEW, m = buildMap(), c = buildCircle();
+  world.innerHTML = `<g id="gMap">${m.html}</g><g id="gCircle">${c.html}</g>`;
+  SCN.map = collect('gMap', m.edges, WM, HM, 'mx', 'my'); SCN.circle = collect('gCircle', c.edges, WC, HC, 'ox', 'oy'); setScene(v);
   if (typeof EF !== 'undefined') EF.paintSeen(); }
 // one data edit (e.g. byId.smbh.solved = true) then rebuild() updates both views
 function rebuild() { applyStatus(); buildScenes(); if (typeof cull === 'function') { cullQ = false; cull(); } }
@@ -1983,47 +1941,25 @@ function drawSky() { const d = Math.min(2, devicePixelRatio || 1), w = innerWidt
   const r = lcg(42), n = Math.round(w * h / 1800); for (let i = 0; i < n; i++) { const a = r() * r() * .9 + .08; sctx.fillStyle = `rgba(${r() < .15 ? '255,230,180' : r() < .3 ? '180,240,255' : '235,240,255'},${a})`;
     sctx.beginPath(); sctx.arc(r() * w, r() * h, r() < .04 ? 1.4 : .7, 0, 6.283); sctx.fill(); } }
 
-/* ============ COLUMN HEADERS (follow the map) + OVERVIEW BAR (scroll bar) ============ */
-const strip = document.getElementById('strip'), mini = document.getElementById('mini'), vp = document.getElementById('vp');
-const heads = BANDS.map(([name, short, a, b, c, sz]) => { const d = document.createElement('div'); d.className = 'seg';
-  d.style.background = `linear-gradient(180deg, ${c}2a, ${c}0a)`; d.style.boxShadow = `inset 0 3px 0 ${c}bb`; d.innerHTML = `<b style="color:${c}">${esc(name)}</b><span>size ${esc(sz)}</span>`; d.title = name;
-  d.onclick = () => { const x0 = bx(a), x1 = bx(b), s2 = Math.min(1.1, Math.max(minS(), (innerWidth - 40) / (x1 - x0 + 120))), cy = (innerHeight / 2 - ty) / s; animTo(s2, innerWidth / 2 - (x0 + x1) / 2 * s2, innerHeight / 2 - cy * s2); };
-  strip.appendChild(d); const m = document.createElement('div'); m.className = 'mseg'; m.style.left = (bx(a) / WM * 100) + '%'; m.style.width = ((bx(b) - bx(a)) / WM * 100) + '%'; m.style.background = c + '55'; m.textContent = short; mini.insertBefore(m, vp);
-  return [d, bx(a), bx(b), short, name]; });
-function updHeads() { const vw = innerWidth;
-  for (const [d, a, b, short, name] of heads) { const l = a * s + tx, r = b * s + tx, L = Math.max(l, 0), R = Math.min(r, vw);
-    if (R - L < 24) { d.style.display = 'none'; continue; } d.style.display = ''; d.style.left = L + 'px'; d.style.width = (R - L) + 'px'; d.classList.toggle('narrow', R - L < 150);
-    d.firstChild.textContent = R - L < 150 ? short : name; } }
-
-/* ============ SIZE RULER (log scale, ticks = things in view) ============ */
-const ruler = document.getElementById('ruler'), RMIN = -36, RMAX = 28;
-const rY = e => 10 + (e - RMIN) / (RMAX - RMIN) * 87; // % from left (small on the left, big on the right)
-for (let e = -35; e <= 25; e += 5) { const d = document.createElement('div'); d.className = 'rt'; d.style.left = rY(e) + '%'; d.textContent = e === 0 ? '1 m' : pow10(e); ruler.appendChild(d); }
-const rh = document.createElement('div'); rh.className = 'rh'; ruler.appendChild(rh);
-const rticks = N.filter(n => n.sz != null).map(n => { const d = document.createElement('div'); d.className = 'rk'; d.style.background = SC[n.s]; d.style.left = rY(n.sz) + '%'; d.style.display = 'none'; d.title = n.name; ruler.appendChild(d); return [n, d]; });
-function updRuler(x0, y0, x1, y1) { let lo = 99, hi = -99;
-  for (const [n, d] of rticks) { const inV = n.x > x0 && n.x < x1 && n.y > y0 && n.y < y1; d.style.display = inV ? '' : 'none'; if (inV) { lo = Math.min(lo, n.sz); hi = Math.max(hi, n.sz); } }
-  if (lo > hi) rh.style.display = 'none'; else { rh.style.display = ''; rh.style.left = (rY(lo) - 1) + '%'; rh.style.width = (rY(hi) - rY(lo) + 2) + '%'; } }
-
 /* ============ PAN / ZOOM ============ */
 let s = 1, tx = 0, ty = 0, anim = null, sel = null, cullQ = false, movT = 0;
-const MAXS = 3, UI = () => typeof v8UI === 'function' && innerWidth <= 600 ? v8UI() : VIEW !== 'map' ? (innerWidth <= 600 ? 124 : 66) : innerWidth <= 600 ? 168 : 146; // height of the fixed bars at the top (the tree view has no column bar)
+const MAXS = 3, UI = () => typeof v8UI === 'function' && innerWidth <= 600 ? v8UI() : innerWidth <= 600 ? 112 : 112; // header only: no separate scale strip
 const minS = () => Math.min(innerWidth / (W + 60), (innerHeight - UI()) / (H + 40)) * 0.96;
 function clamp() { const vw = innerWidth, vh = innerHeight, ww = W * s, hh = H * s, top = UI();
   tx = ww < vw ? Math.min(Math.max(tx, 0), vw - ww) : Math.min(Math.max(tx, vw - ww - 120), 120);
   const extra = sel && vw <= 600 ? pop.offsetHeight : 0; // room to lift a node above the mobile pop-up sheet
   ty = hh < vh - top ? Math.min(Math.max(ty, top - 40), vh - hh) : Math.min(Math.max(ty, vh - hh - 80 - extra), top + 40);
-  if (VIEW !== 'map') { let mny = 1e9; for (const n of N) mny = Math.min(mny, n.y); ty = Math.min(ty, Math.max(top + 24 + 60 * s - mny * s, vh - hh - 80 - extra)); } } // v10: the top tree/circle node never hides under the bars
+  if (VIEW !== 'map') { let mny = 1e9; for (const n of N) mny = Math.min(mny, n.y); ty = Math.min(ty, Math.max(top + 24 + 60 * s - mny * s, vh - hh - 80 - extra)); } } // v10: the top ring node never hides under the bars
 function cull() { cullQ = false; const m = 60, x0 = (-tx) / s - m, y0 = (-ty) / s - m, x1 = (innerWidth - tx) / s + m, y1 = (innerHeight - ty) / s + m;
   const vis = b => b[2] > x0 && b[0] < x1 && b[3] > y0 && b[1] < y1;
   nodeEls.forEach((el, i) => { const v = vis(nodeBB[i]); if (el._v !== v) { el._v = v; el.style.display = v ? '' : 'none'; } });
   edgeEls.forEach((el, i) => { const v = vis(edgeBB[i]); if (el._v !== v) { el._v = v; el.style.display = v ? '' : 'none'; } });
   labEls.forEach((el, i) => { const v = vis(labBB[i]); if (el._v !== v) { el._v = v; el.style.display = v ? '' : 'none'; } });
   svg.classList.toggle('far', s < 0.42);
-  updRuler((-tx) / s, (-ty) / s, (innerWidth - tx) / s, (innerHeight - ty) / s); }
+}
 function moving() { svg.classList.add('moving'); clearTimeout(movT); movT = setTimeout(() => svg.classList.remove('moving'), 220); }
 function apply() { clamp(); world.setAttribute('transform', `translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${s.toFixed(4)})`);
-  if (VIEW === 'map') { const a = Math.max(0, -tx / s), b = Math.min(W, (innerWidth - tx) / s); vp.style.left = (a / W * 100) + '%'; vp.style.width = (Math.max(.004, b - a) / W * 100) + '%'; updHeads(); }
+  // no top strip or overview band
   if (!cullQ) { cullQ = true; requestAnimationFrame(cull); } moving();
   if (sel) placePop(); else if (LOOPON) placeLoop(); }
 function zoomAt(f, cx, cy) { const ns = Math.min(MAXS, Math.max(minS(), s * f)); tx = cx - (cx - tx) * ns / s; ty = cy - (cy - ty) * ns / s; s = ns; apply(); }
@@ -2032,8 +1968,6 @@ function animTo(s2, tx2, ty2, ms = 550, done) { cancelAnimationFrame(anim); cons
   anim = requestAnimationFrame(stepA); }
 // start view: the left (base) end of the map at a readable zoom
 function homeView() { if (VIEW === 'circle') return innerWidth <= 600 && typeof v8CircleHome === 'function' ? v8CircleHome() : fitView();
-  if (VIEW === 'tree') { const vw = innerWidth, vh = innerHeight, n = byId.nothing, s2 = vw <= 600 ? 0.5 : 0.6;
-    return [s2, vw / 2 - n.x * s2, vh - 24 - (n.y + 300) * s2]; } // the tree starts at its roots
   const vw = innerWidth, vh = innerHeight, top = UI(), ns = N.filter(n => n.r <= 2), y0 = Math.min(...ns.map(n => n.y)) - 100, y1 = Math.max(...ns.map(n => n.y)) + 120;
   const s2 = vw <= 600 ? 0.55 : Math.min(0.85, Math.max(0.6, (vh - top - 20) / (y1 - y0))), cy = vw <= 600 ? byId.nothing.y + 60 : (y0 + y1) / 2;
   return [s2, 16 - (X(0) - 110) * s2, top + (vh - top) / 2 - cy * s2]; }
@@ -2072,10 +2006,6 @@ addEventListener('keydown', e => { if (ptOpen()) { if (e.key === 'Escape') close
   else if (k === '+' || k === '=') zoomAt(1.25, ...zc()); else if (k === '-') zoomAt(0.8, ...zc());
   else if (k === 'Escape') closePop(); else if (k === 'Home') animTo(...homeView()); });
 let stripDrag = false;
-const stripJump = e => { const r = mini.getBoundingClientRect(), f = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)); cancelAnimationFrame(anim); tx = innerWidth / 2 - f * W * s; apply(); };
-mini.addEventListener('pointerdown', e => { stripDrag = true; mini.setPointerCapture(e.pointerId); stripJump(e); });
-mini.addEventListener('pointermove', e => { if (stripDrag) stripJump(e); });
-mini.addEventListener('pointerup', () => stripDrag = false); mini.addEventListener('pointercancel', () => stripDrag = false);
 
 /* ============ HIGHLIGHT A NODE'S LINEAGE ============ */
 function related(id) { const A = new Set([id]), D = new Set([id]);
@@ -2107,7 +2037,7 @@ function layerHTML(n, L) {
 const extraLayers = n => [RIV[n.id] ? 'R' : '', TESTS[n.id] ? 'T' : ''].filter(Boolean);
 const srcLinks = keys => String(keys || '').split(',').map(k => SRC[k]).filter(Boolean).map(([t, u]) => ` <a class="sl" href="${u}" target="_blank" rel="noopener" title="${esc(t)}">source</a>`).join('');
 function rivHTML(n) { return `<div class="lay riv"><h4>Rival ideas</h4><ul>${RIV[n.id].map(([nm, st, ln, sk]) => `<li><i class="d" style="background:${SC[st]}" title="${SN[st]}"></i><b>${esc(nm)}</b>: ${esc(ln)}${srcLinks(sk)}</li>`).join('')}</ul></div>`; }
-function testHTML(n) { return `<div class="lay tst"><h4>Tests we could run</h4><ul>${TESTS[n.id].map(([tx, sk, idea]) => `<li>${esc(tx)}${idea ? ' <span class="idea">idea, not planned</span>' : ''}${srcLinks(sk)}</li>`).join('')}</ul></div>`; }
+function testHTML(n) { return `<div class="lay tst"><h4>Tests we could run</h4><ul>${TESTS[n.id].map(([tx, sk]) => `<li>${esc(tx)}${srcLinks(sk)}</li>`).join('')}</ul></div>`; }
 function renderPop() { const n = byId[sel], c = SC[n.s];
   let h = `<b class="t1">${esc(n.name)}</b><div class="chip"><i style="background:${c};box-shadow:0 0 6px ${c}"></i>${SN[n.s]}${n.solved ? ' · <b class="solv">solved ✓</b>' : ''}</div>` + (isCT(n) ? `<div class="ctb">${CT_BADGE}</div>` : '') + solvedHTML(n) +
     (n.sz != null ? `<div class="size">Size: ${szShort(n)}</div>` : '') + n.info.slice(0, 3).map(l => `<div>${esc(l)}</div>`).join('');
@@ -2247,23 +2177,23 @@ const RMOTION = () => !!(window.matchMedia && matchMedia('(prefers-reduced-motio
 
 /* ============ MAP ⇄ TREE SWITCH (fade, remembered) ============ */
 const vsw = document.getElementById('vsw'), camOf = {};
-const VNAME = { map: 'the map', tree: 'the tree', circle: 'the circle' }, VORD = ['map', 'tree', 'circle'];
-function syncSwitch() { vsw.classList.toggle('isTree', VIEW === 'tree'); vsw.classList.toggle('isCircle', VIEW === 'circle'); vsw.querySelectorAll('span[data-v]').forEach(sp => { sp.classList.toggle('on', sp.dataset.v === VIEW); });
-  vsw.setAttribute('aria-label', `Showing ${VNAME[VIEW]}. Click Map, Tree or Circle (Enter cycles)`); placePanels(); }
+const VNAME = { map: 'the map', circle: 'the ring' }, VORD = ['map', 'circle'];
+function syncSwitch() { vsw.classList.toggle('isCircle', VIEW === 'circle'); vsw.querySelectorAll('span[data-v]').forEach(sp => { sp.classList.toggle('on', sp.dataset.v === VIEW); });
+  vsw.setAttribute('aria-label', `Showing ${VNAME[VIEW]}. Click Map or Ring (Enter cycles)`); placePanels(); }
 function switchView(v) { if (v === VIEW || svg.classList.contains('fade')) return; camOf[VIEW] = [s, tx, ty];
   const go = () => { cancelAnimationFrame(anim); setScene(v); light(sel); syncSwitch(); prefSet('fntu-view', v);
     if (sel) { const n = byId[sel], top = UI(), s2 = innerWidth <= 600 ? 0.6 : Math.min(1, Math.max(0.6, s)); [s, tx, ty] = [s2, innerWidth / 2 - n.x * s2, top + (innerHeight - top) / 2 - n.y * s2]; }
     else [s, tx, ty] = camOf[v] || homeView();
     cullQ = false; apply(); cull(); if (sel) { placePop(); liftForSheet(); }
-    requestAnimationFrame(() => svg.classList.remove('fade')); if (v === 'tree') EF.bonus('tree'); };
+    requestAnimationFrame(() => svg.classList.remove('fade')); };
   if (RMOTION()) go(); else { svg.classList.add('fade'); setTimeout(go, 280); } }
-vsw.onclick = e => { const sp = e.target.closest && e.target.closest('span[data-v]'); switchView(sp ? sp.dataset.v : VORD[(VORD.indexOf(VIEW) + 1) % 3]); };
+vsw.onclick = e => { const sp = e.target.closest && e.target.closest('span[data-v]'); switchView(sp ? sp.dataset.v : VORD[(VORD.indexOf(VIEW) + 1) % 2]); };
 
 /* ============ ECHO-FLAME (free, no account, kept on this device only) ============
    Progress = which nodes you opened (1), read more on (2), went deeper on (4), saw in 3D (8), opened the bounty of (16), plus a few one-offs.
    The flame total is counted from that, so it can't drift. */
 var EF = (() => {
-  const KEY = 'fntu-ef', PTS = { 1: 1, 2: 1, 4: 1, 8: 2, 16: 2 }, BON = { tree: 3, pt: 2, search: 1 };
+  const KEY = 'fntu-ef', PTS = { 1: 1, 2: 1, 4: 1, 8: 2, 16: 2 }, BON = { pt: 2, search: 1 };
   let st = { n: {}, x: {} };
   try { const j = JSON.parse(prefGet(KEY) || 'null'); if (j && typeof j === 'object') st = { n: j.n || {}, x: j.x || {} }; } catch (e) {}
   const total = () => { let t = 0; for (const id in st.n) { if (!byId[id]) continue; for (const b in PTS) if (st.n[id] & b) t += PTS[b]; } for (const k in st.x) if (BON[k] && st.x[k]) t += BON[k]; return t; };
@@ -2325,9 +2255,9 @@ const btyEl = document.getElementById('bty'), btyBody = document.getElementById(
 function openBounty(id) { const n = byId[id]; if (!n || !isOpenQ(n)) return; const c = SC[n.s], first = !(EF.state().n[id] & 16);
   btyBody.innerHTML = `<div class="bk">⚑ OPEN BOUNTY</div><div class="bn"><i style="background:${c};box-shadow:0 0 8px ${c}"></i><b>${esc(n.name)}</b><small style="color:${c}">${n.s === 'u' ? 'Unknown' : 'We think so'}</small></div>` +
     `<h5>The open question</h5><p class="bq">${esc(BQ[id] || n.line)}</p>` +
-    `<h5>What would solve it</h5><ul>${(TESTS[id] || []).map(([t, sk, idea]) => `<li>${esc(t)}${idea ? ' <span class="idea">idea, not planned</span>' : ''}${srcLinks(sk)}</li>`).join('')}</ul>` +
+    `<h5>What would solve it</h5><ul>${(TESTS[id] || []).map(([t, sk]) => `<li>${esc(t)}${srcLinks(sk)}</li>`).join('')}</ul>` +
     `<p class="bchk">Last checked: ${fmtDate(BCHECK[id] || BCHECK_DEFAULT)}</p>` +
-    `<div class="bsoon"><span>🌳</span><div><b>Global Bounty Tree, coming soon</b><small>When a test settles it, this node turns green with a tick, in the map and the tree.</small></div></div>` +
+    `<div class="bsoon"><span>🌳</span><div><b>Global Bounty Tree, coming soon</b><small>When a test settles it, this node turns green with a tick, in the map and the ring.</small></div></div>` +
     `<p class="btag">“Don't collect cards. Collect understanding.”</p>`;
   btyEl.style.borderColor = c; btyEl.classList.add('on'); document.getElementById('btyBack').classList.add('on'); btyEl.scrollTop = 0; btyEl.querySelector('.x').focus({ preventScroll: true });
   EF.award(id, 16); }
@@ -2405,7 +2335,7 @@ function copyLink(id) { const u = shareURL(id); copyText(u).then(ok => toast(ok 
 function openShared(id) { if (!byId[id]) return; const n = byId[id], top = UI(), z = innerWidth <= 600 ? 0.6 : 0.9;
   cancelAnimationFrame(anim); s = z; tx = innerWidth / 2 - n.x * s; ty = top + (innerHeight - top) / 2 - n.y * s; cullQ = false; apply(); cull(); openPop(id, 1); }
 addEventListener('hashchange', () => { const h = new URLSearchParams(location.hash.slice(1)); if (!h.has('n') || !byId[h.get('n')]) return;
-  const v = ['tree', 'circle'].includes(h.get('tv')) ? h.get('tv') : 'map'; if (v !== VIEW) { setScene(v); syncSwitch(); } HOWTO.close(); openShared(h.get('n')); });
+  const v = h.get('tv') === 'circle' ? 'circle' : 'map'; if (v !== VIEW) { setScene(v); syncSwitch(); } HOWTO.close(); openShared(h.get('n')); });
 
 /* ============ SUGGEST A FIX (opens a prefilled GitHub issue in a new tab) ============ */
 const ISSUES = 'https://github.com/Zyphullen/from-nothing-to-us/issues/new';
@@ -2443,10 +2373,9 @@ function renderLoop() { const c = SC.u;
     `<li><b>Block universe:</b> in relativity, past, present and future can be treated as one 4D block. The "flow" of time may be how we experience it. Still debated.</li>` +
     `<li><b>Participatory universe:</b> John Wheeler asked whether observers are somehow needed for the universe to become real ("it from bit"). A question, not a tested theory.</li>` +
     `<li><b>Cycles:</b> Roger Penrose's conformal cyclic cosmology says the far future of one universe could become the Big Bang of the next. Claimed signs in the CMB are disputed.</li></ul>` +
-    `<h4>Zyphullen's thought</h4><p>Maybe time does not really exist and we are 3D/4D beings who see it as a line. Maybe consciousness is needed to start the universe before it starts. Personal idea, not science.</p>` +
-    `<h4>Where it stands</h4><p>No experiment has tested whether the universe loops like this. The Map and Tree views show the line; this view shows the question.</p>` +
+    `<h4>Where it stands</h4><p>No experiment has tested whether the universe loops like this. The Map shows the line; this Ring shows the question.</p>` +
     `<h4>Sources</h4><ul>${LOOP_SRC.map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('')}</ul>` +
-    `<a class="sug" href="${esc(issueURL('Suggestion: the closing loop (Circle view)', 'Part: the red closing link (Us → Before the Big Bang?)\nLink: ' + SITE + '#tv=circle&loop=1\n\nWhat should change?\n\n\nSource (link):\n'))}" target="_blank" rel="noopener">✎ Suggest a fix</a></div>`;
+    `<a class="sug" href="${esc(issueURL('Suggestion: the closing loop (Ring view)', 'Part: the red closing link (Us → Before the Big Bang?)\nLink: ' + SITE + '#tv=circle&loop=1\n\nWhat should change?\n\n\nSource (link):\n'))}" target="_blank" rel="noopener">✎ Suggest a fix</a></div>`;
   h += `<div class="pact"><button class="more${loopLayer > 1 ? ' less' : ''}" data-act="${loopLayer > 1 ? 'lless' : 'lmore'}">${loopLayer > 1 ? 'Show less ▴' : 'Read more ▾'}</button><button class="shr" data-act="lshare" title="Copy a link to this loop">🔗 Copy link</button></div><div class="lvl">Layer ${loopLayer} of 2</div>`;
   popBody.innerHTML = h; pop.style.borderColor = c; pop.style.boxShadow = `0 0 24px ${c}44`; }
 function openLoop(L = 1) { if (VIEW !== 'circle') return; if (sel) closePop(); LOOPON = true; loopLayer = L; renderLoop(); pop.style.display = 'block'; pop.scrollTop = 0;
@@ -3141,7 +3070,7 @@ const VCELL = (() => {
   function init(host, o = {}) {
     if (alive) destroy(); opts = o; alive = true; D = build(); t = 0; last = 0; sel = null; layer = 1; offs = [0, 0]; simT = 0; tm = 0; simR = rng(4242); MC = new Map(); mcTm = null;
     root = document.createElement('div'); root.id = 'vcell'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Virtual Cell: a typical human cell');
-    root.innerHTML = (o.embedded ? '' : `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🧬 Virtual Cell <small>typical human cell · v10</small></b>
+    root.innerHTML = (o.embedded ? '' : `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🧬 Virtual Cell <small>typical human cell · v11</small></b>
       <div class="vzm"><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole cell">⤢</button></div></div>`) +
       `<div class="vtime" role="group" aria-label="Time speed"><button class="vpl" aria-label="Pause">⏸</button>${SPEEDS.map(s => `<button data-s="${s}" aria-pressed="false">${s >= 1e4 ? '10k' : s}×</button>`).join('')}<button class="vsc" aria-pressed="false" title="Microscope look (subtle, optional)" aria-label="Microscope look">🔬</button><span class="vclk" aria-live="off"></span></div>` +
       `<div class="vban"></div><canvas aria-label="A typical human cell drawn to scale. Tap a part to learn about it."></canvas><div class="vcrumb" aria-live="polite"></div><div class="vhint">Tap any part to learn about it · pinch or scroll to zoom</div><div class="vscl"></div><div class="vpop" role="dialog" aria-live="polite"></div>`;
@@ -3183,8 +3112,7 @@ window.VCELL = VCELL;
 /* ===== Human Body (v9 test): an adult female body, front view, real proportions, zoom cm by cm to mm =====
    API: VBODY.init(host, opts) · destroy() · isOpen() · focus(id) · layers(obj?) · debug() · parts · w2s(x,y) · pts()
    World units are millimetres. y = 0 at the top of the head, the body is 1,650 mm tall (an average adult woman).
-   Front (anatomical) view: the person's RIGHT side is on the viewer's LEFT (x < 0).
-   Built to grow later: BUILD[sex]() returns the parts, so a male body can be added as BUILD.male. */
+   Front (anatomical) view: the person's RIGHT side is on the viewer's LEFT (x < 0). */
 const VBODY = (() => {
   const W = 'https://en.wikipedia.org/wiki/';
   const H = 1650; // mm
@@ -3489,7 +3417,7 @@ const VBODY = (() => {
   // ---------- life cycle ----------
   function init(host = document.body, o = {}) { if (alive) destroy(); opts = o; alive = true; sex = 'female'; Object.assign(ON, ON0); B = BUILD[sex](); BR.clear(); skinPath = B.parts[0].path;
     root = document.createElement('div'); root.id = 'vbody'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Human Body');
-    root.innerHTML = `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🫀 Human Body <small>v10</small></b><div class="vzm"><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole body">⤢</button></div></div>` +
+    root.innerHTML = `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🫀 Human Body <small>v11</small></b><div class="vzm"><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole body">⤢</button></div></div>` +
       `<div class="vtime vlay" role="group" aria-label="Layers">${LAYERS.map(([k, n, c]) => `<button data-l="${k}" aria-pressed="${ON[k]}" class="${ON[k] ? 'on' : ''}"><i style="background:${c}"></i>${n}</button>`).join('')}</div>` +
       `<canvas aria-label="Human body, front view. Tap a part to learn about it."></canvas><div class="vcrumb"></div><div class="vscl"></div><div class="vban"></div><div class="vhint">Tap any part · pinch or scroll to zoom · toggle layers above</div><div class="vpop" role="dialog" aria-live="polite"></div>`;
     host.appendChild(root); const $ = s => root.querySelector(s); cv = $('canvas'); cx = cv.getContext('2d'); hc = document.createElement('canvas').getContext('2d');
@@ -3507,7 +3435,7 @@ const VBODY = (() => {
 /* ============ v8: Explore menu, Virtual Cell, keyboard nodes, phone layout fixes ============ */
 const V8 = '8';
 // phones: height of the fixed bars at the top (matches the v8 compact CSS)
-function v8UI() { const rul = document.body.classList.contains('rul'); return VIEW !== 'map' ? 114 : rul ? 202 : 162; }
+function v8UI() { return 112; }
 // phones: the circle opens on the top of the ring (Nothing, Us and the closing loop) at a readable size; ⤢ still shows it all
 function v8CircleHome() { const vw = innerWidth, vh = innerHeight, top = UI(), s2 = 0.36, n = byId.nothing;
   const cx = (n.x + CIR.ux) / 2, ly = Math.min(CIR.ly, n.y, CIR.uy) - 40; return [s2, vw / 2 - cx * s2, top + 30 - ly * s2]; }
@@ -3540,10 +3468,6 @@ function v8BestSpot(pw, ph, lx, ly) { const vw = innerWidth, vh = innerHeight, t
   function openBody(focus) { if (sel || LOOPON) closePop(); if (typeof HOWTO !== 'undefined' && HOWTO.close) HOWTO.close();
     VBODY.init(document.body, { focus, onCell: (id, cell) => openCell(undefined, { from: (BODY_P[id] || {}).n || id, cell, back: id }), onClose: () => { if (/body/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); btn.focus({ preventScroll: true }); } }); }
   window.openBody = openBody;
-  // size ruler toggle (phones)
-  const rb = document.getElementById('rulb');
-  rb.onclick = () => { const on = document.body.classList.toggle('rul'); rb.setAttribute('aria-pressed', on); prefSet('fntu-rul', on ? '1' : ''); apply(); };
-  if (prefGet('fntu-rul') === '1') { document.body.classList.add('rul'); rb.setAttribute('aria-pressed', 'true'); }
   // keyboard: Tab reaches the nodes, Enter/Space opens them, focus slides the map so the node is visible
   svg.addEventListener('keydown', e => { const g = e.target.closest && e.target.closest('.node'); if (!g) return;
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); const id = g.dataset.id; if (sel === id) closePop(); else openPop(id); } });
@@ -3554,14 +3478,191 @@ function v8BestSpot(pw, ph, lx, ly) { const vw = innerWidth, vh = innerHeight, t
   apply();
 })();
 // v10 additions
+/* ============ v11: Planet view (Earth cut-away, real layer depths to scale) ============
+   API: VPLANET.init(host, opts) · destroy() · isOpen() · go(id) · debug() · w2s(x,y)
+   World units: km. Earth's centre at (0,0), sea level at r = 6371. Land = left half, ocean = right half (simplified). */
+const VPLANET = (() => {
+  const R = 6371, P = PLANET_P, SCOL = { k: '#3dff8a', t: '#ff9a3d', u: '#ff4d5e' }, SNAME = { k: 'Known', t: 'We think', u: 'Unknown' };
+  const COL = { exo: 'rgba(79,243,227,.06)', thermo: 'rgba(79,243,227,.11)', meso: 'rgba(79,243,227,.17)', strato: 'rgba(79,243,227,.25)', tropo: 'rgba(120,200,255,.38)',
+    ocean: '#0f4c8a', ocrust: '#5b4a3a', ccrust: '#a8823e', umantle: '#c2551f', tzone: '#d9692a', lmantle: '#b8361f', ocore: '#ffae2e', icore: '#ffe27a' };
+  const ATMO = ['exo', 'thermo', 'meso', 'strato', 'tropo'], STOPS = ['earth', 'exo', 'thermo', 'meso', 'strato', 'tropo', 'ocean', 'ccrust', 'umantle', 'tzone', 'lmantle', 'ocore', 'icore'];
+  let peel = 0; const PEELN = 7, PL = { exo: 2, thermo: 2, meso: 2, strato: 2, tropo: 2, karman: 2, ocean: 3, ocrust: 3, ccrust: 3, crust: 3, umantle: 4, tzone: 5, lmantle: 6, ocore: 7, icore: 99, atmo: 2 }, PDEF = { earth: 0, exo: 1, thermo: 1, meso: 1, strato: 1, tropo: 1, ocean: 1, ccrust: 1, umantle: 1, tzone: 3, lmantle: 4, ocore: 6, icore: 7 };
+  const vis = k => peel < (PL[k] || 99);
+  let root, cv, cx, pop, crEl, scl, raf = 0, alive = false, opts = {}, cam = { x: 0, y: -R, z: .05 }, anim = null, sel = null, layer = 1, stop = 0, onKey = null, t = 0, last = 0;
+  const VW = () => root.clientWidth, VH = () => root.clientHeight, TOP = () => 60;
+  const fitZ = () => Math.min(VW(), VH() - TOP()) / (2 * (R + 900) * 1.04), minZ = () => fitZ() * .42, maxZ = 400;
+  const clampZ = z => Math.max(minZ(), Math.min(maxZ, z));
+  const w2s = (x, y) => [VW() / 2 + (x - cam.x) * cam.z, (VH() + TOP()) / 2 + (y - cam.y) * cam.z];
+  const s2w = (X, Y) => [cam.x + (X - VW() / 2) / cam.z, cam.y + (Y - (VH() + TOP()) / 2) / cam.z];
+  const ease = u => u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+  function animTo(x, y, z, ms = 900) { anim = { f: { ...cam }, t: { x, y, z: clampZ(z) }, s: performance.now(), ms }; }
+  // visible angle range around the camera ray, so huge circles are drawn only where you can see them (keeps deep zoom exact)
+  function span() { const d = Math.hypot(cam.x, cam.y), diag = Math.hypot(VW(), VH()) / cam.z, aC = Math.atan2(cam.y, cam.x);
+    return d > diag * 1.05 ? [aC, Math.asin(Math.min(1, diag / d)) + .02] : [aC, Math.PI + .01]; }
+  const wrap = a => { while (a > Math.PI) a -= 2 * Math.PI; while (a < -Math.PI) a += 2 * Math.PI; return a; };
+  // half: 'sea' = right half (angles -90°..90°), 'land' = left half, null = all
+  function wedge(r, half) { const [aC, sp] = span(); let a0 = aC - sp, a1 = aC + sp;
+    if (half) { const h0 = half === 'sea' ? -Math.PI / 2 : Math.PI / 2, h1 = h0 + Math.PI; if (sp >= Math.PI) { a0 = h0; a1 = h1; } else { const c = h0 + Math.PI / 2 + wrap(aC - h0 - Math.PI / 2); // camera angle unwrapped next to this half
+        a0 = Math.max(c - sp, h0); a1 = Math.min(c + sp, h1); if (a1 <= a0) return null; } }
+    const n = 220, [ox, oy] = w2s(0, 0); cx.beginPath(); cx.moveTo(ox, oy);
+    for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; const [X, Y] = w2s(Math.cos(a) * r, Math.sin(a) * r); cx.lineTo(X, Y); } cx.closePath(); return true; }
+  const fillW = (r, half, col) => { if (wedge(r, half)) { cx.fillStyle = col; cx.fill(); } };
+  // radial gradient between two radii (km), stops [[0..1 from inner→outer, colour]]
+  function rg(rIn, rOut, st) { const [ox, oy] = w2s(0, 0), z = cam.z; if (rOut * z > 8000) { const a = span()[0], c = Math.cos(a), sn = Math.sin(a), [X0, Y0] = w2s(c * rIn, sn * rIn), [X1, Y1] = w2s(c * rOut, sn * rOut), L = cx.createLinearGradient(X0, Y0, X1, Y1); for (const [u, col] of st) L.addColorStop(u, col); return L; }
+    const g = cx.createRadialGradient(ox, oy, Math.max(0, rIn * z), ox, oy, Math.max(rIn * z + .5, rOut * z)); for (const [u, c] of st) g.addColorStop(u, c); return g; }
+  const band = (rIn, rOut, half, st) => { if (wedge(rOut, half)) { cx.fillStyle = rg(rIn, rOut, st); cx.fill(); } };
+  function arcPts(r, a0, a1, n) { const o = []; for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; o.push(w2s(Math.cos(a) * r, Math.sin(a) * r)); } return o; }
+  function ring(r, col, w, dash, glow) { const [aC, sp] = span(), n = 220; cx.beginPath(); for (let i = 0; i <= n; i++) { const a = aC - sp + 2 * sp * i / n, [X, Y] = w2s(Math.cos(a) * r, Math.sin(a) * r); i ? cx.lineTo(X, Y) : cx.moveTo(X, Y); }
+    cx.save(); if (glow) { cx.shadowColor = glow; cx.shadowBlur = 10; } cx.strokeStyle = col; cx.lineWidth = w; cx.setLineDash(dash || []); cx.stroke(); cx.restore(); }
+  // ---------- star field (screen space, fixed seed; drifts gently with the camera) ----------
+  let STARS = null; function stars(w, h) { if (!STARS) { let sd = 7; const rnd = () => (sd = (sd * 16807) % 2147483647) / 2147483647; STARS = [];
+      for (let i = 0; i < 520; i++) STARS.push([rnd(), rnd(), rnd() < .06 ? 1.3 + rnd() * .9 : .35 + rnd() * .6, rnd() * 6.28, rnd() < .15 ? '#ffe7a8' : rnd() < .3 ? '#bff8f2' : '#dfe8ff']); }
+    const px = -cam.x * cam.z * .002, py = -cam.y * cam.z * .002;
+    for (const [u, v, s, ph, c] of STARS) { const X = ((u * w + px) % w + w) % w, Y = ((v * h + py) % h + h) % h; cx.globalAlpha = (s > 1.2 ? .75 : .35) * (.7 + .3 * Math.sin(t * .9 + ph * 3)); cx.fillStyle = c; cx.fillRect(X, Y, s, s); } cx.globalAlpha = 1;
+    // faint nebula wash
+    const g = cx.createRadialGradient(w * .82, h * .2, 0, w * .82, h * .2, w * .6); g.addColorStop(0, 'rgba(79,243,227,.05)'); g.addColorStop(1, 'rgba(79,243,227,0)'); cx.fillStyle = g; cx.fillRect(0, 0, w, h);
+    const g2 = cx.createRadialGradient(w * .12, h * .85, 0, w * .12, h * .85, w * .5); g2.addColorStop(0, 'rgba(255,211,107,.04)'); g2.addColorStop(1, 'rgba(255,211,107,0)'); cx.fillStyle = g2; cx.fillRect(0, 0, w, h); }
+  // simplified terrain profile on land (hills up to ~3 km, a pattern not a map)
+  const terr = a => Math.max(0, 1.2 + .9 * Math.sin(a * 2100) + .6 * Math.sin(a * 5300 + 1) + .4 * Math.sin(a * 13100 + 2)) * .9;
+  const ISSA = -Math.PI / 2 + .3, issXY = () => [Math.cos(ISSA + t * 2 * Math.PI / 5400) * (R + 410), Math.sin(ISSA + t * 2 * Math.PI / 5400) * (R + 410)]; // real orbit: ~92 minutes
+  // ---------- intact Earth from space (stylised land: a pattern, not a map) ----------
+  const LAND = [[-.45, -.25, .32, 1], [-.2, .35, .26, 2], [.38, -.3, .2, 3], [.42, .3, .3, 4], [.05, -.05, .13, 5], [-.6, .25, .14, 6], [.15, .62, .16, 7]];
+  function face() { const [ox, oy] = w2s(0, 0), rr = R * cam.z; cx.save(); cx.beginPath(); cx.arc(ox, oy, rr, 0, 6.283); cx.clip();
+    let g = cx.createRadialGradient(ox - rr * .3, oy - rr * .35, rr * .05, ox, oy, rr); g.addColorStop(0, '#3aa0e8'); g.addColorStop(.6, '#145c9e'); g.addColorStop(1, '#06264a'); cx.fillStyle = g; cx.fillRect(ox - rr, oy - rr, rr * 2, rr * 2);
+    for (const [u, v, s, sd] of LAND) { cx.beginPath(); for (let i = 0; i <= 64; i++) { const a = i / 64 * 6.283, k = 1 + .28 * Math.sin(a * 3 + sd) + .16 * Math.sin(a * 5 + sd * 2) + .08 * Math.sin(a * 11 + sd * 3), X = ox + (u + Math.cos(a) * s * k) * rr, Y = oy + (v + Math.sin(a) * s * k * .85) * rr; i ? cx.lineTo(X, Y) : cx.moveTo(X, Y); } cx.closePath();
+      const lg = cx.createRadialGradient(ox + u * rr, oy + v * rr, 0, ox + u * rr, oy + v * rr, s * rr * 1.2); lg.addColorStop(0, sd % 2 ? '#b0915a' : '#4f8a3c'); lg.addColorStop(.6, '#5f8f42'); lg.addColorStop(1, '#3d6e34'); cx.fillStyle = lg; cx.fill(); }
+    for (const sgn of [-1, 1]) { const c = cx.createRadialGradient(ox, oy + sgn * rr, 0, ox, oy + sgn * rr, rr * .32); c.addColorStop(0, 'rgba(245,250,255,.95)'); c.addColorStop(.7, 'rgba(235,245,255,.6)'); c.addColorStop(1, 'rgba(235,245,255,0)'); cx.fillStyle = c; cx.fillRect(ox - rr, oy - rr, rr * 2, rr * 2); }
+    cx.fillStyle = 'rgba(255,255,255,.13)'; for (let i = 0; i < 14; i++) { const y = oy + (-.75 + i * .115) * rr, ph = i * 1.7 + t * .02; for (let j = 0; j < 3; j++) { cx.beginPath(); cx.ellipse(ox + (Math.sin(ph + j * 2.1) * .5) * rr, y + j * rr * .02, rr * (.12 + .06 * ((i + j) % 3)), rr * (.025 + .01 * (j % 2)), Math.sin(ph) * .25, 0, 6.283); cx.fill(); } }
+    g = cx.createRadialGradient(ox - rr * .35, oy - rr * .35, rr * .2, ox, oy, rr * 1.02); g.addColorStop(0, 'rgba(255,255,255,.08)'); g.addColorStop(.7, 'rgba(0,0,20,0)'); g.addColorStop(1, 'rgba(0,4,20,.6)'); cx.fillStyle = g; cx.fillRect(ox - rr, oy - rr, rr * 2, rr * 2); cx.restore();
+    ring(R, 'rgba(127,248,236,.8)', 1.5, null, 'rgba(79,243,227,.9)');
+    const [ix, iy] = issXY(), [IX, IY] = w2s(ix, iy); cx.strokeStyle = '#ffd36b'; cx.lineWidth = 2; cx.beginPath(); cx.moveTo(IX - 10, IY); cx.lineTo(IX + 10, IY); cx.moveTo(IX, IY - 6); cx.lineTo(IX, IY + 6); cx.stroke(); cx.fillStyle = '#fff'; cx.beginPath(); cx.arc(IX, IY, 2.6, 0, 6.283); cx.fill(); }
+  function setPeel(n) { peel = Math.max(0, Math.min(PEELN, n)); if (sel && !vis(sel)) { sel = null; showPop(); } if (root) { root.querySelector('.vban').textContent = peel === 0 ? 'Earth from space · land shapes simplified' : 'Cut-away: real depths · land left, ocean right'; root.querySelector('.vpeel').disabled = peel >= PEELN; root.querySelector('.vrest').disabled = peel === 0; } }
+  function draw() { const w = VW(), h = VH(), z = cam.z; cx.clearRect(0, 0, w, h); stars(w, h);
+    // limb glow: soft turquoise→gold haze, reads as a glowing sphere from space
+    if (z < 2 && peel < 2) band(R, R + 2600, null, [[0, 'rgba(79,243,227,.30)'], [.06, 'rgba(79,243,227,.16)'], [.3, 'rgba(120,180,255,.06)'], [.7, 'rgba(255,211,107,.025)'], [1, 'rgba(255,211,107,0)']]);
+    // atmosphere: density falls with height (each band lighter outwards)
+    const AT = { exo: ['rgba(79,243,227,0)', 'rgba(79,243,227,.09)'], thermo: ['rgba(120,110,255,.08)', 'rgba(150,120,255,.20)'], meso: ['rgba(60,110,220,.16)', 'rgba(79,190,240,.30)'], strato: ['rgba(50,150,230,.28)', 'rgba(110,210,255,.48)'], tropo: ['rgba(120,200,255,.46)', 'rgba(210,242,255,.80)'] };
+    if (peel < 2) for (const k of ATMO) { const rO = R - P[k].r0, rI = R - P[k].r1, [aC, sp] = span(), o = arcPts(rO, aC - sp, aC + sp, 220), ii = arcPts(rI, aC + sp, aC - sp, 220);
+      cx.beginPath(); o.forEach(([X, Y], j) => j ? cx.lineTo(X, Y) : cx.moveTo(X, Y)); ii.forEach(([X, Y]) => cx.lineTo(X, Y)); cx.closePath(); cx.fillStyle = rg(rI, rO, [[0, AT[k][1]], [1, AT[k][0]]]); cx.fill(); }
+    // clouds: soft haze puffs 1–10 km up, only when zoomed in enough to see the troposphere
+    if (z > 3 && peel < 2) { const [aC, sp] = span(), N = 90; cx.save(); cx.globalAlpha = Math.min(1, (z - 3) / 6) * .5;
+      for (let i = -N; i <= N; i++) { const step = sp / N, a = Math.round(aC / step) * step + i * step, k = Math.sin(a * 7777.7) * 43758.5, f = k - Math.floor(k); if (f < .45) continue;
+        const alt = 2 + f * 7, [X, Y] = w2s(Math.cos(a) * (R + alt), Math.sin(a) * (R + alt)), rr = Math.max(4, Math.min(70, 2.2 * z)); const g = cx.createRadialGradient(X, Y, 0, X, Y, rr); g.addColorStop(0, 'rgba(240,250,255,.55)'); g.addColorStop(1, 'rgba(240,250,255,0)'); cx.fillStyle = g; cx.fillRect(X - rr, Y - rr, rr * 2, rr * 2); } cx.restore(); }
+    if (peel === 0) { face(); labels(); return; }
+    if (peel < 3) {
+    // ocean (right): bright at the surface, deep blue below
+    band(R - 3.7, R, 'sea', [[0, '#031a3a'], [.55, '#08386e'], [.9, '#1366a8'], [1, '#2a8fd0']]);
+    band(R - 10.7, R - 3.7, 'sea', [[0, '#2a2420'], [1, '#4a3d32']]);
+    band(R - 35, R - 10.7, 'sea', [[0, '#9a3d17'], [1, '#7a3416']]);
+    // land (right→left): warm earth tones, darker with depth
+    band(R - 35, R, 'land', [[0, '#5a3a22'], [.5, '#7d5a32'], [.85, '#a8823e'], [.97, '#b99a55'], [1, '#6f8f45']]);
+    // terrain hint above sea level on land (simplified)
+    if (z > 8) { const [aC, sp] = span(), n = 400, lo = aC - sp, hi = aC + sp; cx.beginPath();
+      for (let i = 0; i <= n; i++) { const a = lo + (hi - lo) * i / n, rr = Math.cos(a) < 0 ? R + terr(a) : R - .3, [X, Y] = w2s(Math.cos(a) * rr, Math.sin(a) * rr); i ? cx.lineTo(X, Y) : cx.moveTo(X, Y); }
+      for (let i = n; i >= 0; i--) { const a = lo + (hi - lo) * i / n, [X, Y] = w2s(Math.cos(a) * (R - .3), Math.sin(a) * (R - .3)); cx.lineTo(X, Y); } cx.closePath(); cx.fillStyle = rg(R - .3, R + 3, [[0, '#6f8f45'], [.5, '#7b7040'], [1, '#c9b48a']]); cx.fill(); }
+    }
+    // mantle: hot and deep
+    if (vis('umantle')) band(R - 410, R - 35, null, [[0, '#c4451a'], [1, '#8f3115']]);
+    if (vis('tzone')) band(R - 660, R - 410, null, [[0, '#d65a20'], [1, '#c24a1c']]);
+    if (vis('lmantle')) band(R - 2891, R - 660, null, [[0, '#e8601e'], [.4, '#b8361f'], [1, '#d8461c']]);
+    // outer core: molten, with slow swirl streaks
+    if (vis('ocore')) band(R - 5150, R - 2891, null, [[0, '#ffd36b'], [.5, '#ffae2e'], [1, '#ff8a1e']]);
+    if (vis('ocore') && wedge(R - 2891, null)) { cx.save(); cx.clip(); cx.globalAlpha = .18; cx.strokeStyle = '#fff1b8'; cx.lineWidth = Math.max(1, 30 * z);
+      for (let i = 0; i < 6; i++) { const r = R - 3100 - i * 360, a0 = t * .05 * (i % 2 ? 1 : -1) + i; cx.beginPath(); arcPts(r, a0, a0 + 2.2, 60).forEach(([X, Y], j) => j ? cx.lineTo(X, Y) : cx.moveTo(X, Y)); cx.stroke(); } cx.restore(); }
+    // inner core: bright with a soft glow
+    { const [ox, oy] = w2s(0, 0), rc = (R - 5150) * z; cx.save(); cx.shadowColor = 'rgba(255,230,140,.9)'; cx.shadowBlur = Math.min(60, rc * .25);
+      if (wedge(R - 5150, null)) { cx.fillStyle = rg(0, R - 5150, [[0, '#fffdf0'], [.45, '#fff1a8'], [1, '#ffd36b']]); cx.fill(); } cx.restore(); }
+    // boundaries: faint gold lines
+    for (const d of [3.7, 10.7, 35, 410, 660, 2891, 5150]) if ((z * 4 > 1 || d > 400) && d >= [0, 0, 0, 35, 410, 660, 2891, 5150][peel]) ring(R - d, 'rgba(255,230,170,.22)', 1);
+    // sea level: clear glowing line
+    { const top = [0, 0, 0, 35, 410, 660, 2891, 5150][peel]; ring(R - top, '#7ff8ec', Math.max(1.2, Math.min(3, z * 2)), null, 'rgba(79,243,227,.9)'); }
+    if ((P.karman.vis = z > .25 && peel < 2)) ring(R + 100, 'rgba(255,211,107,.8)', 1.2, [6, 5]);
+    // selected layer: soft gold fill + glowing edges
+    if (sel) { const q = P[sel]; if (q && q.r0 != null && vis(sel)) { const half = q.side || null; 
+        { const [aC, sp] = span(), n = 220, o = arcPts(R - q.r0, aC - sp, aC + sp, n), ii = arcPts(Math.max(0, R - q.r1), aC + sp, aC - sp, n); cx.beginPath(); o.forEach(([X, Y], j) => j ? cx.lineTo(X, Y) : cx.moveTo(X, Y)); ii.forEach(([X, Y]) => cx.lineTo(X, Y)); cx.closePath();
+          if (half) { cx.save(); wedge(R + 20000, half); cx.clip(); } else cx.save(); cx.beginPath(); o.forEach(([X, Y], j) => j ? cx.lineTo(X, Y) : cx.moveTo(X, Y)); ii.forEach(([X, Y]) => cx.lineTo(X, Y)); cx.closePath(); cx.fillStyle = 'rgba(255,211,107,.16)'; cx.fill(); cx.restore(); }
+        ring(R - q.r0, '#ffd36b', 2, null, 'rgba(255,211,107,.9)'); if (q.r1 < R) ring(R - q.r1, '#ffd36b', 2, null, 'rgba(255,211,107,.9)'); } }
+    // ISS: gold cross with a soft glow
+    const [ix, iy] = issXY(), [IX, IY] = w2s(ix, iy); { const g = cx.createRadialGradient(IX, IY, 0, IX, IY, 16); g.addColorStop(0, 'rgba(255,211,107,.55)'); g.addColorStop(1, 'rgba(255,211,107,0)'); cx.fillStyle = g; cx.fillRect(IX - 16, IY - 16, 32, 32);
+      cx.strokeStyle = '#ffd36b'; cx.lineWidth = 2; cx.beginPath(); cx.moveTo(IX - 10, IY); cx.lineTo(IX + 10, IY); cx.moveTo(IX, IY - 6); cx.lineTo(IX, IY + 6); cx.stroke(); cx.fillStyle = '#fff'; cx.beginPath(); cx.arc(IX, IY, 2.6, 0, 6.283); cx.fill(); }
+    labels(); }
+  // labels sit on the camera ray, only when the band is thick enough to read
+  function labels() { const [aC] = span(), z = cam.z, used = []; cx.font = '600 13px system-ui,sans-serif'; cx.textAlign = 'center'; cx.textBaseline = 'middle';
+    const side = Math.cos(aC) >= 0 ? 'sea' : 'land', L = [...ATMO, side === 'sea' ? 'ocean' : null, side === 'sea' ? 'ocrust' : 'ccrust', 'umantle', 'tzone', 'lmantle', 'ocore', 'icore'].filter(Boolean);
+    for (const k of L) { if (peel === 0 || !vis(k)) continue; const q = P[k], th = (q.r1 - q.r0) * z; if (th < 18) continue; let rr = R - (q.r0 + q.r1) / 2, a = aC;
+      const [X0, Y0] = w2s(Math.cos(a) * rr, Math.sin(a) * rr); let X = X0, Y = Y0;
+      if (X < 40 || X > VW() - 40 || Y < TOP() + 20 || Y > VH() - 30) { const [, dy] = [0, 0]; const cr = Math.hypot(cam.x, cam.y); rr = Math.max(R - q.r1, Math.min(R - q.r0, cr)); X = VW() * .25; Y = (VH() + TOP()) / 2; const [wx, wy] = s2w(X, Y), d = R - Math.hypot(wx, wy); if (d < q.r0 || d > q.r1) continue; }
+      const tw = cx.measureText(q.n).width + 14; if (used.some(([ux, uy, uw]) => Math.abs(ux - X) < (uw + tw) / 2 && Math.abs(uy - Y) < 22)) continue; used.push([X, Y, tw]); cx.fillStyle = 'rgba(6,10,24,.78)'; cx.fillRect(X - tw / 2, Y - 10, tw, 20); cx.fillStyle = '#e8f6ff'; cx.fillText(q.n, X, Y); } }
+  // ---------- picking: only what is drawn and big enough to see ----------
+  function hit(X, Y) { const z = cam.z, [ix, iy] = issXY(), [IX, IY] = w2s(ix, iy); if (Math.hypot(X - IX, Y - IY) < 14) return 'iss';
+    const [wx, wy] = s2w(X, Y), r = Math.hypot(wx, wy), d = R - r, sea = wx >= 0;
+    if (peel === 0) return r <= R ? 'earth' : r <= R + 600 ? 'atmo' : null;
+    const top = [0, 0, 0, 35, 410, 660, 2891, 5150][peel]; if (d < top) { if (peel >= 2) return null; }
+    if (P.karman.vis && Math.abs(r - (R + 100)) * z < 6) return 'karman';
+    if (d < -10000) return null;
+    const pick = (k, g) => (P[k].r1 - P[k].r0) * z >= 6 ? k : g;
+    for (const k of ATMO) if (d >= P[k].r0 && d < P[k].r1) return pick(k, 'atmo');
+    if (sea && d < 3.7) return pick('ocean', 'earth'); if (sea && d < 10.7) return pick('ocrust', 'crust'); if (!sea && d < 35) return pick('ccrust', 'crust');
+    if (d < 410) return 'umantle'; for (const k of ['tzone', 'lmantle', 'ocore', 'icore']) if (d >= P[k].r0 && d <= P[k].r1) return k; return null; }
+  function showPop() { if (!sel) { pop.style.display = 'none'; return; } const c = P[sel]; pop.style.display = 'block';
+    const dep = c.r0 != null ? (c.r1 <= 0 ? `${fmt(-c.r1)}–${fmt(-c.r0)} km up` : `${fmt(c.r0)}–${fmt(c.r1)} km down`) : '';
+    pop.innerHTML = `<button class="x" aria-label="Close">×</button><b class="t1">${c.n}</b><div class="chip"><i style="background:${SCOL[c.s]}"></i>${SNAME[c.s]}${c.s2 ? ` · <i style="background:${SCOL[c.s2]}"></i>${c.s2 === 'u' ? 'part still unknown' : 'part still debated'}` : ''}${dep ? ' · ' + dep : ''}</div>${c.a.map(x => `<p>${x}</p>`).join('')}
+      ${layer >= 2 ? `<div class="lay">${c.b.map(x => `<p>${x}</p>`).join('')}<div class="src">Sources: ${c.src.map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join(' · ')}</div></div>` : ''}
+      <div class="pact">${layer < 2 ? '<button class="more">Read more ▾</button>' : ''}<span class="lv">Layer ${layer} of 2</span></div>`;
+    pop.querySelector('.x').onclick = () => { sel = null; showPop(); }; const m = pop.querySelector('.more'); if (m) m.onclick = () => { layer = 2; showPop(); }; }
+  const fmt = v => Math.round(v).toLocaleString('en-GB');
+  function crumb() { const r = Math.hypot(cam.x, cam.y), d = R - r, z = cam.z, view = (VH() - TOP()) / z;
+    crEl.textContent = view > 9000 ? 'Earth · whole planet' : d < 0 ? `Earth › ${fmt(-d)} km up` : `Earth › ${fmt(d)} km down`;
+    const MM = [10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]; let pick = 1; for (const v of MM) if (v * z <= 140) { pick = v; break; }
+    scl.innerHTML = `<i style="width:${(pick * z).toFixed(0)}px"></i>${fmt(pick)} km <small>· true scale</small>`; }
+  // ---------- layer-by-layer stops ----------
+  function go(k, ms) { const i = STOPS.indexOf(k); if (i < 0) return; stop = i; setPeel(PDEF[k]); if (k === 'earth') return animTo(0, 0, fitZ(), ms);
+    const q = P[k], mid = (q.r0 + q.r1) / 2, th = q.r1 - q.r0, a = -Math.PI / 2 + (k === 'ocean' ? .0006 : 0);
+    animTo(Math.cos(a) * (R - mid) + (k === 'ocean' ? 4 : k === 'ccrust' ? -25 : 0), Math.sin(a) * (R - mid), Math.min(maxZ, (VH() - TOP()) * .45 / th, k === 'exo' ? fitZ() * 1.6 : 1e9), ms); }
+  function zoomAt(X, Y, k) { const [wx, wy] = s2w(X, Y); anim = null; const z0 = cam.z; cam.z = clampZ(cam.z * k); if (peel === 0 && cam.z > fitZ() * 2.5) setPeel(1); else if (peel > 0 && cam.z < z0 && cam.z <= fitZ() * 1.5 && z0 > fitZ() * 1.5) { setPeel(0); stop = 0; } const [wx2, wy2] = s2w(X, Y); cam.x += wx - wx2; cam.y += wy - wy2; clampCam(); }
+  function clampCam() { const m = R + 11000; cam.x = Math.max(-m, Math.min(m, cam.x)); cam.y = Math.max(-m, Math.min(m, cam.y)); }
+  function frame(now) { if (!alive) return; raf = requestAnimationFrame(frame); const dt = Math.min(.05, (now - (last || now)) / 1000); last = now; t += dt;
+    if (anim) { const u = Math.min(1, (now - anim.s) / anim.ms), e = ease(u); cam.z = Math.exp(Math.log(anim.f.z) + (Math.log(anim.t.z) - Math.log(anim.f.z)) * e); cam.x = anim.f.x + (anim.t.x - anim.f.x) * e; cam.y = anim.f.y + (anim.t.y - anim.f.y) * e; if (u >= 1) { cam = { ...anim.t }; anim = null; } }
+    const dpr = Math.min(2, devicePixelRatio || 1), w = VW(), h = VH(); if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+    cx.setTransform(dpr, 0, 0, dpr, 0, 0); draw(); crumb(); }
+  function bind() { const ptr = new Map(); let down = null, moved = false, pinch = null;
+    cv.addEventListener('pointerdown', e => { cv.setPointerCapture(e.pointerId); ptr.set(e.pointerId, [e.clientX, e.clientY]); down = [e.clientX, e.clientY]; moved = false; anim = null; if (ptr.size === 2) { const [a, b] = [...ptr.values()]; pinch = Math.hypot(a[0] - b[0], a[1] - b[1]); } });
+    cv.addEventListener('pointermove', e => { if (!ptr.has(e.pointerId)) return; const p = ptr.get(e.pointerId), dx = e.clientX - p[0], dy = e.clientY - p[1]; ptr.set(e.pointerId, [e.clientX, e.clientY]);
+      if (ptr.size === 2) { const [a, b] = [...ptr.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]); if (pinch) zoomAt((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, d / pinch); pinch = d; moved = true; return; }
+      if (Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 6) moved = true; if (moved) { cam.x -= dx / cam.z; cam.y -= dy / cam.z; clampCam(); } });
+    cv.addEventListener('pointerup', e => { if (!ptr.has(e.pointerId)) return; ptr.delete(e.pointerId); if (ptr.size < 2) pinch = null; if (!moved && ptr.size === 0) { const r = cv.getBoundingClientRect(); sel = hit(e.clientX - r.left, e.clientY - r.top); layer = 1; showPop(); } });
+    cv.addEventListener('pointercancel', e => ptr.delete(e.pointerId));
+    cv.addEventListener('wheel', e => { e.preventDefault(); const r = cv.getBoundingClientRect(); zoomAt(e.clientX - r.left, e.clientY - r.top, Math.exp(-e.deltaY * .0015)); }, { passive: false });
+    onKey = e => { if (!alive) return; if (e.key === 'Escape') { if (sel) { sel = null; showPop(); } else close(); } else if (e.key === '+' || e.key === '=') zoomAt(VW() / 2, (VH() + TOP()) / 2, 1.4); else if (e.key === '-') zoomAt(VW() / 2, (VH() + TOP()) / 2, 1 / 1.4); else if (e.key === 'ArrowDown') go(STOPS[Math.min(STOPS.length - 1, stop + 1)]); else if (e.key === 'ArrowUp') go(STOPS[Math.max(0, stop - 1)]); };
+    addEventListener('keydown', onKey); }
+  function init(host = document.body, o = {}) { if (alive) destroy(); opts = o; alive = true; sel = null; stop = 0; t = 0; last = 0;
+    root = document.createElement('div'); root.id = 'vplanet'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Planet Earth');
+    root.innerHTML = `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🌍 Planet Earth <small>v11</small></b><div class="vzm"><button class="vup" aria-label="Go up a layer">↑</button><button class="vdn" aria-label="Go down a layer">↓</button><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole planet">⤢</button><button class="vpeel" aria-label="Peel off the outer layer" title="Peel a layer">🧅</button><button class="vrest" aria-label="Put all layers back" title="Whole Earth">🌍</button></div></div>` +
+      `<canvas aria-label="Earth cut-away, layers to scale. Tap a layer to learn about it."></canvas><div class="vcrumb"></div><div class="vscl"></div><div class="vban">Cut-away: real layer depths (averages) · land left, ocean right (simplified)</div><div class="vhint">↓ dives · 🧅 peels a layer · tap any layer</div><div class="vpop" role="dialog" aria-live="polite"></div>`;
+    host.appendChild(root); const $ = s => root.querySelector(s); cv = $('canvas'); cx = cv.getContext('2d'); pop = $('.vpop'); crEl = $('.vcrumb'); scl = $('.vscl');
+    $('.vback').onclick = close; $('.vin').onclick = () => zoomAt(VW() / 2, (VH() + TOP()) / 2, 1.6); $('.vout').onclick = () => zoomAt(VW() / 2, (VH() + TOP()) / 2, 1 / 1.6); $('.vfit').onclick = () => go('earth'); $('.vpeel').onclick = () => setPeel(peel + 1); $('.vrest').onclick = () => setPeel(0);
+    $('.vdn').onclick = () => go(STOPS[Math.min(STOPS.length - 1, stop + 1)]); $('.vup').onclick = () => go(STOPS[Math.max(0, stop - 1)]);
+    bind(); peel = 0; setPeel(0); cam = { x: 0, y: 0, z: fitZ() }; if (o.focus) go(o.focus, 10); raf = requestAnimationFrame(frame); $('.vback').focus({ preventScroll: true }); }
+  function destroy() { alive = false; cancelAnimationFrame(raf); if (onKey) removeEventListener('keydown', onKey); if (root) root.remove(); root = null; }
+  function close() { destroy(); opts.onClose && opts.onClose(); }
+  return { init, destroy, isOpen: () => alive, go, w2s, hit, peel: n => n == null ? peel : setPeel(n), debug: () => ({ peel, cam: { ...cam }, sel, stop, depth: R - Math.hypot(cam.x, cam.y) }) };
+})();
+// v11: Planet view in the Explore menu (#planet opens it)
+(() => { const menu = document.getElementById('xmenu'), btn = document.getElementById('ptbtn');
+  function openPlanet(focus) { if (sel || LOOPON) closePop(); if (typeof HOWTO !== 'undefined' && HOWTO.close) HOWTO.close();
+    VPLANET.init(document.body, { focus, onClose: () => { if (/planet/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); btn.focus({ preventScroll: true }); } }); }
+  window.openPlanet = openPlanet;
+  menu.addEventListener('click', e => { const b = e.target.closest('button'); if (b && b.dataset.x === 'planet') openPlanet(); });
+  const h = new URLSearchParams(location.hash.slice(1)); if (h.has('planet')) setTimeout(() => openPlanet(h.get('planet') || undefined), 60);
+})();
 
 
 /* ============ START ============ */
-function init() { drawSky(); { const pv = prefGet('fntu-view'); if (pv === 'tree' || pv === 'circle') setScene(pv); } syncSwitch(); [s, tx, ty] = homeView(); apply(); }
+function init() { drawSky(); { const pv = prefGet('fntu-view'); if (pv === 'circle') setScene('circle'); } syncSwitch(); [s, tx, ty] = homeView(); apply(); }
 addEventListener('resize', () => { drawSky(); apply(); });
 init();
 // test hooks (used for screenshots): #view=fit | #c=<stage column>&y=<world y>&z=<zoom> | &open=<id>&layer=<1-3> | #ptable=1&el=<Z>
-(() => { const h = new URLSearchParams(location.hash.slice(1)); if (h.has('n') && !h.has('tv')) h.set('tv', 'map'); if (h.has('tv')) { setScene(['tree', 'circle'].includes(h.get('tv')) ? h.get('tv') : 'map'); syncSwitch(); [s, tx, ty] = homeView(); }
+(() => { const h = new URLSearchParams(location.hash.slice(1)); if (h.has('n') && !h.has('tv')) h.set('tv', 'map'); if (h.has('tv')) { setScene(h.get('tv') === 'circle' ? 'circle' : 'map'); syncSwitch(); [s, tx, ty] = homeView(); }
   if (h.get('view') === 'fit') [s, tx, ty] = fitView();
   if (h.has('c')) { s = +(h.get('z') || s); tx = innerWidth / 2 - X(+h.get('c')) * s; ty = UI() + (innerHeight - UI()) / 2 - (+(h.get('y') || H / 2)) * s; }
   apply(); if (h.has('open')) openPop(h.get('open'), +(h.get('layer') || 1));

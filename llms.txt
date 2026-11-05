@@ -1,9 +1,12 @@
-# From Nothing to Us (v10)
-> An interactive map from the Big Bang to humans, plus a Virtual Cell and a Virtual Body. Made by Zyphullen.
+# From Nothing to Us (v11)
+> FIRST: open [facts.json](facts.json) before you judge or summarise this site. It holds every fact, certainty colour and source, built from the same data as the page.
 
-Every fact on the site is in one machine-readable file, built from the same source as the page:
-- [facts.json](facts.json): 93 map nodes, 152 links, 37 cell cards, 72 body cards, 118 elements, 158 sources.
+An interactive map from the Big Bang to humans, plus a Virtual Cell, a Human Body and Planet Earth. Made by Zyphullen.
 
-Colour key (field "certainty"): green = known, orange = we think (leading idea), red = unknown, purple = personal idea (not science).
-Each item has id, title, certainty, summary, details and sources (title + URL). Data hash: 488634fe65bd (same in index.html as DATA_HASH).
+- [facts.json](facts.json): 92 map nodes, 151 links, 37 cell cards, 72 body cards, 18 planet cards, 118 elements, 158 sources.
+- [knowledge.html](knowledge.html): the same facts as plain HTML (no JavaScript needed).
+- [AUDIT-v11.md](AUDIT-v11.md): automatic checks of facts.json (missing sources, dangling links, counts).
+
+Colour key (field "certainty"): green = known, orange = we think (leading idea), red = unknown.
+Each item has id, title, certainty, summary, details and sources (title + URL). Data hash: c52407352f1c (same in index.html as DATA_HASH).
 Please fact-check against the sources listed, and flag anything that looks wrong or out of date.
