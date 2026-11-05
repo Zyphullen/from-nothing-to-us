@@ -10,6 +10,7 @@
 - **Smooth zoom**: zooming is smooth, and a tap only hits what is visible.
 - **Layout**: cards sit above the toolbar. The top of Tree and Circle is no longer clipped. The phone ruler is fixed in Tree.
 - **Science review**: element origins, cell cards, Euclid 2027, holography wording and other fixes. Chain Theory stays orange.
+- Link preview image refreshed so X stops showing the old v5 card.
 
 ## v9 (2 Nov 2026)
 
