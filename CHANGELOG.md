@@ -1,3 +1,16 @@
+## v10 (5 Nov 2026)
+
+**New**
+- **facts.json + llms.txt**: machine-readable facts built from the same source as the site, so an AI can read every node, card, colour and source. `llms.txt` points to `facts.json`.
+- **Body → cell bridge**: an organ card's "See its cells" opens the Virtual Cell, with ← Body to go back.
+
+**Better**
+- **Human Body, drawn to scale**: ribs, limbs, kidneys and palms face forward. There is no skin layer. Five layers are on by default.
+- **Heart**: four chambers, the septum and the valves, about 70 beats a minute.
+- **Smooth zoom**: zooming is smooth, and a tap only hits what is visible.
+- **Layout**: cards sit above the toolbar. The top of Tree and Circle is no longer clipped. The phone ruler is fixed in Tree.
+- **Science review**: element origins, cell cards, Euclid 2027, holography wording and other fixes. Chain Theory stays orange.
+
 ## v9 (2 Nov 2026)
 
 **New**

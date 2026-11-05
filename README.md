@@ -2,7 +2,7 @@
 
 An interactive dark-mode tree of how everything emerges, from the quantum field to humans.
 
-Current version: **v9** (2 Nov 2026)
+Current version: **v10** (5 Nov 2026)
 
 Live site: https://zyphullen.github.io/from-nothing-to-us/
 
@@ -12,13 +12,23 @@ An interactive map of how everything emerges, from the quantum base layer to us,
 
 ## How it's made
 
-A single static HTML file, plain JavaScript and WebGL, no libraries, no tracking, no accounts, built with AI assistance.
+A single static HTML file, plain JavaScript and WebGL, no libraries, no tracking, no accounts, built with AI assistance. The same facts are also in `facts.json`, with `llms.txt` pointing AIs to that file.
 
 ## Credits
 
 Piano: Salamander Grand Piano by Alexander Holm (CC BY 3.0), via FreePats
 
 Made by Zyphullen
+
+## What's new in v10
+
+- AI-readable facts: `facts.json` holds every node, card, colour and source, built from the same data as the page. `llms.txt` points AIs to that file.
+- Human Body, drawn to scale: ribs, limbs, kidneys and palms face forward. No skin layer. Five layers are on by default.
+- Heart: four chambers, the septum and the valves, about 70 beats a minute.
+- Smooth zoom, and a tap only hits what is visible.
+- Body → cell bridge: an organ card's "See its cells" opens the Virtual Cell, with ← Body to go back.
+- Review and science fixes (element origins, cell cards, Euclid 2027, holography wording and others). Chain Theory stays orange.
+- Layout: cards sit above the toolbar, the top of Tree and Circle is no longer clipped, and the phone ruler is fixed in Tree.
 
 ## What's new in v9
 
