@@ -1,3 +1,14 @@
+## v11 (5 Nov 2026)
+
+**New**
+- **Planet Earth**: zoom from space, layer by layer, and back out.
+- **Site data**: a link at the top opens `facts.json`, and `llms.txt` points to that file first.
+- **knowledge.html**: the same facts as plain HTML, with no JavaScript.
+- **AUDIT-v11.md**: automatic checks of `facts.json`. No hard problems.
+
+**Better**
+- **UI**: purple personal ideas removed. Scale and size bars gone. Tree removed (Map and Ring). Explore sits under the title. The title panel is back. The KEY floats. Ring spacing and fit adjusted.
+
 ## v10 (5 Nov 2026)
 
 **New**
