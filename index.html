@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>From Nothing to Us · v9</title>
+<title>From Nothing to Us · v10</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23070d1f%22 stroke=%22%23ffd36b%22 stroke-width=%228%22/%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2214%22 fill=%22%234ff3e3%22/%3E%3C/svg%3E">
 <meta property="og:title" content="From Nothing to Us">
 <meta property="og:description" content="An interactive map of everything, from before the Big Bang to us. Zoom from the cosmos down into a living cell.">
@@ -50,7 +50,7 @@ h1{margin:0;font-size:22px;font-weight:650;letter-spacing:.4px;background:linear
 #ruler .rk{position:absolute;top:8px;height:16px;width:2px;border-radius:1px;transform:translateX(-50%);transition:left .25s}
 #ruler .rh{position:absolute;top:4px;height:24px;border-radius:7px;background:rgba(79,243,227,.12);border:1px solid rgba(79,243,227,.45);transition:left .25s,width .25s;box-sizing:border-box}
 #ruler .rtitle{position:absolute;top:0;bottom:0;left:7px;display:flex;align-items:center;font-size:11px;color:#9ff5ea;letter-spacing:.3px}
-#pop{position:fixed;z-index:5;width:300px;max-height:72vh;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;padding:12px 30px 12px 14px;border-radius:14px;background:rgba(8,14,30,.96);border:1.5px solid #4ff3e3;display:none;font-size:14px;line-height:1.45;color:#d6e4f5;-webkit-user-select:text;user-select:text;box-sizing:border-box}
+#pop{position:fixed;z-index:8;width:300px;max-height:72vh;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;padding:12px 30px 12px 14px;border-radius:14px;background:rgba(8,14,30,.96);border:1.5px solid #4ff3e3;display:none;font-size:14px;line-height:1.45;color:#d6e4f5;-webkit-user-select:text;user-select:text;box-sizing:border-box}
 #pop b.t1{display:block;font-size:15.5px;color:#fff;margin-bottom:2px}
 #pop .chip{font-size:11.5px;color:#9fb0c8;margin-bottom:4px}
 #pop .chip i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
@@ -277,7 +277,7 @@ h1 .ver{display:inline-block;margin-left:6px;padding:0 7px;font-size:11px;line-h
  #strip{top:74px}#mini{top:108px}#topcover{height:120px}
  body.rul #strip{top:114px}body.rul #mini{top:148px}body.rul #topcover{height:160px}
  #ctl{flex-direction:row;align-items:center;top:124px}body.rul #ctl{top:164px}body.tv #ctl,body.rul.tv #ctl{top:76px}body.tv #topcover{height:112px}
- #rulb{display:block}body.tv #rulb{display:none}body.rul #rulb{border-color:#ffd36b}
+ #rulb{display:block}body.tv #rulb{display:none}body.tv #ruler{display:none!important}body.rul #rulb{border-color:#ffd36b}
  #xmenu{left:8px!important;right:8px;min-width:0}
 }
 /* Virtual Cell */
@@ -323,6 +323,8 @@ h1 .ver{display:inline-block;margin-left:6px;padding:0 7px;font-size:11px;line-h
 #vcell .vcrumb{top:102px}
 #vbody .vcrumb{top:102px}
 #vcell .vpop{top:104px;max-height:calc(100vh - 130px)}
+#vcell .vtis{position:absolute;z-index:2;left:14px;bottom:44px;max-width:420px;padding:8px 12px;border-radius:12px;background:rgba(8,14,30,.92);border:1.5px solid #ffd36b;color:#dfe8f5;font-size:13px;line-height:1.4}#vcell .vtis b{color:#ffd36b}#vcell .vtis a{color:#4ff3e3}
+@media (max-width:600px){#vcell .vtis{left:6px;right:6px;top:96px;bottom:auto;max-width:none;font-size:12px}}
 #vbody .vpop{top:104px;max-height:calc(100vh - 130px)}
 #vcell .vtime{position:absolute;left:12px;top:56px;z-index:2;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
 #vbody .vtime{position:absolute;left:12px;top:56px;z-index:2;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
@@ -343,13 +345,14 @@ h1 .ver{display:inline-block;margin-left:6px;padding:0 7px;font-size:11px;line-h
 #vbody .vsex{font-size:12px;color:#a8b9d2;background:rgba(4,6,15,.75);padding:6px 10px;border-radius:9px}
 @media (max-width:600px){#vbody .vlay{flex-wrap:nowrap;overflow-x:auto;max-width:calc(100vw - 16px);scrollbar-width:none}#vbody .vlay button{flex:0 0 auto;font-size:12px;padding:5px 9px}#vbody .vsex{display:none}#vbody .vlab{font-size:11px}}
 </style>
+<link rel="alternate" type="application/json" href="facts.json" title="All facts (machine-readable)">
 </head>
 <body>
 <canvas id="sky"></canvas>
 <div id="topcover"></div>
 <svg id="tree" xmlns="http://www.w3.org/2000/svg"><defs id="defs"></defs><g id="world"></g></svg>
 <header>
-  <h1>From Nothing to Us <span class="ver" title="Version 9">v9</span></h1>
+  <h1>From Nothing to Us <span class="ver" title="Version 10">v10</span></h1>
   <div class="legend"><span><i class="k"></i>known</span><span><i class="t"></i>we think</span><span><i class="u"></i>unknown</span><span><i class="p"></i>idea</span><button class="hbtn" id="ptbtn" title="Explore: elements, Virtual Cell" aria-haspopup="menu" aria-expanded="false" aria-controls="xmenu">☰ Explore</button></div>
   <div id="search" role="search"><button id="sbtn" title="Search (/)" aria-label="Search"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#9ff5ea" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg></button>
     <div class="sbox"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#9ff5ea" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg><input id="sq" type="search" placeholder="Search: carbon, DNA, gold…" autocomplete="off" spellcheck="false" aria-label="Search the map" aria-controls="sres"><span class="skbd">/</span><button id="sx" aria-label="Clear search">×</button></div>
@@ -405,11 +408,11 @@ h1 .ver{display:inline-block;margin-left:6px;padding:0 7px;font-size:11px;line-h
   <div id="efmsg"></div><p class="tag">“Don't collect cards. Collect understanding.”</p></div>
 <div id="infp" class="panel" role="dialog" aria-label="About"><div class="ph"><b>ABOUT</b><button class="x" aria-label="close">×</button></div>
   <p>From Nothing to Us: how everything emerges, from the quantum field to us. Made by Zyphullen.</p>
-  <p class="verl">Version 9 (v9)</p>
+  <p class="verl">Version 10 (v10)</p>
   <h5>Music</h5><div class="sndrow"><button id="mute2">🔊 Music on</button><input id="vol2" type="range" min="0" max="100" step="1" aria-label="Music volume"></div>
   <p class="cred">Piano: Salamander Grand Piano by Alexander Holm (<a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>), via <a href="https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html" target="_blank" rel="noopener">FreePats</a></p>
   <div class="irow"><button id="howb">❔ How to use</button><a id="sugg" href="https://github.com/Zyphullen/from-nothing-to-us/issues/new" target="_blank" rel="noopener">✎ Suggest a fix</a></div></div>
-<div id="howto" role="dialog" aria-label="How to use"><div class="hcard"><div class="hk">HOW TO USE · v9</div>
+<div id="howto" role="dialog" aria-label="How to use"><div class="hcard"><div class="hk">HOW TO USE · v10</div>
   <div class="hs"><span id="hti1">🖱️</span><b id="ht1">Scroll to zoom, drag to move</b></div>
   <div class="hs"><span id="hti2">✨</span><b id="ht2">Click a node to learn</b></div>
   <div class="hs"><span class="hdots"><i style="background:#3dff8a"></i><i style="background:#ffa53d"></i><i style="background:#ff4d5e"></i></span><b>Green = known, orange = we think, red = unknown</b></div>
@@ -427,7 +430,9 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 const SUP = { '-': '⁻', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
 const pow10 = e => '10' + String(Math.round(e)).split('').map(c => SUP[c]).join('');
 const szShort = n => n.sz == null ? '' : (Math.round(n.sz) === 0 ? '~1 m' : '~' + pow10(n.sz) + ' m');
+const DATA_HASH = '488634fe65bd'; // same hash is in facts.json
 const SRC = {
+ katrin:['KATRIN, Science 2025: neutrino mass below 0.45 eV','https://doi.org/10.1126/science.adq9592'],
  ctpost:['Alex Wissner-Gross: "Chain Theory" (Substack, 24 Oct 2026)','https://theinnermostloop.substack.com/p/chain-theory'],
  ctx:['@alexwg on X: Chain Theory article','https://x.com/alexwg/status/2113988412822712534'],
  ctalpha:['Preprint: A Parameter-Free Candidate for the Fine-Structure Constant (23 Oct 2026)','https://alexwg.org/publications/ChainTheoryAlpha.pdf'],
@@ -607,7 +612,7 @@ const N = [
  L3:['## Known maths','The group S(U(3)×U(2)) ≅ (SU(3)×SU(2)×U(1))/ℤ₆ is known (Baez & Huerta 2010).','Alex\'s new step is reading it as the symmetry of ONE entangled pair.','## Open','Why this pair and not others? How hypercharge becomes electric charge is "beyond the Letter".'],
  src:['ctalpha','baez'],p:['genres'],el:{genres:'the (3,2) link'}},
 
-{id:'alpha',r:3,x:890,s:'t',ic:'alpha',name:'α ≈ 1/137.036',line:'A number from one link',sz:null,szt:'A pure number (no units)',
+{id:'alpha',r:3,x:890,s:'t',ic:'alpha',name:'Chain Theory’s α formula',line:'α is measured; this formula is new',sz:null,szt:'A pure number (no units)',
  info:['α sets how strongly light and charge interact.','Alex gets 1/137.035999190 with no tuning.','Measured: 1/137.035999177 (±21 in last digits).'],
  L2:['## Recipe (Alex says)','1 shared qutrit with 3 links to qubits, 2 of them read.','Count 172 "records": 79 + 48 + 42 + 3.','Weigh them 1, √2, √3, √6. Divide by 31104 = 24×36×36.','α = (79 + 48√2 + 42√3 + 3√6) / 31104.','## Check','We re-did the sum: 1/α = 137.0359991896.'],
  L3:['## Graded','The number is proven from his rules, checked in Lean 4.','That it IS α is the "Photon Conjecture". It is not in the Lean proof.','## Versus experiments','0.6σ from CODATA 2022. But +1.6σ (electron g−2, 2023), −1.5σ (rubidium, 2020), +5.3σ (caesium, 2018). The experiments disagree with each other.','## Caution','One blogger estimated ~140 formulas of this style land as close (rough, not peer-reviewed). No second matching number yet.','## Test','New, ~10× sharper measurements (Northwestern, Berkeley, Paris) will confirm or kill it.','## Who wins?','His number sides with rubidium, against caesium. If caesium is right, it fails.'],
@@ -700,7 +705,7 @@ const N = [
 {id:'de',r:5,x:1840,s:'u',ic:'darkenergy',name:'Dark energy',line:'Pushes space apart. Why?',sz:26,szt:'Matters only on cosmic scales',
  info:['About 68% of the universe.','Makes expansion speed up (found 1998).','What it is: unknown.'],
  L2:['## The numbers','~68.5% of the energy of the universe (Planck 2018).','## Simplest idea','A constant energy of empty space (Λ). But theory guesses a value ~10¹²⁰ too big.'],
- L3:['## New','DESI (2025) hints it may weaken over time (2.8–4.2σ, depending on the supernova set).','Others argue supernova errors or a data mismatch explain it.','Euclid (data from Nov 2026) and Roman (launched 2026) will check.','## Chain Theory','Alex writes a "cosmological term at the depth exponent" (conditional). Its size is not compared with observation.'],
+ L3:['## New','DESI (2025) hints it may weaken over time (2.8–4.2σ, depending on the supernova set).','Others argue supernova errors or a data mismatch explain it.','Euclid (first big data release expected 2027) and Roman (launched 2026) will check.','## Chain Theory','Alex writes a "cosmological term at the depth exponent" (conditional). Its size is not compared with observation.'],
  src:['planck','desi','ctcomp','efst','afroz','euclid','roman'],p:['bigbang']},
 
 /* ---------------- FORCES ---------------- */
@@ -876,7 +881,7 @@ const N = [
 {id:'molecules',r:19,x:400,s:'k',ic:'molecule',name:'Molecules',line:'Water, CO₂, methane…',sz:-9.5,szt:'Water ~0.28 nm',
  info:['Atoms bonded into fixed shapes.','About 350 kinds found in space.','Water = 2 H + 1 O.'],
  L2:['## Recipes','2 H + 1 O → water (angle 104.5°).','1 C + 2 O → CO₂. 1 C + 4 H → methane.','## Randomness','Collisions are random; energy and stability decide what lasts.'],
- L3:['## The numbers','~350 molecules found in space (CDMS: 347 listed, June 2026), incl. sugars and amino-acid cousins.'],
+ L3:['## The numbers','~350 molecules found in space (CDMS: 349 listed, Nov 2026), incl. sugars and amino-acid cousins.'],
  src:['cdms','molin'],p:['bonds','firstmol'],el:{bonds:'2 H + 1 O → H₂O'}},
 
 {id:'planets',r:19,x:1000,s:'k',ic:'planet',name:'Planets',line:'Dust clumps into worlds',sz:7,szt:'Earth 1.27×10⁷ m',
@@ -1011,7 +1016,7 @@ const N = [
  src:['hatton','tissue'],p:['multicell']},
 
 {id:'plants',r:33,x:1000,s:'k',ic:'plant',name:'Plants',line:'Green, sun-powered',sz:0,szt:'mm to 100 m',
- info:['On land ~470 million years ago.','Plants + ocean algae make our oxygen.','Ocean algae make about half.'],L2:[],L3:[],
+ info:['On land ~470 million years ago.','Plants + ocean algae make our oxygen.','Ocean phytoplankton: about half of yearly photosynthesis oxygen.'],L2:[],L3:[],
  src:['noaa'],p:['multicell','photosyn']},
 
 {id:'animals',r:33,x:1350,s:'k',ic:'fish',name:'Animals',line:'Move, eat, sense',sz:0,szt:'µm to 30 m',
@@ -1052,7 +1057,7 @@ const N = [
 ];
 /* Read-more layers for nodes whose layers were left short above. Merged in at start-up. */
 const EXTRA = {
- cosmicray:{L3:['## How we know','Li, Be, B are ~10⁵–10⁷× rarer than C and O; the amounts match cosmic-ray models.','## Note','Some lithium also comes from the Big Bang and from novae / dying stars.']},
+ cosmicray:{L3:['## How we know','Li, Be, B are ~10⁵–10⁷× rarer than C and O; the amounts match cosmic-ray models.','## Note','Cosmic rays make only a small share of lithium: most comes from the Big Bang and from stars (novae, giants).']},
  dust:{L3:['## How we know','ALMA images of young disks (e.g. HL Tauri, 2014) show rings and gaps.','## Randomness','Where clumps form in the disk is chaotic.']},
  solar:{L3:['## How we know','Oldest meteorite grains (CAIs): 4.567 billion years.','## Open','Why Jupiter and Saturn are where they are; did they move ("Grand Tack")?']},
  earth:{L3:['## How we know','Oldest minerals: zircons 4.4 billion years old.','## Top-down','Seismic waves reveal the core; meteorites match its make-up.']},
@@ -1078,7 +1083,7 @@ const EXTRA = {
  eukaryote:{L2:['## Recipe','1 archaeal host (Asgard-type) + 1 swallowed bacterium → mitochondria.','Later, a cyanobacterium swallowed → chloroplasts (plants, algae).','## Size','~10–100 µm: often 1,000× or more the volume of a bacterium.'],L3:['## Numbers','Oldest clear fossils ~1.6–1.8 billion years; origin ~2 billion (estimate, range wide).','## Open','Exact order of steps.']},
  multicell:{L2:['## Recipe','Cells that stay stuck after dividing + glue proteins + signals.'],L3:['## Numbers','Red alga Bangiomorpha ~1 billion years. At least 25 separate origins.']},
  tissues:{L2:['## Recipe','Many similar cells + a protein scaffold (collagen).','~400 cell types in a human (Hatton 2023).'],L3:['## 4 types','Epithelial (skin, linings), connective (bone, blood), muscle, nerve.']},
- plants:{L2:['## Oxygen','Ocean phytoplankton make roughly half of Earth\'s oxygen.'],L3:['## Numbers','Land plants ~470 million years ago (spores).']},
+ plants:{L2:['## Oxygen','Ocean phytoplankton make roughly half of the oxygen made by photosynthesis each year.','The oxygen in today\'s air built up over billions of years.'],L3:['## Numbers','Land plants ~470 million years ago (spores).']},
  animals:{L2:['## Timeline','First animals ~600+ million years ago; Cambrian burst ~539 million.'],L3:['## Open','Exact first animal (sponges? comb jellies?) is debated.']},
  organs:{L2:['## Recipe','2–4 tissue types → one organ. Heart: muscle + nerve + connective + lining.'],L3:['## Note','The "78 organs" count depends on what you call an organ.']},
  mammals:{L2:['## Line to us','Mammals → primates (oldest fossils ~66 million yr, just after the dinosaurs died; oldest full skeleton ~55 million yr) → apes → humans.'],L3:['## Numbers','First mammals ~200+ million years ago (Triassic/Jurassic).']},
@@ -1089,7 +1094,7 @@ const EXTRA = {
  idea:{L2:['## Zyphullen\'s idea','Life is the universe\'s knot trying to untie itself toward perfect symmetry.','Everything is one chain reaction.'],L3:['## Label','A personal idea, shown for interest. It is not science and not part of Chain Theory.']},
  mind:{L2:['## Theories','Global workspace, integrated information, higher-order and others.'],L3:['## Why red','No test yet tells which theory, if any, is right.','The 2025 "Cogitate" head-to-head test (256 people): results challenged both big theories; neither won.']},
 };
-const ELS=[[1,"H","Hydrogen","nm","B",1,1],[2,"He","Helium","nob","B",1,18],[3,"Li","Lithium","alk","LCB",2,1],[4,"Be","Beryllium","ae","C",2,2],[5,"B","Boron","met","C",2,13],[6,"C","Carbon","nm","LM",2,14],[7,"N","Nitrogen","nm","LM",2,15],[8,"O","Oxygen","nm","M",2,16],[9,"F","Fluorine","hal","LM",2,17],[10,"Ne","Neon","nob","M",2,18],[11,"Na","Sodium","alk","M",3,1],[12,"Mg","Magnesium","ae","M",3,2],[13,"Al","Aluminium","post","M",3,13],[14,"Si","Silicon","met","MW",3,14],[15,"P","Phosphorus","nm","M",3,15],[16,"S","Sulfur","nm","MW",3,16],[17,"Cl","Chlorine","hal","MW",3,17],[18,"Ar","Argon","nob","MW",3,18],[19,"K","Potassium","alk","MW",4,1],[20,"Ca","Calcium","ae","MW",4,2],[21,"Sc","Scandium","tm","M",4,3],[22,"Ti","Titanium","tm","MW",4,4],[23,"V","Vanadium","tm","WM",4,5],[24,"Cr","Chromium","tm","WM",4,6],[25,"Mn","Manganese","tm","W",4,7],[26,"Fe","Iron","tm","WM",4,8],[27,"Co","Cobalt","tm","WM",4,9],[28,"Ni","Nickel","tm","WM",4,10],[29,"Cu","Copper","tm","M",4,11],[30,"Zn","Zinc","tm","M",4,12],[31,"Ga","Gallium","post","M",4,13],[32,"Ge","Germanium","met","M",4,14],[33,"As","Arsenic","met","M",4,15],[34,"Se","Selenium","nm","M",4,16],[35,"Br","Bromine","hal","M",4,17],[36,"Kr","Krypton","nob","ML",4,18],[37,"Rb","Rubidium","alk","ML",5,1],[38,"Sr","Strontium","ae","L",5,2],[39,"Y","Yttrium","tm","L",5,3],[40,"Zr","Zirconium","tm","L",5,4],[41,"Nb","Niobium","tm","L",5,5],[42,"Mo","Molybdenum","tm","LMN",5,6],[43,"Tc","Technetium","tm","H",5,7],[44,"Ru","Ruthenium","tm","NL",5,8],[45,"Rh","Rhodium","tm","N",5,9],[46,"Pd","Palladium","tm","LN",5,10],[47,"Ag","Silver","tm","NL",5,11],[48,"Cd","Cadmium","tm","L",5,12],[49,"In","Indium","post","L",5,13],[50,"Sn","Tin","post","L",5,14],[51,"Sb","Antimony","met","NL",5,15],[52,"Te","Tellurium","met","N",5,16],[53,"I","Iodine","hal","N",5,17],[54,"Xe","Xenon","nob","N",5,18],[55,"Cs","Caesium","alk","NL",6,1],[56,"Ba","Barium","ae","L",6,2],[57,"La","Lanthanum","lan","L",9,3],[58,"Ce","Cerium","lan","L",9,4],[59,"Pr","Praseodymium","lan","LN",9,5],[60,"Nd","Neodymium","lan","LN",9,6],[61,"Pm","Promethium","lan","H",9,7],[62,"Sm","Samarium","lan","NL",9,8],[63,"Eu","Europium","lan","N",9,9],[64,"Gd","Gadolinium","lan","N",9,10],[65,"Tb","Terbium","lan","N",9,11],[66,"Dy","Dysprosium","lan","N",9,12],[67,"Ho","Holmium","lan","N",9,13],[68,"Er","Erbium","lan","N",9,14],[69,"Tm","Thulium","lan","N",9,15],[70,"Yb","Ytterbium","lan","NL",9,16],[71,"Lu","Lutetium","lan","N",9,17],[72,"Hf","Hafnium","tm","LN",6,4],[73,"Ta","Tantalum","tm","NL",6,5],[74,"W","Tungsten","tm","LN",6,6],[75,"Re","Rhenium","tm","N",6,7],[76,"Os","Osmium","tm","N",6,8],[77,"Ir","Iridium","tm","N",6,9],[78,"Pt","Platinum","tm","N",6,10],[79,"Au","Gold","tm","N",6,11],[80,"Hg","Mercury","tm","L",6,12],[81,"Tl","Thallium","post","L",6,13],[82,"Pb","Lead","post","L",6,14],[83,"Bi","Bismuth","post","L",6,15],[84,"Po","Polonium","post","R",6,16],[85,"At","Astatine","hal","R",6,17],[86,"Rn","Radon","nob","R",6,18],[87,"Fr","Francium","alk","R",7,1],[88,"Ra","Radium","ae","R",7,2],[89,"Ac","Actinium","act","R",10,3],[90,"Th","Thorium","act","N",10,4],[91,"Pa","Protactinium","act","R",10,5],[92,"U","Uranium","act","N",10,6],[93,"Np","Neptunium","act","H",10,7],[94,"Pu","Plutonium","act","H",10,8],[95,"Am","Americium","act","H",10,9],[96,"Cm","Curium","act","H",10,10],[97,"Bk","Berkelium","act","H",10,11],[98,"Cf","Californium","act","H",10,12],[99,"Es","Einsteinium","act","H",10,13],[100,"Fm","Fermium","act","H",10,14],[101,"Md","Mendelevium","act","H",10,15],[102,"No","Nobelium","act","H",10,16],[103,"Lr","Lawrencium","act","H",10,17],[104,"Rf","Rutherfordium","tm","H",7,4],[105,"Db","Dubnium","tm","H",7,5],[106,"Sg","Seaborgium","tm","H",7,6],[107,"Bh","Bohrium","tm","H",7,7],[108,"Hs","Hassium","tm","H",7,8],[109,"Mt","Meitnerium","tm","H",7,9],[110,"Ds","Darmstadtium","tm","H",7,10],[111,"Rg","Roentgenium","tm","H",7,11],[112,"Cn","Copernicium","tm","H",7,12],[113,"Nh","Nihonium","post","H",7,13],[114,"Fl","Flerovium","post","H",7,14],[115,"Mc","Moscovium","post","H",7,15],[116,"Lv","Livermorium","post","H",7,16],[117,"Ts","Tennessine","hal","H",7,17],[118,"Og","Oganesson","nob","H",7,18]];
+const ELS=[[1,"H","Hydrogen","nm","B",1,1],[2,"He","Helium","nob","B",1,18],[3,"Li","Lithium","alk","LBC",2,1],[4,"Be","Beryllium","ae","C",2,2],[5,"B","Boron","met","C",2,13],[6,"C","Carbon","nm","LM",2,14],[7,"N","Nitrogen","nm","LM",2,15],[8,"O","Oxygen","nm","M",2,16],[9,"F","Fluorine","hal","M",2,17],[10,"Ne","Neon","nob","M",2,18],[11,"Na","Sodium","alk","M",3,1],[12,"Mg","Magnesium","ae","M",3,2],[13,"Al","Aluminium","post","M",3,13],[14,"Si","Silicon","met","MW",3,14],[15,"P","Phosphorus","nm","M",3,15],[16,"S","Sulfur","nm","MW",3,16],[17,"Cl","Chlorine","hal","MW",3,17],[18,"Ar","Argon","nob","MW",3,18],[19,"K","Potassium","alk","MW",4,1],[20,"Ca","Calcium","ae","MW",4,2],[21,"Sc","Scandium","tm","M",4,3],[22,"Ti","Titanium","tm","WM",4,4],[23,"V","Vanadium","tm","WM",4,5],[24,"Cr","Chromium","tm","WM",4,6],[25,"Mn","Manganese","tm","W",4,7],[26,"Fe","Iron","tm","WM",4,8],[27,"Co","Cobalt","tm","WM",4,9],[28,"Ni","Nickel","tm","WM",4,10],[29,"Cu","Copper","tm","WM",4,11],[30,"Zn","Zinc","tm","WM",4,12],[31,"Ga","Gallium","post","M",4,13],[32,"Ge","Germanium","met","M",4,14],[33,"As","Arsenic","met","M",4,15],[34,"Se","Selenium","nm","M",4,16],[35,"Br","Bromine","hal","M",4,17],[36,"Kr","Krypton","nob","ML",4,18],[37,"Rb","Rubidium","alk","ML",5,1],[38,"Sr","Strontium","ae","L",5,2],[39,"Y","Yttrium","tm","L",5,3],[40,"Zr","Zirconium","tm","L",5,4],[41,"Nb","Niobium","tm","L",5,5],[42,"Mo","Molybdenum","tm","LMN",5,6],[43,"Tc","Technetium","tm","H",5,7],[44,"Ru","Ruthenium","tm","NL",5,8],[45,"Rh","Rhodium","tm","N",5,9],[46,"Pd","Palladium","tm","LN",5,10],[47,"Ag","Silver","tm","NL",5,11],[48,"Cd","Cadmium","tm","LN",5,12],[49,"In","Indium","post","NL",5,13],[50,"Sn","Tin","post","L",5,14],[51,"Sb","Antimony","met","NL",5,15],[52,"Te","Tellurium","met","N",5,16],[53,"I","Iodine","hal","N",5,17],[54,"Xe","Xenon","nob","N",5,18],[55,"Cs","Caesium","alk","NL",6,1],[56,"Ba","Barium","ae","L",6,2],[57,"La","Lanthanum","lan","L",9,3],[58,"Ce","Cerium","lan","L",9,4],[59,"Pr","Praseodymium","lan","LN",9,5],[60,"Nd","Neodymium","lan","LN",9,6],[61,"Pm","Promethium","lan","H",9,7],[62,"Sm","Samarium","lan","NL",9,8],[63,"Eu","Europium","lan","N",9,9],[64,"Gd","Gadolinium","lan","N",9,10],[65,"Tb","Terbium","lan","N",9,11],[66,"Dy","Dysprosium","lan","N",9,12],[67,"Ho","Holmium","lan","N",9,13],[68,"Er","Erbium","lan","N",9,14],[69,"Tm","Thulium","lan","N",9,15],[70,"Yb","Ytterbium","lan","NL",9,16],[71,"Lu","Lutetium","lan","N",9,17],[72,"Hf","Hafnium","tm","LN",6,4],[73,"Ta","Tantalum","tm","NL",6,5],[74,"W","Tungsten","tm","LN",6,6],[75,"Re","Rhenium","tm","N",6,7],[76,"Os","Osmium","tm","N",6,8],[77,"Ir","Iridium","tm","N",6,9],[78,"Pt","Platinum","tm","N",6,10],[79,"Au","Gold","tm","N",6,11],[80,"Hg","Mercury","tm","L",6,12],[81,"Tl","Thallium","post","L",6,13],[82,"Pb","Lead","post","L",6,14],[83,"Bi","Bismuth","post","NL",6,15],[84,"Po","Polonium","post","R",6,16],[85,"At","Astatine","hal","R",6,17],[86,"Rn","Radon","nob","R",6,18],[87,"Fr","Francium","alk","R",7,1],[88,"Ra","Radium","ae","R",7,2],[89,"Ac","Actinium","act","R",10,3],[90,"Th","Thorium","act","N",10,4],[91,"Pa","Protactinium","act","R",10,5],[92,"U","Uranium","act","N",10,6],[93,"Np","Neptunium","act","H",10,7],[94,"Pu","Plutonium","act","H",10,8],[95,"Am","Americium","act","H",10,9],[96,"Cm","Curium","act","H",10,10],[97,"Bk","Berkelium","act","H",10,11],[98,"Cf","Californium","act","H",10,12],[99,"Es","Einsteinium","act","H",10,13],[100,"Fm","Fermium","act","H",10,14],[101,"Md","Mendelevium","act","H",10,15],[102,"No","Nobelium","act","H",10,16],[103,"Lr","Lawrencium","act","H",10,17],[104,"Rf","Rutherfordium","tm","H",7,4],[105,"Db","Dubnium","tm","H",7,5],[106,"Sg","Seaborgium","tm","H",7,6],[107,"Bh","Bohrium","tm","H",7,7],[108,"Hs","Hassium","tm","H",7,8],[109,"Mt","Meitnerium","tm","H",7,9],[110,"Ds","Darmstadtium","tm","H",7,10],[111,"Rg","Roentgenium","tm","H",7,11],[112,"Cn","Copernicium","tm","H",7,12],[113,"Nh","Nihonium","post","H",7,13],[114,"Fl","Flerovium","post","H",7,14],[115,"Mc","Moscovium","post","H",7,15],[116,"Lv","Livermorium","post","H",7,16],[117,"Ts","Tennessine","hal","H",7,17],[118,"Og","Oganesson","nob","H",7,18]];
 /* ===== Phase 3: rival ideas, "tests we could run", new nodes, new sources ===== */
 Object.assign(SRC, {
  strpol:['Polchinski 1994: What is string theory? (lectures)','https://arxiv.org/abs/hep-th/9411028'],
@@ -1113,7 +1118,6 @@ Object.assign(SRC, {
  csalpha2:['Berkeley caesium α group: new systematics study (MITP talk, Oct 2025)','https://indico.mitp.uni-mainz.de/event/417/contributions/5801/attachments/4078/5395/JRoth_MITP_alpha_2025_compressed.pdf'],
  g2e:['APS Physics 2023: most precise electron magnetic moment (g−2)','https://physics.aps.org/articles/v16/22'],
  madmax:['MADMAX first axion searches (arXiv 2509.06398)','https://arxiv.org/abs/2509.06398'],
- katrin:['KATRIN, Science 2025: neutrino mass below 0.45 eV','https://doi.org/10.1126/science.adq9592'],
  legend:['LEGEND status 2026: LEGEND-1000 aiming for first data ~2033','https://www.lowbg.org/ugrp/workshop/am2026/Data/Prog/S5-1_Detwiler.pdf'],
  elt:['ESO: ELT telescope first light March 2029, science from Dec 2030','https://www.eso.org/public/announcements/ann25001/'],
  rubin:['Rubin Observatory: the 10-year LSST survey begins (June 2026)','https://rubinobservatory.org/news/action-rubin-lsst-begins'],
@@ -1154,9 +1158,9 @@ const RIV = {
   ['Loop quantum gravity','u','Space comes in chunks woven from loops. No test yet.','lqg'],
   ['Causal sets','u','Spacetime is a scatter of ordered points ("before/after" only).','causet'],
   ['Asymptotic safety','u','Plain gravity stays finite at tiny sizes with no new parts.','asafe'],
-  ['Holography / ER=EPR','u','Space and gravity come from entanglement; wormholes = entangled pairs. Proven in toy universes, not ours. Close cousin of Chain Theory\'s "links build space".','erepr']],
+  ['Holography / ER=EPR','t','Space and gravity come from entanglement; wormholes = entangled pairs. Well supported in theory, unproven for our universe. Close cousin of Chain Theory\'s "links build space".','erepr']],
  ctspace:[
-  ['Holography / ER=EPR','u','The mainstream version of "entanglement builds space" (Van Raamsdonk 2010; Maldacena & Susskind 2013).','vanr'],
+  ['Holography / ER=EPR','t','Well supported in theory, unproven. The mainstream version of "entanglement builds space" (Van Raamsdonk 2010; Maldacena & Susskind 2013).','vanr'],
   ['Loop quantum gravity','u','Space from a network too, but the links carry geometry, not entanglement.','lqg']],
  nothing:[
   ['Eternal inflation (multiverse)','u','Inflation never stops everywhere; our Big Bang is one bubble of many.','guth07'],
@@ -1229,7 +1233,7 @@ const TESTS = {
  seeds:[
   ['Simons Observatory: sharper ripple tilt (n_s).','simons'],
   ['LiteBIRD (~2036): gravity-wave seeds (B-modes).','litebird'],
-  ['Euclid maps (DR1 from Nov 2026): tiny "non-Gaussian" fingerprints.','euclid']],
+  ['Euclid maps (DR1 expected 2027): tiny "non-Gaussian" fingerprints.','euclid']],
  chainmail:[
   ['No 4th generation: LEP 2.9963 ± 0.0074 neutrino types (consistent).','lep'],
   ['LHC keeps searching for 4th-generation quarks (none).','pdg'],
@@ -1245,11 +1249,11 @@ const TESTS = {
  dm:[
   ['LZ: 1000 live days of WIMP search by 2028.','lz'],
   ['Axion hunts: ADMX now, MADMAX prototype runs 2027–29.','madmax'],
-  ['Euclid DR1 (from Nov 2026): biggest dark-matter lensing map.','euclid'],
+  ['Euclid DR1 (expected 2027): biggest dark-matter lensing map.','euclid'],
   ['Rubin LSST (2026–36): faint dwarf galaxies test dark-matter types.','rubin']],
  de:[
   ['DESI final years: is dark energy really changing?','desi'],
-  ['Euclid DR1 (from Nov 2026, full mid-2027).','euclid'],
+  ['Euclid DR1 (expected 2027).','euclid'],
   ['Roman telescope surveys (launched 2026).','roman'],
   ['Rubin LSST supernovae (2026–36).','rubin']],
  antimatter:[
@@ -1266,7 +1270,7 @@ const TESTS = {
   ['DUNE / Hyper-K: which neutrino is heaviest (ordering).','dune'],
   ['LEGEND-1000 (~2033): is the neutrino its own antiparticle?','legend']],
  halos:[
-  ['Euclid DR1 lensing (Nov 2026, mid-2027).','euclid'],
+  ['Euclid DR1 lensing (expected 2027).','euclid'],
   ['Rubin LSST (2026–36): smallest clumps and dwarf galaxies.','rubin'],
   ['Roman wide surveys.','roman']],
  firststars:[
@@ -1307,6 +1311,210 @@ const TESTS = {
   ['More head-to-head tests like Cogitate (2025).','cogitate',true],
   ['A brain signal that predicts awareness across patients and species.','',true]],
 };
+/* labels for the remaining lines: amount / recipe / what passes up (kept short; '?' = not known) */
+const EL2 = {
+ axiom:{nothing:'Alex: start = links only'}, qft:{nothing:'?'}, qgrav:{nothing:'?'},
+ inflation:{qft:'an inflaton field (guess)',qgrav:'? at 10⁻³⁵ s'}, genres:{distill:'read limit d₁d₂ ≤ 6'}, higgs:{qft:'1 field, 246 GeV'},
+ ctspace:{distill:'time = counted reads'}, gap:{chainmail:'? how webs = particles',alpha:'1 number matched',ctspace:'? no 3+1 D derived'},
+ soup:{bigbang:'>10¹⁵ K heat',qft:'all quantum fields'},
+ quarks:{soup:'6 flavours × 3 colours',gap:'? not derived',higgs:'gives mass (2–173,000 MeV)'},
+ gluons:{soup:'8 kinds',gap:'? not derived'}, electrons:{soup:'e, μ, τ',gap:'? webs (Alex, cond.)',higgs:'gives 0.511 MeV'},
+ neutrinos:{soup:'3 flavours, ~336 /cm³ left'}, photons:{soup:'~410 /cm³ left today'},
+ wz:{higgs:'gives 80 & 91 GeV',gap:'? not derived'}, dm:{bigbang:'~5× normal matter'}, de:{bigbang:'~68.5% of energy'},
+ antimatter:{soup:'pairs: matter = antimatter?'}, qgp:{quarks:'free quarks',gluons:'+ gluons',strong:'>2×10¹² K'},
+ halos:{gravity:'clumps of dark matter'}, cmb:{atoms:'light set free'}, gas:{atoms:'~75% H, 25% He'},
+ firststars:{gas:'each star ~10s–100s of Suns (models)'}, stars:{firststars:'seed metals'}, galaxies:{gas:'gas falls into halos',stars:'10⁷–10¹² stars'},
+ smbh:{galaxies:'? seeds of 10²–10⁵ Suns'}, fusion:{firststars:'H → He at 10⁷ K'}, sprocess:{fusion:'neutrons +1 at a time'},
+ nsmerger:{supernova:'leftover neutron stars'}, bh:{supernova:'core > ~2–3 Suns'}, elements:{fusion:'C, N, O … Fe'},
+ bonds:{elements:'H, C, N, O, P, S…'}, solar:{dust:'1 cloud → Sun + 8 planets'}, earth:{planets:'1 of 8, 4.54 Ga',solar:'3rd from Sun'},
+ exo:{planets:'6,451 found'}, water:{molecules:'H₂O',earth:'oceans by ~4.4 Ga'}, moon:{earth:'giant impact (leading idea)'},
+ chem:{water:'liquid solvent',molecules:'+ energy (sun, vents)'}, amino:{chem:'C, H, N, O (+S)'},
+ nucleotides:{chem:'base + sugar + phosphate',sugars:'+ ribose'}, sugars:{chem:'formaldehyde → sugars'}, lipids:{chem:'fatty acids'},
+ rnaworld:{sugars:'ribose backbone'}, protocell:{rnaworld:'a copier inside',peptides:'helpers',vesicles:'a bubble skin'},
+ origin:{protocell:'? copy + feed + split'}, luca:{origin:'? unknown steps'},
+ proteins:{luca:'~2,600 protein families (est. 2024)'}, code:{luca:'64 codons → 20 amino acids'}, dna:{luca:'2 strands, 4 letters'},
+ prok:{luca:'splits: bacteria + archaea',proteins:'~2,000–4,000 kinds',dna:'1 ring, ~5 Mb',code:'shared code'},
+ photosyn:{prok:'cyanobacteria'}, goe:{photosyn:'O₂ waste builds up'}, eukaryote:{prok:'archaeon + bacterium',goe:'O₂ to burn'},
+ multicell:{eukaryote:'cells stay stuck'}, tissues:{multicell:'many cells of 1 kind'}, plants:{multicell:'+ chloroplasts'},
+ animals:{multicell:'cells that move'}, organs:{tissues:'2–4 tissue types'}, mammals:{animals:'~200 Myr ago'},
+ organsys:{organs:'several organs each'}, hsap:{mammals:'~300,000 yr ago'}, brain:{body:'~2% of weight, 20% of energy'}, mind:{brain:'? 86 bn neurons → thought'},
+};
+/* Periodic table data: origins, groups, not-yet-made elements */
+const ORI = { B: ['Big Bang', '#6fb8ff', 'Made in the first 20 minutes.'], C: ['Cosmic-ray splitting', '#ff7bd0', 'Fast particles break bigger nuclei.'], L: ['Dying low-mass stars', '#5cf0a0', 'Giant stars (1–8 Suns) catch neutrons slowly (s-process), then puff off their outer layers. (Most of our lithium: such stars and novae.)'],
+  M: ['Exploding massive stars', '#ffd36b', 'Fusion in stars >8 Suns, spread by core-collapse supernovae.'], W: ['Exploding white dwarfs', '#c9b6ff', 'Type Ia supernovae: lots of iron-group metals.'],
+  N: ['Merging neutron stars', '#ff8a5a', 'Rapid neutron catching (r-process). Maybe also rare supernovae (debated).'], R: ['Radioactive decay only', '#8a94a8', 'No long-lived form; made as other elements decay.'], H: ['Human-made', '#4ff3e3', 'Made in reactors or accelerators (some also in traces or in stars, briefly).'] };
+const CAT = { nm: ['Other non-metal', '#5cf0a0'], hal: ['Halogen', '#9ff5ea'], nob: ['Noble gas', '#c9b6ff'], alk: ['Alkali metal', '#ff8a8a'], ae: ['Alkaline-earth metal', '#ffb46b'], met: ['Metalloid', '#d9e07a'], post: ['Post-transition metal', '#9fb4cc'], tm: ['Transition metal', '#ffd36b'], lan: ['Lanthanide', '#ff9ad5'], act: ['Actinide', '#ff7b91'] };
+const PTX = [
+ ['119', 'Ununennium (temporary name)', 'u', 'Not made yet. Hunts running: Dubna (JINR) began Bk-249 + Ti-50 on 1 June 2026, for several months. RIKEN (V-51 + Cm-248) paused after reaching its planned sensitivity, with no atom reported, and is planning its next step.', 'jinr119,riken119'],
+ ['120', 'Unbinilium (temporary name)', 'u', 'Not made yet. Berkeley showed a Ti-50 beam can make superheavies (2 livermorium atoms in 22 days, 2024); 120 is expected to be 10–20× harder and could take years. ORNL is making a Cf-249 target (2026). An older GSI search (2011) saw one possible chain, never confirmed.', 'doe120,lbl23,cf249,gsi120'],
+ ['Island', 'Island of stability', 't', 'Predicted: nuclei near Z ≈ 114–126 protons and N ≈ 184 neutrons could live much longer than their neighbours. Today\'s superheavies have too few neutrons to reach it; nobody has made N = 184.', 'shenrp,jinrti'],
+ ['~172', 'Where the table may end', 'u', 'Around Z ≈ 170 the innermost electron level would sink into "negative energy" (estimates 164–174); extended tables stop near 172–173. Nuclei may stop holding together before that.', 'schw,pyykko,shenrp']];
+/* CELL_P: the cards for the Virtual Cell (one source for the site AND facts.json). s: k known, t we think, u unknown */
+const CELL_P = (W => ({
+    cell: { n: 'Typical human cell (generalised)', s: 't', a: ['A general human body cell, about 20 µm across: it has the parts most human cells share.', 'No single real cell type looks exactly like this; the shape is simplified.'],
+      b: ['Real human cells range from about 7 µm (red blood cells) to over 100 µm, and from round to long and branched.', 'Sizes and speeds of the parts inside are real measured values, drawn to scale.', 'Some counts are reduced so you can see between things: proteins at ~1/8 of real crowding, 30 of ~10,000 vaults, fewer microtubules and ribosomes.'], src: [['Cell (Wikipedia)', W + 'Cell_(biology)'], ['Cell Biology by the Numbers', 'http://book.bionumbers.org/']] },
+    membrane: { n: 'Cell membrane', s: 'k', a: ['A skin of fat molecules two layers thick, about 5 nm.', 'It lets some things in and keeps others out.'],
+      b: ['Made of roughly a billion lipid molecules, with proteins floating in it.', 'In cells that crawl, the front edge ruffles and moves forward a few µm per minute (a lamellipodium).', 'Zoom right in to see the two layers of lipids.'], src: [['Cell membrane (Wikipedia)', W + 'Cell_membrane'], ['Lamellipodium (Wikipedia)', W + 'Lamellipodium']] },
+    nucleus: { n: 'Nucleus', s: 'k', a: ['The control centre: about 10 × 8 µm here (typically 5–10 µm).', 'It holds 46 chromosomes: about 2 metres of DNA.'],
+      b: ['About 6.2 billion DNA letters (base pairs) in two copies of the genome.', 'Wrapped in a double membrane with a few thousand pores.', 'Under a microscope (🔬 button) it glows blue, like the DAPI dye biologists use to stain DNA.'], src: [['Cell nucleus (Wikipedia)', W + 'Cell_nucleus'], ['Human genome (Wikipedia)', W + 'Human_genome']] },
+    dna: { n: 'Chromatin (DNA)', s: 'k', a: ['DNA wound on protein spools (nucleosomes).', 'Each spool holds 147 DNA letters, wrapped almost twice.'],
+      b: ['A nucleosome is about 11 nm wide and made of 8 histone proteins.', 'About 30 million nucleosomes pack the genome into the nucleus.', 'In living cells the beads fold into irregular chains 5–24 nm wide, not a neat uniform 30 nm fibre.'], src: [['Nucleosome (Wikipedia)', W + 'Nucleosome']] },
+    nucleosome: { n: 'Nucleosome', s: 'k', map: 'nucleotides', a: ['A spool of 8 histone proteins with DNA wrapped around it.', 'About 11 nm wide.'],
+      b: ['147 base pairs wrap about 1.65 turns.', 'Linker DNA joins one spool to the next, like beads on a string.', 'Drawn simplified: DNA wrapped around histone beads. The two twisted strands are the 2 nm double helix; the wrapping around each bead is not drawn.'], src: [['Nucleosome (Wikipedia)', W + 'Nucleosome']] },
+    nucleolus: { n: 'Nucleolus', s: 'k', a: ['A dense spot inside the nucleus, 1–3 µm.', 'It builds the parts of ribosomes.'],
+      b: ['Most human cells have 1–4. It has no membrane: it forms where ribosome genes cluster.', 'Ribosome pieces leave through the nuclear pores.'], src: [['Nucleolus (Wikipedia)', W + 'Nucleolus']] },
+    pore: { n: 'Nuclear pore', s: 'k', a: ['A gate in the nucleus wall, about 120 nm across.', 'mRNA goes out, proteins come in.'],
+      b: ['One of the biggest machines in the cell: ~1,000 proteins of ~30 kinds, in 8-fold symmetry.', 'A human nucleus has roughly 2,000–5,000 pores.'], src: [['Nuclear pore (Wikipedia)', W + 'Nuclear_pore']] },
+    rib: { n: 'Ribosome', s: 'k', a: ['A protein-building machine, about 25–30 nm.', 'It reads mRNA and adds about 5–6 amino acids per second.'],
+      b: ['A human cell has millions (estimates around 10 million in fast-growing cells).', 'Two parts: a small (40S) and a large (60S) subunit.', 'At 1× speed you can watch the new chain grow at the real rate.'], src: [['Ribosome (Wikipedia)', W + 'Ribosome'], ['BioNumbers: translation rate', 'https://bionumbers.hms.harvard.edu/']] },
+    er: { n: 'Endoplasmic reticulum', s: 'k', a: ['A lace of tubes and sheets spreading through the cell.', 'Makes proteins and fats, stores calcium.'],
+      b: ['Rough ER (with ribosomes) sits near the nucleus; smooth tubes reach out to the edge.', 'Tubes are about 50–100 nm wide and keep moving and re-joining.'], src: [['Endoplasmic reticulum (Wikipedia)', W + 'Endoplasmic_reticulum']] },
+    golgi: { n: 'Golgi apparatus', s: 'k', a: ['Stacks of flat sacs next to the nucleus: the post office.', 'It sorts, tags and packs proteins.'],
+      b: ['In human cells the stacks join into a ribbon of several µm near the centrosome.', 'Each stack has about 4–8 sacs (cisternae).', 'Cells that secrete a lot, like fibroblasts making collagen, have big Golgi.'], src: [['Golgi apparatus (Wikipedia)', W + 'Golgi_apparatus']] },
+    ves: { n: 'Vesicle', s: 'k', a: ['A small bubble (50–100 nm) carrying cargo.', 'Motor proteins walk it along microtubules at about 1 µm per second.'],
+      b: ['Kinesin walks outwards (~0.8 µm/s), dynein inwards (~1 µm/s).', 'Off the track, a vesicle only jiggles slowly: the cytoplasm is very crowded.'], src: [['Vesicle (Wikipedia)', W + 'Vesicle_(biology_and_chemistry)'], ['Kinesin (Wikipedia)', W + 'Kinesin']] },
+    mito: { n: 'Mitochondrion', s: 'k', a: ['The power station: makes ATP.', 'A tube about 0.5 µm wide and 1–10 µm long; a human cell has hundreds.'],
+      b: ['They form a network that splits and joins every few minutes.', 'The folds inside (cristae) hold ATP synthase, a spinning motor.', 'It has its own small DNA: it came from a bacterium long ago.'], src: [['Mitochondrion (Wikipedia)', W + 'Mitochondrion']] },
+    atps: { n: 'ATP synthase', s: 'k', a: ['A rotary motor about 10 nm wide in the cristae.', 'It spins over 100 times a second to make ATP.'],
+      b: ['Protons flowing through it turn the rotor.', 'Each turn makes 3 ATP.'], src: [['ATP synthase (Wikipedia)', W + 'ATP_synthase']] },
+    atp: { n: 'ATP', s: 'k', map: 'molecules', a: ['The cell’s energy coin.', 'Made in mitochondria, spent everywhere.'],
+      b: ['A human body makes and recycles roughly its own weight in ATP every day.'], src: [['Adenosine triphosphate (Wikipedia)', W + 'Adenosine_triphosphate']] },
+    lyso: { n: 'Lysosome', s: 'k', a: ['A recycling bag full of enzymes, 0.1–1 µm.', 'A cell has a few hundred.'],
+      b: ['Its inside is acidic (pH about 4.5–5); a pump uses ATP to push protons in.', 'Its enzymes work best in acid, so any that leak into the near-neutral cytoplasm (pH ~7.2) do little harm.'], src: [['Lysosome (Wikipedia)', W + 'Lysosome']] },
+    perox: { n: 'Peroxisome', s: 'k', a: ['A small bag (0.1–0.5 µm) that burns fats.', 'It makes and destroys hydrogen peroxide.'],
+      b: ['Human cells have a few hundred.', 'Also helps make some special fats for the brain.'], src: [['Peroxisome (Wikipedia)', W + 'Peroxisome']] },
+    lipd: { n: 'Lipid droplet', s: 'k', a: ['A store of fat, 0.5–2 µm.', 'Wrapped in a single layer of lipids.'], b: ['Cells use them as an energy store and to make membranes.'], src: [['Lipid droplet (Wikipedia)', W + 'Lipid_droplet']] },
+    cent: { n: 'Centrosome', s: 'k', a: ['Two tiny barrels (centrioles), 250 nm wide and 500 nm long.', 'Microtubules grow out from here.'],
+      b: ['Each barrel is 9 groups of 3 tubes.', 'In most human cells the older barrel also grows a primary cilium, a tiny antenna.', 'It helps pull chromosomes apart when the cell divides.'], src: [['Centrosome (Wikipedia)', W + 'Centrosome']] },
+    mt: { n: 'Microtubule', s: 'k', a: ['Hollow tubes 25 nm wide: roads and scaffolding.', 'Each tip grows ~12 µm/min, then suddenly shrinks.'],
+      b: ['This "dynamic instability" is simulated here with measured rates.', 'The bright tip is where new tubulin is added (biologists see it with EB1 tags).', 'Kinesin and dynein walk on them carrying cargo.'], src: [['Microtubule (Wikipedia)', W + 'Microtubule'], ['Dynamic instability (Wikipedia)', W + 'Microtubule#Dynamic_instability']] },
+    actin: { n: 'Actin stress fibres', s: 'k', a: ['Bundles of actin filaments (each 7 nm) running across the cell.', 'They pull on the ground like ropes.'],
+      b: ['They end at focal adhesions, the cell’s "feet".', 'A single filament is two strands twisted, crossing every 37 nm.'], src: [['Stress fiber (Wikipedia)', W + 'Stress_fiber'], ['Microfilament (Wikipedia)', W + 'Microfilament']] },
+    fa: { n: 'Focal adhesion', s: 'k', a: ['A cell’s “foot” that grips the surface, 1–5 µm long.', 'Stress fibres pull on it.'], b: ['Made of integrins and many linking proteins.', 'Feet at the front form and mature in minutes.'], src: [['Focal adhesion (Wikipedia)', W + 'Focal_adhesion']] },
+    vim: { n: 'Vimentin filaments', s: 'k', a: ['Rope-like filaments, 10 nm wide.', 'They cushion the nucleus and help the cell resist stretching.'], b: ['Vimentin is the main intermediate filament of many cell types (e.g. fibroblasts); others use keratins.'], src: [['Vimentin (Wikipedia)', W + 'Vimentin']] },
+    vault: { n: 'Vault', s: 't', a: ['A hollow barrel of protein and RNA, about 40 × 70 nm.', 'What it does is still not clear.'],
+      b: ['About 10,000 per cell (some cells have more).', 'Ideas include transport or defence, but no job is proven.'], src: [['Vault (organelle) (Wikipedia)', W + 'Vault_(organelle)']] },
+    cyto: { n: 'Cytosol', s: 'k', a: ['The gel that fills the cell: about 70% water.', 'Packed with roughly 3 million proteins per cubic µm.'],
+      b: ['So crowded that big things barely drift unless motors carry them.', 'Small molecules still diffuse fast: across the cell in seconds.'], src: [['Cytosol (Wikipedia)', W + 'Cytosol'], ['Cell Biology by the Numbers', 'http://book.bionumbers.org/']] },
+    water: { n: 'Water molecule', s: 'k', map: 'water', a: ['One oxygen atom and two hydrogen atoms (H₂O).', 'About 99 of every 100 molecules in a cell are water.'], b: ['Real water molecules jiggle and tumble trillions of times a second; here they are shown frozen or hugely slowed.', 'Water’s slightly charged ends help proteins fold.'], src: [['Properties of water (Wikipedia)', W + 'Properties_of_water']] },
+    glucose: { n: 'Glucose', s: 'k', map: 'molecules', a: ['A sugar: a ring of carbon and oxygen.', 'Cells break it down for energy.'], b: ['Glycolysis in the cytosol starts the job; mitochondria finish it and make ATP.'], src: [['Glucose (Wikipedia)', W + 'Glucose']] },
+    lipid: { n: 'Phospholipid', s: 'k', map: 'lipids', a: ['A water-loving head and two oily tails, about 2.5 nm long.', 'Two layers of them make every membrane.'], b: ['The tails hide from water, so lipids form two layers by themselves.', 'A kink in one tail keeps the membrane fluid.'], src: [['Phospholipid (Wikipedia)', W + 'Phospholipid']] },
+    basepair: { n: 'Base pair (DNA)', s: 'k', map: 'nucleotides', a: ['Two DNA letters joined in the middle.', 'Each side hangs on a sugar-phosphate backbone.'], b: ['A pairs with T, G pairs with C, held by weak hydrogen bonds.', 'Pairs are stacked 0.34 nm apart along the helix.'], src: [['Base pair (Wikipedia)', W + 'Base_pair']] },
+    peptide: { n: 'Protein chain', s: 'k', map: 'amino', a: ['Amino acids linked in a chain by a ribosome.', 'The chain then folds into a working shape.'], b: ['There are 20 kinds of amino acid; the gene sets their order.', 'The backbone repeats N–C–C; side chains stick out.'], src: [['Peptide (Wikipedia)', W + 'Peptide']] },
+    protein: { n: 'Protein', s: 'k', map: 'proteins', a: ['A folded chain of thousands of atoms, typically 3–10 nm.', 'Proteins do most of the work in a cell.'], b: ['Enzymes, motors, pumps and scaffolds are all proteins.', 'Shown as simple blobs: real shapes are far more detailed.'], src: [['Protein (Wikipedia)', W + 'Protein']] },
+    elH: { n: 'Hydrogen atom', s: 'k', map: 'atoms', a: ['The smallest atom: 1 proton, 1 electron.', 'Made just after the Big Bang.'], b: ['About 6 in 10 atoms in your body are hydrogen.'], src: [['Hydrogen (Wikipedia)', W + 'Hydrogen']] },
+    elC: { n: 'Carbon atom', s: 'k', map: 'atoms', a: ['6 protons. The backbone of life’s molecules.', 'Made inside stars.'], b: ['Carbon can bond to four other atoms, so it builds chains and rings.'], src: [['Carbon (Wikipedia)', W + 'Carbon']] },
+    elN: { n: 'Nitrogen atom', s: 'k', map: 'atoms', a: ['7 protons.', 'Found in every amino acid and DNA letter.'], b: ['Made inside stars (the CNO cycle).'], src: [['Nitrogen (Wikipedia)', W + 'Nitrogen']] },
+    elO: { n: 'Oxygen atom', s: 'k', map: 'atoms', a: ['8 protons.', 'In water, sugars and the phosphate groups of ATP.'], b: ['By mass, most of your body is oxygen (in water).'], src: [['Oxygen (Wikipedia)', W + 'Oxygen']] },
+    elP: { n: 'Phosphorus atom', s: 'k', map: 'atoms', a: ['15 protons.', 'At the heart of ATP, DNA’s backbone and membrane lipids.'], b: ['Made in massive stars and spread by supernovae.'], src: [['Phosphorus (Wikipedia)', W + 'Phosphorus']] },
+    cloud: { n: 'Electron cloud', s: 'k', map: 'electrons', a: ['Electrons are not little planets.', 'The cloud shows where an electron is likely to be found.'], b: ['This comes from quantum mechanics (orbitals).', 'An atom is almost all empty space.'], src: [['Atomic orbital (Wikipedia)', W + 'Atomic_orbital']] },
+    anuc: { n: 'Atomic nucleus', s: 'k', map: 'hadrons', a: ['Protons and neutrons packed tight.', 'It holds over 99.9% of the atom’s mass.'], b: ['Really about 100,000 times smaller than the atom; drawn far too big here.', 'Protons and neutrons are made of quarks.'], src: [['Atomic nucleus (Wikipedia)', W + 'Atomic_nucleus']] },
+  }))('https://en.wikipedia.org/wiki/');
+/* BODY_P: the cards for the Virtual Body (one source for the site AND facts.json). s: k known, t we think, u unknown */
+const BODY_P = (W => ({
+    body: { n: 'Human body', s: 'k', a: ['About 1.65 m tall here, close to the average adult height worldwide.', 'Made of about 30 trillion human cells.'], b: ['Proportions follow standard adult measurements: the head is about 1/7.5 of the height, the navel about 60% of the way up.'], d: 'Front view; one typical body, real people vary a lot.', src: [['Human body (Wikipedia)', W + 'Human_body']] },
+    skin: { n: 'Skin', s: 'k', a: ['Your largest organ: about 1.6–1.8 m² and 3–4 kg.', 'It keeps water in and germs out.'], b: ['Epidermis: about 0.1 mm thick (up to 1.5 mm on the soles).', 'Dermis: about 1–4 mm, with collagen made by fibroblast cells.', 'Under it is a fat layer (hypodermis) of varying thickness.'], d: 'Shown as a smooth outline with no surface detail.', src: [['Human skin (Wikipedia)', W + 'Human_skin']] },
+    face: { n: 'Face', s: 'k', a: ['Eyes, nose, mouth and ears: most of the senses sit in the head, close to the brain.'], b: ['The face has about 20 small muscles that make expressions.'], d: 'Simple outline, not a portrait.', src: [['Face (Wikipedia)', W + 'Face']] },
+    breast: { n: 'Breast', s: 'k', a: ['Made of fat, supporting tissue and the mammary gland, on top of the chest muscle (pectoralis major).', 'They develop at puberty; size and shape vary a lot between people and are not linked to how much milk they can make.'], b: ['In pregnancy the breasts grow and prepare to make milk.', 'After birth they make milk to feed the baby.'], d: 'Simple contour lines, typical adult size.', src: [['Breast (Wikipedia)', W + 'Breast']] },
+    nipple: { n: 'Nipple and areola', s: 'k', a: ['The nipple has several tiny openings (often about 5–10) where milk ducts end.', 'The darker ring around it is the areola, typically 3–6 cm across.'], b: ['Small glands in the areola (Montgomery glands) keep the skin moist.', 'In pregnancy the areola often gets darker and larger; a newborn finds it more easily.'], d: 'Drawn as plain circles.', src: [['Nipple (Wikipedia)', W + 'Nipple'], ['Areola (Wikipedia)', W + 'Areola']] },
+    collar: { n: 'Collarbone (clavicle)', s: 'k', a: ['A long S-shaped bone you can see and feel under the skin, from the top of the breastbone to the shoulder.', 'It links the arm to the trunk.'], b: ['It is the first bone to start hardening in a growing embryo, about 5–6 weeks after fertilisation.'], d: 'Surface line only.', src: [['Clavicle (Wikipedia)', W + 'Clavicle']] },
+    knee: { n: 'Knee (front)', s: 'k', a: ['The kneecap (patella) sits in the tendon of the thigh muscle, in front of the knee joint.', 'It protects the joint and helps the thigh muscle straighten the leg.'], b: ['The kneecap is still soft cartilage at birth and turns to bone at about 3–6 years old.'], d: 'Simple outline of the kneecap.', src: [['Patella (Wikipedia)', W + 'Patella']] },
+    mons: { n: 'Mons pubis', s: 'k', a: ['A rounded pad of fat over the pubic bone, at the front of the vulva.', 'It cushions the pubic bone; hair grows here after puberty (not drawn).'], b: ['The creases at each side are the groin (inguinal) folds, where the thigh meets the trunk.'], d: 'Simple outline with light shading.', src: [['Mons pubis (Wikipedia)', W + 'Mons_pubis']] },
+    navel: { n: 'Navel (umbilicus)', s: 'k', a: ['A scar where the umbilical cord was attached before birth.'], b: ['In the womb the cord carried blood between the baby and the placenta: food and oxygen in, waste out.'], src: [['Navel (Wikipedia)', W + 'Navel']] },
+    vulva: { n: 'Vulva (external genitals)', s: 'k', a: ['The outer parts: the mons pubis, the outer and inner lips (labia majora and minora), the clitoris, and the separate openings of the urethra (for urine) and the vagina.', 'The labia protect the openings.'], b: ['At birth the baby comes out through the vaginal opening, which stretches a great deal.', 'Shown here in a simple front view; much of it is hidden between the thighs when standing.'], d: 'Simplified clinical outline; inner parts not drawn in detail.', src: [['Vulva (Wikipedia)', W + 'Vulva']] },
+    mammary: { n: 'Mammary glands', s: 'k', a: ['Each breast has about 15–20 lobes. Each lobe has many small lobules that can make milk.', 'Ducts carry milk from the lobes to the nipple.'], b: ['In pregnancy hormones (oestrogen, progesterone) grow the ducts and lobules.', 'After birth the hormone prolactin starts milk production; oxytocin squeezes milk out when the baby feeds (the let-down reflex).'], d: 'Lobes and ducts drawn as a simple pattern.', src: [['Mammary gland (Wikipedia)', W + 'Mammary_gland'], ['Lactation (Wikipedia)', W + 'Lactation']] },
+    vagina: { n: 'Vagina', s: 'k', a: ['A stretchy muscular tube about 7–10 cm long, from the cervix to the outside.', 'Menstrual blood leaves the body through it.'], b: ['It is the birth canal: in childbirth it stretches to let the baby through.', 'Helpful bacteria (lactobacilli) keep it acidic, about pH 3.8–4.5, which protects against infection.'], d: 'It runs up and backwards, so from the front it looks much shorter; shown over the bladder so you can see it.', src: [['Vagina (Wikipedia)', W + 'Vagina']] },
+    cervix: { n: 'Cervix', s: 'k', a: ['The narrow lower end of the uterus, about 2.5–3 cm long, opening into the vagina.', 'It makes mucus that changes through the monthly cycle.'], b: ['In pregnancy it stays closed with a mucus plug that protects the baby.', 'In labour it opens (dilates) to about 10 cm so the baby can be born.'], src: [['Cervix (Wikipedia)', W + 'Cervix']] },
+    tube: { n: 'Fallopian tubes', s: 'k', a: ['Two tubes about 10–12 cm long from the uterus towards the ovaries.', 'Their finger-like ends catch the egg when it is released.'], b: ['Fertilisation (egg meets sperm) usually happens inside the tube.', 'Tiny hairs (cilia) move the early embryo to the uterus over about 3–5 days.'], src: [['Fallopian tube (Wikipedia)', W + 'Fallopian_tube']] },
+    // skeleton
+    skull: { n: 'Skull', s: 'k', a: ['22 bones; 8 make the braincase around the brain.', 'The jaw (mandible) is the only one that moves.'], b: ['Adult skull is about 18–20 cm from front to back.'], src: [['Human skull (Wikipedia)', W + 'Human_skull']] },
+    spine: { n: 'Spine (vertebral column)', s: 'k', a: ['33 vertebrae: 7 neck, 12 chest, 5 lower back, then the fused sacrum (5) and tailbone (about 4).', 'It holds the spinal cord.'], b: ['In an adult woman it is about 60–70 cm long.', 'Seen from the front it is mostly hidden behind the organs.'], src: [['Vertebral column (Wikipedia)', W + 'Vertebral_column']] },
+    ribs: { n: 'Rib cage', s: 'k', a: ['12 pairs of ribs. The top 7 join the breastbone (sternum) directly.', 'Pairs 11 and 12 float free at the front.'], b: ['It protects the heart and lungs and moves with every breath.'], d: 'Rib curves simplified.', src: [['Rib cage (Wikipedia)', W + 'Rib_cage']] },
+    sternum: { n: 'Sternum (breastbone)', s: 'k', a: ['A flat bone about 15–17 cm long in the middle of the chest.'], b: ['Three parts: manubrium, body and the small xiphoid process.'], src: [['Sternum (Wikipedia)', W + 'Sternum']] },
+    clavicle: { n: 'Clavicle (collarbone)', s: 'k', a: ['Joins the breastbone to the shoulder blade.', 'About 14–15 cm long in women.'], b: ['One of the most commonly broken bones.'], src: [['Clavicle (Wikipedia)', W + 'Clavicle']] },
+    humerus: { n: 'Humerus', s: 'k', a: ['The upper arm bone, about 30 cm long in women.'], b: ['Its round head fits the shallow shoulder socket, so the shoulder moves a lot but dislocates easily.'], src: [['Humerus (Wikipedia)', W + 'Humerus']] },
+    radius: { n: 'Radius and ulna', s: 'k', a: ['The two forearm bones. The radius is on the thumb side.', 'The radius turns around the ulna to rotate your palm.'], b: ['About 22–25 cm long.'], src: [['Radius (Wikipedia)', W + 'Radius_(bone)']] },
+    hand: { n: 'Hand bones', s: 'k', a: ['27 bones: 8 wrist bones (carpals), 5 metacarpals, 14 finger bones (phalanges).'], b: ['Both hands together hold over a quarter of the body’s bones.'], d: 'Wrist bones shown as one group.', src: [['Hand (Wikipedia)', W + 'Hand']] },
+    pelvis: { n: 'Pelvis', s: 'k', a: ['Two hip bones plus the sacrum, forming a ring.', 'In women it is wider and rounder, making room for childbirth.'], b: ['The female pelvic inlet is oval and wide; the angle under the pubic bones is usually over 80°.'], d: 'Outline simplified.', src: [['Pelvis (Wikipedia)', W + 'Pelvis']] },
+    femur: { n: 'Femur (thigh bone)', s: 'k', a: ['The longest and strongest bone: about 42–45 cm in a 1.65 m adult (about 26–27% of height).'], b: ['It slants inward to the knee; the slant is larger in women because the pelvis is wider.'], src: [['Femur (Wikipedia)', W + 'Femur']] },
+    patella: { n: 'Patella (kneecap)', s: 'k', a: ['A bone that grows inside the tendon of the thigh muscle.'], b: ['About 5 cm across.'], src: [['Patella (Wikipedia)', W + 'Patella']] },
+    tibia: { n: 'Tibia and fibula', s: 'k', a: ['The shin bone (tibia) carries the weight; the thin fibula is on the outside.'], b: ['The tibia is about 35–37 cm long in women.'], src: [['Tibia (Wikipedia)', W + 'Tibia']] },
+    foot: { n: 'Foot bones', s: 'k', a: ['26 bones: 7 tarsals, 5 metatarsals, 14 phalanges.'], b: ['Seen from the front, the foot is foreshortened.'], d: 'Foot shown foreshortened and simplified.', src: [['Foot (Wikipedia)', W + 'Foot']] },
+    // organs
+    brain: { n: 'Brain', s: 'k', a: ['About 1.2–1.3 kg in adult women, with about 86 billion neurons.', 'Uses about 20% of the body’s energy.'], b: ['How it makes thoughts and feelings is still being worked out.'], s2: 't', src: [['Human brain (Wikipedia)', W + 'Human_brain']] },
+    eye: { n: 'Eye', s: 'k', a: ['About 24 mm across.', 'The retina has about 120 million rods and 6 million cones.'], b: [], src: [['Human eye (Wikipedia)', W + 'Human_eye']] },
+    thyroid: { n: 'Thyroid gland', s: 'k', a: ['A butterfly-shaped gland in the neck, about 5 cm wide.', 'Its hormones set how fast the body uses energy.'], b: [], src: [['Thyroid (Wikipedia)', W + 'Thyroid']] },
+    lungs: { n: 'Lungs', s: 'k', a: ['The right lung has 3 lobes, the left has 2 and a notch for the heart.', 'About 300–500 million air sacs (alveoli).'], b: ['At rest you breathe about 12–16 times a minute, about 0.5 L each time.', 'Their inner surface is about 50–75 m².'], src: [['Lung (Wikipedia)', W + 'Lung']] },
+    heart: { n: 'Heart', s: 'k', a: ['About the size of a fist, 250–300 g in women.', 'Beats about 60–100 times a minute; shown at 70.'], b: ['Pumps about 5 litres of blood a minute at rest.', 'It sits in the middle of the chest, tilted to the person’s left.'], d: 'Outline simplified. Zoom in to see the 4 chambers and 4 valves (textbook cut-away).', src: [['Heart (Wikipedia)', W + 'Heart']] },
+    h_ra: { n: 'Right atrium', s: 'k', a: ['Collects oxygen-poor blood from the body through the two venae cavae.', 'Holds the sinoatrial node, the heart’s natural pacemaker.'], b: [], d: 'Textbook cut-away (coronal section), simplified. In real life the right ventricle faces the front and the left atrium sits at the back.', src: [['Atrium (heart) (Wikipedia)', W + 'Atrium_(heart)']] },
+    h_rv: { n: 'Right ventricle', s: 'k', a: ['Pumps oxygen-poor blood to the lungs through the pulmonary valve.', 'Wall about 3–5 mm thick; pressure about 25 mmHg when it squeezes.'], b: [], d: 'Textbook cut-away (coronal section), simplified. In real life the right ventricle faces the front and the left atrium sits at the back.', src: [['Ventricle (heart) (Wikipedia)', W + 'Ventricle_(heart)']] },
+    h_la: { n: 'Left atrium', s: 'k', a: ['Collects oxygen-rich blood from the lungs through 4 pulmonary veins.'], b: [], d: 'Textbook cut-away (coronal section), simplified. In real life the right ventricle faces the front and the left atrium sits at the back.', src: [['Atrium (heart) (Wikipedia)', W + 'Atrium_(heart)']] },
+    h_lv: { n: 'Left ventricle', s: 'k', a: ['Pumps oxygen-rich blood to the whole body through the aorta.', 'Thickest wall, about 1 cm; pressure about 120 mmHg when it squeezes.'], b: ['About 70 mL leaves it each beat at rest.'], d: 'Textbook cut-away (coronal section), simplified. In real life the right ventricle faces the front and the left atrium sits at the back.', src: [['Ventricle (heart) (Wikipedia)', W + 'Ventricle_(heart)']] },
+    h_sep: { n: 'Septum', s: 'k', a: ['The wall between the left and right sides, so the two bloods do not mix.'], b: ['Carries the electrical bundle that makes the ventricles squeeze together.'], d: 'Textbook cut-away (coronal section), simplified. In real life the right ventricle faces the front and the left atrium sits at the back.', src: [['Interventricular septum (Wikipedia)', W + 'Interventricular_septum']] },
+    h_tri: { n: 'Tricuspid valve', s: 'k', a: ['3 flaps between the right atrium and right ventricle.', 'Shown opening while the ventricle fills, shutting when it squeezes.'], b: ['Its closing (with the mitral valve) is the first heart sound, “lub”.'], d: 'Textbook cut-away (coronal section), simplified. In real life the right ventricle faces the front and the left atrium sits at the back.', src: [['Tricuspid valve (Wikipedia)', W + 'Tricuspid_valve']] },
+    h_mit: { n: 'Mitral valve', s: 'k', a: ['2 flaps between the left atrium and left ventricle.', 'Shown opening while the ventricle fills, shutting when it squeezes.'], b: ['Its closing (with the tricuspid) is the first heart sound, “lub”.'], d: 'Textbook cut-away (coronal section), simplified. In real life the right ventricle faces the front and the left atrium sits at the back.', src: [['Mitral valve (Wikipedia)', W + 'Mitral_valve']] },
+    h_pulm: { n: 'Pulmonary valve', s: 'k', a: ['3 half-moon flaps from the right ventricle to the lungs’ artery.', 'Shown opening when the ventricle squeezes.'], b: ['Its closing (with the aortic valve) is the second heart sound, “dub”.'], d: 'Textbook cut-away (coronal section), simplified. In real life the right ventricle faces the front and the left atrium sits at the back.', src: [['Pulmonary valve (Wikipedia)', W + 'Pulmonary_valve']] },
+    h_aov: { n: 'Aortic valve', s: 'k', a: ['3 half-moon flaps from the left ventricle into the aorta.', 'Shown opening when the ventricle squeezes.'], b: ['Its closing (with the pulmonary valve) is the second heart sound, “dub”.'], d: 'Textbook cut-away (coronal section), simplified. In real life the right ventricle faces the front and the left atrium sits at the back.', src: [['Aortic valve (Wikipedia)', W + 'Aortic_valve']] },
+    liver: { n: 'Liver', s: 'k', a: ['The largest internal organ, about 1.2–1.5 kg.', 'Mostly on the person’s right, under the ribs.'], b: ['Does over 500 jobs, from cleaning blood to making bile.'], src: [['Liver (Wikipedia)', W + 'Liver']] },
+    gall: { n: 'Gallbladder', s: 'k', a: ['A small bag under the liver that stores bile, about 50 mL.'], b: [], src: [['Gallbladder (Wikipedia)', W + 'Gallbladder']] },
+    stomach: { n: 'Stomach', s: 'k', a: ['J-shaped, on the person’s left under the ribs.', 'Holds about 1–1.5 L after a meal.'], b: ['Its acid has a pH of about 1.5–3.5.'], src: [['Stomach (Wikipedia)', W + 'Stomach']] },
+    spleen: { n: 'Spleen', s: 'k', a: ['About 11 cm long, on the person’s left behind the stomach.', 'Filters old red blood cells and helps fight infection.'], b: [], src: [['Spleen (Wikipedia)', W + 'Spleen']] },
+    pancreas: { n: 'Pancreas', s: 'k', a: ['About 15 cm long, behind the stomach.', 'Makes digestive juices and insulin.'], b: [], src: [['Pancreas (Wikipedia)', W + 'Pancreas']] },
+    kidney: { n: 'Kidneys', s: 'k', a: ['Two bean shapes about 11 cm long at the back of the belly.', 'Together they filter about 180 L of blood plasma a day.'], b: ['The right kidney usually sits a little lower, under the liver.'], src: [['Kidney (Wikipedia)', W + 'Kidney']] },
+    smallint: { n: 'Small intestine', s: 'k', a: ['About 3–5 m long in a living person.', 'Where most food is absorbed.'], b: [], d: 'Coils drawn as a simplified pattern, not each real loop.', src: [['Small intestine (Wikipedia)', W + 'Small_intestine']] },
+    largeint: { n: 'Large intestine', s: 'k', a: ['About 1.5 m long, framing the small intestine.', 'Takes water back and holds trillions of gut bacteria.'], b: [], src: [['Large intestine (Wikipedia)', W + 'Large_intestine']] },
+    bladder: { n: 'Bladder', s: 'k', a: ['Stores urine: usually 300–500 mL.'], b: [], d: 'Drawn see-through so the reproductive organs behind it show.', src: [['Urinary bladder (Wikipedia)', W + 'Urinary_bladder']] },
+    uterus: { n: 'Uterus', s: 'k', a: ['A pear-shaped muscular organ about 7–8 cm long, behind and above the bladder.', 'Each month its lining thickens; if there is no pregnancy, the lining is shed as a period.'], b: ['In pregnancy the early embryo implants in the lining and the placenta forms.', 'The uterus grows from about 60 g to about 1 kg and holds the baby for about 40 weeks.', 'In labour its strong muscle contracts to push the baby out.'], src: [['Uterus (Wikipedia)', W + 'Uterus']] },
+    ovary: { n: 'Ovaries', s: 'k', a: ['Two almond-sized glands, about 3–4 cm long, either side of the uterus.', 'They hold the eggs and make the hormones oestrogen and progesterone.'], b: ['A baby girl is born with about 1–2 million immature eggs; only about 400–500 are released in a lifetime, usually one a month.', 'After an egg is released, the corpus luteum makes progesterone, which supports an early pregnancy.'], src: [['Ovary (Wikipedia)', W + 'Ovary']] },
+    // muscles
+    muscle: { n: 'Skeletal muscles', s: 'k', a: ['About 600 muscles, roughly 30–35% of body weight in women.', 'They pull on bones through tendons.'], b: ['Only the larger surface muscles are drawn.'], d: 'Main surface muscles only, shapes simplified.', src: [['Skeletal muscle (Wikipedia)', W + 'Skeletal_muscle']] },
+    deltoid: { n: 'Deltoid', s: 'k', a: ['The rounded shoulder muscle; lifts the arm sideways.'], b: [], src: [['Deltoid muscle (Wikipedia)', W + 'Deltoid_muscle']] },
+    pec: { n: 'Pectoralis major', s: 'k', a: ['The large fan-shaped chest muscle; pulls the arm forward and across.'], b: [], src: [['Pectoralis major (Wikipedia)', W + 'Pectoralis_major']] },
+    biceps: { n: 'Biceps brachii', s: 'k', a: ['Bends the elbow and turns the palm up.'], b: [], src: [['Biceps (Wikipedia)', W + 'Biceps']] },
+    forearm: { n: 'Forearm muscles', s: 'k', a: ['About 20 muscles that move the wrist and fingers.'], b: [], src: [['Forearm (Wikipedia)', W + 'Forearm']] },
+    abs: { n: 'Rectus abdominis', s: 'k', a: ['The long belly muscle, split into sections by bands of tendon.'], b: [], src: [['Rectus abdominis muscle (Wikipedia)', W + 'Rectus_abdominis_muscle']] },
+    oblique: { n: 'External oblique', s: 'k', a: ['The side belly muscle; twists and bends the trunk.'], b: [], src: [['Abdominal external oblique muscle (Wikipedia)', W + 'Abdominal_external_oblique_muscle']] },
+    scm: { n: 'Sternocleidomastoid', s: 'k', a: ['The neck muscle that turns and tilts the head.'], b: [], src: [['Sternocleidomastoid muscle (Wikipedia)', W + 'Sternocleidomastoid_muscle']] },
+    quads: { n: 'Quadriceps', s: 'k', a: ['Four muscles at the front of the thigh that straighten the knee.'], b: ['One of the strongest muscle groups in the body.'], src: [['Quadriceps (Wikipedia)', W + 'Quadriceps_femoris_muscle']] },
+    sartorius: { n: 'Sartorius', s: 'k', a: ['The longest muscle in the body, crossing the thigh diagonally.'], b: [], src: [['Sartorius muscle (Wikipedia)', W + 'Sartorius_muscle']] },
+    adductor: { n: 'Adductors', s: 'k', a: ['Inner-thigh muscles that pull the legs together.'], b: [], src: [['Adductor muscles of the hip (Wikipedia)', W + 'Adductor_muscles_of_the_hip']] },
+    tibant: { n: 'Tibialis anterior', s: 'k', a: ['Lifts the front of the foot.'], b: [], src: [['Tibialis anterior muscle (Wikipedia)', W + 'Tibialis_anterior_muscle']] },
+    calf: { n: 'Gastrocnemius (calf)', s: 'k', a: ['The calf muscle; lifts the heel through the Achilles tendon.'], b: [], src: [['Gastrocnemius muscle (Wikipedia)', W + 'Gastrocnemius_muscle']] },
+    // circulation
+    artery: { n: 'Arteries', s: 'k', a: ['Carry blood away from the heart (red here).', 'The aorta is about 2.5–3 cm wide.'], b: ['Blood in the aorta moves on average about 20 cm/s; the moving dots use that speed.', 'All arteries together are roughly 9,000–19,000 km long (newer estimates); the old "100,000 km" figure counts every vessel and is too high.'], d: 'Main arteries are mapped; the small branches that appear as you zoom are a generated pattern, not a map.', src: [['Artery (Wikipedia)', W + 'Artery']] },
+    aorta: { n: 'Aorta', s: 'k', a: ['The biggest artery, about 2.5–3 cm wide.', 'It arches over the heart and runs down in front of the spine.'], b: ['It splits into the two iliac arteries at about the navel.'], src: [['Aorta (Wikipedia)', W + 'Aorta']] },
+    vein: { n: 'Veins', s: 'k', a: ['Carry blood back to the heart (blue here; real blood is always red, darker in veins).'], b: ['Valves stop blood falling back down the legs.'], d: 'Main veins drawn; small branches are a generated pattern.', src: [['Vein (Wikipedia)', W + 'Vein']] },
+    // nerves
+    nerve: { n: 'Nerves', s: 'k', a: ['Nerves carry signals between the brain, spinal cord and body.', 'Fast nerve signals travel up to about 120 m/s.'], b: ['The moving dots are shown much slower than real so you can see them.'], d: 'Main nerves drawn; small branches are a generated pattern. Signals slowed down.', src: [['Nerve (Wikipedia)', W + 'Nerve']] },
+    cord: { n: 'Spinal cord', s: 'k', a: ['About 43 cm long in women; ends near the first lumbar vertebra.', 'Below that, nerve roots continue as the "horse’s tail" (cauda equina).'], b: [], src: [['Spinal cord (Wikipedia)', W + 'Spinal_cord']] },
+    sciatic: { n: 'Sciatic nerve', s: 'k', a: ['The thickest nerve, up to about 2 cm wide, running down the back of the thigh.'], b: ['Seen from the front it lies behind the femur.'], src: [['Sciatic nerve (Wikipedia)', W + 'Sciatic_nerve']] },
+    median: { n: 'Arm nerves', s: 'k', a: ['The median, ulnar and radial nerves run down the arm to the hand.', 'Hitting the ulnar nerve at the elbow is the "funny bone".'], b: [], src: [['Median nerve (Wikipedia)', W + 'Median_nerve']] },
+  }))('https://en.wikipedia.org/wiki/');
+
+// v10 body -> cell bridge: which cell type builds each part. The Virtual Cell is a generalised typical human cell; these lines say how the real one differs.
+const BODY_CELLS = {
+  heart: ['Heart muscle cell (cardiomyocyte)', 'About 100 µm long, packed with mitochondria (about a third of its volume); usually 1–2 nuclei.', 'Cardiac_muscle_cell'],
+  liver: ['Liver cell (hepatocyte)', 'About 20–30 µm, lots of ER and mitochondria; about a quarter have 2 nuclei.', 'Hepatocyte'],
+  brain: ['Nerve cell (neuron)', 'Body about 4–100 µm, with long branches; the brain has about 86 billion.', 'Neuron'],
+  nerve: ['Nerve cell (neuron)', 'Its axon can be over 1 m long, from the spine to the toes.', 'Neuron'],
+  sciatic: ['Nerve cell (neuron)', 'Its axon can be over 1 m long, from the spine to the toes.', 'Neuron'],
+  cord: ['Nerve cell (neuron)', 'Motor neurons here send axons out to the muscles.', 'Motor_neuron'],
+  lungs: ['Lung air-sac cell (alveolar cell)', 'Type I cells are very thin, about 0.1–0.2 µm in places, so gas crosses fast.', 'Pulmonary_alveolus'],
+  kidney: ['Kidney tubule cell', 'Covered in tiny finger-like microvilli and full of mitochondria to pump salts back.', 'Proximal_tubule'],
+  stomach: ['Stomach acid cell (parietal cell)', 'Makes hydrochloric acid with proton pumps; very rich in mitochondria.', 'Parietal_cell'],
+  smallint: ['Gut lining cell (enterocyte)', 'Lives only about 3–5 days; its microvilli greatly widen the surface.', 'Enterocyte'],
+  largeint: ['Gut lining cell (colonocyte)', 'Replaced about every 5 days.', 'Large_intestine'],
+  artery: ['Vessel lining cell (endothelial cell)', 'A thin flat sheet one cell thick lines every blood vessel.', 'Endothelium'],
+  vein: ['Vessel lining cell (endothelial cell)', 'A thin flat sheet one cell thick lines every blood vessel.', 'Endothelium'],
+  aorta: ['Vessel lining cell (endothelial cell)', 'Under it sit layers of smooth muscle cells and elastic fibres.', 'Endothelium'],
+  femur: ['Bone cell (osteocyte)', 'Lives inside hard bone, linked to others by tiny channels; can live for decades.', 'Osteocyte'],
+  quads: ['Skeletal muscle fibre', 'One giant cell with hundreds of nuclei, up to several cm long.', 'Skeletal_muscle'],
+  biceps: ['Skeletal muscle fibre', 'One giant cell with hundreds of nuclei, up to several cm long.', 'Skeletal_muscle'],
+  pec: ['Skeletal muscle fibre', 'One giant cell with hundreds of nuclei, up to several cm long.', 'Skeletal_muscle'],
+  ovary: ['Egg cell (oocyte)', 'About 0.1 mm, the largest human cell, just visible to the eye.', 'Oocyte'],
+  thyroid: ['Thyroid cell (thyrocyte)', 'Makes the hormones T3 and T4 using iodine.', 'Thyroid'],
+  pancreas: ['Pancreas cell (acinar or beta cell)', 'Acinar cells make digestive enzymes; beta cells make insulin.', 'Pancreas'],
+};
 
 for (const n of N) { const x = EXTRA[n.id]; if (x) { if (x.L2 && x.L2.length) n.L2 = x.L2; if (x.L3 && x.L3.length) n.L3 = x.L3; } n.L2 = n.L2 || []; n.L3 = n.L3 || []; }
 /* status is single-source: a node's own data decides its colour in BOTH views. Set solved:true on a node to turn it green with a tick everywhere. */
@@ -1344,34 +1552,6 @@ N.forEach(n => n.p.forEach(p => byId[p].kids.push(n.id)));
 })();
 const WM = X(LASTR) + 260, HM = Math.max(...N.map(n => n.y)) + 190; let W = WM, H = HM;
 N.forEach(n => { n.mx = n.x; n.my = n.y; });
-/* labels for the remaining lines: amount / recipe / what passes up (kept short; '?' = not known) */
-const EL2 = {
- axiom:{nothing:'Alex: start = links only'}, qft:{nothing:'?'}, qgrav:{nothing:'?'},
- inflation:{qft:'an inflaton field (guess)',qgrav:'? at 10⁻³⁵ s'}, genres:{distill:'read limit d₁d₂ ≤ 6'}, higgs:{qft:'1 field, 246 GeV'},
- ctspace:{distill:'time = counted reads'}, gap:{chainmail:'? how webs = particles',alpha:'1 number matched',ctspace:'? no 3+1 D derived'},
- soup:{bigbang:'>10¹⁵ K heat',qft:'all quantum fields'},
- quarks:{soup:'6 flavours × 3 colours',gap:'? not derived',higgs:'gives mass (2–173,000 MeV)'},
- gluons:{soup:'8 kinds',gap:'? not derived'}, electrons:{soup:'e, μ, τ',gap:'? webs (Alex, cond.)',higgs:'gives 0.511 MeV'},
- neutrinos:{soup:'3 flavours, ~336 /cm³ left'}, photons:{soup:'~410 /cm³ left today'},
- wz:{higgs:'gives 80 & 91 GeV',gap:'? not derived'}, dm:{bigbang:'~5× normal matter'}, de:{bigbang:'~68.5% of energy'},
- antimatter:{soup:'pairs: matter = antimatter?'}, qgp:{quarks:'free quarks',gluons:'+ gluons',strong:'>2×10¹² K'},
- halos:{gravity:'clumps of dark matter'}, cmb:{atoms:'light set free'}, gas:{atoms:'~75% H, 25% He'},
- firststars:{gas:'each star ~10s–100s of Suns (models)'}, stars:{firststars:'seed metals'}, galaxies:{gas:'gas falls into halos',stars:'10⁷–10¹² stars'},
- smbh:{galaxies:'? seeds of 10²–10⁵ Suns'}, fusion:{firststars:'H → He at 10⁷ K'}, sprocess:{fusion:'neutrons +1 at a time'},
- nsmerger:{supernova:'leftover neutron stars'}, bh:{supernova:'core > ~2–3 Suns'}, elements:{fusion:'C, N, O … Fe'},
- bonds:{elements:'H, C, N, O, P, S…'}, solar:{dust:'1 cloud → Sun + 8 planets'}, earth:{planets:'1 of 8, 4.54 Ga',solar:'3rd from Sun'},
- exo:{planets:'6,451 found'}, water:{molecules:'H₂O',earth:'oceans by ~4.4 Ga'}, moon:{earth:'giant impact (leading idea)'},
- chem:{water:'liquid solvent',molecules:'+ energy (sun, vents)'}, amino:{chem:'C, H, N, O (+S)'},
- nucleotides:{chem:'base + sugar + phosphate',sugars:'+ ribose'}, sugars:{chem:'formaldehyde → sugars'}, lipids:{chem:'fatty acids'},
- rnaworld:{sugars:'ribose backbone'}, protocell:{rnaworld:'a copier inside',peptides:'helpers',vesicles:'a bubble skin'},
- origin:{protocell:'? copy + feed + split'}, luca:{origin:'? unknown steps'},
- proteins:{luca:'~2,600 protein families (est. 2024)'}, code:{luca:'64 codons → 20 amino acids'}, dna:{luca:'2 strands, 4 letters'},
- prok:{luca:'splits: bacteria + archaea',proteins:'~2,000–4,000 kinds',dna:'1 ring, ~5 Mb',code:'shared code'},
- photosyn:{prok:'cyanobacteria'}, goe:{photosyn:'O₂ waste builds up'}, eukaryote:{prok:'archaeon + bacterium',goe:'O₂ to burn'},
- multicell:{eukaryote:'cells stay stuck'}, tissues:{multicell:'many cells of 1 kind'}, plants:{multicell:'+ chloroplasts'},
- animals:{multicell:'cells that move'}, organs:{tissues:'2–4 tissue types'}, mammals:{animals:'~200 Myr ago'},
- organsys:{organs:'several organs each'}, hsap:{mammals:'~300,000 yr ago'}, brain:{body:'~2% of weight, 20% of energy'}, mind:{brain:'? 86 bn neurons → thought'},
-};
 for (const id in EL2) { const n = byId[id]; if (!n) continue; n.el = n.el || {}; for (const p in EL2[id]) if (n.p.includes(p) && !n.el[p]) n.el[p] = EL2[id][p]; }
 
 /* size levels = column groups: [label, short label, first stage, last stage, colour, size range] */
@@ -1503,8 +1683,9 @@ Object.assign(ICON, {
 
 /* ============ BUILD THE SVG ============ */
 const svg = document.getElementById('tree'), world = document.getElementById('world'), defs = document.getElementById('defs');
+const GLC = { ...SC, t: '#ff7a1a' }; // glow: a deeper orange so 'we think' never reads as gold
 defs.innerHTML = Object.entries(SC).map(([k, c]) =>
-  `<radialGradient id="glow-${k}"><stop offset="0.5" stop-color="${c}" stop-opacity="${k === 'u' ? .22 : .38}"/><stop offset="0.68" stop-color="${c}" stop-opacity="${k === 'u' ? .08 : .14}"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient>` +
+  `<radialGradient id="glow-${k}"><stop offset="0.5" stop-color="${GLC[k]}" stop-opacity="${k === 'u' ? .22 : .38}"/><stop offset="0.68" stop-color="${GLC[k]}" stop-opacity="${k === 'u' ? .08 : .14}"/><stop offset="1" stop-color="${c}" stop-opacity="0"/></radialGradient>` +
   `<marker id="arr-${k}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 1 L9 5 L0 9 Z" fill="${c}" opacity=".8"/></marker>`).join('') +
   `<filter id="sketch" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="1.8"/></filter>` +
   `<radialGradient id="disc"><stop offset="0" stop-color="#14203d"/><stop offset="1" stop-color="#080e20"/></radialGradient>` +
@@ -1831,7 +2012,8 @@ const minS = () => Math.min(innerWidth / (W + 60), (innerHeight - UI()) / (H + 4
 function clamp() { const vw = innerWidth, vh = innerHeight, ww = W * s, hh = H * s, top = UI();
   tx = ww < vw ? Math.min(Math.max(tx, 0), vw - ww) : Math.min(Math.max(tx, vw - ww - 120), 120);
   const extra = sel && vw <= 600 ? pop.offsetHeight : 0; // room to lift a node above the mobile pop-up sheet
-  ty = hh < vh - top ? Math.min(Math.max(ty, top - 40), vh - hh) : Math.min(Math.max(ty, vh - hh - 80 - extra), top + 40); }
+  ty = hh < vh - top ? Math.min(Math.max(ty, top - 40), vh - hh) : Math.min(Math.max(ty, vh - hh - 80 - extra), top + 40);
+  if (VIEW !== 'map') { let mny = 1e9; for (const n of N) mny = Math.min(mny, n.y); ty = Math.min(ty, Math.max(top + 24 + 60 * s - mny * s, vh - hh - 80 - extra)); } } // v10: the top tree/circle node never hides under the bars
 function cull() { cullQ = false; const m = 60, x0 = (-tx) / s - m, y0 = (-ty) / s - m, x1 = (innerWidth - tx) / s + m, y1 = (innerHeight - ty) / s + m;
   const vis = b => b[2] > x0 && b[0] < x1 && b[3] > y0 && b[1] < y1;
   nodeEls.forEach((el, i) => { const v = vis(nodeBB[i]); if (el._v !== v) { el._v = v; el.style.display = v ? '' : 'none'; } });
@@ -1960,10 +2142,6 @@ function closePop() { const wasL = LOOPON; closeLoop(); if (wasL && !sel) { pop.
 pop.querySelector('.x').onclick = closePop;
 
 /* ============ PERIODIC TABLE ============ */
-const ORI = { B: ['Big Bang', '#6fb8ff', 'Made in the first 20 minutes.'], C: ['Cosmic-ray splitting', '#ff7bd0', 'Fast particles break bigger nuclei.'], L: ['Dying low-mass stars', '#5cf0a0', 'Giant stars (1–8 Suns) catch neutrons slowly (s-process), then puff off their outer layers. (Most of our lithium: such stars and novae.)'],
-  M: ['Exploding massive stars', '#ffd36b', 'Fusion in stars >8 Suns, spread by core-collapse supernovae.'], W: ['Exploding white dwarfs', '#c9b6ff', 'Type Ia supernovae: lots of iron-group metals.'],
-  N: ['Merging neutron stars', '#ff8a5a', 'Rapid neutron catching (r-process). Maybe also rare supernovae (debated).'], R: ['Radioactive decay only', '#8a94a8', 'No long-lived form; made as other elements decay.'], H: ['Human-made', '#4ff3e3', 'Made in reactors or accelerators (some also in traces or in stars, briefly).'] };
-const CAT = { nm: ['Other non-metal', '#5cf0a0'], hal: ['Halogen', '#9ff5ea'], nob: ['Noble gas', '#c9b6ff'], alk: ['Alkali metal', '#ff8a8a'], ae: ['Alkaline-earth metal', '#ffb46b'], met: ['Metalloid', '#d9e07a'], post: ['Post-transition metal', '#9fb4cc'], tm: ['Transition metal', '#ffd36b'], lan: ['Lanthanide', '#ff9ad5'], act: ['Actinide', '#ff7b91'] };
 const pt = document.getElementById('pt'), ptg = document.getElementById('ptg'), ptl = document.getElementById('ptl'), ptinfo = document.getElementById('ptinfo'); let ptMode = 'origin', ptBuilt = false;
 function buildPT() { let h = '';
   for (const [z, sy, nm, ca, o, r, c] of ELS) { const gr = r >= 9 ? r + 1 : r;
@@ -1979,12 +2157,7 @@ function ptShow(z) { const [, sy, nm, ca, o] = ELS[z - 1]; ptg.querySelectorAll(
 ptg.addEventListener('click', e => { const el = e.target.closest('.e'); if (el) ptShow(+el.dataset.z); });
 document.getElementById('ptmode').onclick = () => { ptMode = ptMode === 'origin' ? 'group' : 'origin'; colourPT(); };
 const ptOpen = () => pt.style.display === 'block';
-const PTX = [
- ['119', 'Ununennium (temporary name)', 'u', 'Not made yet. Hunts running: Dubna (JINR) began Bk-249 + Ti-50 on 1 June 2026, for several months. RIKEN (V-51 + Cm-248) paused after reaching its planned sensitivity, with no atom reported, and is planning its next step.', 'jinr119,riken119'],
- ['120', 'Unbinilium (temporary name)', 'u', 'Not made yet. Berkeley showed a Ti-50 beam can make superheavies (2 livermorium atoms in 22 days, 2024); 120 is expected to be 10–20× harder and could take years. ORNL is making a Cf-249 target (2026). An older GSI search (2011) saw one possible chain, never confirmed.', 'doe120,lbl23,cf249,gsi120'],
- ['Island', 'Island of stability', 't', 'Predicted: nuclei near Z ≈ 114–126 protons and N ≈ 184 neutrons could live much longer than their neighbours. Today\'s superheavies have too few neutrons to reach it; nobody has made N = 184.', 'shenrp,jinrti'],
- ['~172', 'Where the table may end', 'u', 'Around Z ≈ 170 the innermost electron level would sink into "negative energy" (estimates 164–174); extended tables stop near 172–173. Nuclei may stop holding together before that.', 'schw,pyykko,shenrp']];
-function buildPTX() { document.getElementById('ptx').innerHTML = `<h3>Not yet made (predicted)</h3><div class="xs">Beyond 118 nothing has been made yet (Oct 2026). These are predictions and running hunts, graded like the map.</div><div class="xg">` +
+function buildPTX() { document.getElementById('ptx').innerHTML = `<h3>Not yet made (predicted)</h3><div class="xs">Beyond 118 nothing has been made yet (Oct 2026). These are predictions and running hunts, graded like the map.</div><div class="xs">Odd–even pattern (Oddo–Harkins rule): elements with an even number of protons are usually more common than their odd neighbours.</div><div class="xg">` +
   PTX.map(([z, nm, st, tx, sk]) => `<div class="xc" style="border-color:${SC[st]}"><b class="big">${z}</b><b>${esc(nm)}</b><div class="st" style="color:${SC[st]}"><i style="background:${SC[st]}"></i>${SN[st]}</div>${esc(tx)}<div>${sk.split(',').map(k => `<a href="${SRC[k][1]}" target="_blank" rel="noopener">${esc(SRC[k][0])}</a>`).join('<br>')}</div></div>`).join('') + '</div>'; }
 function openPT() { if (!ptBuilt) { buildPT(); buildPTX(); } pt.style.display = 'block'; EF.bonus('pt'); }
 function closePT() { pt.style.display = 'none'; }
@@ -2319,66 +2492,7 @@ const VCELL = (() => {
     cycleH: 24          // hours, typical human cell cycle in culture
   };
   // status: k = known (green), t = we think so (orange), u = unknown (red)
-  const P = {
-    cell: { n: 'Typical human cell (generalised)', s: 't', a: ['A general human body cell, about 20 µm across: it has the parts most human cells share.', 'No single real cell type looks exactly like this; the shape is simplified.'],
-      b: ['Real human cells range from about 7 µm (red blood cells) to over 100 µm, and from round to long and branched.', 'Sizes and speeds of the parts inside are real measured values, drawn to scale.', 'Some counts are reduced so you can see between things; the notes on screen say when.'], src: [['Cell (Wikipedia)', W + 'Cell_(biology)'], ['Cell Biology by the Numbers', 'http://book.bionumbers.org/']] },
-    membrane: { n: 'Cell membrane', s: 'k', a: ['A skin of fat molecules two layers thick, about 5 nm.', 'It lets some things in and keeps others out.'],
-      b: ['Made of roughly a billion lipid molecules, with proteins floating in it.', 'In cells that crawl, the front edge ruffles and moves forward a few µm per minute (a lamellipodium).', 'Zoom right in to see the two layers of lipids.'], src: [['Cell membrane (Wikipedia)', W + 'Cell_membrane'], ['Lamellipodium (Wikipedia)', W + 'Lamellipodium']] },
-    nucleus: { n: 'Nucleus', s: 'k', a: ['The control centre: about 10 × 8 µm here (typically 5–10 µm).', 'It holds 46 chromosomes: about 2 metres of DNA.'],
-      b: ['About 6.4 billion DNA letters (base pairs) in two copies of the genome.', 'Wrapped in a double membrane with a few thousand pores.', 'Under a microscope (🔬 button) it glows blue, like the DAPI dye biologists use to stain DNA.'], src: [['Cell nucleus (Wikipedia)', W + 'Cell_nucleus'], ['Human genome (Wikipedia)', W + 'Human_genome']] },
-    dna: { n: 'Chromatin (DNA)', s: 'k', a: ['DNA wound on protein spools (nucleosomes).', 'Each spool holds 147 DNA letters, wrapped almost twice.'],
-      b: ['A nucleosome is about 11 nm wide and made of 8 histone proteins.', 'About 30 million nucleosomes pack the genome into the nucleus.'], src: [['Nucleosome (Wikipedia)', W + 'Nucleosome']] },
-    nucleosome: { n: 'Nucleosome', s: 'k', map: 'nucleotides', a: ['A spool of 8 histone proteins with DNA wrapped around it.', 'About 11 nm wide.'],
-      b: ['147 base pairs wrap about 1.65 turns.', 'Linker DNA joins one spool to the next, like beads on a string.', 'Drawn simplified: DNA wrapped around histone beads. The two twisted strands are the 2 nm double helix; the wrapping around each bead is not drawn.'], src: [['Nucleosome (Wikipedia)', W + 'Nucleosome']] },
-    nucleolus: { n: 'Nucleolus', s: 'k', a: ['A dense spot inside the nucleus, 1–3 µm.', 'It builds the parts of ribosomes.'],
-      b: ['Most human cells have 1–4. It has no membrane: it forms where ribosome genes cluster.', 'Ribosome pieces leave through the nuclear pores.'], src: [['Nucleolus (Wikipedia)', W + 'Nucleolus']] },
-    pore: { n: 'Nuclear pore', s: 'k', a: ['A gate in the nucleus wall, about 120 nm across.', 'mRNA goes out, proteins come in.'],
-      b: ['One of the biggest machines in the cell: ~1,000 proteins of ~30 kinds, in 8-fold symmetry.', 'A human nucleus has roughly 2,000–5,000 pores.'], src: [['Nuclear pore (Wikipedia)', W + 'Nuclear_pore']] },
-    rib: { n: 'Ribosome', s: 'k', a: ['A protein-building machine, about 25–30 nm.', 'It reads mRNA and adds about 5–6 amino acids per second.'],
-      b: ['A human cell has millions (estimates around 10 million in fast-growing cells).', 'Two parts: a small (40S) and a large (60S) subunit.', 'At 1× speed you can watch the new chain grow at the real rate.'], src: [['Ribosome (Wikipedia)', W + 'Ribosome'], ['BioNumbers: translation rate', 'https://bionumbers.hms.harvard.edu/']] },
-    er: { n: 'Endoplasmic reticulum', s: 'k', a: ['A lace of tubes and sheets spreading through the cell.', 'Makes proteins and fats, stores calcium.'],
-      b: ['Rough ER (with ribosomes) sits near the nucleus; smooth tubes reach out to the edge.', 'Tubes are about 50–100 nm wide and keep moving and re-joining.'], src: [['Endoplasmic reticulum (Wikipedia)', W + 'Endoplasmic_reticulum']] },
-    golgi: { n: 'Golgi apparatus', s: 'k', a: ['Stacks of flat sacs next to the nucleus: the post office.', 'It sorts, tags and packs proteins.'],
-      b: ['In human cells the stacks join into a ribbon of several µm near the centrosome.', 'Each stack has about 4–8 sacs (cisternae).', 'Cells that secrete a lot, like fibroblasts making collagen, have big Golgi.'], src: [['Golgi apparatus (Wikipedia)', W + 'Golgi_apparatus']] },
-    ves: { n: 'Vesicle', s: 'k', a: ['A small bubble (50–100 nm) carrying cargo.', 'Motor proteins walk it along microtubules at about 1 µm per second.'],
-      b: ['Kinesin walks outwards (~0.8 µm/s), dynein inwards (~1 µm/s).', 'Off the track, a vesicle only jiggles slowly: the cytoplasm is very crowded.'], src: [['Vesicle (Wikipedia)', W + 'Vesicle_(biology_and_chemistry)'], ['Kinesin (Wikipedia)', W + 'Kinesin']] },
-    mito: { n: 'Mitochondrion', s: 'k', a: ['The power station: makes ATP.', 'A tube about 0.5 µm wide and 1–10 µm long; a human cell has hundreds.'],
-      b: ['They form a network that splits and joins every few minutes.', 'The folds inside (cristae) hold ATP synthase, a spinning motor.', 'It has its own small DNA: it came from a bacterium long ago.'], src: [['Mitochondrion (Wikipedia)', W + 'Mitochondrion']] },
-    atps: { n: 'ATP synthase', s: 'k', a: ['A rotary motor about 10 nm wide in the cristae.', 'It spins over 100 times a second to make ATP.'],
-      b: ['Protons flowing through it turn the rotor.', 'Each turn makes 3 ATP.'], src: [['ATP synthase (Wikipedia)', W + 'ATP_synthase']] },
-    atp: { n: 'ATP', s: 'k', map: 'molecules', a: ['The cell’s energy coin.', 'Made in mitochondria, spent everywhere.'],
-      b: ['A human body makes and recycles roughly its own weight in ATP every day.'], src: [['Adenosine triphosphate (Wikipedia)', W + 'Adenosine_triphosphate']] },
-    lyso: { n: 'Lysosome', s: 'k', a: ['A recycling bag full of enzymes, 0.1–1 µm.', 'A cell has a few hundred.'],
-      b: ['Its inside is acidic (pH about 4.5–5), which keeps the enzymes safely inside.'], src: [['Lysosome (Wikipedia)', W + 'Lysosome']] },
-    perox: { n: 'Peroxisome', s: 'k', a: ['A small bag (0.1–0.5 µm) that burns fats.', 'It makes and destroys hydrogen peroxide.'],
-      b: ['Human cells have a few hundred.', 'Also helps make some special fats for the brain.'], src: [['Peroxisome (Wikipedia)', W + 'Peroxisome']] },
-    lipd: { n: 'Lipid droplet', s: 'k', a: ['A store of fat, 0.5–2 µm.', 'Wrapped in a single layer of lipids.'], b: ['Cells use them as an energy store and to make membranes.'], src: [['Lipid droplet (Wikipedia)', W + 'Lipid_droplet']] },
-    cent: { n: 'Centrosome', s: 'k', a: ['Two tiny barrels (centrioles), 250 nm wide and 500 nm long.', 'Microtubules grow out from here.'],
-      b: ['Each barrel is 9 groups of 3 tubes.', 'In most human cells the older barrel also grows a primary cilium, a tiny antenna.', 'It helps pull chromosomes apart when the cell divides.'], src: [['Centrosome (Wikipedia)', W + 'Centrosome']] },
-    mt: { n: 'Microtubule', s: 'k', a: ['Hollow tubes 25 nm wide: roads and scaffolding.', 'Each tip grows ~12 µm/min, then suddenly shrinks.'],
-      b: ['This "dynamic instability" is simulated here with measured rates.', 'The bright tip is where new tubulin is added (biologists see it with EB1 tags).', 'Kinesin and dynein walk on them carrying cargo.'], src: [['Microtubule (Wikipedia)', W + 'Microtubule'], ['Dynamic instability (Wikipedia)', W + 'Microtubule#Dynamic_instability']] },
-    actin: { n: 'Actin stress fibres', s: 'k', a: ['Bundles of actin filaments (each 7 nm) running across the cell.', 'They pull on the ground like ropes.'],
-      b: ['They end at focal adhesions, the cell’s "feet".', 'A single filament is two strands twisted, crossing every 37 nm.'], src: [['Stress fiber (Wikipedia)', W + 'Stress_fiber'], ['Microfilament (Wikipedia)', W + 'Microfilament']] },
-    fa: { n: 'Focal adhesion', s: 'k', a: ['A cell’s “foot” that grips the surface, 1–5 µm long.', 'Stress fibres pull on it.'], b: ['Made of integrins and many linking proteins.', 'Feet at the front form and mature in minutes.'], src: [['Focal adhesion (Wikipedia)', W + 'Focal_adhesion']] },
-    vim: { n: 'Vimentin filaments', s: 'k', a: ['Rope-like filaments, 10 nm wide.', 'They cushion the nucleus and help the cell resist stretching.'], b: ['Vimentin is the main intermediate filament of many cell types (e.g. fibroblasts); others use keratins.'], src: [['Vimentin (Wikipedia)', W + 'Vimentin']] },
-    vault: { n: 'Vault', s: 't', a: ['A hollow barrel of protein and RNA, about 40 × 70 nm.', 'What it does is still not clear.'],
-      b: ['Thousands per cell.', 'Ideas include transport or defence, but no job is proven.'], src: [['Vault (organelle) (Wikipedia)', W + 'Vault_(organelle)']] },
-    cyto: { n: 'Cytosol', s: 'k', a: ['The gel that fills the cell: about 70% water.', 'Packed with roughly 3 million proteins per cubic µm.'],
-      b: ['So crowded that big things barely drift unless motors carry them.', 'Small molecules still diffuse fast: across the cell in seconds.'], src: [['Cytosol (Wikipedia)', W + 'Cytosol'], ['Cell Biology by the Numbers', 'http://book.bionumbers.org/']] },
-    water: { n: 'Water molecule', s: 'k', map: 'water', a: ['One oxygen atom and two hydrogen atoms (H₂O).', 'About 99 of every 100 molecules in a cell are water.'], b: ['Real water molecules jiggle and tumble trillions of times a second; here they are shown frozen or hugely slowed.', 'Water’s slightly charged ends help proteins fold.'], src: [['Properties of water (Wikipedia)', W + 'Properties_of_water']] },
-    glucose: { n: 'Glucose', s: 'k', map: 'molecules', a: ['A sugar: a ring of carbon and oxygen.', 'Cells break it down for energy.'], b: ['Glycolysis in the cytosol starts the job; mitochondria finish it and make ATP.'], src: [['Glucose (Wikipedia)', W + 'Glucose']] },
-    lipid: { n: 'Phospholipid', s: 'k', map: 'lipids', a: ['A water-loving head and two oily tails, about 2.5 nm long.', 'Two layers of them make every membrane.'], b: ['The tails hide from water, so lipids form two layers by themselves.', 'A kink in one tail keeps the membrane fluid.'], src: [['Phospholipid (Wikipedia)', W + 'Phospholipid']] },
-    basepair: { n: 'Base pair (DNA)', s: 'k', map: 'nucleotides', a: ['Two DNA letters joined in the middle.', 'Each side hangs on a sugar-phosphate backbone.'], b: ['A pairs with T, G pairs with C, held by weak hydrogen bonds.', 'Pairs are stacked 0.34 nm apart along the helix.'], src: [['Base pair (Wikipedia)', W + 'Base_pair']] },
-    peptide: { n: 'Protein chain', s: 'k', map: 'amino', a: ['Amino acids linked in a chain by a ribosome.', 'The chain then folds into a working shape.'], b: ['There are 20 kinds of amino acid; the gene sets their order.', 'The backbone repeats N–C–C; side chains stick out.'], src: [['Peptide (Wikipedia)', W + 'Peptide']] },
-    protein: { n: 'Protein', s: 'k', map: 'proteins', a: ['A folded chain of thousands of atoms, typically 3–10 nm.', 'Proteins do most of the work in a cell.'], b: ['Enzymes, motors, pumps and scaffolds are all proteins.', 'Shown as simple blobs: real shapes are far more detailed.'], src: [['Protein (Wikipedia)', W + 'Protein']] },
-    elH: { n: 'Hydrogen atom', s: 'k', map: 'atoms', a: ['The smallest atom: 1 proton, 1 electron.', 'Made just after the Big Bang.'], b: ['About 6 in 10 atoms in your body are hydrogen.'], src: [['Hydrogen (Wikipedia)', W + 'Hydrogen']] },
-    elC: { n: 'Carbon atom', s: 'k', map: 'atoms', a: ['6 protons. The backbone of life’s molecules.', 'Made inside stars.'], b: ['Carbon can bond to four other atoms, so it builds chains and rings.'], src: [['Carbon (Wikipedia)', W + 'Carbon']] },
-    elN: { n: 'Nitrogen atom', s: 'k', map: 'atoms', a: ['7 protons.', 'Found in every amino acid and DNA letter.'], b: ['Made inside stars (the CNO cycle).'], src: [['Nitrogen (Wikipedia)', W + 'Nitrogen']] },
-    elO: { n: 'Oxygen atom', s: 'k', map: 'atoms', a: ['8 protons.', 'In water, sugars and the phosphate groups of ATP.'], b: ['By mass, most of your body is oxygen (in water).'], src: [['Oxygen (Wikipedia)', W + 'Oxygen']] },
-    elP: { n: 'Phosphorus atom', s: 'k', map: 'atoms', a: ['15 protons.', 'At the heart of ATP, DNA’s backbone and membrane lipids.'], b: ['Made in massive stars and spread by supernovae.'], src: [['Phosphorus (Wikipedia)', W + 'Phosphorus']] },
-    cloud: { n: 'Electron cloud', s: 'k', map: 'electrons', a: ['Electrons are not little planets.', 'The cloud shows where an electron is likely to be found.'], b: ['This comes from quantum mechanics (orbitals).', 'An atom is almost all empty space.'], src: [['Atomic orbital (Wikipedia)', W + 'Atomic_orbital']] },
-    anuc: { n: 'Atomic nucleus', s: 'k', map: 'hadrons', a: ['Protons and neutrons packed tight.', 'It holds over 99.9% of the atom’s mass.'], b: ['Really about 100,000 times smaller than the atom; drawn far too big here.', 'Protons and neutrons are made of quarks.'], src: [['Atomic nucleus (Wikipedia)', W + 'Atomic_nucleus']] },
-  };
+  const P = CELL_P;
   const SCOL = { k: '#3dff8a', t: '#ffa53d', u: '#ff4d5e' }, SNAME = { k: 'Known', t: 'We think so', u: 'Unknown' };
 
   let root, cv, cx, raf = 0, opts = {}, alive = false, t = 0, last = 0, paused = false;
@@ -2556,7 +2670,7 @@ const VCELL = (() => {
     h.globalCompositeOperation = 'destination-out'; for (const n of NUCL) { const gg = h.createRadialGradient(n.x - NUC.x, n.y - NUC.y, 0, n.x - NUC.x, n.y - NUC.y, n.r * 1.15); gg.addColorStop(0, 'rgba(0,0,0,.85)'); gg.addColorStop(.75, 'rgba(0,0,0,.7)'); gg.addColorStop(1, 'rgba(0,0,0,0)'); h.globalAlpha = 1; h.fillStyle = gg; h.fillRect(n.x - NUC.x - n.r * 1.2, n.y - NUC.y - n.r * 1.2, n.r * 2.4, n.r * 2.4); }
     h.restore(); DAPI = d;
   }
-  // chromatin fibres (~30 nm) generated per 600 nm tile inside the nucleus, only for the area you look at
+  // chromatin chains (irregular, 5–24 nm in living cells) generated per 600 nm tile inside the nucleus, only for the area you look at
   const TC = 60, CT = new Map(); let CHN = 0;
   function chromTile(i, j) { const key = i + ',' + j; let L = CT.get(key); if (L) return L; L = []; const R = rng(((i * 73856093) ^ (j * 19349663)) | 0);
     for (let c = 0; c < 2; c++) { let x = (i + R()) * TC, y = (j + R()) * TC, h = R() * 6.28; if (nucRho(x, y) > .97) continue; const pts = [[x, y]];
@@ -2621,6 +2735,9 @@ const VCELL = (() => {
     else { blobs(d.lyso, CH.lyso, .8, 'rgba(60,8,40,.85)'); blobs(d.perox, CH.perox, .7, 'rgba(6,40,20,.85)'); } blobs(d.lipd, CH.lipd, .35, 'rgba(40,36,20,.6)');
     for (const v of d.ves) { const [x, y] = v.mt >= 0 ? mtPos(d.mts[v.mt], Math.max(0, Math.min(d.mts[v.mt].len, v.s))) : [v.x, v.y]; if (!vis(x, y, 30)) continue; const col = ['#ffe14d', '#a8ff6b', '#ff5ab4'][v.c], s = Math.max(px(6), v.r * 2 + BLUR * fl * 2);
       cx.globalAlpha = ga * .75; cx.drawImage(glowS(col), x - s / 2, y - s / 2, s, s); if (z > 3) { cx.globalCompositeOperation = 'source-over'; cx.globalAlpha = ga * sm(3, 6, z); cx.beginPath(); cx.arc(x, y, v.r, 0, 6.2832); cx.fillStyle = '#120d02'; cx.fill(); cx.lineWidth = Math.max(.5, px(1)); cx.strokeStyle = col; cx.stroke(); cx.globalCompositeOperation = 'lighter'; } }
+    if (z > 2) { cx.globalCompositeOperation = 'source-over'; cx.globalAlpha = ga * sm(2, 5, z); cx.lineWidth = Math.max(.3, px(1)); // vaults: hollow barrels ~40 × 70 nm (30 drawn of ~10,000)
+      for (const v of d.vaults) { if (!vis(v.x, v.y, 10)) continue; cx.save(); cx.translate(v.x, v.y); cx.rotate(v.a); cx.beginPath(); cx.ellipse(0, 0, 3.5, 2, 0, 0, 6.2832); cx.fillStyle = 'rgba(255,165,61,.25)'; cx.fill(); cx.strokeStyle = '#ffa53d'; cx.stroke();
+        if (z > 8) { cx.beginPath(); for (const q of [-1.8, 0, 1.8]) { cx.moveTo(q, -1.9); cx.lineTo(q, 1.9); } cx.stroke(); } cx.restore(); } cx.globalCompositeOperation = 'lighter'; cx.globalAlpha = ga; }
     // centrosome: bright spot; below the light limit, two centrioles at right angles (250 × 500 nm)
     { const s = 70 + BLUR * fl * 2; cx.globalAlpha = ga * .9; cx.drawImage(glowS('#c8fff8'), CENT.x - s / 2, CENT.y - s / 2, s, s);
       if (z > 2) { cx.globalCompositeOperation = 'source-over'; cx.globalAlpha = ga * sm(2, 5, z); cx.fillStyle = '#062022'; cx.strokeStyle = CH.mt; cx.lineWidth = Math.max(.5, px(1));
@@ -2649,7 +2766,10 @@ const VCELL = (() => {
   function mkTemplates() {
     const T = {};
     T.water = [TP([['O', 0, 0], ['H', .76, .59], ['H', -.76, .59]])];
-    { const L = []; const el = ['C', 'C', 'C', 'C', 'C', 'O']; for (let k = 0; k < 6; k++) { const a = k * Math.PI / 3; L.push([el[k], ...pol(0, 0, 1.45, a)]); if (k < 5) { L.push(['O', ...pol(0, 0, 2.85, a)]); L.push(['H', ...pol(0, 0, 3.8, a)]); } } T.glu = [TP(L)]; }
+    { const L = []; const el = ['C', 'C', 'C', 'C', 'C', 'O']; // glucose ring: C1–C5 + ring O; C1–C4 carry OH, C5 carries CH2OH (C6)
+      for (let k = 0; k < 6; k++) { const a = k * Math.PI / 3; L.push([el[k], ...pol(0, 0, 1.45, a)]);
+        if (k < 4) { L.push(['O', ...pol(0, 0, 2.85, a)]); L.push(['H', ...pol(0, 0, 3.8, a)]); }
+        if (k === 4) { const c6 = pol(0, 0, 2.95, a), o6 = pol(c6[0], c6[1], 1.42, a - .6); L.push(['C', ...c6], ['O', ...o6], ['H', ...pol(o6[0], o6[1], .96, a - .6)]); } } T.glu = [TP(L)]; }
     { const L = [], d2r = Math.PI / 180, he = ['C', 'N', 'C', 'N', 'C', 'C']; for (let k = 0; k < 6; k++) L.push([he[k], ...pol(0, 0, 1.4, (90 + 60 * k) * d2r)]);
       L.push(['N', 0, 2.8], ['H', .85, 3.35], ['H', -.85, 3.35]); const pc = [2.175, 0]; [['N', 72], ['C', 0], ['N', -72]].forEach(([e, a]) => L.push([e, ...pol(pc[0], pc[1], 1.19, a * d2r)]));
       const n9 = pol(pc[0], pc[1], 1.19, -72 * d2r), dir = [n9[0] - pc[0], n9[1] - pc[1]], dl = Math.hypot(...dir); dir[0] /= dl; dir[1] /= dl;
@@ -2664,11 +2784,20 @@ const VCELL = (() => {
       L.push(['H', 0, -1.0], ['H', .9, .6]);
       for (const sg of [1, -1]) { L.push(['O', -10.4, 1.5 * sg]); for (let i = 0; i < 14; i++) { const x = -11.7 - 1.3 * i, y = sg * (1.5 + (i % 2) * .75) + (sg > 0 && i > 7 ? .5 : 0); L.push(['C', x, y]); if (i % 2 === 0) L.push(['H', x, y + sg * 1.0]); } }
       T.lipid = [TP(L)]; }
-    { const L = [], d2r = Math.PI / 180; for (const sg of [1, -1]) { const he = sg > 0 ? ['C', 'N', 'C', 'N', 'C', 'C'] : ['N', 'C', 'N', 'C', 'C', 'N'];
+    { const L = [], d2r = Math.PI / 180;
+      // left: a purine (guanine) = 6-ring fused to a 5-ring; right: a pyrimidine (cytosine) = one 6-ring. Each hangs on a deoxyribose + phosphate.
+      { const hc = [-2.5, 0], hx = ['N', 'C', 'C', 'C', 'N', 'C']; // 6-ring vertices at 30°+60k: N1(30) C6(90) C5(150) C4(210) N3(270) C2(330)
+        for (let k = 0; k < 6; k++) L.push([hx[k], ...pol(hc[0], hc[1], 1.4, (30 + 60 * k) * d2r)]);
+        const pc = [hc[0] - 1.212 - .963, 0]; L.push(['N', ...pol(pc[0], pc[1], 1.19, 108 * d2r)], ['C', ...pol(pc[0], pc[1], 1.19, 180 * d2r)], ['N', ...pol(pc[0], pc[1], 1.19, 252 * d2r)]); // N7, C8, N9
+        L.push(['O', ...pol(hc[0], hc[1], 2.65, 90 * d2r)], ['H', ...pol(hc[0], hc[1], 2.4, 30 * d2r)], ['N', ...pol(hc[0], hc[1], 2.75, 330 * d2r)]); // O6, H on N1, NH2 on C2
+        const n9 = pol(pc[0], pc[1], 1.19, 252 * d2r), u = [Math.cos(252 * d2r), Math.sin(252 * d2r)], c1 = [n9[0] + u[0] * 1.47, n9[1] + u[1] * 1.47], sc = [c1[0] + u[0] * 1.19, c1[1] + u[1] * 1.19], a0 = Math.atan2(-u[1], -u[0]);
+        ['C', 'C', 'C', 'C', 'O'].forEach((e, k) => L.push([e, ...pol(sc[0], sc[1], 1.19, a0 + k * 72 * d2r)]));
+        const pp = [sc[0] - 2.4, sc[1] - .6]; L.push(['P', ...pp], ['O', pp[0], pp[1] + 1.5], ['O', pp[0] - 1.45, pp[1] + .2], ['O', pp[0] + .2, pp[1] - 1.45]); }
+      { const sg = -1, he = ['N', 'C', 'N', 'C', 'C', 'N'];
         for (let k = 0; k < 6; k++) L.push([he[k], ...pol(-2.5 * sg, 0, 1.4, (60 * k) * d2r)]);
-        const sc = -6.3 * sg, sp = ['C', 'C', 'C', 'O', 'C']; for (let k = 0; k < 5; k++) L.push([sp[k], ...pol(sc, 0, 1.19, (sg > 0 ? 0 : 180) * d2r + k * 72 * d2r)]);
+        const sc = -6.3 * sg, sp = ['C', 'C', 'C', 'O', 'C']; for (let k = 0; k < 5; k++) L.push([sp[k], ...pol(sc, 0, 1.19, 180 * d2r + k * 72 * d2r)]);
         L.push(['P', -8.6 * sg, .8 * sg], ['O', -8.6 * sg, 2.3 * sg], ['O', -9.95 * sg, .1 * sg], ['O', -9.0 * sg, -.65 * sg]);
-        L.push(['O', ...pol(-2.5 * sg, 0, 2.65, (sg > 0 ? 60 : 240) * d2r)], ['H', ...pol(-2.5 * sg, 0, 2.4, (sg > 0 ? -60 : 120) * d2r)]); }
+        L.push(['O', ...pol(-2.5 * sg, 0, 2.65, 240 * d2r)], ['H', ...pol(-2.5 * sg, 0, 2.4, 120 * d2r)]); }
       T.dna = [TP(L)]; }
     { const L = []; for (let k = 0; k < 12; k++) { const e = ['N', 'C', 'C'][k % 3], y = (k % 2) * .8; L.push([e, 1.25 * k, y]);
         if (k % 3 === 2) L.push(['O', 1.25 * k, k % 2 ? 2.05 : -1.25]); if (k % 3 === 1) { const yy = k % 2 ? 2.3 : -1.5; L.push(['C', 1.25 * k, yy]); if (k % 6 === 1) L.push(['O', 1.25 * k + .9, yy + (k % 2 ? 1.0 : -1.0)]); }
@@ -2930,6 +3059,8 @@ const VCELL = (() => {
     if (z >= 200 && z < 800) { const hh = helixHit(wx, wy); if (hh) return hh; }
     if (z >= 110) return deepHit(wx, wy) || macroHit(wx, wy) || hitCell(wx, wy);
     if (z >= 8) return macroHit(wx, wy) || hitCell(wx, wy); return hitCell(wx, wy); }
+  // v10: a tap first looks for an exact hit on what is drawn on top; only if nothing is exactly under the finger does it allow a small margin
+  function hitCell(wx, wy) { return hitCellK(wx, wy, 0) || hitCellK(wx, wy, 1); }
   function macroHit(wx, wy) { const slop = 10 / cam.z, i = Math.floor(wx / TM), j = Math.floor(wy / TM);
     for (let di = -1; di <= 1; di++) for (let dj = -1; dj <= 1; dj++) { const tl = macroTile(i + di, j + dj);
       for (const r of tl.rib) if (Math.hypot(wx - r.x, wy - r.y) < 1.4 + slop) return ['rib', r.x, r.y, 4];
@@ -2938,8 +3069,9 @@ const VCELL = (() => {
       for (const ch of tl.nuc) for (let k = 1; k < ch.length; k++) if (segD(wx, wy, ch[k - 1].x, ch[k - 1].y, ch[k].x, ch[k].y)[0] < .15 + slop * .6) return ['dna', wx, wy, 6];
       for (const p of tl.prot) if (Math.hypot(wx - p.x, wy - p.y) < p.r + slop * .5) return ['protein', p.x, p.y, 1.5]; }
     return null; }
-  function hitCell(wx, wy) {
-    const z = cam.z, near = (x, y, r) => Math.hypot(wx - x, wy - y) <= r, slop = 14 / z;
+  function hitCellK(wx, wy, K) {
+    const z = cam.z, near = (x, y, r) => Math.hypot(wx - x, wy - y) <= r, slop = K * 14 / z;
+    if (z > 2) for (const v of D.vaults) if (near(v.x, v.y, 3.5 + slop * .3)) return ['vault', v.x, v.y, 14];
     if (z > 2) for (const v of D.ves) { const [x, y] = v.mt >= 0 ? mtPos(D.mts[v.mt], Math.max(0, Math.min(D.mts[v.mt].len, v.s))) : [v.x, v.y]; if (near(x, y, v.r + slop * .5)) return ['ves', x, y, 20]; }
     if (near(CENT.x + 20, CENT.y, 50 + slop * .5)) return ['cent', CENT.x + 20, CENT.y, 70];
     for (const [k, o] of D.G.at(wx, wy)) { if ((k === 'lyso' || k === 'perox' || k === 'lipd') && lodOk(o) && near(o.x + o.ox, o.y + o.oy, o.r + slop * .4)) return [k, o.x + o.ox, o.y + o.oy, Math.max(o.r * 1.6, 25)]; }
@@ -2959,11 +3091,11 @@ const VCELL = (() => {
         if (k === 'vim' && z > 2) { const [dd] = polyD(o, wx, wy); if (dd < bd && dd < 1 + slop * .3) { bd = dd; best = ['vim', wx, wy, 80]; } } } if (best) return best; }
     for (const [k, o] of D.G.at(wx, wy)) if (k === 'actin') { const [dd] = segD(wx, wy, ...o.p0, ...o.p1); if (dd < o.w / 2 + slop * .4) return ['actin', wx, wy, 100]; }
     for (const s of D.erSheet) if (near(s.x, s.y, s.rx)) return ['er', s.x, s.y, 180];
-    return ['cyto', wx, wy, 160];
+    return K ? ['cyto', wx, wy, 160] : null;
   }
-  function select(h) {
+  function select(h, tap) {
     if (!h) { sel = null; showPop(); return; }
-    const [id, x, y, r] = h; sel = id; layer = 1; showPop();
+    const [id, x, y, r] = h; sel = id; layer = 1; showPop(); if (tap) return; // v10: a tap never jumps the zoom
     const box = mob() ? Math.min(VW(), VH() * .45) : Math.min(VW() - 380, VH() - TOP());
     animTo(x, y, (box * .42) / r);
   }
@@ -2992,7 +3124,7 @@ const VCELL = (() => {
         zoomAt(mx - r.left, my - r.top, (pinch.z * d / pinch.d) / cam.z); moved = 99; return; }
       moved += Math.abs(dx) + Math.abs(dy); if (moved > 6) { cam.x -= dx / cam.z; cam.y -= dy / cam.z; } });
     const up = e => { if (!ptrs.has(e.pointerId)) return; ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch = null;
-      if (ptrs.size === 0 && moved <= 6 && downAt) { const r = cv.getBoundingClientRect(); const [wx, wy] = s2w(e.clientX - r.left, e.clientY - r.top); select(hit(wx, wy)); } };
+      if (ptrs.size === 0 && moved <= 6 && downAt) { const r = cv.getBoundingClientRect(); const [wx, wy] = s2w(e.clientX - r.left, e.clientY - r.top); select(hit(wx, wy), true); } };
     on(cv, 'pointerup', up); on(cv, 'pointercancel', e => { ptrs.delete(e.pointerId); pinch = null; });
     on(cv, 'wheel', e => { e.preventDefault(); const r = cv.getBoundingClientRect(); zoomAt(e.clientX - r.left, e.clientY - r.top, Math.exp(-Math.max(-300, Math.min(300, e.deltaY)) * .0022)); }, { passive: false });
     on(window, 'keydown', e => { if (!alive) return; const k = e.key; let used = true;
@@ -3009,11 +3141,12 @@ const VCELL = (() => {
   function init(host, o = {}) {
     if (alive) destroy(); opts = o; alive = true; D = build(); t = 0; last = 0; sel = null; layer = 1; offs = [0, 0]; simT = 0; tm = 0; simR = rng(4242); MC = new Map(); mcTm = null;
     root = document.createElement('div'); root.id = 'vcell'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Virtual Cell: a typical human cell');
-    root.innerHTML = (o.embedded ? '' : `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🧬 Virtual Cell <small>typical human cell · v9</small></b>
+    root.innerHTML = (o.embedded ? '' : `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🧬 Virtual Cell <small>typical human cell · v10</small></b>
       <div class="vzm"><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole cell">⤢</button></div></div>`) +
       `<div class="vtime" role="group" aria-label="Time speed"><button class="vpl" aria-label="Pause">⏸</button>${SPEEDS.map(s => `<button data-s="${s}" aria-pressed="false">${s >= 1e4 ? '10k' : s}×</button>`).join('')}<button class="vsc" aria-pressed="false" title="Microscope look (subtle, optional)" aria-label="Microscope look">🔬</button><span class="vclk" aria-live="off"></span></div>` +
       `<div class="vban"></div><canvas aria-label="A typical human cell drawn to scale. Tap a part to learn about it."></canvas><div class="vcrumb" aria-live="polite"></div><div class="vhint">Tap any part to learn about it · pinch or scroll to zoom</div><div class="vscl"></div><div class="vpop" role="dialog" aria-live="polite"></div>`;
-    (host || document.body).appendChild(root);
+    if (o.tissue) { const [n, f, w] = o.tissue.cell; root.innerHTML += `<div class="vtis"><b>From the body: ${o.tissue.from} → ${n}</b><br>This is a typical human cell. ${f} <a href="https://en.wikipedia.org/wiki/${w}" target="_blank" rel="noopener">More</a></div>`; }
+    (host || document.body).appendChild(root); if (o.tissue) { const b = root.querySelector('.vback'); if (b) { b.textContent = '← Body'; b.setAttribute('aria-label', 'Back to the body'); } }
     const $ = s => root.querySelector(s);
     cv = $('canvas'); cx = cv.getContext('2d'); pop = $('.vpop'); hint = $('.vhint'); scl = $('.vscl'); crEl = $('.vcrumb'); clk = $('.vclk'); ban = $('.vban'); crumbTxt = ''; sclKey = ''; banTxt = ''; clkTxt = '';
     SCOPE = false; if (!TPL) TPL = mkTemplates(); CACHE = new Map(); Q = .7; qT = 0; buildCaches();
@@ -3056,76 +3189,7 @@ const VBODY = (() => {
   const W = 'https://en.wikipedia.org/wiki/';
   const H = 1650; // mm
   // ---------- cards (layer 1 = a, Read more = b). s: k known · t we think · u unknown. d: how the drawing is simplified ----------
-  const P = {
-    body: { n: 'Human body', s: 'k', a: ['About 1.65 m tall here, close to the average adult height worldwide.', 'Made of about 30 trillion human cells.'], b: ['Proportions follow standard adult measurements: the head is about 1/7.5 of the height, the navel about 60% of the way up.'], d: 'Front view; one typical body, real people vary a lot.', src: [['Human body (Wikipedia)', W + 'Human_body']] },
-    skin: { n: 'Skin', s: 'k', a: ['Your largest organ: about 1.6–1.8 m² and 3–4 kg.', 'It keeps water in and germs out.'], b: ['Epidermis: about 0.1 mm thick (up to 1.5 mm on the soles).', 'Dermis: about 1–4 mm, with collagen made by fibroblast cells.', 'Under it is a fat layer (hypodermis) of varying thickness.'], d: 'Shown as a smooth outline with no surface detail.', src: [['Human skin (Wikipedia)', W + 'Human_skin']] },
-    face: { n: 'Face', s: 'k', a: ['Eyes, nose, mouth and ears: most of the senses sit in the head, close to the brain.'], b: ['The face has about 20 small muscles that make expressions.'], d: 'Simple outline, not a portrait.', src: [['Face (Wikipedia)', W + 'Face']] },
-    breast: { n: 'Breast', s: 'k', a: ['Made of fat, supporting tissue and the mammary gland, on top of the chest muscle (pectoralis major).', 'They develop at puberty; size and shape vary a lot between people and are not linked to how much milk they can make.'], b: ['In pregnancy the breasts grow and prepare to make milk.', 'After birth they make milk to feed the baby.'], d: 'Simple contour lines, typical adult size.', src: [['Breast (Wikipedia)', W + 'Breast']] },
-    nipple: { n: 'Nipple and areola', s: 'k', a: ['The nipple has several tiny openings (often about 5–10) where milk ducts end.', 'The darker ring around it is the areola, typically 3–6 cm across.'], b: ['Small glands in the areola (Montgomery glands) keep the skin moist.', 'In pregnancy the areola often gets darker and larger; a newborn finds it more easily.'], d: 'Drawn as plain circles.', src: [['Nipple (Wikipedia)', W + 'Nipple'], ['Areola (Wikipedia)', W + 'Areola']] },
-    collar: { n: 'Collarbone (clavicle)', s: 'k', a: ['A long S-shaped bone you can see and feel under the skin, from the top of the breastbone to the shoulder.', 'It links the arm to the trunk.'], b: ['It is the first bone to start hardening in a growing embryo, about 5–6 weeks after fertilisation.'], d: 'Surface line only.', src: [['Clavicle (Wikipedia)', W + 'Clavicle']] },
-    knee: { n: 'Knee (front)', s: 'k', a: ['The kneecap (patella) sits in the tendon of the thigh muscle, in front of the knee joint.', 'It protects the joint and helps the thigh muscle straighten the leg.'], b: ['The kneecap is still soft cartilage at birth and turns to bone at about 3–6 years old.'], d: 'Simple outline of the kneecap.', src: [['Patella (Wikipedia)', W + 'Patella']] },
-    mons: { n: 'Mons pubis', s: 'k', a: ['A rounded pad of fat over the pubic bone, at the front of the vulva.', 'It cushions the pubic bone; hair grows here after puberty (not drawn).'], b: ['The creases at each side are the groin (inguinal) folds, where the thigh meets the trunk.'], d: 'Simple outline with light shading.', src: [['Mons pubis (Wikipedia)', W + 'Mons_pubis']] },
-    navel: { n: 'Navel (umbilicus)', s: 'k', a: ['A scar where the umbilical cord was attached before birth.'], b: ['In the womb the cord carried blood between the baby and the placenta: food and oxygen in, waste out.'], src: [['Navel (Wikipedia)', W + 'Navel']] },
-    vulva: { n: 'Vulva (external genitals)', s: 'k', a: ['The outer parts: the mons pubis, the outer and inner lips (labia majora and minora), the clitoris, and the separate openings of the urethra (for urine) and the vagina.', 'The labia protect the openings.'], b: ['At birth the baby comes out through the vaginal opening, which stretches a great deal.', 'Shown here in a simple front view; much of it is hidden between the thighs when standing.'], d: 'Simplified clinical outline; inner parts not drawn in detail.', src: [['Vulva (Wikipedia)', W + 'Vulva']] },
-    mammary: { n: 'Mammary glands', s: 'k', a: ['Each breast has about 15–20 lobes. Each lobe has many small lobules that can make milk.', 'Ducts carry milk from the lobes to the nipple.'], b: ['In pregnancy hormones (oestrogen, progesterone) grow the ducts and lobules.', 'After birth the hormone prolactin starts milk production; oxytocin squeezes milk out when the baby feeds (the let-down reflex).'], d: 'Lobes and ducts drawn as a simple pattern.', src: [['Mammary gland (Wikipedia)', W + 'Mammary_gland'], ['Lactation (Wikipedia)', W + 'Lactation']] },
-    vagina: { n: 'Vagina', s: 'k', a: ['A stretchy muscular tube about 7–10 cm long, from the cervix to the outside.', 'Menstrual blood leaves the body through it.'], b: ['It is the birth canal: in childbirth it stretches to let the baby through.', 'Helpful bacteria (lactobacilli) keep it acidic, about pH 3.8–4.5, which protects against infection.'], d: 'It runs up and backwards, so from the front it looks much shorter; shown over the bladder so you can see it.', src: [['Vagina (Wikipedia)', W + 'Vagina']] },
-    cervix: { n: 'Cervix', s: 'k', a: ['The narrow lower end of the uterus, about 2.5–3 cm long, opening into the vagina.', 'It makes mucus that changes through the monthly cycle.'], b: ['In pregnancy it stays closed with a mucus plug that protects the baby.', 'In labour it opens (dilates) to about 10 cm so the baby can be born.'], src: [['Cervix (Wikipedia)', W + 'Cervix']] },
-    tube: { n: 'Fallopian tubes', s: 'k', a: ['Two tubes about 10–12 cm long from the uterus towards the ovaries.', 'Their finger-like ends catch the egg when it is released.'], b: ['Fertilisation (egg meets sperm) usually happens inside the tube.', 'Tiny hairs (cilia) move the early embryo to the uterus over about 3–5 days.'], src: [['Fallopian tube (Wikipedia)', W + 'Fallopian_tube']] },
-    // skeleton
-    skull: { n: 'Skull', s: 'k', a: ['22 bones; 8 make the braincase around the brain.', 'The jaw (mandible) is the only one that moves.'], b: ['Adult skull is about 18–20 cm from front to back.'], src: [['Human skull (Wikipedia)', W + 'Human_skull']] },
-    spine: { n: 'Spine (vertebral column)', s: 'k', a: ['33 vertebrae: 7 neck, 12 chest, 5 lower back, then the fused sacrum (5) and tailbone (about 4).', 'It holds the spinal cord.'], b: ['In an adult woman it is about 60–70 cm long.', 'Seen from the front it is mostly hidden behind the organs.'], src: [['Vertebral column (Wikipedia)', W + 'Vertebral_column']] },
-    ribs: { n: 'Rib cage', s: 'k', a: ['12 pairs of ribs. The top 7 join the breastbone (sternum) directly.', 'Pairs 11 and 12 float free at the front.'], b: ['It protects the heart and lungs and moves with every breath.'], d: 'Rib curves simplified.', src: [['Rib cage (Wikipedia)', W + 'Rib_cage']] },
-    sternum: { n: 'Sternum (breastbone)', s: 'k', a: ['A flat bone about 15–17 cm long in the middle of the chest.'], b: ['Three parts: manubrium, body and the small xiphoid process.'], src: [['Sternum (Wikipedia)', W + 'Sternum']] },
-    clavicle: { n: 'Clavicle (collarbone)', s: 'k', a: ['Joins the breastbone to the shoulder blade.', 'About 14–15 cm long in women.'], b: ['One of the most commonly broken bones.'], src: [['Clavicle (Wikipedia)', W + 'Clavicle']] },
-    humerus: { n: 'Humerus', s: 'k', a: ['The upper arm bone, about 30 cm long in women.'], b: ['Its round head fits the shallow shoulder socket, so the shoulder moves a lot but dislocates easily.'], src: [['Humerus (Wikipedia)', W + 'Humerus']] },
-    radius: { n: 'Radius and ulna', s: 'k', a: ['The two forearm bones. The radius is on the thumb side.', 'The radius turns around the ulna to rotate your palm.'], b: ['About 22–25 cm long.'], src: [['Radius (Wikipedia)', W + 'Radius_(bone)']] },
-    hand: { n: 'Hand bones', s: 'k', a: ['27 bones: 8 wrist bones (carpals), 5 metacarpals, 14 finger bones (phalanges).'], b: ['Both hands together hold over a quarter of the body’s bones.'], d: 'Wrist bones shown as one group.', src: [['Hand (Wikipedia)', W + 'Hand']] },
-    pelvis: { n: 'Pelvis', s: 'k', a: ['Two hip bones plus the sacrum, forming a ring.', 'In women it is wider and rounder, making room for childbirth.'], b: ['The female pelvic inlet is oval and wide; the angle under the pubic bones is usually over 80°.'], d: 'Outline simplified.', src: [['Pelvis (Wikipedia)', W + 'Pelvis']] },
-    femur: { n: 'Femur (thigh bone)', s: 'k', a: ['The longest and strongest bone: about 42–45 cm in a 1.65 m adult (about 26–27% of height).'], b: ['It slants inward to the knee; the slant is larger in women because the pelvis is wider.'], src: [['Femur (Wikipedia)', W + 'Femur']] },
-    patella: { n: 'Patella (kneecap)', s: 'k', a: ['A bone that grows inside the tendon of the thigh muscle.'], b: ['About 5 cm across.'], src: [['Patella (Wikipedia)', W + 'Patella']] },
-    tibia: { n: 'Tibia and fibula', s: 'k', a: ['The shin bone (tibia) carries the weight; the thin fibula is on the outside.'], b: ['The tibia is about 35–37 cm long in women.'], src: [['Tibia (Wikipedia)', W + 'Tibia']] },
-    foot: { n: 'Foot bones', s: 'k', a: ['26 bones: 7 tarsals, 5 metatarsals, 14 phalanges.'], b: ['Seen from the front, the foot is foreshortened.'], d: 'Foot shown foreshortened and simplified.', src: [['Foot (Wikipedia)', W + 'Foot']] },
-    // organs
-    brain: { n: 'Brain', s: 'k', a: ['About 1.2–1.3 kg in adult women, with about 86 billion neurons.', 'Uses about 20% of the body’s energy.'], b: ['How it makes thoughts and feelings is still being worked out.'], s2: 't', src: [['Human brain (Wikipedia)', W + 'Human_brain']] },
-    eye: { n: 'Eye', s: 'k', a: ['About 24 mm across.', 'The retina has about 120 million rods and 6 million cones.'], b: [], src: [['Human eye (Wikipedia)', W + 'Human_eye']] },
-    thyroid: { n: 'Thyroid gland', s: 'k', a: ['A butterfly-shaped gland in the neck, about 5 cm wide.', 'Its hormones set how fast the body uses energy.'], b: [], src: [['Thyroid (Wikipedia)', W + 'Thyroid']] },
-    lungs: { n: 'Lungs', s: 'k', a: ['The right lung has 3 lobes, the left has 2 and a notch for the heart.', 'About 300–500 million air sacs (alveoli).'], b: ['At rest you breathe about 12–16 times a minute, about 0.5 L each time.', 'Their inner surface is about 50–75 m².'], src: [['Lung (Wikipedia)', W + 'Lung']] },
-    heart: { n: 'Heart', s: 'k', a: ['About the size of a fist, 250–300 g in women.', 'Beats about 60–100 times a minute; shown at 70.'], b: ['Pumps about 5 litres of blood a minute at rest.', 'It sits in the middle of the chest, tilted to the person’s left.'], d: 'Outline simplified; chambers not drawn.', src: [['Heart (Wikipedia)', W + 'Heart']] },
-    liver: { n: 'Liver', s: 'k', a: ['The largest internal organ, about 1.2–1.5 kg.', 'Mostly on the person’s right, under the ribs.'], b: ['Does over 500 jobs, from cleaning blood to making bile.'], src: [['Liver (Wikipedia)', W + 'Liver']] },
-    gall: { n: 'Gallbladder', s: 'k', a: ['A small bag under the liver that stores bile, about 50 mL.'], b: [], src: [['Gallbladder (Wikipedia)', W + 'Gallbladder']] },
-    stomach: { n: 'Stomach', s: 'k', a: ['J-shaped, on the person’s left under the ribs.', 'Holds about 1–1.5 L after a meal.'], b: ['Its acid has a pH of about 1.5–3.5.'], src: [['Stomach (Wikipedia)', W + 'Stomach']] },
-    spleen: { n: 'Spleen', s: 'k', a: ['About 11 cm long, on the person’s left behind the stomach.', 'Filters old red blood cells and helps fight infection.'], b: [], src: [['Spleen (Wikipedia)', W + 'Spleen']] },
-    pancreas: { n: 'Pancreas', s: 'k', a: ['About 15 cm long, behind the stomach.', 'Makes digestive juices and insulin.'], b: [], src: [['Pancreas (Wikipedia)', W + 'Pancreas']] },
-    kidney: { n: 'Kidneys', s: 'k', a: ['Two bean shapes about 11 cm long at the back of the belly.', 'Together they filter about 180 L of blood plasma a day.'], b: ['The right kidney usually sits a little lower, under the liver.'], src: [['Kidney (Wikipedia)', W + 'Kidney']] },
-    smallint: { n: 'Small intestine', s: 'k', a: ['About 3–5 m long in a living person.', 'Where most food is absorbed.'], b: [], d: 'Coils drawn as a simplified pattern, not each real loop.', src: [['Small intestine (Wikipedia)', W + 'Small_intestine']] },
-    largeint: { n: 'Large intestine', s: 'k', a: ['About 1.5 m long, framing the small intestine.', 'Takes water back and holds trillions of gut bacteria.'], b: [], src: [['Large intestine (Wikipedia)', W + 'Large_intestine']] },
-    bladder: { n: 'Bladder', s: 'k', a: ['Stores urine: usually 300–500 mL.'], b: [], d: 'Drawn see-through so the reproductive organs behind it show.', src: [['Urinary bladder (Wikipedia)', W + 'Urinary_bladder']] },
-    uterus: { n: 'Uterus', s: 'k', a: ['A pear-shaped muscular organ about 7–8 cm long, behind and above the bladder.', 'Each month its lining thickens; if there is no pregnancy, the lining is shed as a period.'], b: ['In pregnancy the early embryo implants in the lining and the placenta forms.', 'The uterus grows from about 60 g to about 1 kg and holds the baby for about 40 weeks.', 'In labour its strong muscle contracts to push the baby out.'], src: [['Uterus (Wikipedia)', W + 'Uterus']] },
-    ovary: { n: 'Ovaries', s: 'k', a: ['Two almond-sized glands, about 3–4 cm long, either side of the uterus.', 'They hold the eggs and make the hormones oestrogen and progesterone.'], b: ['A baby girl is born with about 1–2 million immature eggs; only about 400–500 are released in a lifetime, usually one a month.', 'After an egg is released, the corpus luteum makes progesterone, which supports an early pregnancy.'], src: [['Ovary (Wikipedia)', W + 'Ovary']] },
-    // muscles
-    muscle: { n: 'Skeletal muscles', s: 'k', a: ['About 600 muscles, roughly 30–35% of body weight in women.', 'They pull on bones through tendons.'], b: ['Only the larger surface muscles are drawn.'], d: 'Main surface muscles only, shapes simplified.', src: [['Skeletal muscle (Wikipedia)', W + 'Skeletal_muscle']] },
-    deltoid: { n: 'Deltoid', s: 'k', a: ['The rounded shoulder muscle; lifts the arm sideways.'], b: [], src: [['Deltoid muscle (Wikipedia)', W + 'Deltoid_muscle']] },
-    pec: { n: 'Pectoralis major', s: 'k', a: ['The large fan-shaped chest muscle; pulls the arm forward and across.'], b: [], src: [['Pectoralis major (Wikipedia)', W + 'Pectoralis_major']] },
-    biceps: { n: 'Biceps brachii', s: 'k', a: ['Bends the elbow and turns the palm up.'], b: [], src: [['Biceps (Wikipedia)', W + 'Biceps']] },
-    forearm: { n: 'Forearm muscles', s: 'k', a: ['About 20 muscles that move the wrist and fingers.'], b: [], src: [['Forearm (Wikipedia)', W + 'Forearm']] },
-    abs: { n: 'Rectus abdominis', s: 'k', a: ['The long belly muscle, split into sections by bands of tendon.'], b: [], src: [['Rectus abdominis muscle (Wikipedia)', W + 'Rectus_abdominis_muscle']] },
-    oblique: { n: 'External oblique', s: 'k', a: ['The side belly muscle; twists and bends the trunk.'], b: [], src: [['Abdominal external oblique muscle (Wikipedia)', W + 'Abdominal_external_oblique_muscle']] },
-    scm: { n: 'Sternocleidomastoid', s: 'k', a: ['The neck muscle that turns and tilts the head.'], b: [], src: [['Sternocleidomastoid muscle (Wikipedia)', W + 'Sternocleidomastoid_muscle']] },
-    quads: { n: 'Quadriceps', s: 'k', a: ['Four muscles at the front of the thigh that straighten the knee.'], b: ['One of the strongest muscle groups in the body.'], src: [['Quadriceps (Wikipedia)', W + 'Quadriceps_femoris_muscle']] },
-    sartorius: { n: 'Sartorius', s: 'k', a: ['The longest muscle in the body, crossing the thigh diagonally.'], b: [], src: [['Sartorius muscle (Wikipedia)', W + 'Sartorius_muscle']] },
-    adductor: { n: 'Adductors', s: 'k', a: ['Inner-thigh muscles that pull the legs together.'], b: [], src: [['Adductor muscles of the hip (Wikipedia)', W + 'Adductor_muscles_of_the_hip']] },
-    tibant: { n: 'Tibialis anterior', s: 'k', a: ['Lifts the front of the foot.'], b: [], src: [['Tibialis anterior muscle (Wikipedia)', W + 'Tibialis_anterior_muscle']] },
-    calf: { n: 'Gastrocnemius (calf)', s: 'k', a: ['The calf muscle; lifts the heel through the Achilles tendon.'], b: [], src: [['Gastrocnemius muscle (Wikipedia)', W + 'Gastrocnemius_muscle']] },
-    // circulation
-    artery: { n: 'Arteries', s: 'k', a: ['Carry blood away from the heart (red here).', 'The aorta is about 2.5–3 cm wide.'], b: ['Blood in the aorta moves on average about 20 cm/s; the moving dots use that speed.', 'Their total length is often quoted as 100,000 km, but newer estimates are far lower: nobody has measured it exactly.'], d: 'Main arteries are mapped; the small branches that appear as you zoom are a generated pattern, not a map.', src: [['Artery (Wikipedia)', W + 'Artery']] },
-    aorta: { n: 'Aorta', s: 'k', a: ['The biggest artery, about 2.5–3 cm wide.', 'It arches over the heart and runs down in front of the spine.'], b: ['It splits into the two iliac arteries at about the navel.'], src: [['Aorta (Wikipedia)', W + 'Aorta']] },
-    vein: { n: 'Veins', s: 'k', a: ['Carry blood back to the heart (blue here; real blood is always red, darker in veins).'], b: ['Valves stop blood falling back down the legs.'], d: 'Main veins drawn; small branches are a generated pattern.', src: [['Vein (Wikipedia)', W + 'Vein']] },
-    // nerves
-    nerve: { n: 'Nerves', s: 'k', a: ['Nerves carry signals between the brain, spinal cord and body.', 'Fast nerve signals travel up to about 120 m/s.'], b: ['The moving dots are shown much slower than real so you can see them.'], d: 'Main nerves drawn; small branches are a generated pattern. Signals slowed down.', src: [['Nerve (Wikipedia)', W + 'Nerve']] },
-    cord: { n: 'Spinal cord', s: 'k', a: ['About 43 cm long in women; ends near the first lumbar vertebra.', 'Below that, nerve roots continue as the "horse’s tail" (cauda equina).'], b: [], src: [['Spinal cord (Wikipedia)', W + 'Spinal_cord']] },
-    sciatic: { n: 'Sciatic nerve', s: 'k', a: ['The thickest nerve, up to about 2 cm wide, running down the back of the thigh.'], b: ['Seen from the front it lies behind the femur.'], src: [['Sciatic nerve (Wikipedia)', W + 'Sciatic_nerve']] },
-    median: { n: 'Arm nerves', s: 'k', a: ['The median, ulnar and radial nerves run down the arm to the hand.', 'Hitting the ulnar nerve at the elbow is the "funny bone".'], b: [], src: [['Median nerve (Wikipedia)', W + 'Median_nerve']] },
-  };
+  const P = BODY_P;
   const SCOL = { k: '#3dff8a', t: '#ffa53d', u: '#ff4d5e' }, SNAME = { k: 'Known', t: 'We think so', u: 'Unknown' };
   const LAYERS = [['muscle', 'Muscles', '#ff6b7a'], ['bone', 'Skeleton', '#f2ead8'], ['organ', 'Organs', '#ffb43d'], ['vessel', 'Blood vessels', '#ff4d5e'], ['nerve', 'Nerves', '#ffe14d']];
 
@@ -3138,6 +3202,11 @@ const VBODY = (() => {
     if (closed) { const s = m(-1); p.moveTo(s[0], s[1]); for (let i = 0; i < n; i++) { const e = m(i); p.quadraticCurveTo(pts[i][0], pts[i][1], e[0], e[1]); } p.closePath(); }
     else { p.moveTo(pts[0][0], pts[0][1]); for (let i = 1; i < n - 1; i++) { const e = m(i); p.quadraticCurveTo(pts[i][0], pts[i][1], e[0], e[1]); } p.lineTo(pts[n - 1][0], pts[n - 1][1]); } return p; };
   const mir = pts => pts.map(([x, y]) => [-x, y]);
+  // v10 proportions: old drawing y -> real y. Arms: wrist 800->850, fingertips 1022->1028 (hand ~0.108 H). Legs: hip 832->800, knee 1170->1205, ankle 1555->1585.
+  const lerpMap = K => y => { if (y <= K[0][0]) return y; for (let i = 1; i < K.length; i++) if (y <= K[i][0]) { const [a, A] = K[i - 1], [b, B_] = K[i]; return A + (y - a) / (b - a) * (B_ - A); } return y; };
+  const ARMY = lerpMap([[612, 612], [800, 850], [1022, 1028]]), LEGY = lerpMap([[760, 760], [832, 800], [1170, 1205], [1555, 1585], [1650, 1650]]);
+  const WA = pts => pts.map(([x, y]) => [x, ARMY(y)]), WL = pts => pts.map(([x, y]) => [x, LEGY(y)]);
+  const WP = pts => pts.map(([x, y]) => [x, Math.abs(x) >= 150 && y > 600 ? ARMY(y) : y > 840 || (y > 760 && Math.abs(x) > 40) ? LEGY(y) : y]); // vessels / nerves running into the limbs
   const sym = half => [...half, ...mir(half).reverse()]; // half = person's left side (x > 0) from top to bottom
   const plen = pts => { let L = 0; for (let i = 1; i < pts.length; i++) L += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); return L; };
   const along = (pts, s) => { for (let i = 1; i < pts.length; i++) { const l = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); if (s <= l) { const u = s / l; return [pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * u, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * u]; } s -= l; } return pts[pts.length - 1]; };
@@ -3154,11 +3223,11 @@ const VBODY = (() => {
     sk.addPath(smooth(sym([[38, 200], [42, 262], [150, 292], [178, 318], [178, 360], [150, 420], [132, 520], [118, 610], [140, 720], [172, 800], [178, 860], [150, 900], [20, 900]]))); // neck, shoulders, chest, waist (~0.68 of hip), hips
     for (const s of [1, -1]) {
       cap(s * 165, 330, 46, s * 200, 612, 36, sk);                // upper arm (elbow at ~0.37 H)
-      cap(s * 200, 612, 36, s * 222, 800, 25, sk);                // forearm (wrist ~0.48 H)
-      sk.addPath(smooth([[s * 204, 790], [s * 246, 800], [s * 258, 870], [s * 250, 990], [s * 232, 1022], [s * 214, 990], [s * 200, 900]])); // hand, fingertips ~0.62 H
-      cap(s * 95, 840, 92, s * 72, 1170, 52, sk);                  // thigh (knee centre ~0.715 H)
-      sk.addPath(smooth([[s * 30, 1160], [s * 118, 1170], [s * 120, 1290], [s * 98, 1450], [s * 82, 1560], [s * 46, 1565], [s * 30, 1440], [s * 26, 1290]])); // lower leg with calf
-      sk.addPath(smooth([[s * 40, 1550], [s * 92, 1555], [s * 112, 1625], [s * 100, 1650], [s * 30, 1650], [s * 30, 1600]])); // foot (front view)
+      cap(s * 200, 612, 36, s * 222, 850, 25, sk);                // forearm (wrist ~0.515 H from the top)
+      sk.addPath(smooth([[s * 204, 842], [s * 246, 848], [s * 262, 905], [s * 250, 1000], [s * 232, 1028], [s * 214, 1000], [s * 200, 930]])); // hand ~178 mm, fingertips ~0.62 H
+      cap(s * 95, 815, 92, s * 72, 1205, 52, sk);                  // thigh (knee joint ~0.27 H above the floor)
+      sk.addPath(smooth(WL([[s * 30, 1160], [s * 118, 1170], [s * 120, 1290], [s * 98, 1450], [s * 82, 1560], [s * 46, 1565], [s * 30, 1440], [s * 26, 1290]]))); // lower leg with calf
+      sk.addPath(smooth([[s * 40, 1575], [s * 92, 1578], [s * 112, 1630], [s * 100, 1650], [s * 30, 1650], [s * 30, 1610]])); // foot (front view)
     }
     add('skin', 'skin', sk, { fill: '#8fd0e8', stroke: '#9ff5ea' });
     // external anatomy (skin layer): plain clinical lines, front view
@@ -3194,19 +3263,24 @@ const VBODY = (() => {
     add('skull', 'bone', skull, { ...BONE, extra: g => { g.fillStyle = '#1a1420'; for (const s of [1, -1]) { g.beginPath(); g.ellipse(s * 28, 115, 17, 14, 0, 0, 6.28); g.fill(); } g.beginPath(); g.moveTo(-8, 160); g.lineTo(8, 160); g.lineTo(0, 140); g.fill(); g.strokeStyle = '#1a1420'; g.lineWidth = 2; g.beginPath(); g.moveTo(-26, 200); g.lineTo(26, 200); g.stroke(); } });
     { const sp = new Path2D(); const v = []; for (let i = 0; i < 24; i++) { const y = i < 7 ? 210 + i * 12 : i < 19 ? 294 + (i - 7) * 23 : 570 + (i - 19) * 33, h = i < 7 ? 10 : i < 19 ? 20 : 29, w = i < 7 ? 26 : i < 19 ? 32 + (i - 7) : 46; v.push([y, h, w]); sp.rect(-w / 2, y, w, h); }
       sp.addPath(smooth([[-50, 740], [50, 740], [30, 830], [0, 850], [-30, 830]])); add('spine', 'bone', sp, { ...BONE, back: true }); }
-    { const rb = new Path2D(); for (let i = 0; i < 12; i++) { const y0 = 300 + i * 22, w = 70 + Math.min(i, 7) * 12 - Math.max(0, i - 8) * 8, dy = 40 + i * 6, front = i < 7 ? 12 : i < 10 ? 40 + (i - 7) * 15 : w * .9;
-        for (const s of [1, -1]) { const r = smooth([[s * 14, y0], [s * (w + 30), y0 + dy * .2], [s * (w + 40), y0 + dy * .8], [s * (front + 40), y0 + dy * 1.25], [s * Math.max(18, front), y0 + dy * (i < 10 ? 1.3 : 1.1)]], false); rb.addPath(r); } }
+    { const rb = new Path2D(), OW = [58, 76, 90, 101, 109, 114, 117, 118, 116, 110, 100, 88]; // v10: outer half-width of each rib (mm): cage ~23–24 cm wide, inside the body outline
+      for (let i = 0; i < 12; i++) { const y0 = 300 + i * 22, w = OW[i], dy = 40 + i * 6, front = i < 7 ? 16 : i < 10 ? 40 + (i - 7) * 18 : w * .8;
+        for (const s of [1, -1]) { const r = smooth([[s * 14, y0], [s * w * .8, y0 + dy * .12], [s * w, y0 + dy * .6], [s * (front + (w - front) * .55), y0 + dy * 1.15], [s * Math.max(18, front), y0 + dy * (i < 10 ? 1.3 : 1.1)]], false); rb.addPath(r); } }
       add('ribs', 'bone', rb, { stroke: '#f2ead8', lw: 7, line: true, alpha: .8 }); }
     add('sternum', 'bone', smooth([[-16, 318], [16, 318], [13, 400], [11, 470], [0, 492], [-11, 470], [-13, 400]]), BONE);
     for (const s of [1, -1]) {
       add('clavicle', 'bone', cap(s * 16, 312, 8, s * 150, 300, 9), BONE);
       add('humerus', 'bone', (() => { const p = cap(s * 168, 330, 14, s * 197, 598, 11); ell(s * 162, 328, 26, 26, 0, p); ell(s * 198, 600, 26, 13, 0, p); return p; })(), BONE);
-      add('radius', 'bone', (() => { const p = cap(s * 185, 615, 8, s * 205, 795, 7); cap(s * 210, 612, 8, s * 232, 790, 9, p); return p; })(), BONE);
-      add('hand', 'bone', (() => { const p = ell(s * 222, 812, 24, 14); for (let f = 0; f < 5; f++) { const x0 = s * (204 + f * 9.5), y0 = 828, len = [70, 112, 120, 112, 92][f] * (f === 0 ? .8 : 1), ang = (f === 0 ? -.55 : (f - 2) * .07) * s; cap(x0, y0, 4.5, x0 + Math.sin(ang) * len * .45 * (f === 0 ? -1 : 1) * s * s, y0 + Math.cos(ang) * len * .45, 3.8, p); cap(x0 + Math.sin(ang) * len * .45, y0 + Math.cos(ang) * len * .45, 3.8, x0 + Math.sin(ang) * len, y0 + Math.cos(ang) * len, 3, p); } return p; })(), BONE);
-      add('femur', 'bone', (() => { const p = ell(s * 92, 832, 23, 23); cap(s * 92, 832, 15, s * 150, 852, 18, p); cap(s * 142, 860, 16, s * 62, 1160, 13, p); ell(s * 64, 1168, 40, 17, 0, p); return p; })(), BONE);
-      add('patella', 'bone', ell(s * 66, 1150, 22, 25), BONE);
-      add('tibia', 'bone', (() => { const p = cap(s * 58, 1190, 22, s * 52, 1555, 14); cap(s * 100, 1195, 9, s * 88, 1555, 9, p); return p; })(), BONE);
-      add('foot', 'bone', (() => { const p = ell(s * 66, 1570, 30, 14); for (let f = 0; f < 5; f++) cap(s * (42 + f * 13), 1590, 6, s * (40 + f * 15), 1640, 4.5, p); return p; })(), BONE);
+      // forearm in the anatomical position (palm forward): radius on the thumb (outer) side, ulna on the inner side, side by side
+      add('radius', 'bone', (() => { const p = cap(s * 186, 615, 8, s * 206, 845, 7); cap(s * 210, 612, 8, s * 236, 842, 10, p); return p; })(), BONE);
+      // hand ~178 mm: carpals, 5 metacarpals, fingers; palm faces forward so the THUMB is on the outside (away from the body)
+      add('hand', 'bone', (() => { const p = ell(s * 222, 866, 24, 14); for (let f = 0; f < 4; f++) { const x0 = s * (206 + f * 10), y0 = 882, mc = [62, 66, 68, 66][f], fl = [58, 72, 80, 74][f], ang = (f - 1.5) * .05 * s; // little, ring, middle, index
+          const x1 = x0 + Math.sin(ang) * mc, y1 = y0 + mc * .95; cap(x0, y0, 4.5, x1, y1, 4, p); cap(x1, y1, 3.8, x1 + Math.sin(ang) * fl, y1 + fl * .92, 3, p); }
+        const tx = s * 244, ty = 874, ta = .5 * s; cap(tx, ty, 5, tx + Math.sin(ta) * 44, ty + 40, 4.5, p); cap(tx + Math.sin(ta) * 44, ty + 40, 4, tx + Math.sin(ta) * 62, ty + 86, 3.2, p); return p; })(), BONE); // thumb
+      add('femur', 'bone', (() => { const p = ell(s * 92, 800, 23, 23); cap(s * 92, 800, 15, s * 150, 822, 18, p); cap(s * 142, 830, 16, s * 64, 1190, 13, p); ell(s * 66, 1198, 40, 17, 0, p); return p; })(), BONE); // ~42 cm, the longest bone
+      add('patella', 'bone', ell(s * 68, 1172, 22, 25), BONE);
+      add('tibia', 'bone', (() => { const p = cap(s * 60, 1222, 22, s * 52, 1578, 14); cap(s * 102, 1226, 9, s * 88, 1578, 9, p); return p; })(), BONE); // ~36 cm, shorter than the femur
+      add('foot', 'bone', (() => { const p = ell(s * 66, 1592, 30, 13); for (let f = 0; f < 5; f++) cap(s * (42 + f * 13), 1606, 6, s * (40 + f * 15), 1644, 4.5, p); return p; })(), BONE);
     }
     add('pelvis', 'bone', (() => { const p = new Path2D(); for (const s of [1, -1]) p.addPath(smooth([[s * 30, 740], [s * 110, 690], [s * 150, 720], [s * 140, 790], [s * 112, 812], [s * 92, 848], [s * 54, 880], [s * 14, 880], [s * 30, 850], [s * 66, 832], [s * 70, 790]])); return p; })(), { ...BONE, holes: true });
     // --- organs ---
@@ -3217,13 +3291,13 @@ const VBODY = (() => {
     const lungL = smooth([[42, 290], [30, 330], [40, 400], [80, 440], [60, 470], [40, 525], [80, 548], [128, 552], [132, 430], [104, 330], [64, 290]]); // left: 2 lobes + cardiac notch
     add('lungs', 'organ', lungR, { fill: '#ff8fa8', stroke: '#ffc0cf', breathe: true, extra: g => { g.strokeStyle = 'rgba(140,40,70,.6)'; g.lineWidth = 2; g.beginPath(); g.moveTo(-28, 360); g.quadraticCurveTo(-80, 420, -128, 470); g.moveTo(-70, 420); g.lineTo(-126, 430); g.stroke(); } });
     add('lungs', 'organ', lungL, { fill: '#ff8fa8', stroke: '#ffc0cf', breathe: true, extra: g => { g.strokeStyle = 'rgba(140,40,70,.6)'; g.lineWidth = 2; g.beginPath(); g.moveTo(54, 345); g.quadraticCurveTo(100, 430, 120, 540); g.stroke(); } });
-    add('heart', 'organ', smooth([[-34, 392], [0, 380], [40, 395], [80, 440], [88, 478], [60, 500], [10, 506], [-30, 488], [-46, 440]]), { fill: '#ff4d5e', stroke: '#ff9aa6', beat: [22, 446] }); // apex to the person's left, 5th intercostal space
+    add('heart', 'organ', smooth([[-34, 392], [0, 380], [40, 395], [80, 440], [88, 478], [60, 500], [10, 506], [-30, 488], [-46, 440]]), { fill: '#ff4d5e', stroke: '#ff9aa6', beat: [22, 446], extra: g => heartInside(g) }); // apex to the person's left, 5th intercostal space
     add('liver', 'organ', smooth([[-138, 520], [-60, 505], [20, 512], [70, 535], [40, 560], [-20, 600], [-90, 640], [-130, 630], [-145, 580]]), { fill: '#a04838', stroke: '#e07a62' });
     add('gall', 'organ', ell(-62, 612, 12, 22, .4), { fill: '#3dbf6a', stroke: '#8affb0' });
     add('stomach', 'organ', smooth([[40, 545], [80, 528], [118, 548], [124, 600], [100, 650], [50, 660], [10, 640], [6, 620], [40, 630], [76, 615], [82, 580], [60, 560]]), { fill: '#ff9e8a', stroke: '#ffcbb8' });
     add('spleen', 'organ', ell(128, 580, 20, 50, .3), { fill: '#7a2a5a', stroke: '#c75a9a' });
-    add('pancreas', 'organ', smooth([[-40, 640], [10, 625], [70, 618], [108, 625], [70, 640], [10, 650], [-36, 662]]), { fill: '#ffd07a', stroke: '#fff0b8', back: true });
-    add('kidney', 'organ', (() => { const p = new Path2D(); ell(-68, 668, 28, 56, -.15, p); ell(66, 652, 28, 56, .15, p); return p; })(), { fill: '#b8405a', stroke: '#ff8aa6', back: true }); // right one lower
+    add('pancreas', 'organ', smooth([[-40, 605], [10, 590], [70, 583], [108, 590], [70, 605], [10, 615], [-36, 627]]), { fill: '#ffd07a', stroke: '#fff0b8', back: true });
+    add('kidney', 'organ', (() => { const p = new Path2D(); ell(-68, 612, 26, 52, -.15, p); ell(66, 598, 26, 52, .15, p); return p; })(), { fill: '#b8405a', stroke: '#ff8aa6', back: true }); // v10: T12–L3, right one ~1.5 cm lower
     { const R = rng(9), pts = []; let x = -60, y = 690, d = 1; for (let row = 0; row < 7; row++) { for (let k = 0; k <= 8; k++) pts.push([x + d * k * 15, y + Math.sin(k * 1.6 + row) * 6]); x += d * 120; d = -d; y += 17; } // coils
       add('smallint', 'organ', smooth(pts, false), { stroke: '#ffb0a0', lw: 15, line: true, under: '#d8706a' }); }
     add('largeint', 'organ', smooth([[-92, 800], [-102, 760], [-108, 660], [-80, 645], [0, 668], [80, 640], [112, 660], [110, 760], [92, 806], [40, 820], [10, 846]], false), { stroke: '#d89060', lw: 26, line: true, under: '#a8603a', haustra: true });
@@ -3242,18 +3316,18 @@ const VBODY = (() => {
       add('deltoid', 'muscle', smooth([[s * 120, 300], [s * 175, 296], [s * 210, 350], [s * 196, 440], [s * 168, 410], [s * 150, 340]]), MU);
       add('pec', 'muscle', smooth([[s * 18, 320], [s * 120, 310], [s * 160, 360], [s * 150, 400], [s * 100, 430], [s * 30, 440], [s * 16, 400]]), MU);
       add('biceps', 'muscle', cap(s * 180, 420, 26, s * 196, 585, 15), MU);
-      add('forearm', 'muscle', cap(s * 200, 625, 30, s * 218, 780, 16), MU);
+      add('forearm', 'muscle', cap(s * 200, 625, 30, s * 220, 825, 16), MU);
       add('oblique', 'muscle', smooth([[s * 60, 460], [s * 125, 470], [s * 122, 600], [s * 140, 715], [s * 70, 720], [s * 62, 600]]), MU);
-      add('quads', 'muscle', smooth([[s * 130, 860], [s * 170, 900], [s * 160, 1060], [s * 120, 1140], [s * 70, 1130], [s * 60, 1000], [s * 100, 900]]), MU);
-      add('sartorius', 'muscle', cap(s * 140, 830, 12, s * 40, 1170, 10), { ...MU, fill: '#d24a5a' });
-      add('adductor', 'muscle', smooth([[s * 20, 885], [s * 70, 880], [s * 75, 1000], [s * 60, 1080], [s * 30, 960]]), MU);
-      add('tibant', 'muscle', cap(s * 80, 1210, 20, s * 62, 1500, 8), MU);
-      add('calf', 'muscle', smooth([[s * 34, 1200], [s * 70, 1205], [s * 60, 1360], [s * 40, 1400], [s * 30, 1300]]), { ...MU, fill: '#a82e3e' });
+      add('quads', 'muscle', smooth(WL([[s * 130, 860], [s * 170, 900], [s * 160, 1060], [s * 120, 1140], [s * 70, 1130], [s * 60, 1000], [s * 100, 900]])), MU);
+      add('sartorius', 'muscle', cap(s * 140, 810, 12, s * 42, 1205, 10), { ...MU, fill: '#d24a5a' });
+      add('adductor', 'muscle', smooth(WL([[s * 20, 885], [s * 70, 880], [s * 75, 1000], [s * 60, 1080], [s * 30, 960]])), MU);
+      add('tibant', 'muscle', cap(s * 80, 1245, 20, s * 62, 1530, 8), MU);
+      add('calf', 'muscle', smooth(WL([[s * 34, 1200], [s * 70, 1205], [s * 60, 1360], [s * 40, 1400], [s * 30, 1300]])), { ...MU, fill: '#a82e3e' });
     }
     add('abs', 'muscle', (() => { const p = new Path2D(); for (const s of [1, -1]) for (let k = 0; k < 4; k++) { const y = 470 + k * (k < 3 ? 70 : 60), h = k < 3 ? 62 : 150; p.addPath(smooth([[s * 6, y], [s * 56, y], [s * 54, y + h], [s * 6, y + h]])); } return p; })(), MU);
     // --- blood vessels (mapped main ones; mm) ---
-    const A = (pts, w, id = 'artery') => tube(id, 'vessel', pts, w, 'a'), V = (pts, w) => tube('vein', 'vessel', pts, w, 'v');
-    A([[12, 420], [10, 380], [-2, 352], [24, 350], [30, 380], [18, 440], [12, 560], [10, 700]], 26, 'aorta');   // ascending, arch, descending; splits near the navel (L4)
+    const A = (pts, w, id = 'artery') => tube(id, 'vessel', WP(pts), w, 'a'), V = (pts, w) => tube('vein', 'vessel', WP(pts), w, 'v');
+    A([[12, 386], [8, 366], [-2, 350], [24, 346], [34, 372], [32, 392]], 26, 'aorta'); A([[32, 392], [24, 430], [16, 520], [12, 560], [10, 700]], 24, 'aorta').back = true; // v10: leaves the heart at the top (aortic valve), passes BEHIND it   // ascending, arch, descending; splits near the navel (L4)
     for (const s of [1, -1]) {
       A([[s * 10, 360], [s * 28, 300], [s * 34, 230], [s * 40, 160]], 8);                                     // common carotid
       A([[s * 18, 356], [s * 90, 318], [s * 160, 340], [s * 186, 450], [s * 198, 600], [s * 202, 640], [s * 216, 790], [s * 222, 820]], 7); // subclavian › axillary › brachial › radial
@@ -3263,9 +3337,9 @@ const VBODY = (() => {
       V([[-14, 340], [s * 100, 326], [s * 172, 350], [s * 192, 600], [s * 212, 780]], 7);                      // subclavian › cephalic/brachial
       V([[-16, 560], [-16, 700], [s * 40, 760], [s * 66, 840], [s * 74, 900], [s * 56, 1100], [s * 44, 1250], [s * 40, 1540], [s * 52, 1590]], 9); // iliac › femoral › great saphenous (inner leg)
     }
-    V([[-18, 340], [-18, 420]], 20); V([[-16, 460], [-16, 700]], 22); // superior and inferior vena cava (person's right of the aorta)
+    V([[-18, 340], [-24, 398]], 20); V([[-26, 492], [-16, 540], [-16, 700]], 22); // superior and inferior vena cava (person's right of the aorta)
     // --- nerves ---
-    const N = (pts, w, id = 'nerve') => tube(id, 'nerve', pts, w, 'n');
+    const N = (pts, w, id = 'nerve') => tube(id, 'nerve', WP(pts), w, 'n');
     N([[0, 170], [0, 300], [0, 590]], 10, 'cord').back = true; for (let k = -2; k <= 2; k++) N([[0, 590], [k * 7, 700], [k * 14, 820]], 3, 'cord').back = true;
     for (const s of [1, -1]) {
       N([[s * 8, 300], [s * 80, 310], [s * 160, 360], [s * 180, 460], [s * 196, 610], [s * 214, 790], [s * 220, 860]], 4, 'median');
@@ -3273,7 +3347,15 @@ const VBODY = (() => {
       N([[s * 20, 820], [s * 80, 880], [s * 100, 1000], [s * 86, 1150]], 9, 'sciatic'); N([[s * 86, 1150], [s * 60, 1300], [s * 58, 1540], [s * 66, 1610]], 5, 'sciatic'); N([[s * 86, 1150], [s * 104, 1200], [s * 86, 1400], [s * 76, 1560]], 3, 'sciatic');
       N([[s * 40, 760], [s * 92, 860], [s * 100, 960], [s * 90, 1080]], 4); // femoral nerve
     }
-    return { parts, lines, H };
+    // v10 heart: textbook cut-away (coronal section) with 4 chambers, the septum and 4 valves; each is its own tappable part
+    const HS = [], hs = (id, path, o = {}) => { const q = { id, layer: 'organ', path, sub: 'heart', ...o }; HS.push(q); return q; };
+    hs('h_tri', ell(-16, 462, 11, 5), { valve: [-16, 462, 'av'] }); hs('h_mit', ell(46, 430, 11, 5), { valve: [46, 430, 'av'] });
+    hs('h_pulm', ell(2, 446, 9, 5), { valve: [2, 446, 'sl'] }); hs('h_aov', ell(16, 412, 9, 5), { valve: [16, 412, 'sl'] });
+    hs('h_sep', smooth([[27, 432], [33, 432], [34, 500], [26, 500]]), { fill: '#c23a4a' });
+    hs('h_ra', ell(-20, 432, 20, 30), { fill: '#6a5ad8' }); hs('h_la', ell(50, 414, 20, 12), { fill: '#ff6b7a' });
+    hs('h_rv', smooth([[-24, 468], [4, 454], [24, 462], [26, 496], [10, 504], [-22, 486]]), { fill: '#5a6ce0' });
+    hs('h_lv', smooth([[36, 434], [66, 442], [84, 474], [62, 496], [36, 500], [36, 466]]), { fill: '#ff5468' });
+    return { parts, lines, H, HS };
   };
 
   // ---------- state ----------
@@ -3301,6 +3383,15 @@ const VBODY = (() => {
 
   // ---------- drawing ----------
   const HR = 70 / 60, BRE = 14 / 60; // heart 70 beats/min, breathing 14/min
+  // chambers: blue = oxygen-poor side, red = oxygen-rich side. Valves: AV valves (tricuspid, mitral) open while the ventricles fill; aortic + pulmonary open while they squeeze
+  function heartInside(g) { const z = cam.z, a = sm(.55, 1, z); if (a < .01) return; const sys = Math.sin(t * HR * 6.283) > 0; g.save(); g.globalAlpha *= a;
+    for (const q of B.HS) { if (q.valve) continue; g.fillStyle = q.fill; g.fill(q.path); g.strokeStyle = 'rgba(255,220,225,.7)'; g.lineWidth = Math.max(.6, 1 / z); g.stroke(q.path); }
+    for (const q of B.HS) { if (!q.valve) continue; const [x, y, k] = q.valve, open = k === 'sl' ? sys : !sys; g.strokeStyle = '#fff0b8'; g.lineWidth = Math.max(1, 2.2 / z); g.lineCap = 'round'; g.beginPath();
+      if (open) { g.moveTo(x - 7, y - 3); g.lineTo(x - 6, y + (k === 'sl' ? -8 : 8)); g.moveTo(x + 7, y - 3); g.lineTo(x + 6, y + (k === 'sl' ? -8 : 8)); } else { g.moveTo(x - 9, y); g.lineTo(x - .5, y + (k === 'sl' ? -2 : 2)); g.moveTo(x + 9, y); g.lineTo(x + .5, y + (k === 'sl' ? -2 : 2)); } g.stroke(); }
+    if (sel && B.HS.some(q => q.id === sel[0])) { const q = B.HS.find(q => q.id === sel[0]); g.globalAlpha = 1; g.strokeStyle = '#ffd36b'; g.lineWidth = Math.max(1.5, 2.5 / z); g.setLineDash([5 / z, 4 / z]); g.stroke(q.path); g.setLineDash([]); }
+    g.restore(); }
+  function heartHit(wx, wy) { if (cam.z < .8) return null; const h = B.parts.find(p => p.id === 'heart'); if (!hc.isPointInPath(h.path, wx, wy)) return null;
+    for (const q of B.HS) if (hc.isPointInPath(q.path, wx, wy)) return q; return null; }
   function drawParts(g, lay, z, alpha) {
     for (const q of B.parts) { if (q.layer !== lay || q.ext) continue; g.save(); g.globalAlpha = alpha * (q.alpha || 1);
       if (q.beat) { const k = 1 + .045 * Math.max(0, Math.sin(t * HR * 6.283)) ** 3; g.translate(q.beat[0], q.beat[1]); g.scale(k, k); g.translate(-q.beat[0], -q.beat[1]); }
@@ -3345,7 +3436,7 @@ const VBODY = (() => {
     if (ON.skin) for (const q of B.parts) { if (!q.ext) continue; cx.globalAlpha = inner ? .45 : 1; if (q.shade && !inner) q.shade(cx); if (q.fill) { cx.fillStyle = q.fill; cx.fill(q.path); } cx.strokeStyle = sel && sel[0] === q.id ? '#ffd36b' : q.stroke; cx.lineWidth = Math.max(.6, q.lw * (inner ? .6 : 1) / z); cx.shadowColor = q.stroke; cx.shadowBlur = inner ? 0 : 6; cx.lineCap = 'round'; cx.stroke(q.path); cx.shadowBlur = 0; }
     cx.globalAlpha = 1; cx.setTransform(dpr, 0, 0, dpr, 0, 0); labels(); scale(); crumb(); status(); }
   // ---------- labels ----------
-  const LAB = [['brain', 0, 45], ['heart', 30, 446], ['lungs', -95, 420], ['liver', -95, 570], ['stomach', 90, 590], ['kidney', 66, 652], ['largeint', -104, 720], ['smallint', 0, 740], ['bladder', 0, 862], ['uterus', 0, 826], ['skull', 0, 30], ['ribs', 110, 470], ['pelvis', 125, 745], ['femur', 110, 1000], ['humerus', 185, 470], ['spine', 0, 520], ['aorta', 22, 600], ['cord', 0, 250], ['sciatic', 96, 1020], ['quads', 130, 980], ['pec', 90, 370], ['abs', 30, 560], ['deltoid', 185, 360], ['thyroid', 0, 268], ['spleen', 132, 560], ['ovary', 64, 818], ['tibia', 64, 1380], ['skin', -220, 500], ['breast', -150, 470], ['nipple', 95, 432], ['navel', 0, 675], ['vulva', 0, 915], ['mons', 0, 800], ['collar', 150, 312], ['knee', 112, 1150], ['face', 0, 205], ['mammary', -94, 405], ['cervix', 0, 862], ['vagina', 0, 905], ['tube', -84, 785]];
+  const LAB = [['brain', 0, 45], ['heart', 30, 446], ['lungs', -95, 420], ['liver', -95, 570], ['stomach', 90, 590], ['kidney', 66, 598], ['largeint', -104, 720], ['smallint', 0, 740], ['bladder', 0, 862], ['uterus', 0, 826], ['skull', 0, 30], ['ribs', 110, 470], ['pelvis', 125, 745], ['femur', 110, 1000], ['humerus', 185, 470], ['spine', 0, 520], ['aorta', 22, 600], ['cord', 0, 250], ['sciatic', 96, 1020], ['quads', 130, 980], ['pec', 90, 370], ['abs', 30, 560], ['deltoid', 185, 360], ['thyroid', 0, 268], ['spleen', 132, 560], ['ovary', 64, 818], ['tibia', 64, 1380], ['skin', -220, 500], ['breast', -150, 470], ['nipple', 95, 432], ['navel', 0, 675], ['vulva', 0, 915], ['mons', 0, 800], ['collar', 150, 312], ['knee', 112, 1150], ['face', 0, 205], ['mammary', -94, 405], ['cervix', 0, 862], ['vagina', 0, 905], ['tube', -84, 785]];
   const LMIN = { brain: .2, heart: .2, lungs: .2, liver: .2, stomach: .3, kidney: .45, largeint: .45, smallint: .5, bladder: .6, uterus: .7, skull: .3, ribs: .45, pelvis: .35, femur: .35, humerus: .5, spine: .7, aorta: .6, cord: .8, sciatic: .6, quads: .35, pec: .4, abs: .5, deltoid: .5, thyroid: .9, spleen: .7, ovary: 1, tibia: .5, skin: .2, breast: .3, nipple: .9, navel: .6, vulva: .5, mons: .6, collar: .5, knee: .5, face: .7, mammary: .6, cervix: 1.4, vagina: 1.4, tube: 1.1 };
   let labEls = {};
   function labels() { const z = cam.z, used = []; for (const [id, x, y] of LAB) { const q = B.parts.find(p => p.id === id) || B.lines.find(p => p.id === id); let el = labEls[id];
@@ -3365,12 +3456,12 @@ const VBODY = (() => {
     scl.innerHTML = `<i style="width:${len}px"></i>${pick >= 1000 ? pick / 1000 + ' m' : pick >= 10 ? pick / 10 + ' cm' : pick + ' mm'} <small>· true scale</small>`; }
   // ---------- picking: top visible layer first ----------
   function hit(wx, wy) { const z = cam.z, slop = 8 / z;
-    const tryLines = lay => { for (const l of B.lines) { if (l.layer !== lay) continue; hc.lineWidth = l.w + slop * 2; if (hc.isPointInStroke(l.path, wx, wy)) return l; } return null; };
+    const tryLines = (lay, back = false) => { for (const l of B.lines) { if (l.layer !== lay || !!l.back !== back) continue; hc.lineWidth = l.w + slop * 2; if (hc.isPointInStroke(l.path, wx, wy)) return l; } return null; };
     const tryParts = (lay, rev) => { const L = B.parts.filter(p => p.layer === lay); if (rev) L.reverse(); for (const q of L) { if (q.line) { hc.lineWidth = (q.lw || 4) + slop; if (hc.isPointInStroke(q.path, wx, wy)) return q; } else if (hc.isPointInPath(q.path, wx, wy)) return q; } return null; };
-    if (!inSkin(wx, wy) && !(ON.vessel && tryLines('vessel'))) return null;
+    if (!inSkin(wx, wy) && !(ON.vessel && (tryLines('vessel') || tryLines('vessel', true)))) return null;
     const ext = () => { for (const q of B.parts) { if (!q.ext) continue; const e = q.hitE || [q.hitR[0], q.hitR[1], q.hitR[2], q.hitR[3]]; if (((wx - e[0]) / e[2]) ** 2 + ((wy - e[1]) / e[3]) ** 2 < 1) return q.id === 'breast' && (((wx - e[0]) / 18) ** 2 + ((wy - 458) / 18) ** 2 < 1) ? B.parts.find(p => p.id === 'nipple') : q; } return null; };
     if (ON.skin) return ext() || B.parts[0];
-    return (ON.muscle && tryParts('muscle', true)) || (ON.nerve && tryLines('nerve')) || (ON.vessel && tryLines('vessel')) || (ON.organ && tryParts('organ', true)) || (ON.bone && tryParts('bone', true)) || (ON.skin && (ext() || B.parts[0])) || null; }
+    return (ON.muscle && tryParts('muscle', true)) || (ON.nerve && tryLines('nerve')) || (ON.vessel && tryLines('vessel')) || (ON.organ && (heartHit(wx, wy) || tryParts('organ', true))) || (ON.nerve && tryLines('nerve', true)) || (ON.vessel && tryLines('vessel', true)) || (ON.bone && tryParts('bone', true)) || (ON.skin && (ext() || B.parts[0])) || null; }
   function boundsOf(q) { let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (let y = -50; y <= H + 50; y += 6) for (let x = -300; x <= 300; x += 6) { const inn = q.pts ? (hc.lineWidth = q.w + 2, hc.isPointInStroke(q.path, x, y)) : q.line ? (hc.lineWidth = q.lw, hc.isPointInStroke(q.path, x, y)) : hc.isPointInPath(q.path, x, y); if (inn) { x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y); } } return [x0, y0, x1, y1]; }
   function select(q, zoomTo) { if (!q) { sel = null; showPop(); return; } const b = boundsOf(q); sel = [q.id, b]; layer = 1; showPop();
     if (zoomTo) { const bw = Math.max(40, b[2] - b[0]), bh = Math.max(40, b[3] - b[1]); animTo((b[0] + b[2]) / 2 + (mob() ? 0 : bw * .25), (b[1] + b[3]) / 2 + (mob() ? bh * .3 : 0), Math.min(VW() * .4 / bw, (VH() - TOP() - 80) * (mob() ? .45 : .6) / bh, 2.2)); } }
@@ -3378,8 +3469,10 @@ const VBODY = (() => {
     pop.innerHTML = `<button class="x" aria-label="Close">×</button><b class="t1">${c.n}</b><div class="chip"><i style="background:${SCOL[c.s]}"></i>${SNAME[c.s]}${c.s2 ? ` · <i style="background:${SCOL[c.s2]}"></i>some parts still being studied` : ''}</div>${c.a.map(x => `<p>${x}</p>`).join('')}
       <div class="chip"><i style="background:${SCOL.t}"></i>Drawing: ${c.d || 'position and size to scale; shape simplified.'}</div>
       ${layer >= 2 ? `<div class="lay">${c.b.map(x => `<p>${x}</p>`).join('')}<div class="src">Sources: ${c.src.map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join(' · ')}</div></div>` : ''}
-      <div class="pact">${layer < 2 ? '<button class="more">Read more ▾</button>' : ''}<span class="lv">Layer ${layer} of 2</span></div>`;
+      <div class="pact">${layer < 2 ? '<button class="more">Read more ▾</button>' : ''}<span class="lv">Layer ${layer} of 2</span></div>${cellOf(sel[0]) && opts.onCell ? `<button class="more vtocell">🔬 See its cells</button>` : ''}`;
+    const tc = pop.querySelector('.vtocell'); if (tc) tc.onclick = () => { const id = sel[0], f = opts.onCell; destroy(); f(id, cellOf(id)); };
     pop.querySelector('.x').onclick = () => { sel = null; showPop(); }; const m = pop.querySelector('.more'); if (m) m.onclick = () => { layer = 2; showPop(); }; }
+  const cellOf = id => typeof BODY_CELLS !== 'undefined' && (BODY_CELLS[id] || (/^h_/.test(id) && BODY_CELLS.heart) || null);
   // ---------- input ----------
   function zoomAt(X, Y, k) { const [wx, wy] = s2w(X, Y); anim = null; cam.z = clampZ(cam.z * k); const [wx2, wy2] = s2w(X, Y); cam.x += wx - wx2; cam.y += wy - wy2; clampCam(); }
   function bind() { const ptr = new Map(); let down = null, moved = false, pinch = null;
@@ -3387,7 +3480,7 @@ const VBODY = (() => {
     cv.addEventListener('pointermove', e => { if (!ptr.has(e.pointerId)) return; const p = ptr.get(e.pointerId), dx = e.clientX - p[0], dy = e.clientY - p[1]; ptr.set(e.pointerId, [e.clientX, e.clientY]);
       if (ptr.size === 2) { const [a, b] = [...ptr.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]); if (pinch) zoomAt((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, d / pinch); pinch = d; moved = true; return; }
       if (Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 6) moved = true; if (moved) { cam.x -= dx / cam.z; cam.y -= dy / cam.z; clampCam(); } });
-    const up = e => { if (!ptr.has(e.pointerId)) return; ptr.delete(e.pointerId); if (ptr.size < 2) pinch = null; if (!moved && ptr.size === 0) { const r = cv.getBoundingClientRect(), [wx, wy] = s2w(e.clientX - r.left, e.clientY - r.top); select(hit(wx, wy), true); } };
+    const up = e => { if (!ptr.has(e.pointerId)) return; ptr.delete(e.pointerId); if (ptr.size < 2) pinch = null; if (!moved && ptr.size === 0) { const r = cv.getBoundingClientRect(), [wx, wy] = s2w(e.clientX - r.left, e.clientY - r.top); select(hit(wx, wy), false); } }; // v10: a tap opens the card, it does not jump the zoom
     cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', e => ptr.delete(e.pointerId));
     cv.addEventListener('wheel', e => { e.preventDefault(); const r = cv.getBoundingClientRect(); zoomAt(e.clientX - r.left, e.clientY - r.top, Math.exp(-e.deltaY * .0015)); }, { passive: false });
     onKey = e => { if (!alive) return; if (e.key === 'Escape') { if (sel) { sel = null; showPop(); } else close(); } else if (e.key === '+' || e.key === '=') zoomAt(VW() / 2, VH() / 2, 1.4); else if (e.key === '-') zoomAt(VW() / 2, VH() / 2, 1 / 1.4); else if (e.key === '0') fit(); };
@@ -3396,7 +3489,7 @@ const VBODY = (() => {
   // ---------- life cycle ----------
   function init(host = document.body, o = {}) { if (alive) destroy(); opts = o; alive = true; sex = 'female'; Object.assign(ON, ON0); B = BUILD[sex](); BR.clear(); skinPath = B.parts[0].path;
     root = document.createElement('div'); root.id = 'vbody'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Human Body');
-    root.innerHTML = `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🫀 Human Body <small>v9</small></b><div class="vzm"><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole body">⤢</button></div></div>` +
+    root.innerHTML = `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🫀 Human Body <small>v10</small></b><div class="vzm"><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole body">⤢</button></div></div>` +
       `<div class="vtime vlay" role="group" aria-label="Layers">${LAYERS.map(([k, n, c]) => `<button data-l="${k}" aria-pressed="${ON[k]}" class="${ON[k] ? 'on' : ''}"><i style="background:${c}"></i>${n}</button>`).join('')}</div>` +
       `<canvas aria-label="Human body, front view. Tap a part to learn about it."></canvas><div class="vcrumb"></div><div class="vscl"></div><div class="vban"></div><div class="vhint">Tap any part · pinch or scroll to zoom · toggle layers above</div><div class="vpop" role="dialog" aria-live="polite"></div>`;
     host.appendChild(root); const $ = s => root.querySelector(s); cv = $('canvas'); cx = cv.getContext('2d'); hc = document.createElement('canvas').getContext('2d');
@@ -3441,11 +3534,11 @@ function v8BestSpot(pw, ph, lx, ly) { const vw = innerWidth, vh = innerHeight, t
     if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); } else if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
     else if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeMenu(true); } else if (e.key === 'Tab') closeMenu(); });
   addEventListener('pointerdown', e => { if (menu.classList.contains('on') && !menu.contains(e.target) && e.target !== btn) closeMenu(); }, true);
-  function openCell(focus) { if (sel || LOOPON) closePop(); if (typeof HOWTO !== 'undefined' && HOWTO.close) HOWTO.close();
-    VCELL.init(document.body, { focus, onMapLink: id => { if (/cell/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); if (VIEW !== 'map') { setScene('map'); if (typeof syncSwitch === 'function') syncSwitch(); } setTimeout(() => openShared(id), 80); }, onClose: () => { if (/cell/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); btn.focus({ preventScroll: true }); } }); }
+  function openCell(focus, tissue) { if (sel || LOOPON) closePop(); if (typeof HOWTO !== 'undefined' && HOWTO.close) HOWTO.close();
+    VCELL.init(document.body, { focus, tissue, onMapLink: id => { if (/cell/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); if (VIEW !== 'map') { setScene('map'); if (typeof syncSwitch === 'function') syncSwitch(); } setTimeout(() => openShared(id), 80); }, onClose: () => { if (/cell/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); if (tissue) { openBody(tissue.back); return; } btn.focus({ preventScroll: true }); } }); }
   window.openCell = openCell;
   function openBody(focus) { if (sel || LOOPON) closePop(); if (typeof HOWTO !== 'undefined' && HOWTO.close) HOWTO.close();
-    VBODY.init(document.body, { focus, onClose: () => { if (/body/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); btn.focus({ preventScroll: true }); } }); }
+    VBODY.init(document.body, { focus, onCell: (id, cell) => openCell(undefined, { from: (BODY_P[id] || {}).n || id, cell, back: id }), onClose: () => { if (/body/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); btn.focus({ preventScroll: true }); } }); }
   window.openBody = openBody;
   // size ruler toggle (phones)
   const rb = document.getElementById('rulb');
@@ -3460,6 +3553,7 @@ function v8BestSpot(pw, ph, lx, ly) { const vw = innerWidth, vh = innerHeight, t
   const h = new URLSearchParams(location.hash.slice(1)); if (h.has('cell')) setTimeout(() => openCell(h.get('cell') || undefined), 60); else if (h.has('body')) setTimeout(() => openBody(h.get('body') || undefined), 60);
   apply();
 })();
+// v10 additions
 
 
 /* ============ START ============ */
