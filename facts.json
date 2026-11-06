@@ -1,9 +1,9 @@
 {
  "name": "From Nothing to Us",
- "version": 11,
+ "version": 12,
  "author": "Zyphullen",
- "data_hash": "c52407352f1c",
- "generated": "2026-11-05",
+ "data_hash": "d5437c932b66",
+ "generated": "2026-11-06",
  "key": {
   "green": "known",
   "orange": "we think (leading idea / hypothesis)",
@@ -16,12 +16,13 @@
   "body": 72,
   "planet": 18,
   "elements": 118,
-  "sources": 158
+  "sources": 164
  },
  "nodes": [
   {
    "id": "nothing",
    "title": "Before the Big Bang?",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=nothing",
    "subtitle": "Why is there anything?",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -132,6 +133,7 @@
     {
      "summary": "Simons Observatory hunts B-mode ripples from the start (running, to 2035).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "simons",
@@ -143,6 +145,7 @@
     {
      "summary": "LiteBIRD satellite (~2036): 10× sharper B-mode search.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "litebird",
@@ -154,6 +157,7 @@
     {
      "summary": "Re-check sky maps for \"circles\" or bubble bruises from before (done on WMAP: not confirmed).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "cccno",
@@ -165,13 +169,21 @@
     {
      "summary": "A tested quantum-gravity theory that computes the start.",
      "chain_theory_test": true,
-     "sources": []
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
+     "sources": [
+      {
+       "key": "ctcomp",
+       "title": "Chain Theory compendium, release 0.1 (working draft)",
+       "url": "https://alexwg.org/publications/ChainTheoryCompendium.pdf"
+      }
+     ]
     }
    ]
   },
   {
    "id": "axiom",
    "title": "Chain Theory",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=axiom",
    "subtitle": "Only entangled pairs exist",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -197,7 +209,7 @@
     "That its pieces ARE real physics is called a conjecture by Alex himself.",
     "## What is missing",
     "Peer review. Independent checks. A second number that matches a measurement.",
-    "Posted 23–24 Oct 2026, so only days old. No independent review found yet (checked 26 Oct 2026).",
+    "Posted 23–24 Oct 2026. No independent expert review found yet (checked 6 Nov 2026).",
     "## Disclosure (from the paper)",
     "Made with a \"human-superintelligence collaboration\". The author has a financial interest in Physical Superintelligence PBC."
    ],
@@ -236,6 +248,7 @@
     {
      "summary": "Next caesium (Berkeley) and rubidium (Paris) α results: one of them rules Alex's number in or out.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "csalpha2",
@@ -247,6 +260,7 @@
     {
      "summary": "Keep \"3 generations, no 4th\" (LEP: 2.9963 ± 0.0074 neutrino types, consistent).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "lep",
@@ -256,13 +270,21 @@
      ]
     },
     {
-     "summary": "Independent experts review release 0.1 (none yet, Oct 2026).",
+     "summary": "Independent experts review release 0.1 (none found, checked 6 Nov 2026).",
      "chain_theory_test": true,
-     "sources": []
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
+     "sources": [
+      {
+       "key": "ctcomp",
+       "title": "Chain Theory compendium, release 0.1 (working draft)",
+       "url": "https://alexwg.org/publications/ChainTheoryCompendium.pdf"
+      }
+     ]
     },
     {
      "summary": "Get a number not put in by hand, e.g. proton/electron mass 1836.15 (not reached yet).",
      "chain_theory_test": true,
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
      "sources": [
       {
        "key": "ctcomp",
@@ -276,6 +298,7 @@
   {
    "id": "qft",
    "title": "Quantum fields",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=qft",
    "subtitle": "Standard Model: tested",
    "certainty": "green",
    "certainty_word": "known",
@@ -317,6 +340,7 @@
   {
    "id": "qgrav",
    "title": "Quantum gravity",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=qgrav",
    "subtitle": "Gravity at tiny scales?",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -433,6 +457,7 @@
     {
      "summary": "Lab test: can gravity entangle two tiny masses? (nanodiamond set-ups being designed)",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "gie",
@@ -444,6 +469,7 @@
     {
      "summary": "LISA (2035): hear black holes merge and test gravity at its strongest.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "lisa",
@@ -455,6 +481,7 @@
     {
      "summary": "Sharper black-hole images (Event Horizon Telescope).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "eht",
@@ -468,6 +495,7 @@
   {
    "id": "qudits",
    "title": "Qudits & pairs",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=qudits",
    "subtitle": "The links of the chain",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -514,6 +542,7 @@
     {
      "summary": "Entanglement limits (\"monogamy\", bound entanglement) already hold in theory and lab: consistent, not proof.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "horo",
@@ -525,11 +554,19 @@
     {
      "summary": "Show one measured particle is a web of pair-links.",
      "chain_theory_test": true,
-     "sources": []
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
+     "sources": [
+      {
+       "key": "ctcomp",
+       "title": "Chain Theory compendium, release 0.1 (working draft)",
+       "url": "https://alexwg.org/publications/ChainTheoryCompendium.pdf"
+      }
+     ]
     },
     {
      "summary": "α test (Cs vs Rb) decides the whole base.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "csalpha2",
@@ -543,6 +580,7 @@
   {
    "id": "distill",
    "title": "Distillation",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=distill",
    "subtitle": "\"To know is to link\"",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -589,6 +627,7 @@
     {
      "summary": "Turn \"time = count\" from conditional (box 50.1) into a theorem.",
      "chain_theory_test": true,
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
      "sources": [
       {
        "key": "ctcomp",
@@ -600,13 +639,21 @@
     {
      "summary": "Predict a measurable effect of time-from-links (e.g. a smallest tick).",
      "chain_theory_test": true,
-     "sources": []
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
+     "sources": [
+      {
+       "key": "ctcomp",
+       "title": "Chain Theory compendium, release 0.1 (working draft)",
+       "url": "https://alexwg.org/publications/ChainTheoryCompendium.pdf"
+      }
+     ]
     }
    ]
   },
   {
    "id": "inflation",
    "title": "Inflation",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=inflation",
    "subtitle": "Super-fast first stretch",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -668,6 +715,7 @@
     {
      "summary": "Simons Observatory B-modes (running, to 2035).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "simons",
@@ -679,6 +727,7 @@
     {
      "summary": "LiteBIRD (~2036): reach r ~ 0.001.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "litebird",
@@ -690,6 +739,7 @@
     {
      "summary": "Sharper n_s from new CMB + DESI data (2025: pressure on simplest models).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "inf2025",
@@ -703,6 +753,7 @@
   {
    "id": "genres",
    "title": "Six kinds of link",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=genres",
    "subtitle": "Only 2 can be read",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -753,11 +804,19 @@
     {
      "summary": "Give each \"dark\" genre a job and a number to measure.",
      "chain_theory_test": true,
-     "sources": []
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
+     "sources": [
+      {
+       "key": "ctcomp",
+       "title": "Chain Theory compendium, release 0.1 (working draft)",
+       "url": "https://alexwg.org/publications/ChainTheoryCompendium.pdf"
+      }
+     ]
     },
     {
      "summary": "Search for Alex's two conserved \"dark\" charges (Open 120.2).",
      "chain_theory_test": true,
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
      "sources": [
       {
        "key": "ctcomp",
@@ -771,6 +830,7 @@
   {
    "id": "gauge",
    "title": "Forces from one link",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=gauge",
    "subtitle": "Qutrit + qubit symmetry",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -814,6 +874,7 @@
     {
      "summary": "Already matches the known Standard Model group (known maths, not new evidence).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "baez",
@@ -825,6 +886,7 @@
     {
      "summary": "LHC Run 3: any extra force would break it (none seen).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "pdg",
@@ -836,13 +898,21 @@
     {
      "summary": "Predict a new particle or coupling from the link and look for it.",
      "chain_theory_test": true,
-     "sources": []
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
+     "sources": [
+      {
+       "key": "ctcomp",
+       "title": "Chain Theory compendium, release 0.1 (working draft)",
+       "url": "https://alexwg.org/publications/ChainTheoryCompendium.pdf"
+      }
+     ]
     }
    ]
   },
   {
    "id": "alpha",
    "title": "Chain Theory’s α formula",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=alpha",
    "subtitle": "α is measured; this formula is new",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -915,6 +985,7 @@
     {
      "summary": "Berkeley caesium α remeasurement (systematics study 2025; result pending).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "csalpha2",
@@ -926,6 +997,7 @@
     {
      "summary": "Next rubidium α (LKB Paris).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "rbalpha",
@@ -937,6 +1009,7 @@
     {
      "summary": "New electron g−2 (2023 value: 1.6σ from Alex). Goal: ~10× sharper.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "g2e",
@@ -948,6 +1021,7 @@
     {
      "summary": "If all agree at ~10× precision and miss 137.035999189566: dead.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "ctalpha",
@@ -961,6 +1035,7 @@
   {
    "id": "seeds",
    "title": "Seed ripples",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=seeds",
    "subtitle": "Tiny bumps, 1 in 100,000",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -1008,6 +1083,7 @@
     {
      "summary": "Simons Observatory: sharper ripple tilt (n_s).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "simons",
@@ -1019,6 +1095,7 @@
     {
      "summary": "LiteBIRD (~2036): gravity-wave seeds (B-modes).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "litebird",
@@ -1030,6 +1107,7 @@
     {
      "summary": "Euclid maps (DR1 expected 2027): tiny \"non-Gaussian\" fingerprints.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "euclid",
@@ -1043,6 +1121,7 @@
   {
    "id": "bigbang",
    "title": "Hot Big Bang",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=bigbang",
    "subtitle": "Hot, dense, expanding",
    "certainty": "green",
    "certainty_word": "known",
@@ -1083,6 +1162,7 @@
   {
    "id": "higgs",
    "title": "Higgs field",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=higgs",
    "subtitle": "Gives tiny particles mass",
    "certainty": "green",
    "certainty_word": "known",
@@ -1128,6 +1208,7 @@
   {
    "id": "chainmail",
    "title": "Chainmail particles",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=chainmail",
    "subtitle": "Particles as webs of links",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -1180,6 +1261,7 @@
     {
      "summary": "No 4th generation: LEP 2.9963 ± 0.0074 neutrino types (consistent).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "lep",
@@ -1191,6 +1273,7 @@
     {
      "summary": "LHC keeps searching for 4th-generation quarks (none).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "pdg",
@@ -1202,6 +1285,7 @@
     {
      "summary": "Compute proton/electron mass 1836.15 from webs (not reached, Thm 176.1).",
      "chain_theory_test": true,
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
      "sources": [
       {
        "key": "ctcomp",
@@ -1215,6 +1299,7 @@
   {
    "id": "ctspace",
    "title": "Space & time from links?",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=ctspace",
    "subtitle": "(2,2) links → spacetime",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -1285,6 +1370,7 @@
     {
      "summary": "Derive Newton's G or the expansion rate from link counting (open).",
      "chain_theory_test": true,
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
      "sources": [
       {
        "key": "ctcomp",
@@ -1296,6 +1382,7 @@
     {
      "summary": "Gravity-made entanglement in the lab (supports \"space from entanglement\" ideas).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "gie",
@@ -1307,6 +1394,7 @@
     {
      "summary": "Match a known holography result (ER=EPR) inside Chain Theory.",
      "chain_theory_test": true,
+     "source_note": null,
      "sources": [
       {
        "key": "erepr",
@@ -1320,6 +1408,7 @@
   {
    "id": "gap",
    "title": "Chain → Standard Model",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=gap",
    "subtitle": "The bridge is not built",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -1366,6 +1455,7 @@
     {
      "summary": "Prove the Photon Conjecture (not in the Lean proof).",
      "chain_theory_test": true,
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
      "sources": [
       {
        "key": "ctcomp",
@@ -1377,6 +1467,7 @@
     {
      "summary": "Cs vs Rb α results decide the photon link.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "csalpha2",
@@ -1388,13 +1479,21 @@
     {
      "summary": "Match one web to a measured particle mass.",
      "chain_theory_test": true,
-     "sources": []
+     "source_note": "Proposed test; Chain Theory reference/context, not a successful result.",
+     "sources": [
+      {
+       "key": "ctcomp",
+       "title": "Chain Theory compendium, release 0.1 (working draft)",
+       "url": "https://alexwg.org/publications/ChainTheoryCompendium.pdf"
+      }
+     ]
     }
    ]
   },
   {
    "id": "soup",
    "title": "Hot particle soup",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=soup",
    "subtitle": "All particles, ~10⁻¹² s",
    "certainty": "green",
    "certainty_word": "known",
@@ -1438,6 +1537,7 @@
   {
    "id": "quarks",
    "title": "Quarks",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=quarks",
    "subtitle": "6 flavours, 3 colours",
    "certainty": "green",
    "certainty_word": "known",
@@ -1481,6 +1581,7 @@
   {
    "id": "gluons",
    "title": "Gluons",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=gluons",
    "subtitle": "Carry the strong force",
    "certainty": "green",
    "certainty_word": "known",
@@ -1520,6 +1621,7 @@
   {
    "id": "electrons",
    "title": "Electrons & leptons",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=electrons",
    "subtitle": "e, μ, τ + 3 neutrinos",
    "certainty": "green",
    "certainty_word": "known",
@@ -1566,6 +1668,7 @@
   {
    "id": "neutrinos",
    "title": "Neutrinos",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=neutrinos",
    "subtitle": "Ghosts that pass through",
    "certainty": "green",
    "certainty_word": "known",
@@ -1619,6 +1722,7 @@
   {
    "id": "photons",
    "title": "Photons",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=photons",
    "subtitle": "Particles of light",
    "certainty": "green",
    "certainty_word": "known",
@@ -1661,6 +1765,7 @@
   {
    "id": "wz",
    "title": "W & Z bosons",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=wz",
    "subtitle": "Heavy weak-force carriers",
    "certainty": "green",
    "certainty_word": "known",
@@ -1702,6 +1807,7 @@
   {
    "id": "dm",
    "title": "Dark matter",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=dm",
    "subtitle": "Unseen mass. A particle?",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -1799,6 +1905,11 @@
        "key": "banik",
        "title": "Banik et al. 2024: wide binary stars rule out MOND (16σ)",
        "url": "https://arxiv.org/abs/2311.03436"
+      },
+      {
+       "key": "chae",
+       "title": "Hernandez, Chae et al. 2023: a critical review of GAIA wide-binary gravity tests",
+       "url": "https://arxiv.org/abs/2312.03162"
       }
      ]
     }
@@ -1807,6 +1918,7 @@
     {
      "summary": "LZ: 1000 live days of WIMP search by 2028.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "lz",
@@ -1818,6 +1930,7 @@
     {
      "summary": "Axion hunts: ADMX now, MADMAX prototype runs 2027–29.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "madmax",
@@ -1829,6 +1942,7 @@
     {
      "summary": "Euclid DR1 (expected 2027): biggest dark-matter lensing map.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "euclid",
@@ -1840,6 +1954,7 @@
     {
      "summary": "Rubin LSST (2026–36): faint dwarf galaxies test dark-matter types.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "rubin",
@@ -1853,6 +1968,7 @@
   {
    "id": "de",
    "title": "Dark energy",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=de",
    "subtitle": "Pushes space apart. Why?",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -1947,6 +2063,7 @@
     {
      "summary": "DESI final years: is dark energy really changing?",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "desi",
@@ -1958,6 +2075,7 @@
     {
      "summary": "Euclid DR1 (expected 2027).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "euclid",
@@ -1969,6 +2087,7 @@
     {
      "summary": "Roman telescope surveys (launched 2026).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "roman",
@@ -1980,6 +2099,7 @@
     {
      "summary": "Rubin LSST supernovae (2026–36).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "rubin",
@@ -1993,6 +2113,7 @@
   {
    "id": "strong",
    "title": "Strong force",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=strong",
    "subtitle": "Strongest, range ~1 fm",
    "certainty": "green",
    "certainty_word": "known",
@@ -2036,6 +2157,7 @@
   {
    "id": "antimatter",
    "title": "Why matter won?",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=antimatter",
    "subtitle": "1 extra in a billion",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -2102,6 +2224,7 @@
     {
      "summary": "Hyper-Kamiokande: neutrino vs antineutrino (data from 2028).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "hyperk",
@@ -2113,6 +2236,7 @@
     {
      "summary": "DUNE: same test, different method (beam ~2031).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "dune",
@@ -2124,6 +2248,7 @@
     {
      "summary": "LEGEND-1000 (first data ~2033): matter made without antimatter?",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "legend",
@@ -2137,6 +2262,7 @@
   {
    "id": "em",
    "title": "Electromagnetism",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=em",
    "subtitle": "Light, charge, chemistry",
    "certainty": "green",
    "certainty_word": "known",
@@ -2181,6 +2307,7 @@
   {
    "id": "weak",
    "title": "Weak force",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=weak",
    "subtitle": "Changes particle types",
    "certainty": "green",
    "certainty_word": "known",
@@ -2217,6 +2344,7 @@
   {
    "id": "gravity",
    "title": "Gravity",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=gravity",
    "subtitle": "Weakest, but builds worlds",
    "certainty": "green",
    "certainty_word": "known",
@@ -2264,6 +2392,7 @@
   {
    "id": "h0",
    "title": "Hubble tension",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=h0",
    "subtitle": "Two speeds for one universe",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -2317,6 +2446,7 @@
     {
      "summary": "More gravitational-wave \"standard sirens\" like GW170817.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "gw170817",
@@ -2328,6 +2458,7 @@
     {
      "summary": "More JWST and distance-ladder cross-checks.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "h0dn",
@@ -2339,6 +2470,7 @@
     {
      "summary": "DESI / Euclid expansion history.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "desi",
@@ -2352,6 +2484,7 @@
   {
    "id": "numass",
    "title": "Neutrino masses",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=numass",
    "subtitle": "Why so light?",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -2394,6 +2527,7 @@
     {
      "summary": "KATRIN: below 0.45 eV (2025); full data aims ~0.3 eV.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "katrin",
@@ -2405,6 +2539,7 @@
     {
      "summary": "DESI + Euclid: total mass from the sky (<0.064 eV so far).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "desi",
@@ -2416,6 +2551,7 @@
     {
      "summary": "DUNE / Hyper-K: which neutrino is heaviest (ordering).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "dune",
@@ -2427,6 +2563,7 @@
     {
      "summary": "LEGEND-1000 (~2033): is the neutrino its own antiparticle?",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "legend",
@@ -2440,6 +2577,7 @@
   {
    "id": "qgp",
    "title": "Quark-gluon soup",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=qgp",
    "subtitle": "First ~10 microseconds",
    "certainty": "green",
    "certainty_word": "known",
@@ -2478,6 +2616,7 @@
   {
    "id": "halos",
    "title": "Dark-matter clumps",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=halos",
    "subtitle": "The skeleton for galaxies",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -2517,6 +2656,7 @@
     {
      "summary": "Euclid DR1 lensing (expected 2027).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "euclid",
@@ -2528,6 +2668,7 @@
     {
      "summary": "Rubin LSST (2026–36): smallest clumps and dwarf galaxies.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "rubin",
@@ -2539,6 +2680,7 @@
     {
      "summary": "Roman wide surveys.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "roman",
@@ -2552,6 +2694,7 @@
   {
    "id": "hadrons",
    "title": "Protons & neutrons",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=hadrons",
    "subtitle": "3 quarks + gluon glue",
    "certainty": "green",
    "certainty_word": "known",
@@ -2603,6 +2746,7 @@
   {
    "id": "bbn",
    "title": "First nuclei",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=bbn",
    "subtitle": "H, He, a trace of Li",
    "certainty": "green",
    "certainty_word": "known",
@@ -2648,6 +2792,7 @@
   {
    "id": "atoms",
    "title": "First atoms",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=atoms",
    "subtitle": "Nuclei catch electrons",
    "certainty": "green",
    "certainty_word": "known",
@@ -2694,6 +2839,7 @@
   {
    "id": "cmb",
    "title": "Afterglow (CMB)",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=cmb",
    "subtitle": "Oldest light we can see",
    "certainty": "green",
    "certainty_word": "known",
@@ -2732,6 +2878,7 @@
   {
    "id": "firstmol",
    "title": "First molecules",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=firstmol",
    "subtitle": "HeH⁺ and H₂",
    "certainty": "green",
    "certainty_word": "known",
@@ -2768,6 +2915,7 @@
   {
    "id": "gas",
    "title": "Gas clouds",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=gas",
    "subtitle": "Gravity gathers gas",
    "certainty": "green",
    "certainty_word": "known",
@@ -2806,6 +2954,7 @@
   {
    "id": "firststars",
    "title": "First stars",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=firststars",
    "subtitle": "Huge, not yet confirmed",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -2864,6 +3013,7 @@
     {
      "summary": "Deeper JWST spectra of \"Hebe\": strong helium, no metals?",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "hebe",
@@ -2875,6 +3025,7 @@
     {
      "summary": "ESO ELT: science from Dec 2030.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "elt",
@@ -2885,14 +3036,22 @@
     },
     {
      "summary": "A first-star supernova seen directly.",
-     "chain_theory_test": true,
-     "sources": []
+     "chain_theory_test": false,
+     "source_note": null,
+     "sources": [
+      {
+       "key": "pop3",
+       "title": "Wikipedia: Population III stars",
+       "url": "https://en.wikipedia.org/wiki/Population_III_star"
+      }
+     ]
     }
    ]
   },
   {
    "id": "stars",
    "title": "Stars",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=stars",
    "subtitle": "Squeezed gas ignites",
    "certainty": "green",
    "certainty_word": "known",
@@ -2932,6 +3091,7 @@
   {
    "id": "galaxies",
    "title": "Galaxies",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=galaxies",
    "subtitle": "Billions of stars swirl",
    "certainty": "green",
    "certainty_word": "known",
@@ -2976,6 +3136,7 @@
   {
    "id": "smbh",
    "title": "Giant black holes",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=smbh",
    "subtitle": "Born heavy? Leading idea",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -2996,7 +3157,7 @@
    ],
    "deeper": [
     "## Colour",
-    "Orange: heavy \"direct-collapse\" seeds now have direct evidence, but are not proven.",
+    "Orange: heavy \"direct-collapse\" seeds now have supporting evidence, but are not proven.",
     "## How we would know",
     "More direct black-hole masses (JWST, ALMA). LISA (launch planned 2035) could hear seed black holes merge."
    ],
@@ -3035,6 +3196,7 @@
     {
      "summary": "JWST: more \"little red dots\" and their masses.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "lrddcbh",
@@ -3046,6 +3208,7 @@
     {
      "summary": "LISA (2035): hear seed black holes merge.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "lisa",
@@ -3057,6 +3220,7 @@
     {
      "summary": "ESO ELT (Dec 2030): weigh the earliest black holes.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "elt",
@@ -3070,6 +3234,7 @@
   {
    "id": "sprocess",
    "title": "Slow neutron catching",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=sprocess",
    "subtitle": "s-process in old stars",
    "certainty": "green",
    "certainty_word": "known",
@@ -3112,6 +3277,7 @@
   {
    "id": "fusion",
    "title": "Fusion in stars",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=fusion",
    "subtitle": "H → He → C, O … → Fe",
    "certainty": "green",
    "certainty_word": "known",
@@ -3158,6 +3324,7 @@
   {
    "id": "cosmicray",
    "title": "Cosmic-ray splitting",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=cosmicray",
    "subtitle": "Makes Li, Be, B",
    "certainty": "green",
    "certainty_word": "known",
@@ -3199,6 +3366,7 @@
   {
    "id": "supernova",
    "title": "Big-star supernovae",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=supernova",
    "subtitle": "Stars >8 Suns explode",
    "certainty": "green",
    "certainty_word": "known",
@@ -3239,6 +3407,7 @@
   {
    "id": "sn1a",
    "title": "White-dwarf blasts",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=sn1a",
    "subtitle": "Type Ia: makes iron",
    "certainty": "green",
    "certainty_word": "known",
@@ -3273,6 +3442,7 @@
   {
    "id": "nsmerger",
    "title": "Neutron-star crashes",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=nsmerger",
    "subtitle": "r-process: gold, platinum",
    "certainty": "green",
    "certainty_word": "known",
@@ -3318,6 +3488,7 @@
   {
    "id": "bh",
    "title": "Black holes",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=bh",
    "subtitle": "Even light can't escape",
    "certainty": "green",
    "certainty_word": "known",
@@ -3353,6 +3524,7 @@
   {
    "id": "elements",
    "title": "All 118 elements",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=elements",
    "subtitle": "Tap for the table",
    "certainty": "green",
    "certainty_word": "known",
@@ -3368,8 +3540,8 @@
     "Element = Z protons + some neutrons + Z electrons.",
     "Where they come from:",
     "Big Bang: H, He, (Li). Big stars: O to Fe. Dying giants: about half past Fe. Neutron-star crashes: gold, uranium. White dwarfs: most iron.",
-    "## Randomness",
-    "Which nucleus catches a neutron next is chance; it gives the zig-zag pattern of amounts."
+    "## The abundance zig-zag",
+    "Oddo–Harkins rule: even-proton nuclei are usually more abundant than their odd-proton neighbours. Neutron–proton pairing makes even nuclei more tightly bound and stable, so nuclear physics, not chance, gives this pattern."
    ],
    "deeper": [
     "## The numbers",
@@ -3402,6 +3574,11 @@
      "key": "iupac",
      "title": "IUPAC periodic table",
      "url": "https://iupac.org/what-we-do/periodic-table-of-elements/"
+    },
+    {
+     "key": "oddo",
+     "title": "Nuclear pairing and abundance: even–odd effects and binding-energy systematics (NDC review)",
+     "url": "https://www-nds.iaea.org/publications/indc/indc-nds-0789.pdf"
     }
    ],
    "rivals": [],
@@ -3410,6 +3587,7 @@
   {
    "id": "bonds",
    "title": "Chemical bonds",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=bonds",
    "subtitle": "Atoms share or swap electrons",
    "certainty": "green",
    "certainty_word": "known",
@@ -3452,6 +3630,7 @@
   {
    "id": "dust",
    "title": "Dust & disks",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=dust",
    "subtitle": "Rings around young stars",
    "certainty": "green",
    "certainty_word": "known",
@@ -3494,6 +3673,7 @@
   {
    "id": "molecules",
    "title": "Molecules",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=molecules",
    "subtitle": "Water, CO₂, methane…",
    "certainty": "green",
    "certainty_word": "known",
@@ -3537,6 +3717,7 @@
   {
    "id": "planets",
    "title": "Planets",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=planets",
    "subtitle": "Dust clumps into worlds",
    "certainty": "green",
    "certainty_word": "known",
@@ -3573,6 +3754,7 @@
   {
    "id": "solar",
    "title": "Solar system",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=solar",
    "subtitle": "Our Sun and its family",
    "certainty": "green",
    "certainty_word": "known",
@@ -3615,6 +3797,7 @@
   {
    "id": "earth",
    "title": "Earth",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=earth",
    "subtitle": "Rocky, wet, just right",
    "certainty": "green",
    "certainty_word": "known",
@@ -3658,6 +3841,7 @@
   {
    "id": "exo",
    "title": "Other worlds",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=exo",
    "subtitle": "6,451 found so far",
    "certainty": "green",
    "certainty_word": "known",
@@ -3694,6 +3878,7 @@
   {
    "id": "water",
    "title": "Water & oceans",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=water",
    "subtitle": "Early Earth gets wet",
    "certainty": "green",
    "certainty_word": "known",
@@ -3729,6 +3914,7 @@
   {
    "id": "moon",
    "title": "The Moon",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=moon",
    "subtitle": "Born in a giant crash?",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -3776,6 +3962,7 @@
     {
      "summary": "Artemis IV (early 2028): new South-Pole samples.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "artemis",
@@ -3787,6 +3974,7 @@
     {
      "summary": "More Earth–Moon isotope comparisons (iron, 2025).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "theia",
@@ -3797,14 +3985,22 @@
     },
     {
      "summary": "A Theia leftover found in Earth's deep mantle.",
-     "chain_theory_test": true,
-     "sources": []
+     "chain_theory_test": false,
+     "source_note": null,
+     "sources": [
+      {
+       "key": "moon",
+       "title": "Wikipedia: giant-impact hypothesis",
+       "url": "https://en.wikipedia.org/wiki/Giant-impact_hypothesis"
+      }
+     ]
     }
    ]
   },
   {
    "id": "chem",
    "title": "Early-Earth chemistry",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=chem",
    "subtitle": "Vents, ponds, lightning",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -3857,6 +4053,7 @@
     {
      "summary": "Dragonfly to Titan (launch July 2028, arrive 2034): prebiotic chemistry.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "dragonfly",
@@ -3868,6 +4065,7 @@
     {
      "summary": "Bennu samples: more organics analysed.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "nasabennu",
@@ -3878,14 +4076,22 @@
     },
     {
      "summary": "Head-to-head lab runs: land ponds vs vents.",
-     "chain_theory_test": true,
-     "sources": []
+     "chain_theory_test": false,
+     "source_note": null,
+     "sources": [
+      {
+       "key": "abiogenesis",
+       "title": "Wikipedia: abiogenesis",
+       "url": "https://en.wikipedia.org/wiki/Abiogenesis"
+      }
+     ]
     }
    ]
   },
   {
    "id": "amino",
    "title": "Amino acids",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=amino",
    "subtitle": "Protein letters (20)",
    "certainty": "green",
    "certainty_word": "known",
@@ -3931,6 +4137,7 @@
   {
    "id": "nucleotides",
    "title": "Nucleotides",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=nucleotides",
    "subtitle": "RNA/DNA letters (4)",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -3989,6 +4196,7 @@
     {
      "summary": "Bennu samples: any joined nucleotides?",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "nasabennu",
@@ -4000,6 +4208,7 @@
     {
      "summary": "Dragonfly (Titan, 2034): organic chemistry in place.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "dragonfly",
@@ -4010,14 +4219,22 @@
     },
     {
      "summary": "All four RNA letters made in one plausible setting.",
-     "chain_theory_test": true,
-     "sources": []
+     "chain_theory_test": false,
+     "source_note": null,
+     "sources": [
+      {
+       "key": "powner",
+       "title": "Powner, Gerland & Sutherland 2009: making RNA letters (Nature)",
+       "url": "https://www.nature.com/articles/nature08013"
+      }
+     ]
     }
    ]
   },
   {
    "id": "sugars",
    "title": "Sugars",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=sugars",
    "subtitle": "Ribose, glucose",
    "certainty": "green",
    "certainty_word": "known",
@@ -4054,6 +4271,7 @@
   {
    "id": "lipids",
    "title": "Fatty molecules",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=lipids",
    "subtitle": "Oily tails, wet heads",
    "certainty": "green",
    "certainty_word": "known",
@@ -4090,6 +4308,7 @@
   {
    "id": "peptides",
    "title": "First peptides",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=peptides",
    "subtitle": "Short amino-acid chains",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -4133,7 +4352,8 @@
    "tests": [
     {
      "summary": "Build on 2025 RNA + amino acid chemistry toward coded peptides.",
-     "chain_theory_test": true,
+     "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "powner25",
@@ -4145,6 +4365,7 @@
     {
      "summary": "Bennu samples: peptide bonds?",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "nasabennu",
@@ -4158,6 +4379,7 @@
   {
    "id": "rnaworld",
    "title": "RNA world",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=rnaworld",
    "subtitle": "RNA copied itself first?",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -4205,7 +4427,8 @@
    "tests": [
     {
      "summary": "QT45 follow-ups: a full copy cycle (both strands, repeated).",
-     "chain_theory_test": true,
+     "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "qt45",
@@ -4216,14 +4439,22 @@
     },
     {
      "summary": "Lab evolution of faster, more accurate RNA copiers.",
-     "chain_theory_test": true,
-     "sources": []
+     "chain_theory_test": false,
+     "source_note": null,
+     "sources": [
+      {
+       "key": "qt45",
+       "title": "Science 2026: QT45, a 45-letter self-copying RNA",
+       "url": "https://www.science.org/doi/10.1126/science.adt2760"
+      }
+     ]
     }
    ]
   },
   {
    "id": "vesicles",
    "title": "Fatty bubbles",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=vesicles",
    "subtitle": "Membranes form on their own",
    "certainty": "green",
    "certainty_word": "known",
@@ -4258,6 +4489,7 @@
   {
    "id": "protocell",
    "title": "Protocells",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=protocell",
    "subtitle": "A bubble around a copier",
    "certainty": "orange",
    "certainty_word": "we think",
@@ -4301,6 +4533,7 @@
     {
      "summary": "SpudCell follow-ups: fewer parts, less help.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "spudcell",
@@ -4311,14 +4544,22 @@
     },
     {
      "summary": "An RNA-filled fatty bubble that grows, copies and divides by itself.",
-     "chain_theory_test": true,
-     "sources": []
+     "chain_theory_test": false,
+     "source_note": null,
+     "sources": [
+      {
+       "key": "protocell",
+       "title": "Wikipedia: protocell",
+       "url": "https://en.wikipedia.org/wiki/Protocell"
+      }
+     ]
     }
    ]
   },
   {
    "id": "origin",
    "title": "The first spark",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=origin",
    "subtitle": "Chemistry → alive: how?",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -4394,6 +4635,7 @@
     {
      "summary": "Europa Clipper (Jupiter April 2030): is Europa habitable?",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "clipper",
@@ -4405,6 +4647,7 @@
     {
      "summary": "Dragonfly (Titan, 2034): chemistry before biology.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "dragonfly",
@@ -4416,6 +4659,7 @@
     {
      "summary": "ESA L4 Enceladus (under study, launch ~2042): sample the plumes.",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "l4",
@@ -4426,14 +4670,22 @@
     },
     {
      "summary": "One pot: self-made parts + open-ended evolution.",
-     "chain_theory_test": true,
-     "sources": []
+     "chain_theory_test": false,
+     "source_note": null,
+     "sources": [
+      {
+       "key": "abiogenesis",
+       "title": "Wikipedia: abiogenesis",
+       "url": "https://en.wikipedia.org/wiki/Abiogenesis"
+      }
+     ]
     }
    ]
   },
   {
    "id": "luca",
    "title": "LUCA",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=luca",
    "subtitle": "Last universal common ancestor",
    "certainty": "green",
    "certainty_word": "known",
@@ -4475,6 +4727,7 @@
   {
    "id": "proteins",
    "title": "Proteins",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=proteins",
    "subtitle": "Folded amino-acid chains",
    "certainty": "green",
    "certainty_word": "known",
@@ -4520,6 +4773,7 @@
   {
    "id": "code",
    "title": "Genetic code",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=code",
    "subtitle": "3 letters = 1 amino acid",
    "certainty": "green",
    "certainty_word": "known",
@@ -4555,6 +4809,7 @@
   {
    "id": "dna",
    "title": "DNA",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=dna",
    "subtitle": "Life's recipe book",
    "certainty": "green",
    "certainty_word": "known",
@@ -4596,6 +4851,7 @@
   {
    "id": "prok",
    "title": "Bacteria & archaea",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=prok",
    "subtitle": "Simple cells, no nucleus",
    "certainty": "green",
    "certainty_word": "known",
@@ -4634,6 +4890,7 @@
   {
    "id": "photosyn",
    "title": "Photosynthesis",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=photosyn",
    "subtitle": "Sunlight → food + oxygen",
    "certainty": "green",
    "certainty_word": "known",
@@ -4668,6 +4925,7 @@
   {
    "id": "goe",
    "title": "Oxygen rises",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=goe",
    "subtitle": "~2.4 billion years ago",
    "certainty": "green",
    "certainty_word": "known",
@@ -4702,6 +4960,7 @@
   {
    "id": "eukaryote",
    "title": "Complex cells",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=eukaryote",
    "subtitle": "Cells with a nucleus",
    "certainty": "green",
    "certainty_word": "known",
@@ -4742,6 +5001,7 @@
   {
    "id": "multicell",
    "title": "Many-celled life",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=multicell",
    "subtitle": "Cells team up",
    "certainty": "green",
    "certainty_word": "known",
@@ -4776,6 +5036,7 @@
   {
    "id": "tissues",
    "title": "Tissues",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=tissues",
    "subtitle": "Same cells, one job",
    "certainty": "green",
    "certainty_word": "known",
@@ -4816,6 +5077,7 @@
   {
    "id": "plants",
    "title": "Plants",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=plants",
    "subtitle": "Green, sun-powered",
    "certainty": "green",
    "certainty_word": "known",
@@ -4852,6 +5114,7 @@
   {
    "id": "animals",
    "title": "Animals",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=animals",
    "subtitle": "Move, eat, sense",
    "certainty": "green",
    "certainty_word": "known",
@@ -4891,6 +5154,7 @@
   {
    "id": "organs",
    "title": "Organs",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=organs",
    "subtitle": "Heart, lungs, gut…",
    "certainty": "green",
    "certainty_word": "known",
@@ -4925,6 +5189,7 @@
   {
    "id": "mammals",
    "title": "Mammals",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=mammals",
    "subtitle": "Fur, milk, warm blood",
    "certainty": "green",
    "certainty_word": "known",
@@ -4969,6 +5234,7 @@
   {
    "id": "organsys",
    "title": "Organ systems",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=organsys",
    "subtitle": "Teams of organs",
    "certainty": "green",
    "certainty_word": "known",
@@ -5003,6 +5269,7 @@
   {
    "id": "hsap",
    "title": "Homo sapiens",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=hsap",
    "subtitle": "~300,000 years ago",
    "certainty": "green",
    "certainty_word": "known",
@@ -5037,6 +5304,7 @@
   {
    "id": "body",
    "title": "Human body",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=body",
    "subtitle": "~30–37 trillion cells",
    "certainty": "green",
    "certainty_word": "known",
@@ -5087,6 +5355,7 @@
   {
    "id": "brain",
    "title": "Brain",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=brain",
    "subtitle": "86 billion neurons",
    "certainty": "green",
    "certainty_word": "known",
@@ -5134,6 +5403,7 @@
   {
    "id": "mind",
    "title": "Consciousness",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=mind",
    "subtitle": "Why it feels: unknown",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -5197,7 +5467,8 @@
    "tests": [
     {
      "summary": "More head-to-head tests like Cogitate (2025).",
-     "chain_theory_test": true,
+     "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "cogitate",
@@ -5208,14 +5479,22 @@
     },
     {
      "summary": "A brain signal that predicts awareness across patients and species.",
-     "chain_theory_test": true,
-     "sources": []
+     "chain_theory_test": false,
+     "source_note": null,
+     "sources": [
+      {
+       "key": "anaes",
+       "title": "Nature of consciousness in anaesthesia 2023: testing candidate brain signatures",
+       "url": "https://doi.org/10.1016/j.bjao.2023.100224"
+      }
+     ]
     }
    ]
   },
   {
    "id": "strings",
    "title": "String theory",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=strings",
    "subtitle": "Rival: tiny vibrating strings",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -5264,6 +5543,7 @@
     {
      "summary": "LHC keeps searching for supersymmetry and extra dimensions (none so far).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "pdg",
@@ -5275,6 +5555,7 @@
     {
      "summary": "Gravity-made entanglement in the lab (tests every quantum-gravity idea).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "gie",
@@ -5284,15 +5565,23 @@
      ]
     },
     {
-     "summary": "A prediction unique to strings at reachable energies.",
-     "chain_theory_test": true,
-     "sources": []
+     "summary": "A distinctive string prediction at reachable energies.",
+     "chain_theory_test": false,
+     "source_note": null,
+     "sources": [
+      {
+       "key": "strpol",
+       "title": "Polchinski 1994: What is string theory? (lectures)",
+       "url": "https://arxiv.org/abs/hep-th/9411028"
+      }
+     ]
     }
    ]
   },
   {
    "id": "lqg",
    "title": "Loop quantum gravity",
+   "share_url": "https://zyphullen.github.io/from-nothing-to-us/#n=lqg",
    "subtitle": "Rival: space made of loops",
    "certainty": "red",
    "certainty_word": "unknown",
@@ -5341,6 +5630,7 @@
     {
      "summary": "Gravity-made entanglement in the lab (tests every quantum-gravity idea).",
      "chain_theory_test": false,
+     "source_note": null,
      "sources": [
       {
        "key": "gie",
@@ -5350,9 +5640,16 @@
      ]
     },
     {
-     "summary": "Look for \"bounce\" marks in the CMB that only loop cosmology predicts.",
-     "chain_theory_test": true,
-     "sources": []
+     "summary": "Test specific loop-cosmology scenarios against CMB data; proposed signatures depend on the model.",
+     "chain_theory_test": false,
+     "source_note": null,
+     "sources": [
+      {
+       "key": "lqcobs",
+       "title": "Barrau 2017: testing loop quantum cosmology (scenario-dependent CMB signatures)",
+       "url": "https://arxiv.org/abs/1703.03716"
+      }
+     ]
     }
    ]
   }
@@ -5367,13 +5664,13 @@
   {
    "from": "nothing",
    "to": "qft",
-   "label": "?",
+   "label": "fields pervade space",
    "certainty": "red"
   },
   {
    "from": "nothing",
    "to": "qgrav",
-   "label": "?",
+   "label": "? a workable quantum gravity",
    "certainty": "red"
   },
   {
@@ -5625,7 +5922,7 @@
   {
    "from": "qgrav",
    "to": "gravity",
-   "label": null,
+   "label": "general relativity + quantum?",
    "certainty": "red"
   },
   {
@@ -5637,7 +5934,7 @@
   {
    "from": "neutrinos",
    "to": "numass",
-   "label": null,
+   "label": "mass-splitting oscillations",
    "certainty": "red"
   },
   {
@@ -5709,19 +6006,19 @@
   {
    "from": "em",
    "to": "atoms",
-   "label": null,
+   "label": "bound electrons + nuclei",
    "certainty": "green"
   },
   {
    "from": "atoms",
    "to": "cmb",
-   "label": "light set free",
+   "label": "scattering ends at recombination",
    "certainty": "green"
   },
   {
    "from": "photons",
    "to": "cmb",
-   "label": null,
+   "label": "light set free",
    "certainty": "green"
   },
   {
@@ -5811,7 +6108,7 @@
   {
    "from": "firststars",
    "to": "fusion",
-   "label": "H → He at 10⁷ K",
+   "label": "first stellar fusion",
    "certainty": "orange"
   },
   {
@@ -5823,7 +6120,7 @@
   {
    "from": "weak",
    "to": "fusion",
-   "label": null,
+   "label": "allows proton–proton fusion",
    "certainty": "green"
   },
   {
@@ -5859,7 +6156,7 @@
   {
    "from": "gravity",
    "to": "bh",
-   "label": null,
+   "label": "collapse past horizon",
    "certainty": "green"
   },
   {
@@ -5925,7 +6222,7 @@
   {
    "from": "stars",
    "to": "dust",
-   "label": null,
+   "label": "stellar winds + disks",
    "certainty": "green"
   },
   {
@@ -5937,7 +6234,7 @@
   {
    "from": "firstmol",
    "to": "molecules",
-   "label": null,
+   "label": "neutral atoms can bond",
    "certainty": "green"
   },
   {
@@ -5955,7 +6252,7 @@
   {
    "from": "stars",
    "to": "solar",
-   "label": null,
+   "label": "protostar + disk + planets",
    "certainty": "green"
   },
   {
@@ -6183,13 +6480,13 @@
   {
    "from": "multicell",
    "to": "plants",
-   "label": "+ chloroplasts",
+   "label": "many cells + chloroplasts",
    "certainty": "green"
   },
   {
    "from": "photosyn",
    "to": "plants",
-   "label": null,
+   "label": "inherited chloroplasts",
    "certainty": "green"
   },
   {
@@ -9154,8 +9451,8 @@
     "note": "Giant stars (1–8 Suns) catch neutrons slowly (s-process), then puff off their outer layers. (Most of our lithium: such stars and novae.)"
    },
    "M": {
-    "name": "Exploding massive stars",
-    "note": "Fusion in stars >8 Suns, spread by core-collapse supernovae."
+    "name": "Massive stars & their supernovae",
+    "note": "Made by fusion, neutron capture and explosive burning in stars >8 Suns; spread by core-collapse supernovae. Includes most Cu and the simpler main-source choice for Zn, Ti and V; shares vary by isotope and remain debated."
    },
    "W": {
     "name": "Exploding white dwarfs",
@@ -9178,6 +9475,18 @@
    {
     "z": 1,
     "symbol": "H",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Hydrogen",
     "group": "Other non-metal",
     "main_origin": "Big Bang",
@@ -9186,6 +9495,18 @@
    {
     "z": 2,
     "symbol": "He",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Helium",
     "group": "Noble gas",
     "main_origin": "Big Bang",
@@ -9194,6 +9515,18 @@
    {
     "z": 3,
     "symbol": "Li",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Lithium",
     "group": "Alkali metal",
     "main_origin": "Dying low-mass stars",
@@ -9205,6 +9538,18 @@
    {
     "z": 4,
     "symbol": "Be",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Beryllium",
     "group": "Alkaline-earth metal",
     "main_origin": "Cosmic-ray splitting",
@@ -9213,6 +9558,18 @@
    {
     "z": 5,
     "symbol": "B",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Boron",
     "group": "Metalloid",
     "main_origin": "Cosmic-ray splitting",
@@ -9221,77 +9578,185 @@
    {
     "z": 6,
     "symbol": "C",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Carbon",
     "group": "Other non-metal",
     "main_origin": "Dying low-mass stars",
     "also_from": [
-     "Exploding massive stars"
+     "Massive stars & their supernovae"
     ]
    },
    {
     "z": 7,
     "symbol": "N",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Nitrogen",
     "group": "Other non-metal",
     "main_origin": "Dying low-mass stars",
     "also_from": [
-     "Exploding massive stars"
+     "Massive stars & their supernovae"
     ]
    },
    {
     "z": 8,
     "symbol": "O",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Oxygen",
     "group": "Other non-metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 9,
     "symbol": "F",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Fluorine",
     "group": "Halogen",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 10,
     "symbol": "Ne",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Neon",
     "group": "Noble gas",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 11,
     "symbol": "Na",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Sodium",
     "group": "Alkali metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 12,
     "symbol": "Mg",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Magnesium",
     "group": "Alkaline-earth metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 13,
     "symbol": "Al",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Aluminium",
     "group": "Post-transition metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 14,
     "symbol": "Si",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Silicon",
     "group": "Metalloid",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
      "Exploding white dwarfs"
     ]
@@ -9299,17 +9764,41 @@
    {
     "z": 15,
     "symbol": "P",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Phosphorus",
     "group": "Other non-metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 16,
     "symbol": "S",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Sulfur",
     "group": "Other non-metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
      "Exploding white dwarfs"
     ]
@@ -9317,9 +9806,21 @@
    {
     "z": 17,
     "symbol": "Cl",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Chlorine",
     "group": "Halogen",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
      "Exploding white dwarfs"
     ]
@@ -9327,9 +9828,21 @@
    {
     "z": 18,
     "symbol": "Ar",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Argon",
     "group": "Noble gas",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
      "Exploding white dwarfs"
     ]
@@ -9337,9 +9850,21 @@
    {
     "z": 19,
     "symbol": "K",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Potassium",
     "group": "Alkali metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
      "Exploding white dwarfs"
     ]
@@ -9347,9 +9872,21 @@
    {
     "z": 20,
     "symbol": "Ca",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Calcium",
     "group": "Alkaline-earth metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
      "Exploding white dwarfs"
     ]
@@ -9357,44 +9894,144 @@
    {
     "z": 21,
     "symbol": "Sc",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Scandium",
     "group": "Transition metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 22,
     "symbol": "Ti",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     },
+     {
+      "key": "ironpeak",
+      "title": "Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning",
+      "url": "https://arxiv.org/abs/astro-ph/0605725"
+     },
+     {
+      "key": "pigos",
+      "title": "Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)",
+      "url": "https://link.springer.com/article/10.1140/epja/s10050-023-01206-1"
+     }
+    ],
     "name": "Titanium",
     "group": "Transition metal",
-    "main_origin": "Exploding white dwarfs",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
-     "Exploding massive stars"
+     "Exploding white dwarfs"
     ]
    },
    {
     "z": 23,
     "symbol": "V",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     },
+     {
+      "key": "ironpeak",
+      "title": "Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning",
+      "url": "https://arxiv.org/abs/astro-ph/0605725"
+     },
+     {
+      "key": "pigos",
+      "title": "Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)",
+      "url": "https://link.springer.com/article/10.1140/epja/s10050-023-01206-1"
+     }
+    ],
     "name": "Vanadium",
     "group": "Transition metal",
-    "main_origin": "Exploding white dwarfs",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
-     "Exploding massive stars"
+     "Exploding white dwarfs"
     ]
    },
    {
     "z": 24,
     "symbol": "Cr",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     },
+     {
+      "key": "ironpeak",
+      "title": "Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning",
+      "url": "https://arxiv.org/abs/astro-ph/0605725"
+     },
+     {
+      "key": "pigos",
+      "title": "Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)",
+      "url": "https://link.springer.com/article/10.1140/epja/s10050-023-01206-1"
+     }
+    ],
     "name": "Chromium",
     "group": "Transition metal",
     "main_origin": "Exploding white dwarfs",
     "also_from": [
-     "Exploding massive stars"
+     "Massive stars & their supernovae"
     ]
    },
    {
     "z": 25,
     "symbol": "Mn",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     },
+     {
+      "key": "ironpeak",
+      "title": "Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning",
+      "url": "https://arxiv.org/abs/astro-ph/0605725"
+     },
+     {
+      "key": "pigos",
+      "title": "Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)",
+      "url": "https://link.springer.com/article/10.1140/epja/s10050-023-01206-1"
+     }
+    ],
     "name": "Manganese",
     "group": "Transition metal",
     "main_origin": "Exploding white dwarfs",
@@ -9403,99 +10040,281 @@
    {
     "z": 26,
     "symbol": "Fe",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     },
+     {
+      "key": "ironpeak",
+      "title": "Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning",
+      "url": "https://arxiv.org/abs/astro-ph/0605725"
+     },
+     {
+      "key": "pigos",
+      "title": "Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)",
+      "url": "https://link.springer.com/article/10.1140/epja/s10050-023-01206-1"
+     }
+    ],
     "name": "Iron",
     "group": "Transition metal",
     "main_origin": "Exploding white dwarfs",
     "also_from": [
-     "Exploding massive stars"
+     "Massive stars & their supernovae"
     ]
    },
    {
     "z": 27,
     "symbol": "Co",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     },
+     {
+      "key": "ironpeak",
+      "title": "Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning",
+      "url": "https://arxiv.org/abs/astro-ph/0605725"
+     },
+     {
+      "key": "pigos",
+      "title": "Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)",
+      "url": "https://link.springer.com/article/10.1140/epja/s10050-023-01206-1"
+     }
+    ],
     "name": "Cobalt",
     "group": "Transition metal",
     "main_origin": "Exploding white dwarfs",
     "also_from": [
-     "Exploding massive stars"
+     "Massive stars & their supernovae"
     ]
    },
    {
     "z": 28,
     "symbol": "Ni",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     },
+     {
+      "key": "ironpeak",
+      "title": "Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning",
+      "url": "https://arxiv.org/abs/astro-ph/0605725"
+     },
+     {
+      "key": "pigos",
+      "title": "Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)",
+      "url": "https://link.springer.com/article/10.1140/epja/s10050-023-01206-1"
+     }
+    ],
     "name": "Nickel",
     "group": "Transition metal",
     "main_origin": "Exploding white dwarfs",
     "also_from": [
-     "Exploding massive stars"
+     "Massive stars & their supernovae"
     ]
    },
    {
     "z": 29,
     "symbol": "Cu",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     },
+     {
+      "key": "ironpeak",
+      "title": "Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning",
+      "url": "https://arxiv.org/abs/astro-ph/0605725"
+     },
+     {
+      "key": "pigos",
+      "title": "Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)",
+      "url": "https://link.springer.com/article/10.1140/epja/s10050-023-01206-1"
+     }
+    ],
     "name": "Copper",
     "group": "Transition metal",
-    "main_origin": "Exploding white dwarfs",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
-     "Exploding massive stars"
+     "Exploding white dwarfs"
     ]
    },
    {
     "z": 30,
     "symbol": "Zn",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     },
+     {
+      "key": "ironpeak",
+      "title": "Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning",
+      "url": "https://arxiv.org/abs/astro-ph/0605725"
+     },
+     {
+      "key": "pigos",
+      "title": "Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)",
+      "url": "https://link.springer.com/article/10.1140/epja/s10050-023-01206-1"
+     }
+    ],
     "name": "Zinc",
     "group": "Transition metal",
-    "main_origin": "Exploding white dwarfs",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
-     "Exploding massive stars"
+     "Exploding white dwarfs"
     ]
    },
    {
     "z": 31,
     "symbol": "Ga",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Gallium",
     "group": "Post-transition metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 32,
     "symbol": "Ge",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Germanium",
     "group": "Metalloid",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 33,
     "symbol": "As",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Arsenic",
     "group": "Metalloid",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 34,
     "symbol": "Se",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Selenium",
     "group": "Other non-metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 35,
     "symbol": "Br",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Bromine",
     "group": "Halogen",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": []
    },
    {
     "z": 36,
     "symbol": "Kr",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Krypton",
     "group": "Noble gas",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
      "Dying low-mass stars"
     ]
@@ -9503,9 +10322,21 @@
    {
     "z": 37,
     "symbol": "Rb",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Rubidium",
     "group": "Alkali metal",
-    "main_origin": "Exploding massive stars",
+    "main_origin": "Massive stars & their supernovae",
     "also_from": [
      "Dying low-mass stars"
     ]
@@ -9513,6 +10344,18 @@
    {
     "z": 38,
     "symbol": "Sr",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Strontium",
     "group": "Alkaline-earth metal",
     "main_origin": "Dying low-mass stars",
@@ -9521,6 +10364,18 @@
    {
     "z": 39,
     "symbol": "Y",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Yttrium",
     "group": "Transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9529,6 +10384,18 @@
    {
     "z": 40,
     "symbol": "Zr",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Zirconium",
     "group": "Transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9537,6 +10404,18 @@
    {
     "z": 41,
     "symbol": "Nb",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Niobium",
     "group": "Transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9545,17 +10424,41 @@
    {
     "z": 42,
     "symbol": "Mo",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Molybdenum",
     "group": "Transition metal",
     "main_origin": "Dying low-mass stars",
     "also_from": [
-     "Exploding massive stars",
+     "Massive stars & their supernovae",
      "Merging neutron stars"
     ]
    },
    {
     "z": 43,
     "symbol": "Tc",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Technetium",
     "group": "Transition metal",
     "main_origin": "Human-made",
@@ -9564,6 +10467,18 @@
    {
     "z": 44,
     "symbol": "Ru",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Ruthenium",
     "group": "Transition metal",
     "main_origin": "Merging neutron stars",
@@ -9574,6 +10489,18 @@
    {
     "z": 45,
     "symbol": "Rh",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Rhodium",
     "group": "Transition metal",
     "main_origin": "Merging neutron stars",
@@ -9582,6 +10509,18 @@
    {
     "z": 46,
     "symbol": "Pd",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Palladium",
     "group": "Transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9592,6 +10531,18 @@
    {
     "z": 47,
     "symbol": "Ag",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Silver",
     "group": "Transition metal",
     "main_origin": "Merging neutron stars",
@@ -9602,6 +10553,18 @@
    {
     "z": 48,
     "symbol": "Cd",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Cadmium",
     "group": "Transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9612,6 +10575,18 @@
    {
     "z": 49,
     "symbol": "In",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Indium",
     "group": "Post-transition metal",
     "main_origin": "Merging neutron stars",
@@ -9622,6 +10597,18 @@
    {
     "z": 50,
     "symbol": "Sn",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Tin",
     "group": "Post-transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9630,6 +10617,18 @@
    {
     "z": 51,
     "symbol": "Sb",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Antimony",
     "group": "Metalloid",
     "main_origin": "Merging neutron stars",
@@ -9640,6 +10639,18 @@
    {
     "z": 52,
     "symbol": "Te",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Tellurium",
     "group": "Metalloid",
     "main_origin": "Merging neutron stars",
@@ -9648,6 +10659,18 @@
    {
     "z": 53,
     "symbol": "I",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Iodine",
     "group": "Halogen",
     "main_origin": "Merging neutron stars",
@@ -9656,6 +10679,18 @@
    {
     "z": 54,
     "symbol": "Xe",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Xenon",
     "group": "Noble gas",
     "main_origin": "Merging neutron stars",
@@ -9664,6 +10699,18 @@
    {
     "z": 55,
     "symbol": "Cs",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Caesium",
     "group": "Alkali metal",
     "main_origin": "Merging neutron stars",
@@ -9674,6 +10721,18 @@
    {
     "z": 56,
     "symbol": "Ba",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Barium",
     "group": "Alkaline-earth metal",
     "main_origin": "Dying low-mass stars",
@@ -9682,6 +10741,18 @@
    {
     "z": 57,
     "symbol": "La",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Lanthanum",
     "group": "Lanthanide",
     "main_origin": "Dying low-mass stars",
@@ -9690,6 +10761,18 @@
    {
     "z": 58,
     "symbol": "Ce",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Cerium",
     "group": "Lanthanide",
     "main_origin": "Dying low-mass stars",
@@ -9698,6 +10781,18 @@
    {
     "z": 59,
     "symbol": "Pr",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Praseodymium",
     "group": "Lanthanide",
     "main_origin": "Dying low-mass stars",
@@ -9708,6 +10803,18 @@
    {
     "z": 60,
     "symbol": "Nd",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Neodymium",
     "group": "Lanthanide",
     "main_origin": "Dying low-mass stars",
@@ -9718,6 +10825,18 @@
    {
     "z": 61,
     "symbol": "Pm",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Promethium",
     "group": "Lanthanide",
     "main_origin": "Human-made",
@@ -9726,6 +10845,18 @@
    {
     "z": 62,
     "symbol": "Sm",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Samarium",
     "group": "Lanthanide",
     "main_origin": "Merging neutron stars",
@@ -9736,6 +10867,18 @@
    {
     "z": 63,
     "symbol": "Eu",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Europium",
     "group": "Lanthanide",
     "main_origin": "Merging neutron stars",
@@ -9744,6 +10887,18 @@
    {
     "z": 64,
     "symbol": "Gd",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Gadolinium",
     "group": "Lanthanide",
     "main_origin": "Merging neutron stars",
@@ -9752,6 +10907,18 @@
    {
     "z": 65,
     "symbol": "Tb",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Terbium",
     "group": "Lanthanide",
     "main_origin": "Merging neutron stars",
@@ -9760,6 +10927,18 @@
    {
     "z": 66,
     "symbol": "Dy",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Dysprosium",
     "group": "Lanthanide",
     "main_origin": "Merging neutron stars",
@@ -9768,6 +10947,18 @@
    {
     "z": 67,
     "symbol": "Ho",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Holmium",
     "group": "Lanthanide",
     "main_origin": "Merging neutron stars",
@@ -9776,6 +10967,18 @@
    {
     "z": 68,
     "symbol": "Er",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Erbium",
     "group": "Lanthanide",
     "main_origin": "Merging neutron stars",
@@ -9784,6 +10987,18 @@
    {
     "z": 69,
     "symbol": "Tm",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Thulium",
     "group": "Lanthanide",
     "main_origin": "Merging neutron stars",
@@ -9792,6 +11007,18 @@
    {
     "z": 70,
     "symbol": "Yb",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Ytterbium",
     "group": "Lanthanide",
     "main_origin": "Merging neutron stars",
@@ -9802,6 +11029,18 @@
    {
     "z": 71,
     "symbol": "Lu",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Lutetium",
     "group": "Lanthanide",
     "main_origin": "Merging neutron stars",
@@ -9810,6 +11049,18 @@
    {
     "z": 72,
     "symbol": "Hf",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Hafnium",
     "group": "Transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9820,6 +11071,18 @@
    {
     "z": 73,
     "symbol": "Ta",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Tantalum",
     "group": "Transition metal",
     "main_origin": "Merging neutron stars",
@@ -9830,6 +11093,18 @@
    {
     "z": 74,
     "symbol": "W",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Tungsten",
     "group": "Transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9840,6 +11115,18 @@
    {
     "z": 75,
     "symbol": "Re",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Rhenium",
     "group": "Transition metal",
     "main_origin": "Merging neutron stars",
@@ -9848,6 +11135,18 @@
    {
     "z": 76,
     "symbol": "Os",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Osmium",
     "group": "Transition metal",
     "main_origin": "Merging neutron stars",
@@ -9856,6 +11155,18 @@
    {
     "z": 77,
     "symbol": "Ir",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Iridium",
     "group": "Transition metal",
     "main_origin": "Merging neutron stars",
@@ -9864,6 +11175,18 @@
    {
     "z": 78,
     "symbol": "Pt",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Platinum",
     "group": "Transition metal",
     "main_origin": "Merging neutron stars",
@@ -9872,6 +11195,18 @@
    {
     "z": 79,
     "symbol": "Au",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Gold",
     "group": "Transition metal",
     "main_origin": "Merging neutron stars",
@@ -9880,6 +11215,18 @@
    {
     "z": 80,
     "symbol": "Hg",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Mercury",
     "group": "Transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9888,6 +11235,18 @@
    {
     "z": 81,
     "symbol": "Tl",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Thallium",
     "group": "Post-transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9896,6 +11255,18 @@
    {
     "z": 82,
     "symbol": "Pb",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Lead",
     "group": "Post-transition metal",
     "main_origin": "Dying low-mass stars",
@@ -9904,6 +11275,18 @@
    {
     "z": 83,
     "symbol": "Bi",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Bismuth",
     "group": "Post-transition metal",
     "main_origin": "Merging neutron stars",
@@ -9914,6 +11297,18 @@
    {
     "z": 84,
     "symbol": "Po",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Polonium",
     "group": "Post-transition metal",
     "main_origin": "Radioactive decay only",
@@ -9922,6 +11317,18 @@
    {
     "z": 85,
     "symbol": "At",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Astatine",
     "group": "Halogen",
     "main_origin": "Radioactive decay only",
@@ -9930,6 +11337,18 @@
    {
     "z": 86,
     "symbol": "Rn",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Radon",
     "group": "Noble gas",
     "main_origin": "Radioactive decay only",
@@ -9938,6 +11357,18 @@
    {
     "z": 87,
     "symbol": "Fr",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Francium",
     "group": "Alkali metal",
     "main_origin": "Radioactive decay only",
@@ -9946,6 +11377,18 @@
    {
     "z": 88,
     "symbol": "Ra",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Radium",
     "group": "Alkaline-earth metal",
     "main_origin": "Radioactive decay only",
@@ -9954,6 +11397,18 @@
    {
     "z": 89,
     "symbol": "Ac",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Actinium",
     "group": "Actinide",
     "main_origin": "Radioactive decay only",
@@ -9962,6 +11417,18 @@
    {
     "z": 90,
     "symbol": "Th",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Thorium",
     "group": "Actinide",
     "main_origin": "Merging neutron stars",
@@ -9970,6 +11437,18 @@
    {
     "z": 91,
     "symbol": "Pa",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Protactinium",
     "group": "Actinide",
     "main_origin": "Radioactive decay only",
@@ -9978,6 +11457,18 @@
    {
     "z": 92,
     "symbol": "U",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Uranium",
     "group": "Actinide",
     "main_origin": "Merging neutron stars",
@@ -9986,6 +11477,18 @@
    {
     "z": 93,
     "symbol": "Np",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Neptunium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -9994,6 +11497,18 @@
    {
     "z": 94,
     "symbol": "Pu",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Plutonium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -10002,6 +11517,18 @@
    {
     "z": 95,
     "symbol": "Am",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Americium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -10010,6 +11537,18 @@
    {
     "z": 96,
     "symbol": "Cm",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Curium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -10018,6 +11557,18 @@
    {
     "z": 97,
     "symbol": "Bk",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Berkelium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -10026,6 +11577,18 @@
    {
     "z": 98,
     "symbol": "Cf",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Californium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -10034,6 +11597,18 @@
    {
     "z": 99,
     "symbol": "Es",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Einsteinium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -10042,6 +11617,18 @@
    {
     "z": 100,
     "symbol": "Fm",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Fermium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -10050,6 +11637,18 @@
    {
     "z": 101,
     "symbol": "Md",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Mendelevium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -10058,6 +11657,18 @@
    {
     "z": 102,
     "symbol": "No",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Nobelium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -10066,6 +11677,18 @@
    {
     "z": 103,
     "symbol": "Lr",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Lawrencium",
     "group": "Actinide",
     "main_origin": "Human-made",
@@ -10074,6 +11697,18 @@
    {
     "z": 104,
     "symbol": "Rf",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Rutherfordium",
     "group": "Transition metal",
     "main_origin": "Human-made",
@@ -10082,6 +11717,18 @@
    {
     "z": 105,
     "symbol": "Db",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Dubnium",
     "group": "Transition metal",
     "main_origin": "Human-made",
@@ -10090,6 +11737,18 @@
    {
     "z": 106,
     "symbol": "Sg",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Seaborgium",
     "group": "Transition metal",
     "main_origin": "Human-made",
@@ -10098,6 +11757,18 @@
    {
     "z": 107,
     "symbol": "Bh",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Bohrium",
     "group": "Transition metal",
     "main_origin": "Human-made",
@@ -10106,6 +11777,18 @@
    {
     "z": 108,
     "symbol": "Hs",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Hassium",
     "group": "Transition metal",
     "main_origin": "Human-made",
@@ -10114,6 +11797,18 @@
    {
     "z": 109,
     "symbol": "Mt",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Meitnerium",
     "group": "Transition metal",
     "main_origin": "Human-made",
@@ -10122,6 +11817,18 @@
    {
     "z": 110,
     "symbol": "Ds",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Darmstadtium",
     "group": "Transition metal",
     "main_origin": "Human-made",
@@ -10130,6 +11837,18 @@
    {
     "z": 111,
     "symbol": "Rg",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Roentgenium",
     "group": "Transition metal",
     "main_origin": "Human-made",
@@ -10138,6 +11857,18 @@
    {
     "z": 112,
     "symbol": "Cn",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Copernicium",
     "group": "Transition metal",
     "main_origin": "Human-made",
@@ -10146,6 +11877,18 @@
    {
     "z": 113,
     "symbol": "Nh",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Nihonium",
     "group": "Post-transition metal",
     "main_origin": "Human-made",
@@ -10154,6 +11897,18 @@
    {
     "z": 114,
     "symbol": "Fl",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Flerovium",
     "group": "Post-transition metal",
     "main_origin": "Human-made",
@@ -10162,6 +11917,18 @@
    {
     "z": 115,
     "symbol": "Mc",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Moscovium",
     "group": "Post-transition metal",
     "main_origin": "Human-made",
@@ -10170,6 +11937,18 @@
    {
     "z": 116,
     "symbol": "Lv",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Livermorium",
     "group": "Post-transition metal",
     "main_origin": "Human-made",
@@ -10178,6 +11957,18 @@
    {
     "z": 117,
     "symbol": "Ts",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Tennessine",
     "group": "Halogen",
     "main_origin": "Human-made",
@@ -10186,6 +11977,18 @@
    {
     "z": 118,
     "symbol": "Og",
+    "sources": [
+     {
+      "key": "elorigin",
+      "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+      "url": "https://arxiv.org/abs/1401.0987"
+     },
+     {
+      "key": "johnson",
+      "title": "Johnson 2019: Populating the periodic table (Science)",
+      "url": "https://www.science.org/doi/10.1126/science.aau9540"
+     }
+    ],
     "name": "Oganesson",
     "group": "Noble gas",
     "main_origin": "Human-made",
@@ -11072,6 +12875,36 @@
    "key": "pyykko",
    "title": "Pyykkö 2011: a suggested periodic table up to Z ≈ 172 (PCCP)",
    "url": "https://doi.org/10.1039/C0CP01575J"
+  },
+  {
+   "key": "lqcobs",
+   "title": "Barrau 2017: testing loop quantum cosmology (scenario-dependent CMB signatures)",
+   "url": "https://arxiv.org/abs/1703.03716"
+  },
+  {
+   "key": "oddo",
+   "title": "Nuclear pairing and abundance: even–odd effects and binding-energy systematics (NDC review)",
+   "url": "https://www-nds.iaea.org/publications/indc/indc-nds-0789.pdf"
+  },
+  {
+   "key": "elorigin",
+   "title": "Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements",
+   "url": "https://arxiv.org/abs/1401.0987"
+  },
+  {
+   "key": "pigos",
+   "title": "Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)",
+   "url": "https://link.springer.com/article/10.1140/epja/s10050-023-01206-1"
+  },
+  {
+   "key": "ironpeak",
+   "title": "Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning",
+   "url": "https://arxiv.org/abs/astro-ph/0605725"
+  },
+  {
+   "key": "anaes",
+   "title": "Nature of consciousness in anaesthesia 2023: testing candidate brain signatures",
+   "url": "https://doi.org/10.1016/j.bjao.2023.100224"
   }
  ]
 }

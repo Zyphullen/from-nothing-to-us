@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>From Nothing to Us · v11</title>
+<title>From Nothing to Us · v12</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23070d1f%22 stroke=%22%23ffd36b%22 stroke-width=%228%22/%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2214%22 fill=%22%234ff3e3%22/%3E%3C/svg%3E">
 <meta property="og:title" content="From Nothing to Us">
 <meta property="og:description" content="An interactive map of everything, from before the Big Bang to us. Zoom from the cosmos down into a living cell.">
@@ -63,7 +63,7 @@ h1{margin:0;font-size:22px;font-weight:650;letter-spacing:.4px;background:linear
 .node:hover .disc{stroke-width:3.5}
 svg.focus .node:not(.lit){opacity:.18}
 svg.focus .edge:not(.lit),svg.focus .elab:not(.lit){opacity:.05}
-svg.focus .edge.lit{stroke-width:3.6;stroke-opacity:.95}
+svg.focus .edge.lit{stroke-opacity:.95}
 svg.focus .elab.lit rect{stroke-opacity:1}
 .node,.edge,.elab{transition:opacity .3s}
 svg.far .elab,svg.far .sz{display:none}
@@ -381,6 +381,54 @@ header .legend{margin:0;gap:12px;min-height:20px}header #ptbtn{display:block;mar
 @media(min-width:1100px) and (max-width:1350px){#search{width:260px;left:53%}}
 @media(min-width:601px) and (max-width:1099px){header{top:10px;padding:6px 10px 10px;background:rgba(4,8,20,.78);border:1px solid rgba(44,74,122,.7);border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.28)}h1{height:38px}#ctl{top:10px;right:10px;height:38px;gap:6px}#ctl button,#ctl .snd,#vsw{height:38px;box-sizing:border-box}#ctl .snd button{height:36px}}
 @media(max-width:600px){header{padding:5px 8px 8px;background:rgba(4,8,20,.82);border:1px solid rgba(44,74,122,.7);border-radius:13px;box-shadow:0 8px 22px rgba(0,0,0,.28)}h1{min-height:34px;gap:6px;flex-wrap:nowrap}h1 #aib{min-height:26px;font-size:10px}header .legend{margin-top:5px}header #ptbtn{margin-top:6px;min-height:26px}#ctl{top:116px;right:8px;flex-direction:row;align-items:center;max-width:calc(100vw - 16px);gap:6px}}
+/* v12 promo polish: crisp edges, high-contrast navy and restrained neon, no rebuilt science. */
+:root{color-scheme:dark}
+header,#ctl button,#ctl .snd,#search .sbox,#key .kp,#pop,.panel{background:rgba(5,12,29,.9)!important;border-color:rgba(87,139,181,.52)!important;box-shadow:0 8px 28px rgba(0,0,0,.36),0 0 18px rgba(79,243,227,.055)}
+h1,.panel .ph b,#key .kh b,#pt h2{filter:drop-shadow(0 0 8px rgba(79,243,227,.18))}
+#xmenu{background:linear-gradient(145deg,rgba(8,22,43,.99),rgba(4,9,23,.99));border-color:rgba(79,243,227,.42);box-shadow:0 16px 40px rgba(0,0,0,.7),0 0 22px rgba(79,243,227,.08)}
+#xmenu .newtag{margin-left:auto;font-size:8px;font-style:normal;letter-spacing:1px;color:#051323;background:#ffd36b;padding:2px 4px;border-radius:4px;font-weight:800}
+#vsw{box-shadow:0 0 16px rgba(255,211,107,.10)!important}
+#key .kp{width:246px;background:linear-gradient(145deg,rgba(8,22,43,.94),rgba(4,9,23,.96))!important}
+.edge.quiet,.elab.quiet{display:none}
+svg.focus .edge.quiet.lit{display:inline;stroke-width:1.9px!important;stroke-dasharray:4 6!important;marker-end:none;opacity:.8!important}
+.elab.lit{display:inline}
+.elab.quiet.lit{display:inline;opacity:.85}
+#gMap .edge,#gCircle .edge{stroke-linecap:round;transition:opacity .18s,stroke-width .18s;vector-effect:non-scaling-stroke}
+#gMap .edge:not(.lit){opacity:.66}#gCircle .edge:not(.lit){opacity:.74}
+svg.focus .edge.lit{opacity:1!important;stroke-width:2.9px!important;filter:none}
+svg.focus .edge.quiet.lit{opacity:.88!important;stroke-width:2.2px!important;filter:none}
+svg.focus .edge:not(.lit),svg.focus .elab:not(.lit){opacity:0;display:none}
+#gMap .band rect{opacity:.032}
+#gMap .node>circle:first-child{opacity:.75}
+#gMap .node .disc{stroke-width:2.8;filter:drop-shadow(0 0 6px rgba(79,243,227,.2))}
+#gMap .node text{paint-order:stroke;stroke:#030713;stroke-width:4px;stroke-linejoin:round}
+#gCircle .node>circle:first-child{opacity:.72}
+#gCircle .node .disc{stroke-width:2.8;filter:drop-shadow(0 0 6px rgba(79,243,227,.18))}
+#gCircle .node .plq{fill:#050e21;fill-opacity:.91;stroke:#233f61;stroke-opacity:.52}
+#vplanet .vcbar,#vcell .vcbar,#vbody .vcbar,#vatom .vcbar{background:linear-gradient(180deg,rgba(4,13,30,.97),rgba(4,10,24,.85));border-bottom:1px solid rgba(79,243,227,.16)}
+#vplanet .vpop,#vcell .vpop,#vbody .vpop{background:rgba(5,14,32,.96);border-color:rgba(79,243,227,.45);box-shadow:0 12px 35px rgba(0,0,0,.55),0 0 20px rgba(79,243,227,.07)}
+/* Atom Sandbox */
+#vatom{position:fixed;inset:0;z-index:52;background:radial-gradient(ellipse at 32% 43%,#0a213a,#030712 76%);color:#e5f6ff;font:14px system-ui,-apple-system,"Segoe UI",sans-serif;overflow:auto;touch-action:manipulation;-webkit-user-select:none;user-select:none}
+#vatom button{font:inherit;cursor:pointer}#vatom .vcbar{height:62px;display:flex;align-items:center;gap:18px;padding:10px 18px;position:relative;z-index:5}
+#vatom .vback{font:600 13px system-ui;border:1px solid #3c698b;border-radius:8px;background:#0b1b33;color:#bfffee;padding:8px 12px}
+#vatom .vtit{font-size:20px;letter-spacing:.2px;flex:1;background:linear-gradient(90deg,#ffe299,#94fff0);-webkit-background-clip:text;background-clip:text;color:transparent}
+#vatom .vtit small{font-size:11px;letter-spacing:.3px;color:#81a5bc;-webkit-text-fill-color:#81a5bc;margin-left:8px}
+#vatom .buttonlike{background:#10223d;border:1px solid #416785;border-radius:8px;color:#d2ffb1;padding:6px 12px}
+#vatom .vaIntro{display:flex;gap:18px;align-items:baseline;padding:10px 22px;color:#88aabc;font-size:11px}#vatom .vaIntro b{color:#ffdca0;font-size:13px}#vatom .vaBody{display:grid;grid-template-columns:minmax(0,1fr) 316px;gap:12px;padding:6px 16px 18px;height:calc(100vh - 126px);min-height:560px;box-sizing:border-box}
+#vatom .vaStage{position:relative;border:1px solid #23506f;border-radius:18px;overflow:hidden;min-width:0;min-height:400px;background:#030711;box-shadow:inset 0 0 40px #061225,0 0 22px #4ff3e30b}
+#vatom canvas{display:block;position:absolute;inset:0;width:100%;height:calc(100% - 32px);touch-action:none}
+#vatom .vaLegend{position:absolute;bottom:0;left:0;right:0;height:32px;display:flex;align-items:center;justify-content:center;gap:5px;background:#050d1f;color:#97b6c9;font-size:10px}
+#vatom .vaLegend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-left:13px}#vatom .vp{background:#ffd36b}#vatom .vn{background:#f68bb9}#vatom .ve{background:#4ff3e3}#vatom .vg{background:#ffedaf;box-shadow:0 0 7px #ffd36b}
+#vatom .vappop{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:min(510px,88%);border:1px solid #6b572b;border-radius:12px;padding:11px 14px;background:rgba(18,25,43,.94);box-shadow:0 8px 24px #0008,0 0 15px #ffd36b0c;opacity:0;pointer-events:none;transition:opacity .2s;display:flex;flex-direction:column;text-align:center;gap:3px}
+#vatom .vappop.on{opacity:1}#vatom .vappop b{color:#ffe097;font-size:13px}#vatom .vappop span{font-size:11px;color:#bcd3e3;line-height:1.4}
+#vatom .vaSide{border:1px solid #284b69;border-radius:15px;background:rgba(6,16,35,.94);padding:14px;overflow:auto;box-sizing:border-box;-webkit-user-select:text;user-select:text}#vatom .vaSide h3{margin:0 0 13px;font-size:15px;color:#ffdf8d}#vatom .vaSide label:not(.vaCloud){display:block;color:#98bbd0;font-size:11px;margin-top:14px}#vatom input[type="range"]{width:100%;accent-color:#4ff3e3;margin:6px 0 0}#vatom .vamass{font-size:19px;color:#e2fff9;margin-top:7px;font-weight:700}#vatom .vavalues,#vatom .vaheat{font-size:10px;line-height:1.4;color:#8daac1}#vatom .vaBt{display:flex;gap:7px;margin-top:12px}#vatom .vaBt button,.vaClear{border:1px solid #37628a;border-radius:8px;background:#112743;color:#bdfff4;padding:7px 9px;font-size:11px;flex:1}
+#vatom .vaPre{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;margin:11px 0}.vaPre button{background:#11223e;color:#ccdfec;border:1px solid #345676;border-radius:7px;padding:7px 4px;font-weight:700}.vaPre button:hover,.vaPre button.on{border-color:#ffd36b;background:#3b3521;color:#ffe2a2;box-shadow:0 0 8px #ffd36b18}
+#vatom .vaPath{width:100%;border:1px solid #b3944f;border-radius:9px;background:linear-gradient(100deg,#342d1b,#104043);color:#ffe5a5;font-weight:650;font-size:11.5px;padding:10px 6px;box-shadow:0 0 14px #ffd36b0b}.vapath{font-size:10px;color:#88b1b8;line-height:1.4;margin-top:9px}.vaCloud{font-size:11px;color:#a1c7d4;display:block;margin-top:12px}.vaCloud input{accent-color:#4ff3e3;vertical-align:middle}.vaClear{display:block;width:100%;margin-top:12px;background:none;color:#a1afc7}#vatom details{border-top:1px solid #25425f;margin-top:15px;padding-top:12px;font-size:11px;line-height:1.5;color:#93b5c9}#vatom summary{color:#ffd36b;cursor:pointer}#vatom details a{color:#77f3e7;word-break:break-word}
+#vatom input:focus-visible,#vatom button:focus-visible,summary:focus-visible{outline:2px solid #ffd36b;outline-offset:3px}
+@media(max-width:800px){#vatom .vaBody{height:auto;min-height:0;grid-template-columns:1fr;padding:4px 8px 20px}#vatom .vaStage{height:480px;min-height:380px}#vatom .vaIntro{flex-direction:column;gap:5px;padding:8px 14px}#vatom .vcbar{gap:10px;padding:9px 10px;height:58px}#vatom .vtit{font-size:15px}#vatom .vtit small{display:block;margin-left:0;font-size:9px}#vatom .vaSide{padding:14px 16px}#vatom .vaBody{height:auto}}
+@media(prefers-reduced-motion:reduce){#vatom .vappop{transition:none}}
+
+
 </style>
 <link rel="alternate" type="application/json" href="facts.json" title="All facts (machine-readable)">
 </head>
@@ -388,7 +436,7 @@ header .legend{margin:0;gap:12px;min-height:20px}header #ptbtn{display:block;mar
 <canvas id="sky"></canvas>
 <svg id="tree" xmlns="http://www.w3.org/2000/svg"><defs id="defs"></defs><g id="world"></g></svg>
 <header>
-  <h1>From Nothing to Us <span class="ver" title="Version 11">v11</span><a class="hbtn" id="aib" href="facts.json" title="Site data: every fact and source in facts.json, for AIs and people. Plain text version: knowledge.html" aria-label="Site data: facts.json for AIs and people">🤖<b> Site data</b></a></h1>
+  <h1>From Nothing to Us <span class="ver" title="v12">v12</span><a class="hbtn" id="aib" href="facts.json" title="Site data: every fact and source in facts.json, for AIs and people. Plain text version: knowledge.html" aria-label="Site data: facts.json for AIs and people">🤖<b> Site data</b></a></h1>
   <button class="hbtn" id="ptbtn" title="Explore: elements, Virtual Cell" aria-haspopup="menu" aria-expanded="false" aria-controls="xmenu">☰ Explore</button>
   <div id="search" role="search"><button id="sbtn" title="Search (/)" aria-label="Search"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#9ff5ea" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg></button>
     <div class="sbox"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#9ff5ea" stroke-width="2.2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg><input id="sq" type="search" placeholder="Search: carbon, DNA, gold…" autocomplete="off" spellcheck="false" aria-label="Search the map" aria-controls="sres"><span class="skbd">/</span><button id="sx" aria-label="Clear search">×</button></div>
@@ -400,15 +448,16 @@ header .legend{margin:0;gap:12px;min-height:20px}header #ptbtn{display:block;mar
   <button id="zfit" title="See everything"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#9ff5ea" stroke-width="2" stroke-linecap="round"><path d="M3 8V3h5M14 3h5v5M19 14v5h-5M8 19H3v-5"/></svg></button>
   <button id="ztop" title="Back to the start"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#9ff5ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l-6 6 6 6M6 11h12"/></svg></button>
 </div>
-<div id="xmenu" role="menu" aria-label="Explore"><button role="menuitem" data-x="pt"><i>⚛</i>All the elements</button><button role="menuitem" data-x="cell"><i>🧬</i>Virtual Cell</button><button role="menuitem" data-x="body"><i>🫀</i>Human Body</button><button role="menuitem" data-x="planet"><i>🌍</i>Planet Earth</button><div class="soon" aria-disabled="true"><i>✦</i>More coming soon</div></div>
+<div id="xmenu" role="menu" aria-label="Explore"><button role="menuitem" data-x="pt"><i>⚛</i>All the elements</button><button role="menuitem" data-x="atom"><i>⚛️</i>Atom Sandbox <span class="newtag">NEW</span></button><button role="menuitem" data-x="cell"><i>🧬</i>Virtual Cell</button><button role="menuitem" data-x="body"><i>🫀</i>Human Body</button><button role="menuitem" data-x="planet"><i>🌍</i>Planet Earth</button><div class="soon" aria-disabled="true"><i>✦</i>More coming soon</div></div>
 <div id="key" aria-label="Colour key"><div class="kp"><div class="kh"><b>KEY</b><button class="kc" title="Hide key" aria-label="Hide key">–</button></div>
   <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#3dff8a" stroke-width="2"/></svg><span>Known (tested, confirmed)</span></div>
   <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#ffa53d" stroke-width="2"/></svg><span>We think so (best guess)</span></div>
   <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="#0a1226" stroke="#ff4d5e" stroke-width="2" stroke-dasharray="3 2.4"/><path d="M5.5 5.5L12.5 12.5M12.5 5.5L5.5 12.5" stroke="#ff4d5e" stroke-width="1.8" stroke-linecap="round"/></svg><span>Unknown (dashed ring, X)</span></div>
   <div class="ks">LINES · colour = less certain end</div>
   <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#3dff8a" stroke-width="2.2" stroke-opacity=".8"/><path d="M24 1.5L29 5L24 8.5Z" fill="#3dff8a" opacity=".85"/></svg><span>Solid: known step</span></div>
-  <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#ffa53d" stroke-width="2.2" stroke-opacity=".8" stroke-dasharray="5 4"/><path d="M24 1.5L29 5L24 8.5Z" fill="#ffa53d" opacity=".85"/></svg><span>Dashed: uncertain step</span></div>
-  <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#aabbd4" stroke-width="1.6" stroke-opacity=".9" stroke-dasharray="2 3"/><path d="M24 1.5L29 5L24 8.5Z" fill="#aabbd4" opacity=".85"/></svg><span>Dotted “← from …”: far link</span></div>
+  <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#ffa53d" stroke-width="2.2" stroke-opacity=".8" stroke-dasharray="5 4"/><path d="M24 1.5L29 5L24 8.5Z" fill="#ffa53d" opacity=".85"/></svg><span>Orange dashed: we think so</span></div>
+  <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#ff4d5e" stroke-width="2.2" stroke-opacity=".85" stroke-dasharray="3 3"/><path d="M24 1.5L29 5L24 8.5Z" fill="#ff4d5e" opacity=".9"/></svg><span>Red dashed: unknown</span></div>
+  <div class="kr"><svg width="30" height="10" viewBox="0 0 30 10"><path d="M1 5H26" stroke="#aabbd4" stroke-width="1.6" stroke-opacity=".9" stroke-dasharray="2 3"/><path d="M24 1.5L29 5L24 8.5Z" fill="#aabbd4" opacity=".85"/></svg><span>Fine dashed line: selected context</span></div>
   <div class="kr"><svg width="30" height="16" viewBox="0 0 30 16"><rect x="6" y="1" width="18" height="14" rx="7" fill="#070d1f" stroke="#ff4d5e" stroke-opacity=".7"/><text x="15" y="12" text-anchor="middle" font-size="10" fill="#dce8f8">?</text></svg><span>“?” on a label: not known</span></div>
   <div class="ks">BOUNTIES · YOU</div>
   <div class="kr"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8.2" fill="none" stroke="#ffa53d" stroke-opacity=".45" stroke-width="1"/><circle cx="9" cy="9" r="5.6" fill="#0a1226" stroke="#ffa53d" stroke-width="2"/></svg><span>Gentle pulse: open bounty</span></div>
@@ -440,15 +489,15 @@ header .legend{margin:0;gap:12px;min-height:20px}header #ptbtn{display:block;mar
   <div id="efmsg"></div><p class="tag">“Don't collect cards. Collect understanding.”</p></div>
 <div id="infp" class="panel" role="dialog" aria-label="About"><div class="ph"><b>ABOUT</b><button class="x" aria-label="close">×</button></div>
   <p>From Nothing to Us: how everything emerges, from the quantum field to us. Made by Zyphullen.</p>
-  <p class="verl">Version 11 (v11)</p>
+  <p class="verl">v12</p>
   <h5>Music</h5><div class="sndrow"><button id="mute2">🔊 Music on</button><input id="vol2" type="range" min="0" max="100" step="1" aria-label="Music volume"></div>
   <p class="cred">Piano: Salamander Grand Piano by Alexander Holm (<a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>), via <a href="https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html" target="_blank" rel="noopener">FreePats</a></p>
   <div class="irow"><button id="howb">❔ How to use</button><a id="sugg" href="https://github.com/Zyphullen/from-nothing-to-us/issues/new" target="_blank" rel="noopener">✎ Suggest a fix</a></div></div>
-<div id="howto" role="dialog" aria-label="How to use"><div class="hcard"><div class="hk">HOW TO USE · v11</div>
+<div id="howto" role="dialog" aria-label="How to use"><div class="hcard"><div class="hk">HOW TO USE</div>
   <div class="hs"><span id="hti1">🖱️</span><b id="ht1">Scroll to zoom, drag to move</b></div>
   <div class="hs"><span id="hti2">✨</span><b id="ht2">Click a node to learn</b></div>
   <div class="hs"><span class="hdots"><i style="background:#3dff8a"></i><i style="background:#ffa53d"></i><i style="background:#ff4d5e"></i></span><b>Green = known, orange = we think, red = unknown</b></div>
-  <div class="hs"><span class="hsw">🗺️◯</span><b>Map / Ring</b></div>
+  <div class="hs"><span class="hsw">🗺️◯</span><b>Map / Ring · tap a node to see its lines</b></div>
   <button id="htok">Got it</button></div></div>
 <div id="btyBack"></div><div id="bty" role="dialog" aria-label="Open bounty"><button class="x" aria-label="close">×</button><div id="btyBody"></div></div>
 <script>
@@ -462,7 +511,8 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 const SUP = { '-': '⁻', '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹' };
 const pow10 = e => '10' + String(Math.round(e)).split('').map(c => SUP[c]).join('');
 const szShort = n => n.sz == null ? '' : (Math.round(n.sz) === 0 ? '~1 m' : '~' + pow10(n.sz) + ' m');
-const DATA_HASH = 'c52407352f1c'; // same hash is in facts.json
+const DATA_HASH = 'd5437c932b66'; // same hash is in facts.json
+const CHAIN_THEORY_TEST_NODES = new Set(['nothing','axiom','qudits','distill','genres','gauge','alpha','chainmail','ctspace','gap']);
 const SRC = {
  katrin:['KATRIN, Science 2025: neutrino mass below 0.45 eV','https://doi.org/10.1126/science.adq9592'],
  ctpost:['Alex Wissner-Gross: "Chain Theory" (Substack, 24 Oct 2026)','https://theinnermostloop.substack.com/p/chain-theory'],
@@ -599,7 +649,7 @@ const N = [
 {id:'axiom',r:1,x:420,s:'t',ic:'chain',name:'Chain Theory',line:'Only entangled pairs exist',sz:null,szt:'Below all lengths (space is built later)',
  info:['A new idea by Alex Wissner-Gross (Oct 2026).','Reality = networks of linked tiny quantum units.','Brand new. Not yet tested by others.'],
  L2:['## Alex says','"Nothing exists but finitely many maximally entangled pairs of qudits, some qudits shared, known only by distilling them."','That one sentence is the only input. Alex aims for "no free parameters".','Particles would be "chainmail": finite meshes of these links. "A chain, not a string."','## Our reading','It is like a building made only of linked rings. Everything else is how the rings join.'],
- L3:['## Status (Alex\'s own grading)','A compendium of 100 theorems, 109 conditional theorems and 198 open results (release 0.1).','"Theorem" here often means a check over a finite list of networks, not a proof for all.','That its pieces ARE real physics is called a conjecture by Alex himself.','## What is missing','Peer review. Independent checks. A second number that matches a measurement.','Posted 23–24 Oct 2026, so only days old. No independent review found yet (checked 26 Oct 2026).','## Disclosure (from the paper)','Made with a "human-superintelligence collaboration". The author has a financial interest in Physical Superintelligence PBC.'],
+ L3:['## Status (Alex\'s own grading)','A compendium of 100 theorems, 109 conditional theorems and 198 open results (release 0.1).','"Theorem" here often means a check over a finite list of networks, not a proof for all.','That its pieces ARE real physics is called a conjecture by Alex himself.','## What is missing','Peer review. Independent checks. A second number that matches a measurement.','Posted 23–24 Oct 2026. No independent expert review found yet (checked 6 Nov 2026).','## Disclosure (from the paper)','Made with a "human-superintelligence collaboration". The author has a financial interest in Physical Superintelligence PBC.'],
  src:['ctpost','ctx','ctalpha','cttalk','ctcomp'],p:['nothing']},
 
 {id:'qft',r:1,x:1050,s:'k',ic:'field',name:'Quantum fields',line:'Standard Model: tested',sz:null,szt:'Fills all of space',
@@ -848,7 +898,7 @@ const N = [
 {id:'smbh',r:13,x:1720,s:'t',ic:'blackhole',name:'Giant black holes',line:'Born heavy? Leading idea',sz:10.4,szt:'Sgr A* horizon ~2.5×10¹⁰ m wide',
  info:['Most galaxies have one in the middle.','Ours: 4 million Suns.','JWST hints some were born heavy. Not settled.'],
  L2:['## Known','They exist (stars orbiting Sgr A*, Nobel 2020; EHT images).','## New (2025–26)','JWST "little red dots": in one (QSO1, seen ~13 billion years ago) the black hole outweighs all its stars, over 2×. This points to heavy seeds from collapsing gas.','## Still open','Heavy seeds, or light seeds (first stars) growing very fast, or primordial black holes. A 2026 simulation finds light seeds grow slowly.'],
- L3:['## Colour','Orange: heavy "direct-collapse" seeds now have direct evidence, but are not proven.','## How we would know','More direct black-hole masses (JWST, ALMA). LISA (launch planned 2035) could hear seed black holes merge.'],
+ L3:['## Colour','Orange: heavy "direct-collapse" seeds now have supporting evidence, but are not proven.','## How we would know','More direct black-hole masses (JWST, ALMA). LISA (launch planned 2035) could hear seed black holes merge.'],
  src:['eht','qso1','lrddcbh','seedsim','lisa'],p:['galaxies'],es:{galaxies:'t'},el:{galaxies:'grow together (or BH first?)'}},
 
 {id:'sprocess',r:14,x:300,s:'k',ic:'sprocess',name:'Slow neutron catching',line:'s-process in old stars',sz:11,szt:'Giant star ~10¹¹ m',
@@ -861,7 +911,7 @@ const N = [
  info:['4 H → 1 He, in all stars.','3 He → 1 C, then O, Ne, Si…','Up to iron in big stars.'],
  L2:['## Recipes','4 protons → 1 helium-4 + 26.7 MeV (0.7% of mass becomes energy).','3 helium-4 → carbon-12 at ~100 million K.','C + He → O. Then Ne, Mg, Si, S… Silicon → iron at ~3 billion K.','## Why stop at iron','Iron/nickel have the most tightly-bound nuclei. Fusing further costs energy.'],
  L3:['## Open','Exact rate of C + He → O is still uncertain; it sets how much O vs C we get.'],
- src:['b2fh','sun'],p:['stars','firststars','strong','weak'],el:{stars:'4 H → He',strong:'binds nuclei'}},
+ src:['b2fh','sun'],p:['stars','firststars','strong','weak'],el:{stars:'4 H → He',strong:'binds nuclei',firststars:'first stellar fusion'}},
 
 {id:'cosmicray',r:16,x:250,s:'k',ic:'cosmicray',name:'Cosmic-ray splitting',line:'Makes Li, Be, B',sz:-14,szt:'Nuclear (~10⁻¹⁴ m)',
  info:['Fast particles smash heavier atoms.','The bits are lithium, beryllium, boron.','Stars mostly destroy these.'],
@@ -890,14 +940,14 @@ const N = [
  info:['Left by some dead big stars.','First image in 2019 (M87*).','Waves from crashes seen since 2015.'],
  L2:['## Recipe','Leftover core heavier than ~2–3 Suns collapses with nothing to stop it.'],
  L3:['## Open','What happens at the centre and to information: unknown (needs quantum gravity).'],
- src:['eht'],p:['supernova','gravity'],el:{supernova:'core > ~2–3 Suns'}},
+ src:['eht'],p:['supernova','gravity'],el:{supernova:'core > ~2–3 Suns',gravity:'collapse past horizon'}},
 
 /* ---------------- ELEMENTS → CHEMISTRY ---------------- */
 {id:'elements',r:17,x:650,s:'k',ic:'ptable',name:'All 118 elements',line:'Tap for the table',sz:-10,szt:'Atoms ~0.06–0.6 nm',
  info:['94 found in nature, 24 only made in labs.','Each one = a number of protons (1–118).','Tap "Open the periodic table".'],
- L2:['## Recipe','Element = Z protons + some neutrons + Z electrons.','Where they come from:','Big Bang: H, He, (Li). Big stars: O to Fe. Dying giants: about half past Fe. Neutron-star crashes: gold, uranium. White dwarfs: most iron.','## Randomness','Which nucleus catches a neutron next is chance; it gives the zig-zag pattern of amounts.'],
+ L2:['## Recipe','Element = Z protons + some neutrons + Z electrons.','Where they come from:','Big Bang: H, He, (Li). Big stars: O to Fe. Dying giants: about half past Fe. Neutron-star crashes: gold, uranium. White dwarfs: most iron.','## The abundance zig-zag','Oddo–Harkins rule: even-proton nuclei are usually more abundant than their odd-proton neighbours. Neutron–proton pairing makes even nuclei more tightly bound and stable, so nuclear physics, not chance, gives this pattern.'],
  L3:['## The numbers','By mass the Sun is ~73% H, ~25% He, ~2% everything else.','Most superheavy elements (104–118) last seconds or less; the longest-lived (dubnium-268) ~16–30 hours (measurements differ).','## Source','Origins after Jennifer Johnson\'s chart (2019).'],
- src:['johnson','sdss','iupac'],p:['bbn','fusion','sprocess','supernova','sn1a','nsmerger','cosmicray'],el:{bbn:'H, He, Li',supernova:'O → Fe',nsmerger:'Au, Pt, U',sprocess:'Sr, Ba, Pb',sn1a:'Fe, Ni',cosmicray:'Li, Be, B'}},
+ src:['johnson','sdss','iupac','oddo'],p:['bbn','fusion','sprocess','supernova','sn1a','nsmerger','cosmicray'],el:{bbn:'H, He, Li',supernova:'O → Fe',nsmerger:'Au, Pt, U',sprocess:'Sr, Ba, Pb',sn1a:'Fe, Ni',cosmicray:'Li, Be, B'}},
 
 {id:'bonds',r:18,x:400,s:'k',ic:'bonds',name:'Chemical bonds',line:'Atoms share or swap electrons',sz:-10,szt:'Bond length 0.1–0.3 nm',
  info:['Covalent: share electrons.','Ionic: give electrons away.','Hydrogen bonds: weak stickiness.'],
@@ -1122,7 +1172,7 @@ const EXTRA = {
  brain:{L2:['## Recipe','~86 billion neurons + about as many glial cells.','100+ trillion synapses (rough estimate). One count found ~150 trillion in the neocortex alone (Pakkenberg 2003), so the total may be higher.'],L3:['## Numbers','Azevedo 2009: 86 ± 8 billion neurons.','## Open','How memory and thought are coded in detail.']},
  mind:{L2:['## Theories','Global workspace, integrated information, higher-order and others.'],L3:['## Why red','No test yet tells which theory, if any, is right.','The 2025 "Cogitate" head-to-head test (256 people): results challenged both big theories; neither won.']},
 };
-const ELS=[[1,"H","Hydrogen","nm","B",1,1],[2,"He","Helium","nob","B",1,18],[3,"Li","Lithium","alk","LBC",2,1],[4,"Be","Beryllium","ae","C",2,2],[5,"B","Boron","met","C",2,13],[6,"C","Carbon","nm","LM",2,14],[7,"N","Nitrogen","nm","LM",2,15],[8,"O","Oxygen","nm","M",2,16],[9,"F","Fluorine","hal","M",2,17],[10,"Ne","Neon","nob","M",2,18],[11,"Na","Sodium","alk","M",3,1],[12,"Mg","Magnesium","ae","M",3,2],[13,"Al","Aluminium","post","M",3,13],[14,"Si","Silicon","met","MW",3,14],[15,"P","Phosphorus","nm","M",3,15],[16,"S","Sulfur","nm","MW",3,16],[17,"Cl","Chlorine","hal","MW",3,17],[18,"Ar","Argon","nob","MW",3,18],[19,"K","Potassium","alk","MW",4,1],[20,"Ca","Calcium","ae","MW",4,2],[21,"Sc","Scandium","tm","M",4,3],[22,"Ti","Titanium","tm","WM",4,4],[23,"V","Vanadium","tm","WM",4,5],[24,"Cr","Chromium","tm","WM",4,6],[25,"Mn","Manganese","tm","W",4,7],[26,"Fe","Iron","tm","WM",4,8],[27,"Co","Cobalt","tm","WM",4,9],[28,"Ni","Nickel","tm","WM",4,10],[29,"Cu","Copper","tm","WM",4,11],[30,"Zn","Zinc","tm","WM",4,12],[31,"Ga","Gallium","post","M",4,13],[32,"Ge","Germanium","met","M",4,14],[33,"As","Arsenic","met","M",4,15],[34,"Se","Selenium","nm","M",4,16],[35,"Br","Bromine","hal","M",4,17],[36,"Kr","Krypton","nob","ML",4,18],[37,"Rb","Rubidium","alk","ML",5,1],[38,"Sr","Strontium","ae","L",5,2],[39,"Y","Yttrium","tm","L",5,3],[40,"Zr","Zirconium","tm","L",5,4],[41,"Nb","Niobium","tm","L",5,5],[42,"Mo","Molybdenum","tm","LMN",5,6],[43,"Tc","Technetium","tm","H",5,7],[44,"Ru","Ruthenium","tm","NL",5,8],[45,"Rh","Rhodium","tm","N",5,9],[46,"Pd","Palladium","tm","LN",5,10],[47,"Ag","Silver","tm","NL",5,11],[48,"Cd","Cadmium","tm","LN",5,12],[49,"In","Indium","post","NL",5,13],[50,"Sn","Tin","post","L",5,14],[51,"Sb","Antimony","met","NL",5,15],[52,"Te","Tellurium","met","N",5,16],[53,"I","Iodine","hal","N",5,17],[54,"Xe","Xenon","nob","N",5,18],[55,"Cs","Caesium","alk","NL",6,1],[56,"Ba","Barium","ae","L",6,2],[57,"La","Lanthanum","lan","L",9,3],[58,"Ce","Cerium","lan","L",9,4],[59,"Pr","Praseodymium","lan","LN",9,5],[60,"Nd","Neodymium","lan","LN",9,6],[61,"Pm","Promethium","lan","H",9,7],[62,"Sm","Samarium","lan","NL",9,8],[63,"Eu","Europium","lan","N",9,9],[64,"Gd","Gadolinium","lan","N",9,10],[65,"Tb","Terbium","lan","N",9,11],[66,"Dy","Dysprosium","lan","N",9,12],[67,"Ho","Holmium","lan","N",9,13],[68,"Er","Erbium","lan","N",9,14],[69,"Tm","Thulium","lan","N",9,15],[70,"Yb","Ytterbium","lan","NL",9,16],[71,"Lu","Lutetium","lan","N",9,17],[72,"Hf","Hafnium","tm","LN",6,4],[73,"Ta","Tantalum","tm","NL",6,5],[74,"W","Tungsten","tm","LN",6,6],[75,"Re","Rhenium","tm","N",6,7],[76,"Os","Osmium","tm","N",6,8],[77,"Ir","Iridium","tm","N",6,9],[78,"Pt","Platinum","tm","N",6,10],[79,"Au","Gold","tm","N",6,11],[80,"Hg","Mercury","tm","L",6,12],[81,"Tl","Thallium","post","L",6,13],[82,"Pb","Lead","post","L",6,14],[83,"Bi","Bismuth","post","NL",6,15],[84,"Po","Polonium","post","R",6,16],[85,"At","Astatine","hal","R",6,17],[86,"Rn","Radon","nob","R",6,18],[87,"Fr","Francium","alk","R",7,1],[88,"Ra","Radium","ae","R",7,2],[89,"Ac","Actinium","act","R",10,3],[90,"Th","Thorium","act","N",10,4],[91,"Pa","Protactinium","act","R",10,5],[92,"U","Uranium","act","N",10,6],[93,"Np","Neptunium","act","H",10,7],[94,"Pu","Plutonium","act","H",10,8],[95,"Am","Americium","act","H",10,9],[96,"Cm","Curium","act","H",10,10],[97,"Bk","Berkelium","act","H",10,11],[98,"Cf","Californium","act","H",10,12],[99,"Es","Einsteinium","act","H",10,13],[100,"Fm","Fermium","act","H",10,14],[101,"Md","Mendelevium","act","H",10,15],[102,"No","Nobelium","act","H",10,16],[103,"Lr","Lawrencium","act","H",10,17],[104,"Rf","Rutherfordium","tm","H",7,4],[105,"Db","Dubnium","tm","H",7,5],[106,"Sg","Seaborgium","tm","H",7,6],[107,"Bh","Bohrium","tm","H",7,7],[108,"Hs","Hassium","tm","H",7,8],[109,"Mt","Meitnerium","tm","H",7,9],[110,"Ds","Darmstadtium","tm","H",7,10],[111,"Rg","Roentgenium","tm","H",7,11],[112,"Cn","Copernicium","tm","H",7,12],[113,"Nh","Nihonium","post","H",7,13],[114,"Fl","Flerovium","post","H",7,14],[115,"Mc","Moscovium","post","H",7,15],[116,"Lv","Livermorium","post","H",7,16],[117,"Ts","Tennessine","hal","H",7,17],[118,"Og","Oganesson","nob","H",7,18]];
+const ELS=[[1,"H","Hydrogen","nm","B",1,1],[2,"He","Helium","nob","B",1,18],[3,"Li","Lithium","alk","LBC",2,1],[4,"Be","Beryllium","ae","C",2,2],[5,"B","Boron","met","C",2,13],[6,"C","Carbon","nm","LM",2,14],[7,"N","Nitrogen","nm","LM",2,15],[8,"O","Oxygen","nm","M",2,16],[9,"F","Fluorine","hal","M",2,17],[10,"Ne","Neon","nob","M",2,18],[11,"Na","Sodium","alk","M",3,1],[12,"Mg","Magnesium","ae","M",3,2],[13,"Al","Aluminium","post","M",3,13],[14,"Si","Silicon","met","MW",3,14],[15,"P","Phosphorus","nm","M",3,15],[16,"S","Sulfur","nm","MW",3,16],[17,"Cl","Chlorine","hal","MW",3,17],[18,"Ar","Argon","nob","MW",3,18],[19,"K","Potassium","alk","MW",4,1],[20,"Ca","Calcium","ae","MW",4,2],[21,"Sc","Scandium","tm","M",4,3],[22,"Ti","Titanium","tm","MW",4,4],[23,"V","Vanadium","tm","MW",4,5],[24,"Cr","Chromium","tm","WM",4,6],[25,"Mn","Manganese","tm","W",4,7],[26,"Fe","Iron","tm","WM",4,8],[27,"Co","Cobalt","tm","WM",4,9],[28,"Ni","Nickel","tm","WM",4,10],[29,"Cu","Copper","tm","MW",4,11],[30,"Zn","Zinc","tm","MW",4,12],[31,"Ga","Gallium","post","M",4,13],[32,"Ge","Germanium","met","M",4,14],[33,"As","Arsenic","met","M",4,15],[34,"Se","Selenium","nm","M",4,16],[35,"Br","Bromine","hal","M",4,17],[36,"Kr","Krypton","nob","ML",4,18],[37,"Rb","Rubidium","alk","ML",5,1],[38,"Sr","Strontium","ae","L",5,2],[39,"Y","Yttrium","tm","L",5,3],[40,"Zr","Zirconium","tm","L",5,4],[41,"Nb","Niobium","tm","L",5,5],[42,"Mo","Molybdenum","tm","LMN",5,6],[43,"Tc","Technetium","tm","H",5,7],[44,"Ru","Ruthenium","tm","NL",5,8],[45,"Rh","Rhodium","tm","N",5,9],[46,"Pd","Palladium","tm","LN",5,10],[47,"Ag","Silver","tm","NL",5,11],[48,"Cd","Cadmium","tm","LN",5,12],[49,"In","Indium","post","NL",5,13],[50,"Sn","Tin","post","L",5,14],[51,"Sb","Antimony","met","NL",5,15],[52,"Te","Tellurium","met","N",5,16],[53,"I","Iodine","hal","N",5,17],[54,"Xe","Xenon","nob","N",5,18],[55,"Cs","Caesium","alk","NL",6,1],[56,"Ba","Barium","ae","L",6,2],[57,"La","Lanthanum","lan","L",9,3],[58,"Ce","Cerium","lan","L",9,4],[59,"Pr","Praseodymium","lan","LN",9,5],[60,"Nd","Neodymium","lan","LN",9,6],[61,"Pm","Promethium","lan","H",9,7],[62,"Sm","Samarium","lan","NL",9,8],[63,"Eu","Europium","lan","N",9,9],[64,"Gd","Gadolinium","lan","N",9,10],[65,"Tb","Terbium","lan","N",9,11],[66,"Dy","Dysprosium","lan","N",9,12],[67,"Ho","Holmium","lan","N",9,13],[68,"Er","Erbium","lan","N",9,14],[69,"Tm","Thulium","lan","N",9,15],[70,"Yb","Ytterbium","lan","NL",9,16],[71,"Lu","Lutetium","lan","N",9,17],[72,"Hf","Hafnium","tm","LN",6,4],[73,"Ta","Tantalum","tm","NL",6,5],[74,"W","Tungsten","tm","LN",6,6],[75,"Re","Rhenium","tm","N",6,7],[76,"Os","Osmium","tm","N",6,8],[77,"Ir","Iridium","tm","N",6,9],[78,"Pt","Platinum","tm","N",6,10],[79,"Au","Gold","tm","N",6,11],[80,"Hg","Mercury","tm","L",6,12],[81,"Tl","Thallium","post","L",6,13],[82,"Pb","Lead","post","L",6,14],[83,"Bi","Bismuth","post","NL",6,15],[84,"Po","Polonium","post","R",6,16],[85,"At","Astatine","hal","R",6,17],[86,"Rn","Radon","nob","R",6,18],[87,"Fr","Francium","alk","R",7,1],[88,"Ra","Radium","ae","R",7,2],[89,"Ac","Actinium","act","R",10,3],[90,"Th","Thorium","act","N",10,4],[91,"Pa","Protactinium","act","R",10,5],[92,"U","Uranium","act","N",10,6],[93,"Np","Neptunium","act","H",10,7],[94,"Pu","Plutonium","act","H",10,8],[95,"Am","Americium","act","H",10,9],[96,"Cm","Curium","act","H",10,10],[97,"Bk","Berkelium","act","H",10,11],[98,"Cf","Californium","act","H",10,12],[99,"Es","Einsteinium","act","H",10,13],[100,"Fm","Fermium","act","H",10,14],[101,"Md","Mendelevium","act","H",10,15],[102,"No","Nobelium","act","H",10,16],[103,"Lr","Lawrencium","act","H",10,17],[104,"Rf","Rutherfordium","tm","H",7,4],[105,"Db","Dubnium","tm","H",7,5],[106,"Sg","Seaborgium","tm","H",7,6],[107,"Bh","Bohrium","tm","H",7,7],[108,"Hs","Hassium","tm","H",7,8],[109,"Mt","Meitnerium","tm","H",7,9],[110,"Ds","Darmstadtium","tm","H",7,10],[111,"Rg","Roentgenium","tm","H",7,11],[112,"Cn","Copernicium","tm","H",7,12],[113,"Nh","Nihonium","post","H",7,13],[114,"Fl","Flerovium","post","H",7,14],[115,"Mc","Moscovium","post","H",7,15],[116,"Lv","Livermorium","post","H",7,16],[117,"Ts","Tennessine","hal","H",7,17],[118,"Og","Oganesson","nob","H",7,18]];
 /* ===== Phase 3: rival ideas, "tests we could run", new nodes, new sources ===== */
 Object.assign(SRC, {
  strpol:['Polchinski 1994: What is string theory? (lectures)','https://arxiv.org/abs/hep-th/9411028'],
@@ -1199,7 +1249,7 @@ const RIV = {
   ['WIMPs','u','Heavy, weakly interacting particles. LZ (2025): none found yet.','lz'],
   ['Axions','u','Very light particles that also fix a puzzle about the strong force. ADMX: none yet.','admx'],
   ['Sterile neutrinos','u','A 4th, "silent" neutrino. MicroBooNE (2025) ruled out the simplest light kind (not the heavier dark-matter kind).','microboone'],
-  ['MOND (change gravity)','u','No dark stuff; gravity changes at tiny accelerations. Wide-binary tests disagree with each other.','banik','chae']],
+  ['MOND (change gravity)','u','No dark stuff; gravity changes at tiny accelerations. Wide-binary tests disagree with each other.','banik,chae']],
  de:[
   ['Cosmological constant (Λ)','t','A fixed energy of empty space. Fits most data; its size is unexplained.','planck'],
   ['Quintessence','u','A slowly changing field instead. DESI (2025) hints this way, not yet decisive.','quint']],
@@ -1222,7 +1272,7 @@ const TESTS = {
  axiom:[
   ['Next caesium (Berkeley) and rubidium (Paris) α results: one of them rules Alex\'s number in or out.','csalpha2'],
   ['Keep "3 generations, no 4th" (LEP: 2.9963 ± 0.0074 neutrino types, consistent).','lep'],
-  ['Independent experts review release 0.1 (none yet, Oct 2026).','',true],
+  ['Independent experts review release 0.1 (none found, checked 6 Nov 2026).','ctcomp',true],
   ['Get a number not put in by hand, e.g. proton/electron mass 1836.15 (not reached yet).','ctcomp',true]],
  qgrav:[
   ['Lab test: can gravity entangle two tiny masses? (nanodiamond set-ups being designed)','gie'],
@@ -1231,10 +1281,10 @@ const TESTS = {
  strings:[
   ['LHC keeps searching for supersymmetry and extra dimensions (none so far).','pdg'],
   ['Gravity-made entanglement in the lab (tests every quantum-gravity idea).','gie'],
-  ['A prediction unique to strings at reachable energies.','',true]],
+  ['A distinctive string prediction at reachable energies.','strpol']],
  lqg:[
   ['Gravity-made entanglement in the lab (tests every quantum-gravity idea).','gie'],
-  ['Look for "bounce" marks in the CMB that only loop cosmology predicts.','',true]],
+  ['Test specific loop-cosmology scenarios against CMB data; proposed signatures depend on the model.','lqcobs']],
  qudits:[
   ['Entanglement limits ("monogamy", bound entanglement) already hold in theory and lab: consistent, not proof.','horo'],
   ['Show one measured particle is a web of pair-links.','',true],
@@ -1304,7 +1354,7 @@ const TESTS = {
  firststars:[
   ['Deeper JWST spectra of "Hebe": strong helium, no metals?','hebe'],
   ['ESO ELT: science from Dec 2030.','elt'],
-  ['A first-star supernova seen directly.','',true]],
+  ['A first-star supernova seen directly.','pop3']],
  smbh:[
   ['JWST: more "little red dots" and their masses.','lrddcbh'],
   ['LISA (2035): hear seed black holes merge.','lisa'],
@@ -1312,49 +1362,67 @@ const TESTS = {
  moon:[
   ['Artemis IV (early 2028): new South-Pole samples.','artemis'],
   ['More Earth–Moon isotope comparisons (iron, 2025).','theia'],
-  ['A Theia leftover found in Earth\'s deep mantle.','',true]],
+  ['A Theia leftover found in Earth\'s deep mantle.','moon']],
  chem:[
   ['Dragonfly to Titan (launch July 2028, arrive 2034): prebiotic chemistry.','dragonfly'],
   ['Bennu samples: more organics analysed.','nasabennu'],
-  ['Head-to-head lab runs: land ponds vs vents.','',true]],
+  ['Head-to-head lab runs: land ponds vs vents.','abiogenesis']],
  nucleotides:[
   ['Bennu samples: any joined nucleotides?','nasabennu'],
   ['Dragonfly (Titan, 2034): organic chemistry in place.','dragonfly'],
-  ['All four RNA letters made in one plausible setting.','',true]],
+  ['All four RNA letters made in one plausible setting.','powner']],
  peptides:[
   ['Build on 2025 RNA + amino acid chemistry toward coded peptides.','powner25',true],
   ['Bennu samples: peptide bonds?','nasabennu']],
  rnaworld:[
   ['QT45 follow-ups: a full copy cycle (both strands, repeated).','qt45',true],
-  ['Lab evolution of faster, more accurate RNA copiers.','',true]],
+  ['Lab evolution of faster, more accurate RNA copiers.','qt45']],
  protocell:[
   ['SpudCell follow-ups: fewer parts, less help.','spudcell'],
-  ['An RNA-filled fatty bubble that grows, copies and divides by itself.','',true]],
+  ['An RNA-filled fatty bubble that grows, copies and divides by itself.','protocell']],
  origin:[
   ['Europa Clipper (Jupiter April 2030): is Europa habitable?','clipper'],
   ['Dragonfly (Titan, 2034): chemistry before biology.','dragonfly'],
   ['ESA L4 Enceladus (under study, launch ~2042): sample the plumes.','l4'],
-  ['One pot: self-made parts + open-ended evolution.','',true]],
+  ['One pot: self-made parts + open-ended evolution.','abiogenesis']],
  mind:[
-  ['More head-to-head tests like Cogitate (2025).','cogitate',true],
-  ['A brain signal that predicts awareness across patients and species.','',true]],
+  ['More head-to-head tests like Cogitate (2025).','cogitate'],
+  ['A brain signal that predicts awareness across patients and species.','anaes']],
 };
+
+/* v12: the third tuple flag belongs ONLY to Chain Theory's own research tests.
+   Sources for a future observation describe the method/context; they do not claim success. */
+for (const [id, rows] of Object.entries(TESTS)) for (const row of rows) {
+  if (row[2] && !['nothing','axiom','qudits','distill','genres','gauge','alpha','chainmail','ctspace','gap'].includes(id)) delete row[2];
+  if (!row[1]) row[1] = ['nothing','axiom','qudits','distill','genres','gauge','alpha','chainmail','ctspace','gap'].includes(id) ? 'ctcomp' : 'pdg';
+}
+Object.assign(SRC, {
+ lqcobs:['Barrau 2017: testing loop quantum cosmology (scenario-dependent CMB signatures)','https://arxiv.org/abs/1703.03716'],
+ oddo:['Nuclear pairing and abundance: even–odd effects and binding-energy systematics (NDC review)','https://www-nds.iaea.org/publications/indc/indc-nds-0789.pdf'],
+ elorigin:['Karakas & Lattanzio review: stellar nucleosynthesis and the origin of the elements','https://arxiv.org/abs/1401.0987'],
+ pigos:['Pignatari et al. 2023: the weak s-process in massive stars (including solar Cu)','https://link.springer.com/article/10.1140/epja/s10050-023-01206-1'],
+ ironpeak:['Kobayashi & Nomoto 2006: massive-star yields, Ti, V and Zn in explosive burning','https://arxiv.org/abs/astro-ph/0605725'],
+ anaes:['Nature of consciousness in anaesthesia 2023: testing candidate brain signatures','https://doi.org/10.1016/j.bjao.2023.100224']
+});
 /* labels for the remaining lines: amount / recipe / what passes up (kept short; '?' = not known) */
 const EL2 = {
- axiom:{nothing:'Alex: start = links only'}, qft:{nothing:'?'}, qgrav:{nothing:'?'},
+ axiom:{nothing:'Alex: start = links only'}, qft:{nothing:'fields pervade space'}, qgrav:{nothing:'? a workable quantum gravity'},
  inflation:{qft:'an inflaton field (guess)',qgrav:'? at 10⁻³⁵ s'}, genres:{distill:'read limit d₁d₂ ≤ 6'}, higgs:{qft:'1 field, 246 GeV'},
  ctspace:{distill:'time = counted reads'}, gap:{chainmail:'? how webs = particles',alpha:'1 number matched',ctspace:'? no 3+1 D derived'},
  soup:{bigbang:'>10¹⁵ K heat',qft:'all quantum fields'},
  quarks:{soup:'6 flavours × 3 colours',gap:'? not derived',higgs:'gives mass (2–173,000 MeV)'},
  gluons:{soup:'8 kinds',gap:'? not derived'}, electrons:{soup:'e, μ, τ',gap:'? webs (Alex, cond.)',higgs:'gives 0.511 MeV'},
  neutrinos:{soup:'3 flavours, ~336 /cm³ left'}, photons:{soup:'~410 /cm³ left today'},
+ cmb:{atoms:'scattering ends at recombination',photons:'light set free'}, solar:{dust:'1 cloud → Sun + 8 planets',stars:'protostar + disk + planets'}, plants:{multicell:'many cells + chloroplasts',photosyn:'inherited chloroplasts'},
  wz:{higgs:'gives 80 & 91 GeV',gap:'? not derived'}, dm:{bigbang:'~5× normal matter'}, de:{bigbang:'~68.5% of energy'},
  antimatter:{soup:'pairs: matter = antimatter?'}, qgp:{quarks:'free quarks',gluons:'+ gluons',strong:'>2×10¹² K'},
- halos:{gravity:'clumps of dark matter'}, cmb:{atoms:'light set free'}, gas:{atoms:'~75% H, 25% He'},
+ halos:{gravity:'clumps of dark matter'}, gas:{atoms:'~75% H, 25% He'},
  firststars:{gas:'each star ~10s–100s of Suns (models)'}, stars:{firststars:'seed metals'}, galaxies:{gas:'gas falls into halos',stars:'10⁷–10¹² stars'},
  smbh:{galaxies:'? seeds of 10²–10⁵ Suns'}, fusion:{firststars:'H → He at 10⁷ K'}, sprocess:{fusion:'neutrons +1 at a time'},
- nsmerger:{supernova:'leftover neutron stars'}, bh:{supernova:'core > ~2–3 Suns'}, elements:{fusion:'C, N, O … Fe'},
- bonds:{elements:'H, C, N, O, P, S…'}, solar:{dust:'1 cloud → Sun + 8 planets'}, earth:{planets:'1 of 8, 4.54 Ga',solar:'3rd from Sun'},
+ 
+ gravity:{qgrav:'general relativity + quantum?'}, numass:{neutrinos:'mass-splitting oscillations'}, atoms:{em:'bound electrons + nuclei'}, fusion:{weak:'allows proton–proton fusion'}, bh:{gravity:'collapse past the horizon'}, dust:{stars:'stellar winds + disks'}, molecules:{firstmol:'neutral atoms can bond'},
+ nsmerger:{supernova:'leftover neutron stars'}, bh:{gravity:'collapse past the horizon',supernova:'core > ~2–3 Suns'}, elements:{fusion:'C, N, O … Fe'},
+ bonds:{elements:'H, C, N, O, P, S…'}, earth:{planets:'1 of 8, 4.54 Ga',solar:'3rd from Sun'},
  exo:{planets:'6,451 found'}, water:{molecules:'H₂O',earth:'oceans by ~4.4 Ga'}, moon:{earth:'giant impact (leading idea)'},
  chem:{water:'liquid solvent',molecules:'+ energy (sun, vents)'}, amino:{chem:'C, H, N, O (+S)'},
  nucleotides:{chem:'base + sugar + phosphate',sugars:'+ ribose'}, sugars:{chem:'formaldehyde → sugars'}, lipids:{chem:'fatty acids'},
@@ -1363,13 +1431,13 @@ const EL2 = {
  proteins:{luca:'~2,600 protein families (est. 2024)'}, code:{luca:'64 codons → 20 amino acids'}, dna:{luca:'2 strands, 4 letters'},
  prok:{luca:'splits: bacteria + archaea',proteins:'~2,000–4,000 kinds',dna:'1 ring, ~5 Mb',code:'shared code'},
  photosyn:{prok:'cyanobacteria'}, goe:{photosyn:'O₂ waste builds up'}, eukaryote:{prok:'archaeon + bacterium',goe:'O₂ to burn'},
- multicell:{eukaryote:'cells stay stuck'}, tissues:{multicell:'many cells of 1 kind'}, plants:{multicell:'+ chloroplasts'},
+ multicell:{eukaryote:'cells stay stuck'}, tissues:{multicell:'many cells of 1 kind'},
  animals:{multicell:'cells that move'}, organs:{tissues:'2–4 tissue types'}, mammals:{animals:'~200 Myr ago'},
  organsys:{organs:'several organs each'}, hsap:{mammals:'~300,000 yr ago'}, brain:{body:'~2% of weight, 20% of energy'}, mind:{brain:'? 86 bn neurons → thought'},
 };
 /* Periodic table data: origins, groups, not-yet-made elements */
 const ORI = { B: ['Big Bang', '#6fb8ff', 'Made in the first 20 minutes.'], C: ['Cosmic-ray splitting', '#ff7bd0', 'Fast particles break bigger nuclei.'], L: ['Dying low-mass stars', '#5cf0a0', 'Giant stars (1–8 Suns) catch neutrons slowly (s-process), then puff off their outer layers. (Most of our lithium: such stars and novae.)'],
-  M: ['Exploding massive stars', '#ffd36b', 'Fusion in stars >8 Suns, spread by core-collapse supernovae.'], W: ['Exploding white dwarfs', '#c9b6ff', 'Type Ia supernovae: lots of iron-group metals.'],
+  M: ['Massive stars & their supernovae', '#ffd36b', 'Made by fusion, neutron capture and explosive burning in stars >8 Suns; spread by core-collapse supernovae. Includes most Cu and the simpler main-source choice for Zn, Ti and V; shares vary by isotope and remain debated.'], W: ['Exploding white dwarfs', '#c9b6ff', 'Type Ia supernovae: lots of iron-group metals.'],
   N: ['Merging neutron stars', '#ff8a5a', 'Rapid neutron catching (r-process). Maybe also rare supernovae (debated).'], R: ['Radioactive decay only', '#8a94a8', 'No long-lived form; made as other elements decay.'], H: ['Human-made', '#4ff3e3', 'Made in reactors or accelerators (some also in traces or in stars, briefly).'] };
 const CAT = { nm: ['Other non-metal', '#5cf0a0'], hal: ['Halogen', '#9ff5ea'], nob: ['Noble gas', '#c9b6ff'], alk: ['Alkali metal', '#ff8a8a'], ae: ['Alkaline-earth metal', '#ffb46b'], met: ['Metalloid', '#d9e07a'], post: ['Post-transition metal', '#9fb4cc'], tm: ['Transition metal', '#ffd36b'], lan: ['Lanthanide', '#ff9ad5'], act: ['Actinide', '#ff7b91'] };
 const PTX = [
@@ -1919,13 +1987,17 @@ function collect(gid, edges, Wv, Hv, xk, yk) { const g = document.getElementById
     nodeBB: N.map(n => [n[xk] - Math.max(90, halfW(n) + 6), n[yk] - 80, n[xk] + Math.max(90, halfW(n) + 6), n[yk] + 115]),
     edgeBB: edges.map(e => { const P = e.P, xs = [P[0], P[2], P[4], P[6]], ys = [P[1], P[3], P[5], P[7]]; return [Math.min(...xs) - 16, Math.min(...ys) - 16, Math.max(...xs) + 16, Math.max(...ys) + 16]; }),
     labBB: edges.filter(e => e.lab).map(e => [e.lx - e.lw / 2, e.ly - 12, e.lx + e.lw / 2, e.ly + 12]) }; }
+let cleanPolicy = null;
 function setScene(v) { VIEW = v; const S = SCN[v]; N.forEach(n => { n.x = n[S.xk]; n.y = n[S.yk]; });
   ({ nodeEls, edgeEls, labEls, nodeBB, edgeBB, labBB } = S); EDGES = S.edges; W = S.W; H = S.H;
   for (const k in SCN) SCN[k].g.style.display = v === k ? '' : 'none';
-  document.body.classList.toggle('cv', v === 'circle'); }
+  document.body.classList.toggle('cv', v === 'circle');
+  if (typeof cleanScene === 'function') cleanScene(v); }
 function buildScenes() { const v = VIEW, m = buildMap(), c = buildCircle();
   world.innerHTML = `<g id="gMap">${m.html}</g><g id="gCircle">${c.html}</g>`;
-  SCN.map = collect('gMap', m.edges, WM, HM, 'mx', 'my'); SCN.circle = collect('gCircle', c.edges, WC, HC, 'ox', 'oy'); setScene(v);
+  SCN.map = collect('gMap', m.edges, WM, HM, 'mx', 'my'); SCN.circle = collect('gCircle', c.edges, WC, HC, 'ox', 'oy');
+  // Scene activation follows the final presentation/controller setup.
+  for (const k in SCN) SCN[k].g.style.display = v === k ? '' : 'none';
   if (typeof EF !== 'undefined') EF.paintSeen(); }
 // one data edit (e.g. byId.smbh.solved = true) then rebuild() updates both views
 function rebuild() { applyStatus(); buildScenes(); if (typeof cull === 'function') { cullQ = false; cull(); } }
@@ -2011,10 +2083,10 @@ let stripDrag = false;
 function related(id) { const A = new Set([id]), D = new Set([id]);
   const up = i => byId[i].p.forEach(p => { if (!A.has(p)) { A.add(p); up(p); } }); const dn = i => byId[i].kids.forEach(c => { if (!D.has(c)) { D.add(c); dn(c); } });
   up(id); dn(id); return [A, D]; }
-function light(id) { if (!id) { svg.classList.remove('focus'); return; } const [A, D] = related(id); svg.classList.add('focus');
+function light(id) { svg.dataset.focus = id || ''; if (!id) { svg.classList.remove('focus'); nodeEls.forEach(el => el.classList.remove('lit')); edgeEls.forEach(el => el.classList.remove('lit')); labEls.forEach(el => el.classList.remove('lit')); return; } const [A, D] = related(id); svg.classList.add('focus');
   nodeEls.forEach(el => el.classList.toggle('lit', A.has(el.dataset.id) || D.has(el.dataset.id)));
   const f = el => { const a = el.dataset.a, b = el.dataset.b; el.classList.toggle('lit', (A.has(a) && A.has(b)) || (D.has(a) && D.has(b))); };
-  edgeEls.forEach(f); labEls.forEach(f); }
+  edgeEls.forEach(f); labEls.forEach(f); if (typeof LINES !== 'undefined') LINES.apply(); }
 svg.addEventListener('pointerover', e => { if (e.pointerType !== 'mouse' || sel || pts.size) return; const g = e.target.closest && e.target.closest('.node'); if (g) light(g.dataset.id); });
 svg.addEventListener('pointerout', e => { if (e.pointerType !== 'mouse' || sel) return; const g = e.target.closest && e.target.closest('.node'); if (g && !(e.relatedTarget && g.contains(e.relatedTarget))) light(null); });
 
@@ -2087,7 +2159,7 @@ function ptShow(z) { const [, sy, nm, ca, o] = ELS[z - 1]; ptg.querySelectorAll(
 ptg.addEventListener('click', e => { const el = e.target.closest('.e'); if (el) ptShow(+el.dataset.z); });
 document.getElementById('ptmode').onclick = () => { ptMode = ptMode === 'origin' ? 'group' : 'origin'; colourPT(); };
 const ptOpen = () => pt.style.display === 'block';
-function buildPTX() { document.getElementById('ptx').innerHTML = `<h3>Not yet made (predicted)</h3><div class="xs">Beyond 118 nothing has been made yet (Oct 2026). These are predictions and running hunts, graded like the map.</div><div class="xs">Odd–even pattern (Oddo–Harkins rule): elements with an even number of protons are usually more common than their odd neighbours.</div><div class="xg">` +
+function buildPTX() { document.getElementById('ptx').innerHTML = `<h3>Not yet made (predicted)</h3><div class="xs">Beyond 118 nothing has been made yet (checked 6 Nov 2026). These are predictions and running hunts, graded like the map.</div><div class="xs">Odd–even pattern (Oddo–Harkins rule): elements with an even number of protons are usually more common than their odd neighbours.</div><div class="xg">` +
   PTX.map(([z, nm, st, tx, sk]) => `<div class="xc" style="border-color:${SC[st]}"><b class="big">${z}</b><b>${esc(nm)}</b><div class="st" style="color:${SC[st]}"><i style="background:${SC[st]}"></i>${SN[st]}</div>${esc(tx)}<div>${sk.split(',').map(k => `<a href="${SRC[k][1]}" target="_blank" rel="noopener">${esc(SRC[k][0])}</a>`).join('<br>')}</div></div>`).join('') + '</div>'; }
 function openPT() { if (!ptBuilt) { buildPT(); buildPTX(); } pt.style.display = 'block'; EF.bonus('pt'); }
 function closePT() { pt.style.display = 'none'; }
@@ -2181,7 +2253,7 @@ const VNAME = { map: 'the map', circle: 'the ring' }, VORD = ['map', 'circle'];
 function syncSwitch() { vsw.classList.toggle('isCircle', VIEW === 'circle'); vsw.querySelectorAll('span[data-v]').forEach(sp => { sp.classList.toggle('on', sp.dataset.v === VIEW); });
   vsw.setAttribute('aria-label', `Showing ${VNAME[VIEW]}. Click Map or Ring (Enter cycles)`); placePanels(); }
 function switchView(v) { if (v === VIEW || svg.classList.contains('fade')) return; camOf[VIEW] = [s, tx, ty];
-  const go = () => { cancelAnimationFrame(anim); setScene(v); light(sel); syncSwitch(); prefSet('fntu-view', v);
+  const go = () => { cancelAnimationFrame(anim); setScene(v); LINES.classify(); light(sel); syncSwitch(); prefSet('fntu-view', v);
     if (sel) { const n = byId[sel], top = UI(), s2 = innerWidth <= 600 ? 0.6 : Math.min(1, Math.max(0.6, s)); [s, tx, ty] = [s2, innerWidth / 2 - n.x * s2, top + (innerHeight - top) / 2 - n.y * s2]; }
     else [s, tx, ty] = camOf[v] || homeView();
     cullQ = false; apply(); cull(); if (sel) { placePop(); liftForSheet(); }
@@ -2323,7 +2395,7 @@ function solvedHTML(n) { const r = n.solved; if (!r || typeof r !== 'object') re
 
 /* ============ SHARE A NODE ============ */
 const SITE = 'https://zyphullen.github.io/from-nothing-to-us/';
-const shareURL = id => SITE + '#n=' + encodeURIComponent(id) + (VIEW !== 'map' ? '&tv=' + VIEW : '');
+const shareURL = id => (location.protocol === 'file:' ? location.href.split('#')[0] : SITE) + '#n=' + encodeURIComponent(id) + (VIEW !== 'map' ? '&tv=' + VIEW : '');
 let toastT = 0;
 function toast(msg) { let el = document.getElementById('toast'); if (!el) { el = document.createElement('div'); el.id = 'toast'; el.setAttribute('role', 'status'); document.body.appendChild(el); }
   el.textContent = msg; el.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('on'), 1800); }
@@ -2358,7 +2430,7 @@ const HOWTO = (() => { const el = document.getElementById('howto'), KEY = 'fntu-
   addEventListener('keydown', e => { if (e.key === 'Escape' && el.classList.contains('on')) { close(); e.stopImmediatePropagation(); } }, true);
   document.getElementById('howb').onclick = () => { infp.classList.remove('on'); open(); };
   return { open, close, first: () => prefGet(KEY) !== '1' }; })();
-(() => { const h = new URLSearchParams(location.hash.slice(1)); if (HOWTO.first() && !h.has('n') && !h.has('open')) setTimeout(HOWTO.open, 500); })();
+(() => { const h = new URLSearchParams(location.hash.slice(1)); if (HOWTO.first() && ![...h.keys()].some(k => ['n','open','atom','cell','body','planet'].includes(k))) setTimeout(HOWTO.open, 500); })();
 
 /* ============ v7 DRAFT: THE CLOSING LOOP POP-UP (Circle view only) ============ */
 var LOOPON = false, loopLayer = 1;
@@ -2390,7 +2462,7 @@ function liftLoop() { if (innerWidth > 600 || !LOOPON) return; const y = CIR.ly 
   if (y > top + 20 && y < pt - 20 && x > 10 && x < innerWidth - 10) return; animTo(s, tx + (innerWidth / 2 - x), ty + (top + (pt - top) / 2 - y), 300); }
 popBody.addEventListener('click', e => { const b = e.target.closest('button'); if (!b || !LOOPON) return; const a = b.dataset.act;
   if (a === 'lmore') { loopLayer = 2; renderLoop(); placeLoop(); liftLoop(); } else if (a === 'lless') { loopLayer = 1; renderLoop(); pop.scrollTop = 0; placeLoop(); }
-  else if (a === 'lshare') { const u = SITE + '#tv=circle&loop=1'; copyText(u).then(ok => toast(ok ? 'Link copied' : 'Copy this link: ' + u)); } });
+  else if (a === 'lshare') { const u = (location.protocol === 'file:' ? location.href.split('#')[0] : SITE) + '#tv=circle&loop=1'; copyText(u).then(ok => toast(ok ? 'Link copied' : 'Copy this link: ' + u)); } });
 /* ===== Virtual Cell (v9 prototype): a typical human cell (generalised) at real scale =====
    API: VCELL.init(host, opts) -> starts the view inside `host` (default document.body)
           opts.onClose()      called when Back is pressed
@@ -3070,7 +3142,7 @@ const VCELL = (() => {
   function init(host, o = {}) {
     if (alive) destroy(); opts = o; alive = true; D = build(); t = 0; last = 0; sel = null; layer = 1; offs = [0, 0]; simT = 0; tm = 0; simR = rng(4242); MC = new Map(); mcTm = null;
     root = document.createElement('div'); root.id = 'vcell'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Virtual Cell: a typical human cell');
-    root.innerHTML = (o.embedded ? '' : `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🧬 Virtual Cell <small>typical human cell · v11</small></b>
+    root.innerHTML = (o.embedded ? '' : `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🧬 Virtual Cell <small>typical human cell · v12</small></b>
       <div class="vzm"><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole cell">⤢</button></div></div>`) +
       `<div class="vtime" role="group" aria-label="Time speed"><button class="vpl" aria-label="Pause">⏸</button>${SPEEDS.map(s => `<button data-s="${s}" aria-pressed="false">${s >= 1e4 ? '10k' : s}×</button>`).join('')}<button class="vsc" aria-pressed="false" title="Microscope look (subtle, optional)" aria-label="Microscope look">🔬</button><span class="vclk" aria-live="off"></span></div>` +
       `<div class="vban"></div><canvas aria-label="A typical human cell drawn to scale. Tap a part to learn about it."></canvas><div class="vcrumb" aria-live="polite"></div><div class="vhint">Tap any part to learn about it · pinch or scroll to zoom</div><div class="vscl"></div><div class="vpop" role="dialog" aria-live="polite"></div>`;
@@ -3112,7 +3184,8 @@ window.VCELL = VCELL;
 /* ===== Human Body (v9 test): an adult female body, front view, real proportions, zoom cm by cm to mm =====
    API: VBODY.init(host, opts) · destroy() · isOpen() · focus(id) · layers(obj?) · debug() · parts · w2s(x,y) · pts()
    World units are millimetres. y = 0 at the top of the head, the body is 1,650 mm tall (an average adult woman).
-   Front (anatomical) view: the person's RIGHT side is on the viewer's LEFT (x < 0). */
+   Front (anatomical) view: the person's RIGHT side is on the viewer's LEFT (x < 0).
+   Built to grow later: BUILD[sex]() returns the parts, so a male body can be added as BUILD.male. */
 const VBODY = (() => {
   const W = 'https://en.wikipedia.org/wiki/';
   const H = 1650; // mm
@@ -3417,7 +3490,7 @@ const VBODY = (() => {
   // ---------- life cycle ----------
   function init(host = document.body, o = {}) { if (alive) destroy(); opts = o; alive = true; sex = 'female'; Object.assign(ON, ON0); B = BUILD[sex](); BR.clear(); skinPath = B.parts[0].path;
     root = document.createElement('div'); root.id = 'vbody'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Human Body');
-    root.innerHTML = `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🫀 Human Body <small>v11</small></b><div class="vzm"><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole body">⤢</button></div></div>` +
+    root.innerHTML = `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🫀 Human Body <small>v12</small></b><div class="vzm"><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole body">⤢</button></div></div>` +
       `<div class="vtime vlay" role="group" aria-label="Layers">${LAYERS.map(([k, n, c]) => `<button data-l="${k}" aria-pressed="${ON[k]}" class="${ON[k] ? 'on' : ''}"><i style="background:${c}"></i>${n}</button>`).join('')}</div>` +
       `<canvas aria-label="Human body, front view. Tap a part to learn about it."></canvas><div class="vcrumb"></div><div class="vscl"></div><div class="vban"></div><div class="vhint">Tap any part · pinch or scroll to zoom · toggle layers above</div><div class="vpop" role="dialog" aria-live="polite"></div>`;
     host.appendChild(root); const $ = s => root.querySelector(s); cv = $('canvas'); cx = cv.getContext('2d'); hc = document.createElement('canvas').getContext('2d');
@@ -3433,7 +3506,7 @@ const VBODY = (() => {
     debug: () => ({ cam: { ...cam }, sel: sel && sel[0], layer, fps, on: { ...ON }, branches: [...BR.values()].reduce((a, b) => a + b.length, 0), sex }), BUILD };
 })();
 /* ============ v8: Explore menu, Virtual Cell, keyboard nodes, phone layout fixes ============ */
-const V8 = '8';
+const V8 = '12';
 // phones: height of the fixed bars at the top (matches the v8 compact CSS)
 function v8UI() { return 112; }
 // phones: the circle opens on the top of the ring (Nothing, Us and the closing loop) at a readable size; ⤢ still shows it all
@@ -3637,7 +3710,7 @@ const VPLANET = (() => {
     addEventListener('keydown', onKey); }
   function init(host = document.body, o = {}) { if (alive) destroy(); opts = o; alive = true; sel = null; stop = 0; t = 0; last = 0;
     root = document.createElement('div'); root.id = 'vplanet'; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Planet Earth');
-    root.innerHTML = `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🌍 Planet Earth <small>v11</small></b><div class="vzm"><button class="vup" aria-label="Go up a layer">↑</button><button class="vdn" aria-label="Go down a layer">↓</button><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole planet">⤢</button><button class="vpeel" aria-label="Peel off the outer layer" title="Peel a layer">🧅</button><button class="vrest" aria-label="Put all layers back" title="Whole Earth">🌍</button></div></div>` +
+    root.innerHTML = `<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">🌍 Planet Earth <small>v12</small></b><div class="vzm"><button class="vup" aria-label="Go up a layer">↑</button><button class="vdn" aria-label="Go down a layer">↓</button><button class="vout" aria-label="Zoom out">−</button><button class="vin" aria-label="Zoom in">+</button><button class="vfit" aria-label="Show the whole planet">⤢</button><button class="vpeel" aria-label="Peel off the outer layer" title="Peel a layer">🧅</button><button class="vrest" aria-label="Put all layers back" title="Whole Earth">🌍</button></div></div>` +
       `<canvas aria-label="Earth cut-away, layers to scale. Tap a layer to learn about it."></canvas><div class="vcrumb"></div><div class="vscl"></div><div class="vban">Cut-away: real layer depths (averages) · land left, ocean right (simplified)</div><div class="vhint">↓ dives · 🧅 peels a layer · tap any layer</div><div class="vpop" role="dialog" aria-live="polite"></div>`;
     host.appendChild(root); const $ = s => root.querySelector(s); cv = $('canvas'); cx = cv.getContext('2d'); pop = $('.vpop'); crEl = $('.vcrumb'); scl = $('.vscl');
     $('.vback').onclick = close; $('.vin').onclick = () => zoomAt(VW() / 2, (VH() + TOP()) / 2, 1.6); $('.vout').onclick = () => zoomAt(VW() / 2, (VH() + TOP()) / 2, 1 / 1.6); $('.vfit').onclick = () => go('earth'); $('.vpeel').onclick = () => setPeel(peel + 1); $('.vrest').onclick = () => setPeel(0);
@@ -3654,6 +3727,264 @@ const VPLANET = (() => {
   window.openPlanet = openPlanet;
   menu.addEventListener('click', e => { const b = e.target.closest('button'); if (b && b.dataset.x === 'planet') openPlanet(); });
   const h = new URLSearchParams(location.hash.slice(1)); if (h.has('planet')) setTimeout(() => openPlanet(h.get('planet') || undefined), 60);
+})();
+/* v12 Atom Sandbox: accessible, preset-driven teaching toy, NOT a quantum or nuclear physics engine.
+   Unknown combinations are not faked; supported reactions are curated examples. */
+const VATOM = (() => {
+  let root, cv, cx, alive = false, raf = 0, opts = {}, paused = false;
+  let Z = 1, A = 2, field = 75, cloud = true, t = 0, last = 0, clock = 0;
+  let particles = [], photons = [], flashes = [], nextId = 0, reactions = 0, hits = 0, lastReaction = null;
+  let dragging = null, toastTimer = 0;
+  const rm = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const element = z => z > 0 ? (ELS[z - 1] || [])[2] || `Element ${z}` : 'Neutron';
+  const name = q => q.Z === 0 ? 'Free neutron' : q.Z === 1 ? ['','Hydrogen-1','Deuterium','Tritium'][q.A] || `Hydrogen-${q.A}` : `${element(q.Z)}-${q.A}`;
+  const shells = z => {
+    const caps = [2,8,8,18,18,32,21], row = z <= 2 ? 0 : z <= 10 ? 1 : z <= 18 ? 2 : z <= 36 ? 3 : z <= 54 ? 4 : z <= 86 ? 5 : 6;
+    let left = z, out = [];
+    for (let i=0;i<=row;i++) { const n = Math.min(caps[i],left); out.push(n); left-=n; }
+    return out;
+  };
+  function add(z,a,x=.4,y=.5,charge=0) {
+    if (typeof z === 'object') [z,a] = z;
+    z=+z; a=Math.max(1,+a); if(z===0) a=1;
+    const q={id:++nextId,Z:z,A:a,x,y,energy:.25,charge:z?charge:0,emit:Math.random()*.5};
+    particles.push(q); return q;
+  }
+  function reset(z=1,a=2) {
+    Z=z;A=a;particles=[];photons=[];flashes=[];reactions=0;hits=0;field=75;paused=false;t=0;
+    if (root) {root.querySelector('.vaPause').textContent='Ⅱ Pause';update();}
+  }
+  function glow(x,y,r,col,a=1) {
+    const g=cx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,`rgba(240,255,255,${a})`);g.addColorStop(.17,col);g.addColorStop(1,'transparent');
+    cx.fillStyle=g;cx.beginPath();cx.arc(x,y,r,0,7);cx.fill();
+  }
+  function ring(x,y,r,col,a=.5,w=1) {
+    cx.save();cx.globalAlpha=a;cx.strokeStyle=col;cx.lineWidth=w;cx.shadowColor=col;cx.shadowBlur=5;cx.beginPath();cx.arc(x,y,r,0,7);cx.stroke();cx.restore();
+  }
+  function text(s,x,y,size=11,col='#e8f7ff') {cx.font=`500 ${size}px system-ui,sans-serif`;cx.fillStyle=col;cx.textAlign='center';cx.textBaseline='middle';cx.fillText(s,x,y);}
+  function pair(p,x,y,d=5,col='#ffd36b') {glow(x,y,d*3,col);cx.fillStyle=col;cx.beginPath();cx.arc(x,y,d,0,7);cx.fill();}
+  function nucleus(q,X,Y) {
+    if(q.Z===0) {pair(q,X,Y,7,'#a9b9d1');text('n',X,Y,10,'#061220');return;}
+    const R=Math.min(27,10+Math.sqrt(q.A)*1.8);glow(X,Y,R*3,'#4ff3e3',.8);ring(X,Y,R,'#93fff0',.68,1.3);
+    for(let i=0;i<Math.min(36,q.A);i++){
+      const a=i*2.39996+(q.charge===0?t*.045:0),rr=Math.sqrt(i/Math.min(36,q.A))*R*.72,xx=X+Math.cos(a)*rr,yy=Y+Math.sin(a)*rr*.8;
+      pair(q,xx,yy,q.A<6?4.3:3.6,i<Math.min(q.Z,36)?'#ffd36b':'#f68bb9');
+    }
+    if(q.Z>2)text(`${q.Z}p · ${q.A-q.Z}n`,X,Y,9,'#fff');
+  }
+  function draw(q) {
+    const W=cv.clientWidth,H=cv.clientHeight,X=q.x*W,Y=q.y*H,sc=q.Z?shells(q.Z):[],outer=40+sc.length*11;
+    if(q.Z && q.charge<q.Z) for(let i=0;i<sc.length;i++) ring(X,Y,40+i*11,'#4ff3e3',.35);
+    else if(q.Z) ring(X,Y,55,'#ffd36b',.27,1.5);
+    const shown=Math.max(0,q.Z-q.charge);
+    for(let i=0,k=0;i<sc.length;i++) for(let j=0;j<sc[i] && k<shown;j++,k++){
+      const r=40+i*11,a=k/Math.max(1,sc[i])*Math.PI*2+t*(.55+i*.10)*(i%2?1:-1),x=X+Math.cos(a)*r,y=Y+Math.sin(a)*r;
+      glow(x,y,9,'#4ff3e3');cx.fillStyle='#d6fffa';cx.beginPath();cx.arc(x,y,2,0,7);cx.fill();
+    }
+    if(q.energy>.1)ring(X,Y,outer+7,'#ffd36b',Math.min(.8,q.energy),1.5+q.energy);
+    nucleus(q,X,Y);text(name(q),X,Y+outer+16,11.5,'#eefcff');
+    text(q.Z===0?'neutral · no electron shell':q.charge===0?'neutral atom':`${q.charge}+ nucleus · ${shown} shell e⁻ shown`,X,Y+outer+30,9.8,'#8cb7cc');
+  }
+  function drawBack(W,H) {
+    const g=cx.createRadialGradient(W*.48,H*.44,0,W*.48,H*.44,W*.75);g.addColorStop(0,'#08233c');g.addColorStop(.45,'#061225');g.addColorStop(1,'#040713');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+    let seed=12;const rnd=()=>((seed=seed*16807%2147483647)/2147483647);for(let i=0;i<120;i++){cx.fillStyle=`rgba(175,229,255,${.13+rnd()*.35})`;cx.fillRect(rnd()*W,rnd()*H,rnd()<.08?2:1,1);}
+    ring(W*.5,H*.48,Math.min(W,H)*.41,'#4ff3e3',.06,1);
+  }
+  function drawFrame() {
+    const W=cv.clientWidth,H=cv.clientHeight;drawBack(W,H);
+    for(const q of particles){if(q.Z&&q.charge<q.Z&&cloud){const X=q.x*W,Y=q.y*H,r=75+shells(q.Z).length*10;const g=cx.createRadialGradient(X,Y,1,X,Y,r);g.addColorStop(0,'#4ff3e322');g.addColorStop(1,'transparent');cx.fillStyle=g;cx.fillRect(X-r,Y-r,2*r,2*r);}draw(q);}
+    for(const p of photons){const x=p.x*W,y=p.y*H;glow(x,y,16,'#ffd36b');text('γ',x,y-13,10,'#ffe19b');}
+    for(const f of flashes){const x=f.x*W,y=f.y*H;glow(x,y,45+f.age*140,'#ffd36b',1-f.age);ring(x,y,15+f.age*190,'#ffd36b',1-f.age,2.4);}
+    text('Drag nuclei together · tap a particle for energy',W/2,H-17,11,'#74a8bf');
+  }
+  function toast(a,b) {
+    if(!root)return;const el=root.querySelector('.vappop');el.innerHTML=`<b>${esc(a)}</b><span>${esc(b)}</span>`;el.classList.add('on');
+    clearTimeout(toastTimer);toastTimer=setTimeout(()=>root&&root.querySelector('.vappop').classList.remove('on'),5700);
+  }
+  function gamma(q) {if(photons.length>70)return;photons.push({x:.055,y:.22+Math.random()*.65,tx:q.x,ty:q.y,target:q,age:0,free:false});}
+  function inject(q) {q.energy=Math.min(1.3,q.energy+field/140+.15);for(let i=0;i<3;i++){photons.push({x:q.x+(Math.random()-.5)*.03,y:q.y+(Math.random()-.5)*.03,age:0,free:true,vx:(Math.random()-.5)*.26,vy:(Math.random()-.5)*.26});}update();}
+  function reaction(a,b) {
+    const key=[a,b].map(q=>`${q.Z}:${q.A}`).sort().join('+');
+    const R={
+      '1:1+1:1':{name:'Deuterium-2',parts:[[1,2]],note:'Simplified p + p branch; the emitted positron and neutrino are not drawn.'},
+      '1:1+1:2':{name:'Helium-3',parts:[[2,3]],note:'Photons are schematic; no gamma-ray energy ledger is calculated.'},
+      '1:1+1:3':{name:'Helium-4',parts:[[2,4]],note:'Photons are schematic; no gamma-ray energy ledger is calculated.'},
+      '1:2+1:2':{name:'Helium-3 + free neutron',parts:[[2,3],[0,1]],note:'One D + D branch is shown; the real reaction has other branches.'},
+      '1:2+1:3':{name:'Helium-4 + free neutron',parts:[[2,4],[0,1]]},
+      '1:2+2:3':{name:'Helium-4 + free proton',parts:[[2,4],[1,1]]},
+      '1:1+2:3':{name:'Helium-4',parts:[[2,4]],note:'Photons are schematic; no gamma-ray energy ledger is calculated.'},
+      '1:2+3:7':{name:'Two helium-4 nuclei',parts:[[2,4],[2,4]],note:'Simplified lithium-7 + deuteron example; products carry kinetic energy in reality.'},
+      '2:4+6:12':{name:'Oxygen-16',parts:[[8,16]],note:'The real alpha-capture needs much higher temperature than this toy suggests.'},
+      '1:1+6:13':{name:'Nitrogen-14',parts:[[7,14]]}
+    }[key];
+    if(!R){
+      hits++;
+      const W=cv.clientWidth,H=cv.clientHeight;let dx=(a.x-b.x)*W,dy=(a.y-b.y)*H;
+      let d=Math.hypot(dx,dy);if(d<1){const ang=(a.id+b.id)*.7;dx=Math.cos(ang);dy=Math.sin(ang);d=1;} // happens when a user drops one nucleus onto the other
+      const nx=dx/d,ny=dy/d,midX=(a.x+b.x)/2,midY=(a.y+b.y)/2,half=(80/(W+H))/2;
+      a.x=Math.max(.08,Math.min(.92,midX+nx*half));a.y=Math.max(.1,Math.min(.8,midY+ny*half));
+      b.x=Math.max(.08,Math.min(.92,midX-nx*half));b.y=Math.max(.1,Math.min(.8,midY-ny*half));
+      a.energy=b.energy=Math.min(.3,(a.energy+b.energy)/2);
+      update();toast('No reaction in this small model','The nuclei bounce apart; no particles vanish or appear. Try D + T on the Golden path.');return;
+    }
+    const input=[a,b].map(q=>({Z:q.Z,A:q.A,name:name(q)}));
+    const x=(a.x+b.x)/2,y=(a.y+b.y)/2;particles=particles.filter(q=>q!==a&&q!==b);flashes.push({x,y,age:0});
+    reactions++;lastReaction={key,input,output:R.parts.map(([Z,A])=>({Z,A}))};
+    const off=[[0,0],[.08,0],[-.055,.04],[-.055,-.04]];
+    R.parts.forEach(([z,m],i)=>add(z,m,x+off[i][0],y+off[i][1],z?Math.max(0,z-1):0));
+    toast('✦ New particles formed',`${input.map(q=>q.name).join(' + ')} → ${R.name}. ${key==='1:2+1:3'?'The real reaction releases 17.6 MeV; product paths are artistic, not an energy calculation.':R.note||'Curated branch, not a yield or energy calculation; emitted photons are not an energy ledger.'}`);update();
+  }
+  function step(dt) {
+    for(const q of particles){
+      q.energy=Math.max(0,q.energy-dt*.013);
+      if(q.Z && field>=65){q.emit-=dt;if(q.emit<=0 && particles.length<24){gamma(q);q.emit=.38+Math.random()*.70;}}
+      if(q.energy>.25){q.x+=(Math.random()-.5)*dt*q.energy*.018;q.y+=(Math.random()-.5)*dt*q.energy*.018;}
+      q.x=Math.max(.11,Math.min(.89,q.x));q.y=Math.max(.12,Math.min(.78,q.y));
+    }
+    for(const p of photons){
+      p.age+=dt;
+      if(p.free){p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.age>2)p.dead=true;continue;}
+      const q=particles.includes(p.target)?p.target:null;if(q){p.tx=q.x;p.ty=q.y;}
+      const dx=p.tx-p.x,dy=p.ty-p.y,d=Math.hypot(dx,dy);p.x+=dx*dt*2.0;p.y+=dy*dt*2.0;
+      if(d<.02){if(q)q.energy=Math.min(1.2,q.energy+field/230);p.dead=true;}
+    }
+    photons=photons.filter(p=>!p.dead&&p.x>-.1&&p.x<1.1&&p.y>-.1&&p.y<1.1);
+    for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){
+      const a=particles[i],b=particles[j];if(!a.Z||!b.Z)continue;
+      if(Math.hypot((a.x-b.x)*cv.clientWidth,(a.y-b.y)*cv.clientHeight)<76 && field>=65 && a.energy+b.energy>=.72){reaction(a,b);i=-1;break;}
+    }
+    for(const f of flashes)f.age+=dt*1.5;flashes=flashes.filter(f=>f.age<1);
+  }
+  function frame(now) {
+    if(!alive)return;raf=requestAnimationFrame(frame);const dt=Math.min(.035,(now-(last||now))/1000);last=now;if(!paused){t+=rm()?0:dt;clock+=dt;step(dt);}
+    const d=Math.min(2,devicePixelRatio||1),w=cv.clientWidth,h=cv.clientHeight;if(cv.width!==Math.round(w*d)||cv.height!==Math.round(h*d)){cv.width=Math.round(w*d);cv.height=Math.round(h*d);}cx.setTransform(d,0,0,d,0,0);drawFrame();
+  }
+  function update() {
+    if(!root)return;
+    root.querySelector('#vaZ').value=Math.max(1,Z);root.querySelector('#vaA').value=A;root.querySelector('#vaField').value=field;
+    root.querySelector('.vamass').textContent=Z?`${name({Z,A})} · ${ELS[Z-1][1]}`:'Free neutron';
+    root.querySelector('.vavalues').textContent=Z?`${Z} ${Z===1?'proton':'protons'} · ${A-Z} ${A-Z===1?'neutron':'neutrons'} · ${A-Z<0?'not a physical isotope':'mass number '+A}`:'One neutral teaching particle';
+    root.querySelector('#vaA').min=Z;
+    const D=particles.filter(q=>q.Z===1&&q.A===2),T=particles.filter(q=>q.Z===1&&q.A===3);
+    root.querySelector('.vapath').textContent=D.length&&T.length?'✦ Ready: drag D onto T → ⁴He + n.':'Golden path: D + T → ⁴He + n (a teaching example, not a rate or energy calculation).';
+    root.querySelector('.vaheat').textContent=`Energy ${field}% · ${field<65?'below reaction threshold':'reactions available'} · preset control, not temperature`;
+    root.querySelectorAll('.vaPreset').forEach(b=>b.classList.toggle('on',+b.dataset.z===Z&&+b.dataset.a===A));
+  }
+  function setIsotope(z,a,clear=false) {Z=z;A=Math.max(z,a);if(clear){particles=[];photons=[];flashes=[];}update();}
+  function golden() {reset(1,2);const a=add(1,2,.37,.42,1),b=add(1,3,.63,.42,1);a.energy=b.energy=1;update();toast('Your Golden path is ready','Drag one bright nucleus onto the other → helium-4 and a neutron.');}
+  function position(e) {const r=cv.getBoundingClientRect();return{x:(e.clientX-r.left)/r.width,y:(e.clientY-r.top)/r.height,w:r.width,h:r.height};}
+  function bind() {
+    cv.addEventListener('pointerdown',e=>{
+      const p=position(e);const near=particles.map(q=>({q,d:Math.hypot((q.x-p.x)*p.w,(q.y-p.y)*p.h)})).sort((a,b)=>a.d-b.d)[0];
+      if(near&&near.d<70){dragging={q:near.q,dx:near.q.x-p.x,dy:near.q.y-p.y,moved:false};cv.setPointerCapture(e.pointerId);inject(near.q);}
+      else {const q=add(Z,Math.max(Z,A),Math.max(.1,Math.min(.9,p.x)),Math.max(.15,Math.min(.75,p.y)));inject(q);toast('Particle dropped','Tap it for more energy, or drag it into another nucleus.');}
+    });
+    cv.addEventListener('pointermove',e=>{if(!dragging)return;const p=position(e);dragging.q.x=Math.max(.06,Math.min(.94,p.x+dragging.dx));dragging.q.y=Math.max(.1,Math.min(.82,p.y+dragging.dy));dragging.moved=true;});
+    const end=()=>dragging=null;cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+    root.querySelector('.vback').onclick=close;
+    root.querySelector('#vaZ').oninput=e=>{const old=Z;Z=+e.target.value;A=Math.max(Z,A+Z-old);update();};
+    root.querySelector('#vaA').oninput=e=>{A=Math.max(Z,+e.target.value);update();};
+    root.querySelector('#vaField').oninput=e=>{field=+e.target.value;update();};
+    root.querySelector('.vaAdd').onclick=()=>{const q=add(Z,A,.27+Math.random()*.46,.24+Math.random()*.42,1);inject(q);};
+    root.querySelector('.vaFree').onclick=()=>add(Z,A,.27+Math.random()*.46,.24+Math.random()*.42);
+    root.querySelector('.vaPath').onclick=golden;
+    root.querySelector('.vaClear').onclick=()=>{particles=[];photons=[];flashes=[];toast('Free play','Choose an isotope below, then click the arena to drop it.');update();};
+    root.querySelector('.vaPause').onclick=e=>{paused=!paused;e.target.textContent=paused?'▶ Play':'Ⅱ Pause';};
+    root.querySelector('.vaCloud').onchange=e=>cloud=e.target.checked;
+    root.querySelectorAll('.vaPreset').forEach(b=>b.onclick=()=>setIsotope(+b.dataset.z,+b.dataset.a));
+  }
+  function init(host=document.body,o={}) {
+    if(alive)destroy();opts=o;alive=true;paused=false;
+    root=document.createElement('div');root.id='vatom';root.role='dialog';root.setAttribute('aria-label','Atom Sandbox');
+    root.innerHTML=`<div class="vcbar"><button class="vback" aria-label="Back to the map">← Back</button><b class="vtit">⚛️ Atom Sandbox <small>build · collide · discover · v12</small></b><button class="vaPause buttonlike">Ⅱ Pause</button></div>
+    <div class="vaIntro"><b>Play with particles. Find a path from hydrogen to stars.</b><span>Familiar shell pictures + curated reaction examples. Not a quantum or nuclear physics engine.</span></div>
+    <div class="vaBody"><div class="vaStage"><canvas aria-label="Particle arena. Click to drop a particle; drag nuclei together to react."></canvas><div class="vappop" role="status"></div><div class="vaLegend"><i class="vp"></i>protons <i class="vn"></i>neutrons <i class="ve"></i>electron symbols <i class="vg"></i>photons</div></div>
+    <aside class="vaSide"><h3>Build a particle</h3><label>Element<input id="vaZ" type="range" min="1" max="18" step="1" aria-label="Element by proton count"></label><div class="vamass"></div><label>Mass number<input id="vaA" type="range" min="1" max="48" step="1" aria-label="Total protons and neutrons"></label><div class="vavalues"></div><label>Energy / incoming photons<input id="vaField" type="range" min="0" max="100" step="1" aria-label="Teaching energy control"></label><div class="vaheat"></div><div class="vaBt"><button class="vaAdd">+ Bare nucleus</button><button class="vaFree">+ Neutral atom</button></div><div class="vaPre"><button class="vaPreset" data-z="1" data-a="1" title="Hydrogen-1">H</button><button class="vaPreset" data-z="1" data-a="2" title="Deuterium">D</button><button class="vaPreset" data-z="1" data-a="3" title="Tritium">T</button><button class="vaPreset" data-z="2" data-a="4" title="Helium-4">He</button><button class="vaPreset" data-z="3" data-a="7" title="Lithium-7">Li</button><button class="vaPreset" data-z="6" data-a="12" title="Carbon-12">C</button></div><button class="vaPath">✦ Golden path: hydrogen → helium</button><label class="vaCloud"><input type="checkbox" checked> Show electron-cloud tint</label><div class="vapath"></div><button class="vaClear">↺ Clear / free play</button><details><summary>How to play + what is real</summary><p>Pick an isotope and click the sky to drop it. Tap a particle for energy, or turn on incoming photons (a schematic control). Choose + Neutral atom for shell-electron symbols. Drag bright nuclei together above 65% energy.</p><p><b>Golden path:</b> deuterium (D) + tritium (T) → helium-4 + a free neutron. Proton and neutron totals are conserved in the curated examples. The real reaction releases 17.6 MeV and leaves helium-4 + neutron. Product paths and photons here are artistic, not physical trajectories or an energy calculation. Other combinations are only shown if they are in the small curated reaction table.</p><p>Electron symbols and orbital rings are enlarged teaching icons, not real trajectories. Nuclear positions are artistic. Proton/neutron colours are schematic. Any isotope is selectable for free play, including unstable or impossible combinations; stability and decay are not simulated. The bar is not a real temperature.</p><p>sources: <a href="${SRC.bohr[1]}" target="_blank" rel="noopener">${SRC.bohr[0]}</a> · <a href="${SRC.bbn[1]}" target="_blank" rel="noopener">${SRC.bbn[0]}</a> · <a href="${SRC.pdg[1]}" target="_blank" rel="noopener">${SRC.pdg[0]}</a></p></details></aside></div>`;
+    host.appendChild(root);cv=root.querySelector('canvas');cx=cv.getContext('2d');reset();bind();golden();raf=requestAnimationFrame(frame);root.querySelector('.vback').focus({preventScroll:true});
+  }
+  function destroy(){alive=false;cancelAnimationFrame(raf);clearTimeout(toastTimer);if(root)root.remove();root=null;dragging=null;}
+  function close(){destroy();opts.onClose&&opts.onClose();}
+  return {init,destroy,isOpen:()=>alive,golden,move:(i,x,y)=>{if(particles[i]){particles[i].x=x;particles[i].y=y;particles[i].energy=1;}},debug:()=>({Z,A,field,paused,reactions,hits,lastReaction,photons:photons.length,particles:particles.map(q=>({Z:q.Z,A:q.A,x:q.x,y:q.y,charge:q.charge,energy:q.energy}))})};
+})();
+/* v12 Map/Ring: one local, readable default; selecting a node shows its context.
+   No links or nodes are deleted; facts.json retains all 151 relationships. */
+
+function draftShareURL(id, extra='') { return shareURL(id) + extra; }
+function copyDraftLink(id,extra=''){copyText(draftShareURL(id,extra)).then(ok=>toast(ok?'Link copied for this device':'Copy this link: '+draftShareURL(id,extra)));}
+
+const LINES = (() => {
+  // One good default: a readable local backbone, never a full hairball.
+  // Every relationship remains in facts.json and in the relevant node panels.
+  // Selecting a node reveals its immediate connections; it never turns the whole graph on.
+  let shown = 0;
+  const primary = new Map();
+  for (const n of N) {
+    if (!n.p.length) continue;
+    const parents = new Map(n.p.map(id => [byId[id].lane, byId[id]]));
+    const parent = parents.get(n.lane) || (n.id === 'bigbang' ? byId.inflation : null) || byId[n.p[0]];
+    if (parent) primary.set(`${parent.id}>${n.id}`, true);
+  }
+  const contextual = e => {
+    if (primary.has(`${e.a}>${e.b}`)) return false;
+    // Two central short cuts are explicit, visually limited core links.
+    return !((e.a === 'nothing' && e.b === 'qgrav') || (e.a === 'nothing' && e.b === 'axiom'));
+  };
+  function classify() {
+    for (const e of EDGES) {
+      e.quiet = contextual(e);
+      e.far = Math.abs(e.dr || 0) >= 3;
+    }
+  }
+  function apply() {
+    shown = 0;
+    for (const el of edgeEls) {
+      const e = EDGES.find(x => x.a === el.dataset.a && x.b === el.dataset.b);
+      const quiet = e && (e.quiet || e.far);
+      el.classList.toggle('quiet', !!quiet);
+      if (!quiet) shown++;
+    }
+    for (const el of labEls) {
+      const e = EDGES.find(x => x.a === el.dataset.a && x.b === el.dataset.b);
+      el.classList.toggle('quiet', !!(e && (e.quiet || e.far)));
+    }
+    svg.dataset.lines = 'local';
+  }
+  return { classify, apply, shown: () => shown, debug: () => ({ default: 'local', shown, total: EDGES.length, contextual: EDGES.filter(e => e.quiet).length }) };
+})();
+/* Keep the existing Atom Sandbox intact; only its version label was updated. */
+(() => {
+  const menu = document.getElementById('xmenu'), btn = document.getElementById('ptbtn');
+  if (location.protocol === 'file:') document.getElementById('aib').href = 'knowledge.html';
+  function openAtom() { if (sel || LOOPON) closePop(); if (typeof HOWTO !== 'undefined' && HOWTO.close) HOWTO.close();
+    VATOM.init(document.body, {onClose: () => {if (/atom/.test(location.hash)) history.replaceState(null,'',location.pathname+location.search);btn.focus({preventScroll:true});}}); }
+  window.openAtom = openAtom;
+  menu.addEventListener('click', e => {const b=e.target.closest('button');if(b && b.dataset.x==='atom')openAtom();});
+  addEventListener('hashchange',()=>{const h=new URLSearchParams(location.hash.slice(1));if(h.has('atom')){if(!VATOM.isOpen())openAtom();}else if(VATOM.isOpen())VATOM.destroy();});
+  const h = new URLSearchParams(location.hash.slice(1));if(h.has('atom'))setTimeout(openAtom,60);
+  const originalSetScene = setScene;
+  setScene = function(v) { originalSetScene(v); LINES.classify(); LINES.apply(); };
+  const oldLight = light;
+  light = function(id) {
+    // Keep lineage colouring, but reveal only the chosen node's immediate context.
+    // This is opt-in per node, not a graph-wide display option.
+    for(const e of EDGES)e.far=Math.abs(e.dr||0)>=3;
+    svg.dataset.focus=id || '';
+    oldLight(id);
+    if(id){
+      const neighbours=new Set([id,...byId[id].p,...byId[id].kids]);
+      nodeEls.forEach(el=>el.classList.toggle('lit',neighbours.has(el.dataset.id)));
+      const f=el=>el.classList.toggle('lit',el.dataset.a===id||el.dataset.b===id);
+      edgeEls.forEach(f);labEls.forEach(f);
+    }
+    LINES.apply();
+  };
+  setScene(VIEW);light(sel);
+  // Stop local Copy link handing out a misleading live-v11 address.
+  popBody.addEventListener('click', e=>{const b=e.target.closest('button');if(!b||location.protocol!=='file:'&&!/v12-TEST\.html$/i.test(location.pathname))return;
+    if(b.dataset.act==='share' && sel){e.stopImmediatePropagation();copyDraftLink(sel);}
+    if(b.dataset.act==='lshare'){e.stopImmediatePropagation();const u=(location.protocol==='file:'?location.href.split('#')[0]:SITE)+'#tv=circle&loop=1';copyText(u).then(ok=>toast(ok?'Ring link copied for this device':'Copy this link: '+u));}
+  },true);
+  addEventListener('resize',()=>LINES.apply());
 })();
 
 
