@@ -2,7 +2,7 @@
 
 An interactive dark-mode tree of how everything emerges, from the quantum field to humans.
 
-Current version: **v11** (5 Nov 2026)
+Current version: **v12** (6 Nov 2026)
 
 Live site: https://zyphullen.github.io/from-nothing-to-us/
 
@@ -12,13 +12,22 @@ An interactive map of how everything emerges, from the quantum base layer to us,
 
 ## How it's made
 
-A single static HTML file, plain JavaScript and WebGL, no libraries, no tracking, no accounts, built with AI assistance. The same facts are also in `facts.json` and plain `knowledge.html`, with `llms.txt` pointing AIs to that file first. `AUDIT-v11.md` checks those facts.
+A single static HTML file, plain JavaScript and WebGL, no libraries, no tracking, no accounts, built with AI assistance. The same facts are also in `facts.json` and plain `knowledge.html`, with `llms.txt` pointing AIs to that file first. `AUDIT-v12.md` checks those facts.
 
 ## Credits
 
 Piano: Salamander Grand Piano by Alexander Holm (CC BY 3.0), via FreePats
 
 Made by Zyphullen
+
+## What's new in v12
+
+- Atom Sandbox: a teaching toy under Explore. Presets and drag collisions; deuterium plus tritium makes helium-4 and a neutron. It is not a physics engine.
+- Map and Ring: cleaner default backbone lines. Select a node to see its neighbours. No lines on/off toggle.
+- Link uncertainty: colour, dashes and the key make it clearer.
+- Promo polish: gold and turquoise across Map, Ring, Planet, Cell and Body.
+- Data review: Chain Theory test flags cleaned; copper, zinc, titanium and vanadium origins; test sources; Oddo–Harkins; loop quantum gravity wording; black-hole seeds; the axion date; share links (`#n=id`); link labels; the Chae source is used.
+- AI audit: `AUDIT-v12.md` checks `facts.json`. No hard problems.
 
 ## What's new in v11
 

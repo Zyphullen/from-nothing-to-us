@@ -1,3 +1,15 @@
+## v12 (6 Nov 2026)
+
+**New**
+- **Atom Sandbox**: a teaching toy under Explore. Presets and drag collisions; deuterium plus tritium makes helium-4 and a neutron. It is not a physics engine.
+
+**Better**
+- **Map and Ring**: cleaner default backbone lines. Select a node to see its neighbours. No lines on/off toggle.
+- **Link uncertainty**: colour, dashes and the key make it clearer.
+- **Promo polish**: gold and turquoise across Map, Ring, Planet, Cell and Body.
+- **Data review**: Chain Theory test flags cleaned; copper, zinc, titanium and vanadium origins; test sources; Oddo–Harkins; loop quantum gravity wording; black-hole seeds; the axion date; share links (`#n=id`); link labels; the Chae source is used.
+- **AUDIT-v12.md**: automatic checks of `facts.json`. No hard problems.
+
 ## v11 (5 Nov 2026)
 
 **New**

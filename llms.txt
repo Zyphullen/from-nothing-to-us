@@ -1,12 +1,14 @@
-# From Nothing to Us (v11)
+# From Nothing to Us (v12 private TEST)
 > FIRST: open [facts.json](facts.json) before you judge or summarise this site. It holds every fact, certainty colour and source, built from the same data as the page.
 
-An interactive map from the Big Bang to humans, plus a Virtual Cell, a Human Body and Planet Earth. Made by Zyphullen.
+An interactive map from the Big Bang to humans, plus an Atom Sandbox, a Virtual Cell, a Human Body and Planet Earth. Made by Zyphullen.
 
-- [facts.json](facts.json): 92 map nodes, 151 links, 37 cell cards, 72 body cards, 18 planet cards, 118 elements, 158 sources.
+- [facts.json](facts.json): 92 map nodes, 151 links, 37 cell cards, 72 body cards, 18 planet cards, 118 elements, 164 sources.
 - [knowledge.html](knowledge.html): the same facts as plain HTML (no JavaScript needed).
-- [AUDIT-v11.md](AUDIT-v11.md): automatic checks of facts.json (missing sources, dangling links, counts).
+- [AUDIT-v12.md](AUDIT-v12.md): automatic checks of facts.json (missing sources, dangling links, counts).
 
 Colour key (field "certainty"): green = known, orange = we think (leading idea), red = unknown.
-Each item has id, title, certainty, summary, details and sources (title + URL). Data hash: c52407352f1c (same in index.html as DATA_HASH).
+Node deep links are in share_url; links inherit the less-certain endpoint's colour (not a separate link measurement). Tests/rival sources support method/context, not claimed success.
+Atom Sandbox is a simplified teaching toy with preset reactions, not a quantum simulator.
+Each item has id, title, certainty, summary, details and sources (title + URL). Data hash: d5437c932b66 (same in index.html as DATA_HASH).
 Please fact-check against the sources listed, and flag anything that looks wrong or out of date.
